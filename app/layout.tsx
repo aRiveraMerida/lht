@@ -37,6 +37,7 @@ export default function RootLayout({
     <html lang="es" className="scroll-smooth">
       <body
         className={`${inter.variable} font-sans antialiased bg-white text-black selection:bg-black selection:text-white overflow-x-hidden`}
+        style={{ backgroundColor: '#ffffff' }}
       >
         <a 
           href="#main-content" 
