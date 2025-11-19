@@ -4,7 +4,11 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, Calendar, Clock, User } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeRaw from 'rehype-raw';
 import { getPostBySlug, getPostSlugs } from '@/lib/posts';
+import 'highlight.js/styles/github-dark.css';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -109,15 +113,26 @@ export default async function BlogPostPage({ params }: PageProps) {
           prose-p:leading-relaxed prose-p:text-gray-700
           prose-a:text-black prose-a:font-bold prose-a:no-underline hover:prose-a:underline
           prose-strong:text-black prose-strong:font-bold
-          prose-code:text-sm prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
-          prose-pre:bg-black prose-pre:text-white prose-pre:p-6 prose-pre:rounded-lg
-          prose-ul:list-disc prose-ul:ml-6
-          prose-ol:list-decimal prose-ol:ml-6
-          prose-li:text-gray-700
-          prose-blockquote:border-l-4 prose-blockquote:border-black prose-blockquote:pl-6 prose-blockquote:italic
-          prose-img:rounded-lg prose-img:shadow-lg
+          prose-code:text-sm prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
+          prose-pre:bg-gray-900 prose-pre:text-white prose-pre:p-6 prose-pre:rounded-xl prose-pre:overflow-x-auto prose-pre:shadow-lg
+          prose-ul:list-disc prose-ul:ml-6 prose-ul:my-6
+          prose-ol:list-decimal prose-ol:ml-6 prose-ol:my-6
+          prose-li:text-gray-700 prose-li:my-2
+          prose-blockquote:border-l-4 prose-blockquote:border-black prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:my-6
+          prose-img:rounded-lg prose-img:shadow-lg prose-img:my-8
+          prose-table:w-full prose-table:border-collapse prose-table:my-8
+          prose-thead:bg-gray-100
+          prose-th:border prose-th:border-gray-300 prose-th:px-4 prose-th:py-3 prose-th:text-left prose-th:font-bold prose-th:uppercase prose-th:text-sm
+          prose-td:border prose-td:border-gray-300 prose-td:px-4 prose-td:py-3 prose-td:text-gray-700
+          prose-tr:border-b prose-tr:border-gray-200
+          prose-hr:border-gray-200 prose-hr:my-12
         ">
-          <ReactMarkdown>{post.content}</ReactMarkdown>
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeHighlight, rehypeRaw]}
+          >
+            {post.content}
+          </ReactMarkdown>
         </div>
       </article>
 
