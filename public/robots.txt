@@ -1,4 +1,30 @@
+# La Habitación Tortuga [LHT]
+# https://lahabitaciontortuga.com
+
+# Permitir todos los bots
 User-agent: *
 Allow: /
 
+# Bloquear directorios innecesarios
+Disallow: /api/
+Disallow: /_next/static/
+Disallow: /.git/
+
+# Crawl-delay para ser amigable con los servidores
+Crawl-delay: 0.5
+
+# Sitemaps
 Sitemap: https://lahabitaciontortuga.com/sitemap.xml
+
+# Bots específicos de redes sociales
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
