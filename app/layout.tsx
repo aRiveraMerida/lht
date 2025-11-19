@@ -52,13 +52,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-    ],
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
+    icon: '/favicon.svg',
   },
   manifest: '/manifest.json',
   openGraph: {
@@ -70,11 +64,10 @@ export const metadata: Metadata = {
     description: "Un canal de YouTube donde pasan cosas. Conversaciones reales sobre tecnología, IA, proyectos y vida. Sin guión, sin filtros, sin postureo.",
     images: [
       {
-        url: '/og-image.png',
+        url: '/favicon.svg',
         width: 1200,
         height: 630,
         alt: 'La Habitación Tortuga [LHT] - Conversaciones sin guión',
-        type: 'image/png',
       },
     ],
   },
@@ -84,7 +77,7 @@ export const metadata: Metadata = {
     creator: "@aRiveraMerida",
     title: "La Habitación Tortuga [LHT]",
     description: "Canal de YouTube y podcast. Conversaciones sin guión desde la habitación sobre tecnología, IA y proyectos.",
-    images: ['/og-image.png'],
+    images: ['/favicon.svg'],
   },
   alternates: {
     canonical: "https://lahabitaciontortuga.com",
@@ -122,7 +115,7 @@ export default function RootLayout({
       name: 'La Habitación Tortuga',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://lahabitaciontortuga.com/og-image.png',
+        url: 'https://lahabitaciontortuga.com/favicon.svg',
       },
     },
     sameAs: [
