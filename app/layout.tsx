@@ -15,16 +15,34 @@ export const metadata: Metadata = {
   description: "Bienvenido a la habitación donde hablamos de lo que vivimos. Un canal de YouTube donde Alberto y David charlan sobre lo que les pasa, lo que descubren y lo que les hace pensar. Sin guión, sin filtros, sin postureo.",
   keywords: ["youtube", "conversaciones", "tecnología", "IA", "proyectos", "emprendimiento", "aprendizaje", "la habitacion tortuga", "lht", "alberto", "david"],
   authors: [{ name: "Alberto y David" }],
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png' },
+    ],
+  },
   openGraph: {
     title: "La Habitación Tortuga [LHT]",
     description: "Un canal de YouTube donde pasan cosas. Conversaciones reales desde la habitación. Sin guión, sin filtros, sin postureo.",
     type: "website",
     locale: "es_ES",
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'La Habitación Tortuga [LHT]',
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "La Habitación Tortuga [LHT]",
     description: "Canal de YouTube. Conversaciones sin guión desde la habitación.",
+    images: ['/og-image.png'],
   },
 };
 
