@@ -2,12 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { Logo } from './Logo';
 
 export const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,11 +19,34 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: "Inicio", href: "/" },
-    { name: "Acerca de", href: "#about" },
-    { name: "Blog", href: "/blog" },
-  ];
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setIsMobileMenuOpen(false);
+      }
+    }
+  };
+
+  // Determinar qué links mostrar según la página actual
+  const isHome = pathname === '/';
+  const isBlog = pathname?.startsWith('/blog');
+
+  const navLinks = isHome 
+    ? [
+        { name: "Acerca de", href: "#about" },
+        { name: "Blog", href: "/blog" },
+      ]
+    : isBlog
+    ? [
+        { name: "Inicio", href: "/" },
+      ]
+    : [
+        { name: "Inicio", href: "/" },
+        { name: "Blog", href: "/blog" },
+      ];
 
   return (
     <>
@@ -44,7 +69,8 @@ export const Navbar: React.FC = () => {
           {navLinks.map(link => (
             <Link 
               key={link.name} 
-              href={link.href} 
+              href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
               className="px-5 py-2 text-xs font-semibold uppercase hover:bg-gray-100 hover:shadow-sm focus:bg-gray-100 focus:shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-600 rounded-full transition-all"
             >
               {link.name}
@@ -70,8 +96,8 @@ export const Navbar: React.FC = () => {
           {navLinks.map(link => (
             <Link 
               key={link.name} 
-              href={link.href} 
-              onClick={() => setIsMobileMenuOpen(false)} 
+              href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
               className="text-2xl font-medium uppercase tracking-tight text-black hover:text-gray-600 focus:text-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-600 rounded px-4 py-2 transition-colors"
             >
               {link.name}
