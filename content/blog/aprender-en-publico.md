@@ -2,7 +2,7 @@
 title: "Aprender en público: lo que hemos descubierto probando cosas delante de la cámara"
 date: "2025-02-20"
 excerpt: "Grabar tus errores, dudas y procesos es incómodo. Pero también es una de las mejores formas de aprender de verdad. Esto es lo que nos ha enseñado."
-author: "Alberto & David"
+author: "David, Yona y Alberto"
 category: "Proceso"
 ---
 

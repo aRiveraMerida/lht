@@ -2,7 +2,7 @@
 title: "Cómo la IA está cambiando nuestra forma de trabajar"
 date: "2025-02-03"
 excerpt: "No es solo una herramienta más. La IA está redefiniendo cómo pensamos, decidimos y creamos. Esto es lo que estamos viendo desde dentro."
-author: "Alberto & David"
+author: "David, Yona y Alberto"
 category: "IA y Trabajo"
 ---
 

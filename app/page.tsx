@@ -73,7 +73,7 @@ const Hero = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-black">
               <Image
                 src="/image.png"
-                alt="La Habitación Tortuga - Alberto y David"
+                alt="La Habitación Tortuga - David, Yona y Alberto"
                 width={800}
                 height={600}
                 className="w-full h-auto"
@@ -95,9 +95,9 @@ const About = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
         <div className="lg:col-span-5">
           <Reveal>
-            <div className="text-xs font-medium tracking-widest text-gray-400 uppercase mb-6" aria-label="Sección">1/ ALBERTO Y DAVID</div>
+            <div className="text-xs font-medium tracking-widest text-gray-400 uppercase mb-6" aria-label="Sección">1/ DAVID, YONA Y ALBERTO</div>
             <h2 id="about-heading" className="text-3xl md:text-5xl font-medium uppercase leading-tight">
-              Dos personas normales<br />probando cosas poco normales
+              Tres personas normales<br />probando cosas poco normales
             </h2>
           </Reveal>
         </div>
@@ -161,7 +161,7 @@ const ContentSection = () => {
       id: '05',
       title: 'Conceptos Tortuga (IA al Mando)',
       subtitle: 'Videos y podcasts hechos por IA sobre cosas que hay que pillar',
-      desc: 'Conceptos que vale la pena frenar y explicar: sesgos, alucinaciones, evaluación de prompts, límites, riesgos... Escribimos el guion, pero la voz o el video los genera la IA. Píldoras cortas para entender mejor qué coño está pasando—usando la propia tecnología para contarlo.',
+      desc: 'Conceptos que vale la pena frenar y explicar: sesgos, alucinaciones, evaluación de prompts, límites, riesgos... Escribimos el guion, pero la voz o el video los genera la IA. Píldoras cortas para entender mejor qué está pasando—usando la propia tecnología para contarlo.',
       icon: Info,
     },
   ];
@@ -251,7 +251,7 @@ const BlogSection = () => {
             </p>
             <p className="text-base text-gray-500 italic">
               No son guías definitivas ni verdades universales.<br/>
-              Son notas honestas de dos personas que intentan avanzar mientras lo prueban todo en directo.
+              Son notas honestas de tres personas que intentan avanzar mientras lo prueban todo en directo.
             </p>
           </Reveal>
         </div>

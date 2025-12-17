@@ -35,7 +35,7 @@ export const Footer: React.FC = () => {
             </h2>
             <p className="text-base md:text-lg text-gray-500 italic max-w-2xl mx-auto">
               Sin poses. Sin ruido de fondo.<br/>
-              Solo dos personas compartiendo su camino mientras intentan entender el suyo... y el de la IA.
+              Solo tres personas compartiendo su camino mientras intentan entender el suyo... y el de la IA.
             </p>
           </div>
         </Reveal>

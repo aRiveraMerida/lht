@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     default: "La Habitación Tortuga [LHT] | Canal de YouTube y Podcast",
     template: "%s | La Habitación Tortuga [LHT]",
   },
-  description: "Bienvenido a la habitación donde hablamos de lo que vivimos. Canal de YouTube donde Alberto y David charlan sobre tecnología, IA, proyectos y vida. Sin guión, sin filtros, sin postureo. Conversaciones reales desde la habitación.",
+  description: "Bienvenido a la habitación donde hablamos de lo que vivimos. Canal de YouTube donde David, Yona y Alberto charlan sobre tecnología, IA, proyectos y vida. Sin guión, sin filtros, sin postureo. Conversaciones reales desde la habitación.",
   keywords: [
     "la habitacion tortuga",
     "lht",
@@ -29,14 +29,15 @@ export const metadata: Metadata = {
     "emprendimiento",
     "proyectos",
     "desarrollo personal",
-    "alberto rivera",
+    "alberto",
     "david",
     "charlas sin guión",
     "aprender en público",
   ],
   authors: [
-    { name: "Alberto Rivera" },
     { name: "David" },
+    { name: "Yona" },
+    { name: "Alberto" },
   ],
   creator: "La Habitación Tortuga",
   publisher: "La Habitación Tortuga",
@@ -103,11 +104,15 @@ export default function RootLayout({
     author: [
       {
         '@type': 'Person',
-        name: 'Alberto Rivera',
+        name: 'David',
       },
       {
         '@type': 'Person',
-        name: 'David',
+        name: 'Yona',
+      },
+      {
+        '@type': 'Person',
+        name: 'Alberto',
       },
     ],
     publisher: {

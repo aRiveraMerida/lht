@@ -171,7 +171,7 @@ Las contribuciones son bienvenidas. Por favor:
 
 ## 👨‍💻 Autores
 
-**Alberto y David** - La Habitación Tortuga
+**David, Yona y Alberto** - La Habitación Tortuga
 
 ---
 

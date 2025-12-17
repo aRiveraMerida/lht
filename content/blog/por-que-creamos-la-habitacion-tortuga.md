@@ -1,12 +1,12 @@
 ---
 title: "Por qué decidimos crear La Habitación Tortuga"
 date: "2025-01-15"
-excerpt: "La historia detrás de este proyecto: por qué dos personas normales decidieron encender una cámara y probar el futuro con IA en voz alta."
-author: "Alberto & David"
+excerpt: "La historia detrás de este proyecto: por qué tres personas normales decidieron encender una cámara y probar el futuro con IA en voz alta."
+author: "David, Yona y Alberto"
 category: "Reflexión"
 ---
 
-Esto empezó con una conversación que teníamos una y otra vez: ¿qué co*o hacemos con la IA?
+Esto empezó con una conversación que teníamos una y otra vez: ¿qué hacemos con la IA?
 
 No en plan filosófico. En plan práctico. ¿Cómo la usamos sin autoengañarnos? ¿Cómo sabemos si un prompt funciona mejor que otro? ¿Cómo evitamos los sesgos que ni siquiera vemos hasta que ya la hemos metido? ¿Y qué pasa cuando algo que funcionaba ayer ya no funciona hoy?
 
@@ -16,7 +16,7 @@ Internet está lleno de contenido sobre IA. Demasiado, de hecho.
 
 Están los que venden humo. Los que hacen tutoriales perfectos donde todo sale bien. Los que predicen que la IA va a cambiarlo todo (pero no te dicen cómo). Y los que te dicen que estamos condenados.
 
-Nosotros solo queríamos ver **qué pasaba cuando dos personas normales probaban cosas reales**.
+Nosotros solo queríamos ver **qué pasaba cuando tres personas normales probaban cosas reales**.
 
 Sin editar los errores. Sin disimular las dudas. Sin fingir que tenemos todas las respuestas.
 
@@ -62,7 +62,7 @@ Y está bien.
 
 Si buscas contenido pulido, editado al milímetro y con respuestas definitivas, probablemente La Habitación Tortuga no es para ti.
 
-Pero si te interesa ver cómo dos personas normales intentan entender esto de la IA mientras lo prueban en directo—con sus fallos, sus descubrimientos y sus momentos de "hostia, esto sí que funciona"—entonces quédate.
+Pero si te interesa ver cómo tres personas normales intentan entender esto de la IA mientras lo prueban en directo—con sus fallos, sus descubrimientos y sus momentos de sorpresa cuando algo funciona de verdad—entonces quédate.
 
 ## Lo que viene
 
