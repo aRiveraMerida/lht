@@ -145,20 +145,6 @@ const ContentSection = () => {
     },
     {
       id: '03',
-      title: 'Guardando Ideas en tu Caparazón',
-      subtitle: 'Series por profesión para usar la IA sin perder quién eres',
-      desc: 'Series prácticas por profesión: cocineros, profesores, diseñadores, comerciales... Te damos ideas concretas que puedes guardar y sacar cuando las necesites. Menús, escandallos, formación de equipo, contenido para redes. Videos cortos, directos, que se aplican ya.',
-      icon: MessageCircle,
-    },
-    {
-      id: '04',
-      title: 'Notebooks de la Habitación',
-      subtitle: 'Cuadernos para estudiar con IA sin engañarte',
-      desc: 'Para estudiantes y gente que aprende por su cuenta: cómo preparar exámenes con IA, organizar apuntes, proyectos, entregas. Cómo buscar info fiable y contrastarla. Cómo aprender más rápido sin dejar de pensar por ti. No son trucos. Son cuadernos abiertos de lo que descubrimos.',
-      icon: Users,
-    },
-    {
-      id: '05',
       title: 'Conceptos Tortuga (IA al Mando)',
       subtitle: 'Videos y podcasts hechos por IA sobre cosas que hay que pillar',
       desc: 'Conceptos que vale la pena frenar y explicar: sesgos, alucinaciones, evaluación de prompts, límites, riesgos... Escribimos el guion, pero la voz o el video los genera la IA. Píldoras cortas para entender mejor qué está pasando—usando la propia tecnología para contarlo.',
