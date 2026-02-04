@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${post.title} - M3D Web`,
+    title: `${post.title} - La Habitación Tortuga`,
     description: post.excerpt,
     authors: [{ name: post.author }],
     openGraph: {

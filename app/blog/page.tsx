@@ -5,11 +5,11 @@ import { ArrowRight, Calendar, Clock, User } from 'lucide-react';
 import { getAllPosts } from '@/lib/posts';
 
 export const metadata: Metadata = {
-  title: 'Blog - M3D Web',
-  description: 'Artículos sobre diseño minimalista, desarrollo web con Next.js, Tailwind CSS y mejores prácticas de SEO.',
+  title: 'Blog - La Habitación Tortuga',
+  description: 'Artículos, tutoriales y reflexiones sobre inteligencia artificial. Por Alberto Rivera y David Dix.',
   openGraph: {
-    title: 'Blog - M3D Web',
-    description: 'Artículos sobre diseño minimalista y desarrollo web moderno',
+    title: 'Blog - La Habitación Tortuga',
+    description: 'Tutoriales de IA y reflexiones sobre inteligencia artificial. Lo que importa, sin ruido.',
   },
 };
 
@@ -21,10 +21,10 @@ export default function BlogPage() {
       <div className="mb-20">
         <div className="text-xs font-medium tracking-widest text-gray-400 uppercase mb-6">/ BLOG</div>
         <h1 className="text-4xl md:text-7xl font-medium uppercase tracking-tight mb-6">
-          Artículos y Recursos
+          Blog
         </h1>
         <p className="text-lg md:text-xl text-gray-600 max-w-3xl">
-          Explora nuestros artículos sobre diseño minimalista, desarrollo web moderno y las mejores prácticas para crear experiencias digitales excepcionales.
+          Tutoriales, reflexiones y lo mejor sobre inteligencia artificial. Filtramos el ruido para darte lo que importa.
         </p>
       </div>
 

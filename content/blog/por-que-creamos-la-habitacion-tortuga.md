@@ -1,14 +1,14 @@
 ---
 title: "Por qué decidimos crear La Habitación Tortuga"
 date: "2025-01-15"
-excerpt: "La historia detrás de este proyecto: por qué tres personas normales decidieron encender una cámara y probar el futuro con IA en voz alta."
-author: "David, Yona y Alberto"
+excerpt: "La historia detrás de este blog: por qué decidimos escribir sobre IA filtrando el ruido y contando solo lo que de verdad importa."
+author: "Alberto Rivera y David Dix"
 category: "Reflexión"
 ---
 
 Esto empezó con una conversación que teníamos una y otra vez: ¿qué hacemos con la IA?
 
-No en plan filosófico. En plan práctico. ¿Cómo la usamos sin autoengañarnos? ¿Cómo sabemos si un prompt funciona mejor que otro? ¿Cómo evitamos los sesgos que ni siquiera vemos hasta que ya la hemos metido? ¿Y qué pasa cuando algo que funcionaba ayer ya no funciona hoy?
+No en plan filosófico. En plan práctico. ¿Cómo la usamos sin autoengañarnos? ¿Cómo sabemos si un prompt funciona mejor que otro? ¿Cómo evitamos los sesgos que ni siquiera vemos hasta que ya la hemos liado? ¿Y qué pasa cuando algo que funcionaba ayer ya no funciona hoy?
 
 ## El problema con el ruido
 
@@ -16,60 +16,58 @@ Internet está lleno de contenido sobre IA. Demasiado, de hecho.
 
 Están los que venden humo. Los que hacen tutoriales perfectos donde todo sale bien. Los que predicen que la IA va a cambiarlo todo (pero no te dicen cómo). Y los que te dicen que estamos condenados.
 
-Nosotros solo queríamos ver **qué pasaba cuando tres personas normales probaban cosas reales**.
+Nosotros solo queríamos **escribir sobre lo que de verdad funciona**.
 
-Sin editar los errores. Sin disimular las dudas. Sin fingir que tenemos todas las respuestas.
+Sin adornar los errores. Sin disimular las dudas. Sin fingir que tenemos todas las respuestas.
 
 ## La idea de la habitación
 
-La metáfora surgió sola: necesitábamos un sitio donde poder cerrar la puerta, poner la cámara y probar sin filtros.
+La metáfora surgió sola: necesitábamos un espacio donde pensar despacio, probar cosas y compartir lo que encontrábamos.
 
-**La Habitación Tortuga** no es un estudio de producción. Es literal: una habitación donde cada semana entramos a experimentar, a equivocarnos, a descubrir cosas que funcionan y otras que no.
+**La Habitación Tortuga** es ese espacio. Un blog donde escribimos sobre IA con calma, profundidad y honestidad.
 
-¿Por qué Tortuga? Porque vamos despacio. Porque llevamos nuestro caparazón (las cosas que vamos aprendiendo) encima. Y porque, seamos honestos, en esto de la IA nadie sabe realmente hacia dónde vamos—solo podemos sacar la cabeza, mirar y seguir probando.
+¿Por qué Tortuga? Porque vamos despacio para ir rápido. Porque preferimos un buen artículo a diez posts vacíos. Y porque, seamos honestos, en esto de la IA nadie sabe realmente hacia dónde vamos—solo podemos ir probando y contando lo que encontramos.
 
 ## Lo que no queríamos hacer
 
 Antes de empezar, teníamos claro lo que **no** queríamos ser:
 
-- **No queríamos ser profesores.** No estamos aquí para dar clases magistrales sobre IA. Estamos aprendiendo como todos.
-- **No queríamos vender nada.** Ni cursos, ni promesas, ni atajos mágicos. 
-- **No queríamos fingir que somos expertos.** Somos gente normal que trabaja con IA, se equivoca, prueba y comparte lo que encuentra.
-- **No queríamos contenido perfecto.** Si algo sale mal en un episodio, se queda. Eso es parte del proceso.
+- **No queríamos ser gurús.** No estamos aquí para dar lecciones. Estamos aprendiendo como todos.
+- **No queríamos vender humo.** Ni cursos milagrosos, ni promesas vacías, ni atajos mágicos. 
+- **No queríamos fingir que lo sabemos todo.** Somos gente normal que trabaja con IA, se equivoca, prueba y comparte lo que encuentra.
+- **No queríamos añadir más ruido.** Ya hay demasiado contenido mediocre sobre IA. No queríamos ser parte de eso.
 
 ## Lo que sí queríamos hacer
 
 Queríamos un sitio donde:
 
-- **Ver el proceso, no solo el resultado.** Cómo se piensa un prompt. Cómo se prueba. Qué falla. Qué funciona. Por qué.
-- **Probar en directo.** No scripts cerrados. Traemos ejercicios, casos reales, problemas que nos encontramos en el trabajo o en proyectos, y los ponemos encima de la mesa.
-- **Hablar de sesgos sin miedo.** La IA reproduce lo que le enseñamos. Si no somos conscientes de nuestros propios sesgos, la IA los amplifica. Queremos verlos, analizarlos, entenderlos.
-- **Que sea útil para gente real.** No para investigadores de IA. Para cocineros, profesores, comerciales, estudiantes, emprendedores. Gente que quiere usar la IA sin perder su esencia.
+- **Filtrar el ruido.** Leer, probar, descartar y quedarnos solo con lo que vale la pena.
+- **Explicar el proceso.** Cómo se piensa un prompt. Cómo se prueba una herramienta. Qué falla. Qué funciona. Por qué.
+- **Hablar de sesgos sin miedo.** La IA reproduce lo que le enseñamos. Si no somos conscientes de nuestros propios sesgos, la IA los amplifica.
+- **Que sea útil para gente real.** No para investigadores de IA. Para gente que quiere usar la IA bien, sin perderse en el hype.
 
-## El formato salió solo
+## Por qué un blog
 
-Al principio no teníamos claro qué formato seguir. Pero después de las primeras grabaciones, el patrón apareció:
+Porque escribir obliga a pensar mejor.
 
-Cada semana, uno de nosotros trae algo para probar. Un ejercicio. Un caso de bias. Una herramienta nueva. Una comparativa de prompts. Lo que sea que nos esté dando vueltas en la cabeza.
+Cuando escribes, no puedes esconderte detrás de la velocidad. Tienes que estructurar ideas, encontrar los huecos en tu razonamiento, ser claro.
 
-Lo ponemos a prueba delante de la cámara. Hablamos de lo que vemos. A veces invitamos a alguien para que sume otra perspectiva.
-
-Y lo dejamos tal cual sale. Sin editar las pausas incómodas, las dudas, los "espera, esto no tiene sentido".
+Y eso es exactamente lo que queremos hacer: pensar despacio sobre IA, probarlo todo y contar solo lo que merece la pena.
 
 ## No es para todo el mundo
 
 Y está bien.
 
-Si buscas contenido pulido, editado al milímetro y con respuestas definitivas, probablemente La Habitación Tortuga no es para ti.
+Si buscas contenido rápido, clickbait y respuestas fáciles, probablemente La Habitación Tortuga no es para ti.
 
-Pero si te interesa ver cómo tres personas normales intentan entender esto de la IA mientras lo prueban en directo—con sus fallos, sus descubrimientos y sus momentos de sorpresa cuando algo funciona de verdad—entonces quédate.
+Pero si quieres leer sobre IA con profundidad, sin hype y con honestidad—entonces quédate.
 
 ## Lo que viene
 
 No tenemos un plan a cinco años. No sabemos exactamente hacia dónde va esto.
 
-Pero sí sabemos que cada semana vamos a entrar, encender la cámara y probar algo nuevo. Vamos a seguir trayendo invitados. Vamos a crear series para profesiones específicas. Vamos a hacer notebooks para estudiantes. Vamos a dejar que la IA genere contenido sobre la propia IA.
+Pero sí sabemos que vamos a seguir escribiendo sobre lo que aprendemos. Tutoriales que funcionan. Reflexiones que importan. Herramientas que valen la pena.
 
-Y vamos a documentarlo todo aquí, en voz alta.
+Y vamos a filtrar el ruido por ti.
 
 Bienvenido a La Habitación.

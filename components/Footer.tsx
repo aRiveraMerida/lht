@@ -29,13 +29,13 @@ export const Footer: React.FC = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="text-xs font-medium tracking-widest text-gray-400 uppercase mb-8">LA HABITACIÓN TORTUGA [LHT]</div>
             <h2 className="text-3xl md:text-5xl lg:text-6xl uppercase font-medium mb-8 leading-tight">
-              Entra, escucha, prueba<br />
-              y quédate si conecta<br />
-              con lo que pasa aquí
+              Lee, aprende<br />
+              y lleva la IA<br />
+              al siguiente nivel
             </h2>
             <p className="text-base md:text-lg text-gray-500 italic max-w-2xl mx-auto">
-              Sin poses. Sin ruido de fondo.<br/>
-              Solo tres personas compartiendo su camino mientras intentan entender el suyo... y el de la IA.
+              Lo que importa sobre inteligencia artificial. Sin ruido.<br/>
+              Por Alberto Rivera y David Dix.
             </p>
           </div>
         </Reveal>
@@ -61,7 +61,7 @@ export const Footer: React.FC = () => {
       <div className="mt-10 flex flex-col md:flex-row justify-between items-start md:items-end text-xs font-medium tracking-widest text-gray-400 uppercase gap-6">
         <div>
           © 2025 LA HABITACIÓN TORTUGA [LHT]<br />
-          DESDE LA HABITACIÓN
+          ALBERTO RIVERA & DAVID DIX
         </div>
         <div className="flex flex-wrap gap-6 md:gap-8 text-black">
           {isHome && (
@@ -73,8 +73,6 @@ export const Footer: React.FC = () => {
           {isHome && (
             <Link href="/blog" className="hover:text-gray-600 transition-colors focus:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-offset-2 rounded-sm px-1">Blog</Link>
           )}
-          <a href="https://www.youtube.com/@LaHabitacionTortuga" target="_blank" rel="noopener noreferrer" className="hover:text-gray-600 transition-colors focus:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-offset-2 rounded-sm px-1">YouTube</a>
-          <a href="https://instagram.com/lahabitaciontortuga" target="_blank" rel="noopener noreferrer" className="hover:text-gray-600 transition-colors focus:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-offset-2 rounded-sm px-1">Instagram</a>
         </div>
       </div>
     </footer>
