@@ -9,7 +9,7 @@ import { Reveal } from './Reveal';
 
 export const Footer: React.FC = () => {
   const pathname = usePathname();
-  
+
   const handleScrollToAbout = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const element = document.querySelector('#about');
@@ -29,12 +29,12 @@ export const Footer: React.FC = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="text-xs font-medium tracking-widest text-gray-400 uppercase mb-8">LA HABITACIÓN TORTUGA [LHT]</div>
             <h2 className="text-3xl md:text-5xl lg:text-6xl uppercase font-medium mb-8 leading-tight">
-              Lee, aprende<br />
-              y lleva la IA<br />
-              al siguiente nivel
+              Pensar despacio<br />
+              sobre lo que va<br />
+              demasiado rápido
             </h2>
             <p className="text-base md:text-lg text-gray-500 italic max-w-2xl mx-auto">
-              Lo que importa sobre inteligencia artificial. Sin ruido.<br/>
+              Reflexiones sobre IA, estrategia y adopción. Sin prisa. Con honestidad.<br/>
               Por Alberto Rivera y David Dix.
             </p>
           </div>

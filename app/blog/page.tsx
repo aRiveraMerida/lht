@@ -6,10 +6,10 @@ import { getAllPosts } from '@/lib/posts';
 
 export const metadata: Metadata = {
   title: 'Blog - La Habitación Tortuga',
-  description: 'Artículos, tutoriales y reflexiones sobre inteligencia artificial. Por Alberto Rivera y David Dix.',
+  description: 'Reflexiones, estrategia y experiencia real sobre la adopción de inteligencia artificial. Sin hype, con honestidad. Por Alberto Rivera y David Dix.',
   openGraph: {
     title: 'Blog - La Habitación Tortuga',
-    description: 'Tutoriales de IA y reflexiones sobre inteligencia artificial. Lo que importa, sin ruido.',
+    description: 'Reflexiones sobre IA, estrategia de adopción y las decisiones que nadie te enseña a tomar.',
   },
 };
 
@@ -24,7 +24,7 @@ export default function BlogPage() {
           Blog
         </h1>
         <p className="text-lg md:text-xl text-gray-600 max-w-3xl">
-          Tutoriales, reflexiones y lo mejor sobre inteligencia artificial. Filtramos el ruido para darte lo que importa.
+          Reflexiones, estrategia y experiencia real sobre inteligencia artificial. Lo que pensamos cuando paramos a pensar de verdad.
         </p>
       </div>
 
@@ -35,8 +35,8 @@ export default function BlogPage() {
       ) : (
         <div className="grid grid-cols-1 gap-8">
           {posts.map((post, index) => (
-            <Link 
-              key={post.slug} 
+            <Link
+              key={post.slug}
               href={`/blog/${post.slug}`}
               className="group"
             >
@@ -45,18 +45,18 @@ export default function BlogPage() {
                   <div className="flex-1">
                     <div className="flex items-center gap-4 mb-4 text-xs uppercase tracking-widest">
                       <span className="font-bold text-gray-800">{post.category}</span>
-                      <span className="text-gray-400">•</span>
+                      <span className="text-gray-400">&bull;</span>
                       <div className="flex items-center gap-1 text-gray-500">
                         <Calendar size={12} />
-                        {new Date(post.date).toLocaleDateString('es-ES', { 
-                          year: 'numeric', 
-                          month: 'long', 
-                          day: 'numeric' 
+                        {new Date(post.date).toLocaleDateString('es-ES', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric'
                         })}
                       </div>
                       {post.readingTime && (
                         <>
-                          <span className="text-gray-400">•</span>
+                          <span className="text-gray-400">&bull;</span>
                           <div className="flex items-center gap-1 text-gray-500">
                             <Clock size={12} />
                             {post.readingTime}
@@ -64,11 +64,11 @@ export default function BlogPage() {
                         </>
                       )}
                     </div>
-                    
+
                     <h2 className="text-2xl md:text-4xl font-bold uppercase mb-4 group-hover:translate-x-2 transition-transform duration-300">
                       {post.title}
                     </h2>
-                    
+
                     <p className="text-gray-600 text-lg mb-4 leading-relaxed">
                       {post.excerpt}
                     </p>

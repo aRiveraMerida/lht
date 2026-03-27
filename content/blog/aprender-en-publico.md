@@ -1,151 +1,101 @@
 ---
-title: "Aprender en público: lo que hemos descubierto escribiendo sobre IA"
+title: "Lo que hemos aprendido adoptando IA sin mapa"
 date: "2025-02-20"
-excerpt: "Compartir lo que aprendes es incómodo. Pero también es una de las mejores formas de aprender de verdad. Esto es lo que nos ha enseñado."
+excerpt: "No había manual. No había hoja de ruta. Solo preguntas, pruebas y la honestidad de admitir que estábamos improvisando. Esto es lo que nos ha enseñado el camino."
 author: "Alberto Rivera y David Dix"
-category: "Proceso"
+category: "Experiencia"
 ---
 
-Aprender en público es raro.
+Cuando empezamos a integrar IA en nuestro trabajo, no teníamos un plan. No había una hoja de ruta. No existía un "framework de adopción de IA" que pudiéramos seguir paso a paso.
 
-Significa escribir sobre algo sin tener todas las respuestas. Significa publicar sabiendo que alguien puede señalar un error. Significa admitir que estás aprendiendo mientras lo cuentas.
+Había entusiasmo, sí. Pero también miedo. Confusión. Y una honestidad incómoda: **no sabíamos lo que estábamos haciendo**.
 
-Y al principio, la verdad, da cosa.
+Meses después, seguimos sin tener todas las respuestas. Pero hemos aprendido cosas que ojalá alguien nos hubiera contado antes de empezar.
 
-Pero después de meses escribiendo sobre IA, hemos descubierto que **aprender en público no solo cambia lo que aprendes, sino cómo lo aprendes**.
+## 1. La curva de aprendizaje no es técnica, es mental
 
-## 1. No puedes fingir que sabes
+Aprender a usar una herramienta de IA es fácil. Cualquiera puede abrir ChatGPT y escribir un prompt en cinco minutos.
 
-Cuando aprendes en privado, puedes autoengañarte. Lees algo, te suena lógico, y asumes que lo has entendido.
+Lo difícil es el cambio mental. Aprender a confiar (pero no demasiado). Aprender a delegar tareas a algo que no piensa como tú. Aprender a evaluar outputs cuando no siempre sabes qué es correcto.
 
-Cuando aprendes en público, **tienes que explicarlo**. Y ahí es cuando te das cuenta de que en realidad no lo tenías tan claro.
+**La verdadera curva de aprendizaje es aprender a pensar de otra manera.** Y eso lleva mucho más tiempo del que imaginas.
 
-Hay una diferencia enorme entre "creo que entiendo esto" y "puedo explicárselo a alguien más".
+## 2. Los primeros resultados son engañosamente buenos
 
-Escribir te obliga a esa segunda parte. Y es incómoda, pero te hace mejor.
+Cuando empiezas a usar IA, todo parece mágico. Le pides algo y te da una respuesta que suena genial. Te sientes productivo. Crees que has encontrado el atajo definitivo.
 
-## 2. Los errores se quedan (y eso es bueno)
+Después, con el tiempo, empiezas a ver las grietas. Respuestas que suenan bien pero están mal. Contenido genérico que no aporta nada. Análisis superficiales que parecen profundos.
 
-En La Habitación Tortuga no escondemos los errores. Si algo no salió como esperábamos, lo contamos.
+**El peligro de la IA no es que falle de forma obvia. Es que falla de forma convincente.** Y si no tienes criterio para detectarlo, acabas construyendo sobre arena.
 
-Al principio pensábamos que eso nos haría ver mal. Poco profesionales. Como si no supiéramos lo que hacemos.
+## 3. Nadie admite que está improvisando
 
-Pero resultó ser al revés.
+En las conferencias, en LinkedIn, en las reuniones de dirección: todo el mundo tiene una "estrategia de IA". Todo el mundo sabe exactamente qué hacer.
 
-La gente conecta más con los errores que con los aciertos. Porque **los errores son donde de verdad se aprende**.
+La realidad es muy diferente. La mayoría está improvisando. Probando cosas. Esperando a ver qué funciona.
 
-Cuando lees que alguien probó algo, falló, lo repensó y lo intentó de otra forma, estás viendo el proceso de aprendizaje real. No el resultado final pulido.
+**Y no hay nada malo en eso**, siempre que lo admitas. El problema es cuando finges que sabes lo que haces y tomas decisiones basadas en esa ficción.
 
-Y eso es más útil. Más honesto. Más humano.
+Nosotros decidimos ser honestos desde el principio: estamos aprendiendo. Nos equivocamos. Y compartimos lo que descubrimos, incluidos los errores.
 
-## 3. Escribes para ti, no solo para otros
+## 4. Lo que funciona hoy puede no funcionar mañana
 
-Uno de los descubrimientos más inesperados: **escribir sobre algo te ayuda a ti mismo a entenderlo mejor**.
+Tuvimos workflows que funcionaban perfectamente. Prompts optimizados. Integraciones probadas. Y de repente, una actualización del modelo lo cambiaba todo.
 
-Es como el [rubber duck debugging](https://en.wikipedia.org/wiki/Rubber_duck_debugging) que usan los programadores: explicas tu código en voz alta (a un patito de goma), y en el proceso te das cuenta de dónde está el error.
+La IA no es como el software tradicional. **Es un terreno que se mueve bajo tus pies.** Lo que aprendiste hace tres meses puede ser irrelevante hoy.
 
-Con La Habitación Tortuga pasa igual. A veces empiezas a escribir algo y, a mitad de párrafo, te das cuenta de que tu lógica no tiene sentido.
+Eso genera una fatiga específica: la fatiga de la adaptación constante. Y hemos aprendido que gestionarla es tan importante como gestionar la tecnología.
 
-O descubres una conexión que no habías visto antes.
+## 5. El miedo no desaparece, se transforma
 
-O reformulas una idea que llevabas días dándole vueltas.
+Al principio el miedo era: "¿Esto va a reemplazar mi trabajo?"
 
-**Escribir en público no es solo enseñar. Es pensar con claridad.**
+Después se convirtió en: "¿Estoy usando esto bien?" Y luego en: "¿Estoy dependiendo demasiado de esto?"
 
-## 4. Publicar te obliga a prepararte mejor
+**El miedo no se va. Cambia de forma.** Y eso es normal. Lo que hemos aprendido es que el miedo no es el enemigo. El enemigo es no reconocerlo. Porque cuando no reconoces tu miedo, tomas decisiones reactivas en lugar de estratégicas.
 
-Cuando sabes que vas a publicar algo, no puedes llegar improvisando del todo.
+## 6. La soledad de adoptar antes que tu entorno
 
-Tienes que:
-- Pensar qué quieres explicar.
-- Estructurar las ideas.
-- Verificar que lo que dices funciona.
-- Anticipar las preguntas que surgirán.
+Cuando empiezas a usar IA de forma seria antes que la gente de tu alrededor, te encuentras en un lugar extraño. Ves posibilidades que otros no ven. Tienes preocupaciones que otros no entienden. Hablas un idioma que tu entorno todavía no habla.
 
-**Tienes que ordenar tu pensamiento antes de compartirlo.**
+**Es una soledad particular.** Y tiene un riesgo: que te aisles en una burbuja de "early adopters" y pierdas la perspectiva de la gente que todavía no está ahí.
 
-Y eso, en sí mismo, es parte del aprendizaje.
+Hemos aprendido que la empatía con los que van más despacio es tan importante como la curiosidad por lo que viene.
 
-## 5. Recibes feedback que no esperabas
+## 7. Los errores más caros son los que no detectas a tiempo
 
-Cuando aprendes en privado, solo tienes tu propia perspectiva.
+No hablo de errores técnicos. Hablo de errores estratégicos.
 
-Cuando aprendes en público, otras personas reaccionan. Te hacen preguntas. Te señalan cosas que no habías considerado. Te dicen "eso que escribiste también me pasó a mí".
+Como automatizar algo que no debería automatizarse. Como confiar en un output sin verificar y que llegue al cliente. Como invertir tiempo en una herramienta que abandonas tres semanas después.
 
-**El aprendizaje se vuelve bidireccional.**
+**Los errores pequeños se acumulan.** Y cuando te das cuenta de que llevas meses construyendo sobre una base equivocada, el coste es enorme. No solo económico. También emocional.
 
-Y a veces, el mejor insight no viene de lo que tú descubriste, sino de lo que alguien más vio en lo que escribiste.
+## 8. La importancia de hablar con gente que piensa diferente
 
-## 6. Te compromete a ser constante
+Una de las mejores decisiones que tomamos fue buscar activamente a gente que pensara diferente sobre IA. Escépticos. Críticos. Gente de otros sectores. Gente que no usa IA y no quiere usarla.
 
-Aprender en público genera expectativa. La gente espera el siguiente artículo. El siguiente tutorial. La siguiente reflexión.
+**Esas conversaciones nos han aportado más que cualquier tutorial.** Porque te sacan de tu burbuja. Te obligan a cuestionar tus supuestos. Te muestran ángulos que no habías considerado.
 
-Y eso te obliga a seguir.
+La adopción de IA no debería ser un monólogo de entusiastas. Debería ser un diálogo con todas las perspectivas.
 
-No puedes dejarlo cuando te da pereza. No puedes abandonar cuando algo no sale bien.
+## 9. El agotamiento es real
 
-**La exposición pública crea un compromiso que el aprendizaje privado no tiene.**
+Nadie habla del agotamiento que produce intentar mantenerte al día con la IA. Nuevas herramientas cada semana. Nuevos modelos cada mes. Nuevas capacidades que hacen obsoleto lo que acabas de aprender.
 
-Y aunque a veces eso es presión, también es un motor. Te mantiene en movimiento.
+**Es agotador.** Y hemos aprendido que está bien no estar al día de todo. Que es mejor profundizar en pocas cosas que sobrevolar muchas. Que desconectar del ruido no es quedarse atrás, es proteger tu capacidad de pensar con claridad.
 
-## 7. Documentas tu evolución (y eso tiene valor)
+## 10. No hay destino, solo camino
 
-Cuando empezamos La Habitación Tortuga, no sabíamos casi nada sobre ciertos temas. Probábamos prompts de forma caótica. No teníamos marcos mentales claros.
+Quizá lo más importante que hemos aprendido es que **no hay un punto de llegada**. No vas a "dominar la IA" y ya. No va a llegar un momento en que tengas todas las respuestas.
 
-Ahora, meses después, podemos volver atrás y leer cómo pensábamos antes. Qué entendíamos mal. Qué hemos aprendido. Cómo ha cambiado nuestra forma de trabajar con IA.
+La adopción de IA es un proceso continuo. De aprendizaje. De adaptación. De cuestionamiento. De decisiones que se revisan y se cambian.
 
-**Esa evolución está documentada**. Y eso tiene un valor enorme, no solo para otros, sino para nosotros mismos.
+Y cuanto antes aceptes eso, menos ansiedad sientes y mejores decisiones tomas.
 
-Es un registro de aprendizaje en tiempo real.
+## Lo que nos queda por aprender
 
-## 8. Te hace más humilde
+Mucho. Probablemente más de lo que hemos aprendido hasta ahora.
 
-Cuando aprendes en privado, puedes construirte una imagen de que "ya lo dominas". 
+Pero hay algo de lo que estamos seguros: **la mejor forma de navegar la incertidumbre es con honestidad, reflexión y la humildad de admitir que estamos en el camino, no en la meta.**
 
-Cuando aprendes en público, te das cuenta de que **siempre hay alguien que sabe más que tú**. Siempre hay un ángulo que no viste. Siempre hay algo que se te escapó.
-
-Y eso no es malo. Es realista.
-
-**Aprender en público te mantiene en modo aprendiz.**
-
-## 9. Lo que es obvio para ti, no lo es para otros
-
-A veces escribimos algo que nos parece súper básico, y alguien nos dice "nunca lo había visto así, me cambió la perspectiva".
-
-Otras veces, publicamos algo que nos parece complejo e interesante, y alguien nos dice "eso ya está resuelto, mira esta otra forma".
-
-**Lo que es obvio para ti no es obvio para todos.** Y lo que tú no ves, para otros es evidente.
-
-Aprender en público te expone a esa diversidad de perspectivas. Y eso te hace aprender más rápido.
-
-## 10. No es para todo el mundo (y está bien)
-
-Aprender en público no es cómodo. Requiere:
-- Exponerte cuando no sabes.
-- Dejar que otros vean tus errores.
-- Aceptar críticas (constructivas o no).
-- Ser constante incluso cuando no te apetece.
-
-No todo el mundo quiere hacer eso. Y está bien.
-
-Pero si lo haces, **lo que ganas en aprendizaje compensa con creces la incomodidad inicial**.
-
-## Lo que hemos aprendido aprendiendo en público
-
-Tres cosas claras:
-
-1. **Aprendes más rápido.** Porque escribes, recibes feedback, te comprometes.
-2. **Aprendes mejor.** Porque no puedes autoengañarte, tienes que profundizar de verdad.
-3. **Ayudas a otros.** Porque tus errores y descubrimientos son útiles para alguien más.
-
-Y la mejor parte: **no necesitas ser experto para empezar**.
-
-De hecho, cuanto menos sepas al principio, más interesante es el proceso. Porque documenta el viaje completo, desde el "no tengo ni idea" hasta el "ya voy pillando cómo va esto".
-
-Si estás pensando en aprender algo nuevo—IA, programación, diseño, lo que sea—considera hacerlo en público.
-
-Escribe un blog. Comparte tus pruebas en redes. Publica lo que aprendes.
-
-No tiene que ser perfecto. Tiene que ser real.
-
-Y en esa honestidad es donde está el verdadero aprendizaje.
+Y eso es exactamente lo que hacemos aquí. Paso a paso. Sin prisa. Como la tortuga.
