@@ -1,70 +1,80 @@
 ---
-title: "Por qué necesitábamos un espacio para pensar sobre IA"
+title: "Por qué necesitaba un sitio donde pensar despacio"
 date: "2025-01-15"
-excerpt: "Todo el mundo habla de IA. Pocos se paran a pensar en lo que significa. Creamos este blog porque necesitábamos un lugar para hacer las preguntas que nadie hace."
-author: "Alberto Rivera y David Dix"
+excerpt: "Todo va demasiado rápido. Y yo necesitaba un lugar donde parar, ordenar ideas y hacer las preguntas que no me atrevo a hacer en voz alta."
+author: "Alberto Rivera"
 category: "Reflexión"
 ---
 
-Hay miles de blogs sobre inteligencia artificial. La mayoría te dicen qué herramienta usar, qué prompt escribir, qué novedad acaba de salir.
+No sé exactamente cuándo empecé a sentirme abrumado.
 
-Nosotros no queríamos escribir otro blog así.
+Quizá fue cuando la tercera persona en una semana me preguntó "¿y tú qué opinas de la IA?" y me di cuenta de que no tenía una respuesta que me convenciera del todo.
 
-Queríamos un sitio donde hacer las preguntas que nos hacemos en privado pero que casi nadie verbaliza: **¿Realmente entendemos lo que estamos adoptando? ¿Estamos tomando buenas decisiones o solo siguiendo la corriente? ¿Qué pasa si nos equivocamos?**
+O quizá fue cuando entendí que **estaba tomando decisiones importantes sobre algo que cambia más rápido de lo que puedo procesar**.
 
-## La conversación que se repite
+El caso es que necesitaba un sitio donde parar. Y esto es ese sitio.
 
-Cada semana sale una herramienta nueva. Cada día alguien te dice que si no estás usando IA, te estás quedando atrás. Cada mes cambian las reglas del juego.
+## Todo el mundo tiene una opinión
 
-Y en medio de todo ese ruido, hay una conversación que se repite en despachos, cafeterías y llamadas a las once de la noche:
+Abre LinkedIn. Abre Twitter. Abre cualquier newsletter.
 
-*"¿Qué hacemos con esto?"*
+Todo el mundo sabe qué hacer con la IA. Todo el mundo tiene la estrategia perfecta. Todo el mundo va por delante.
 
-No es una pregunta técnica. Es estratégica. Es existencial. Es la pregunta de alguien que sabe que algo grande está pasando pero no tiene un manual para navegarlo.
+O al menos eso parece.
 
-## Lo que no encontrábamos en ningún sitio
+La realidad —la que yo vivo— es muy diferente. Es más parecida a esto:
 
-Buscábamos contenido que hablara de:
+- No sé si la herramienta en la que estoy invirtiendo tiempo seguirá existiendo en seis meses.
+- No sé si las decisiones que estoy tomando hoy son las correctas.
+- No sé cuánto de lo que leo es real y cuánto es marketing.
 
-- **Las dudas reales.** No las que se resuelven con un tutorial, sino las que te quitan el sueño. ¿Estoy invirtiendo en la herramienta correcta? ¿Mi equipo está preparado? ¿Esto va a hacer mi trabajo irrelevante?
-- **La estrategia sin certezas.** Cómo tomar decisiones sobre IA cuando nadie sabe realmente hacia dónde va todo esto. Cómo planificar cuando el horizonte cambia cada trimestre.
-- **La experiencia honesta.** Qué se siente cuando integras IA en tu día a día. Los momentos de "esto es increíble" y los de "esto no funciona como prometían". Sin filtro.
-- **El factor humano.** Cómo afecta a los equipos. Cómo cambia las dinámicas de trabajo. Qué pasa con la gente que no quiere subirse al tren.
+Y durante un tiempo, eso me generaba ansiedad. Hasta que entendí algo: **casi nadie lo sabe. Solo que la mayoría no lo dice.**
 
-No lo encontrábamos. Así que decidimos escribirlo.
+## Escribir para pensar
+
+No creé este espacio para enseñar. No tengo un curso que venderte. No tengo un framework de 5 pasos que lo resuelve todo.
+
+Creé este espacio para pensar.
+
+Porque he descubierto que **cuando escribo sobre algo, lo entiendo mejor**. Los huecos en mi razonamiento se hacen visibles. Las ideas vagas se concretan. Lo que parecía claro de repente tiene matices que no había visto.
+
+Escribir me obliga a ir despacio. Y en esto de la IA, ir despacio es casi un acto de rebeldía.
 
 ## Por qué "La Habitación Tortuga"
 
-Porque necesitábamos lo contrario de lo que el mercado nos pide.
+Porque necesitaba lo contrario de lo que el mercado me pide.
 
-El mercado dice: rápido, ya, ahora, no te quedes atrás. Y nosotros sentíamos que **las mejores decisiones sobre IA se toman despacio**. Con reflexión. Con perspectiva. Sin la presión de ser los primeros en adoptar algo que quizá no necesitamos.
+El mercado dice: rápido, ya, ahora, no te quedes atrás.
 
-La tortuga no es lenta por incapacidad. Es lenta por elección. Porque observa antes de moverse. Porque sabe que llegar primero no siempre significa llegar mejor.
+Y yo sentía que **las mejores decisiones las estaba tomando cuando me daba tiempo para pensar**. No cuando reaccionaba al último hilo viral. No cuando adoptaba algo porque "todo el mundo lo está usando".
 
-Ese es nuestro enfoque: **pensar despacio sobre lo que va demasiado rápido**.
+La tortuga no es lenta por limitación. Es lenta por elección. Observa antes de moverse.
 
-## Lo que no somos
+Ese es el enfoque que intento tener aquí.
 
-No somos investigadores de IA. No trabajamos en un laboratorio. No tenemos papers publicados.
+## Lo que no es esto
 
-Somos profesionales que usan IA cada día, que toman decisiones sobre su adopción, que se equivocan, que aprenden y que sienten la misma incertidumbre que tú.
+Esto no es un blog de noticias sobre IA.
+Esto no es un tutorial.
+Esto no es un sitio donde vas a encontrar "las 10 mejores herramientas de IA".
 
-Y creemos que esa perspectiva —la de quien está en la trinchera, no en la torre de marfil— tiene un valor enorme. Porque es la perspectiva que la mayoría de la gente necesita.
+En cuanto esto suene a eso, habré perdido la esencia.
 
-## Lo que encontrarás aquí
+**Esto es alguien pensando en voz alta.** Con sus dudas. Con sus contradicciones. Con la honestidad de admitir que no sabe.
 
-Tres cosas:
+## Lo que sí encontrarás
 
-1. **Reflexiones estratégicas.** Cómo pensar sobre IA más allá de las herramientas. Qué preguntas hacerte antes de adoptar algo. Cómo evaluar si una decisión tiene sentido para tu contexto.
+Reflexiones sobre decisiones que estoy tomando y por qué.
+Experiencias reales —las buenas y las malas— de adoptar IA.
+Preguntas incómodas que me hago y que quizá tú también te haces.
+El lado humano de todo esto: los miedos, la presión, el agotamiento.
 
-2. **Experiencia real.** Qué nos ha funcionado y qué no. Sin adornar. Sin esconder los fracasos. Con la honestidad de quien sabe que los errores enseñan más que los aciertos.
+## Para quién es esto
 
-3. **Las preguntas incómodas.** Sobre el futuro del trabajo, sobre la ética, sobre lo que no sabemos, sobre lo que nos da miedo admitir que no sabemos.
+No lo sé del todo. Supongo que para gente como yo.
 
-## No es para todo el mundo
+Gente que trabaja con IA o cerca de ella. Que toma decisiones sobre su adopción. Que siente la presión de "tener que saber" pero que a veces no sabe.
 
-Si buscas la última novedad en modelos de lenguaje o un ranking de las 10 mejores herramientas de IA, hay cientos de sitios para eso.
+Gente que necesita un sitio donde las dudas no estén mal vistas.
 
-Si lo que buscas es un espacio para pensar, para cuestionar, para entender qué significa todo esto desde una perspectiva humana y estratégica —entonces quédate.
-
-Aquí vamos despacio. Y creemos que eso es exactamente lo que hace falta.
+Si algo de esto te resuena, quédate. Aquí vamos despacio. Y creo que eso es exactamente lo que hace falta.

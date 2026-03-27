@@ -6,7 +6,7 @@ import { getAllPosts } from '@/lib/posts';
 
 export const metadata: Metadata = {
   title: 'Blog - La Habitación Tortuga',
-  description: 'Reflexiones, estrategia y experiencia real sobre la adopción de inteligencia artificial. Sin hype, con honestidad. Por Alberto Rivera y David Dix.',
+  description: 'Reflexiones, estrategia y experiencia real sobre la adopción de inteligencia artificial. Alguien pensando en voz alta. Por Alberto Rivera.',
   openGraph: {
     title: 'Blog - La Habitación Tortuga',
     description: 'Reflexiones sobre IA, estrategia de adopción y las decisiones que nadie te enseña a tomar.',
@@ -24,7 +24,7 @@ export default function BlogPage() {
           Blog
         </h1>
         <p className="text-lg md:text-xl text-gray-600 max-w-3xl">
-          Reflexiones, estrategia y experiencia real sobre inteligencia artificial. Lo que pensamos cuando paramos a pensar de verdad.
+          Alguien pensando en voz alta sobre inteligencia artificial. Estrategia, adopción, miedos, decisiones y lo que pasa de verdad cuando intentas entender todo esto.
         </p>
       </div>
 

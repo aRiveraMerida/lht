@@ -1,97 +1,99 @@
 ---
 title: "Las decisiones sobre IA que nadie te prepara para tomar"
 date: "2025-02-03"
-excerpt: "Adoptar IA no es instalar una herramienta. Es una cadena de decisiones estratégicas, humanas y éticas para las que no existe manual. Esto es lo que hemos aprendido."
-author: "Alberto Rivera y David Dix"
+excerpt: "No son decisiones técnicas. Son decisiones sobre personas, sobre estrategia, sobre qué tipo de profesional quieres ser. Y no hay manual para ninguna."
+author: "Alberto Rivera"
 category: "Estrategia"
 ---
 
-Nadie te prepara para las decisiones que tienes que tomar cuando la IA entra en tu trabajo.
+Llevo meses tomando decisiones sobre IA. Para mí, para clientes, para equipos.
 
-No hablo de qué modelo usar o qué API integrar. Hablo de las decisiones de verdad: las que afectan a personas, a estrategia, a la identidad de lo que haces. Las que no tienen respuesta correcta. Las que te quitan el sueño.
+Y lo que más me ha sorprendido no es la tecnología. Es lo poco preparado que estaba para las decisiones que tenía que tomar.
 
-Después de meses tomando este tipo de decisiones, estas son las que más nos han marcado.
+No hablo de qué modelo usar o qué API integrar. Hablo de las otras. Las que no aparecen en ningún tutorial. Las que te quitan el sueño un martes a las dos de la mañana.
 
-## 1. Decidir qué automatizar (y qué no)
+## Decidir qué automatizar y qué no
 
-La primera tentación es automatizarlo todo. La IA puede escribir emails, generar informes, analizar datos, crear contenido. Técnicamente, puede hacer casi cualquier cosa.
+La primera tentación es automatizarlo todo. Si la IA puede hacerlo, ¿por qué no dejarla?
 
-Pero **"poder" no significa "deber"**.
+Pero he aprendido —a base de errores— que **"poder" no significa "deber"**.
 
-Hay tareas donde la automatización destruye valor. Correos que necesitan empatía. Decisiones que requieren contexto que ningún modelo tiene. Conversaciones donde lo que importa no es la eficiencia, sino la conexión.
+Hay cosas donde la automatización destruye valor sin que te des cuenta. Un email que necesitaba empatía. Una propuesta que requería entender el contexto que ningún modelo tiene. Una conversación donde lo importante no era la eficiencia sino la conexión.
 
-La pregunta no es "¿puede la IA hacer esto?" sino **"¿debería la IA hacer esto?"**. Y esa es una pregunta estratégica, no técnica.
+La pregunta ya no es "¿puede la IA hacer esto?". Es **"¿debería?"**. Y esa pregunta es estratégica, no técnica.
 
-## 2. El dilema de la velocidad vs. la comprensión
+## La trampa de la velocidad
 
-La IA te permite ir muy rápido. Generar 20 opciones en segundos. Analizar documentos en minutos. Producir en un día lo que antes llevaba una semana.
+La IA me permite generar 20 opciones en segundos. Analizar documentos en minutos. Producir en una tarde lo que antes me llevaba una semana.
 
-Pero hemos aprendido algo incómodo: **la velocidad puede ser una trampa**.
+Suena increíble. Y a veces lo es.
 
-Cuando produces demasiado rápido, no tienes tiempo de entender lo que estás produciendo. Generas ruido con apariencia de valor. Te sientes productivo sin serlo realmente.
+Pero otras veces es una trampa. Porque **cuando produces demasiado rápido, no tienes tiempo de entender lo que estás produciendo**.
 
-La decisión estratégica es saber cuándo frenar. Cuándo decir "esto necesita más reflexión, no más outputs". Cuándo la lentitud es la verdadera productividad.
+He tenido semanas enteras donde me sentí increíblemente productivo. Y al revisarlo, me di cuenta de que había generado mucho ruido con apariencia de valor.
 
-## 3. Gestionar la incertidumbre de lo que viene
+La lentitud, a veces, es la verdadera productividad. Y cuesta mucho aceptar eso en un entorno que premia la velocidad.
 
-¿Invertimos en esta herramienta que quizá sea obsoleta en seis meses? ¿Formamos al equipo en algo que puede cambiar radicalmente el trimestre que viene? ¿Apostamos fuerte o esperamos?
+## Gestionar la incertidumbre
+
+¿Invierto en esta herramienta que quizá sea obsoleta en seis meses? ¿Formo al equipo en algo que puede cambiar radicalmente el trimestre que viene? ¿Apuesto fuerte o espero?
 
 **Nadie tiene la respuesta.** Y eso es lo más difícil de gestionar.
 
-Hemos aprendido que la única estrategia viable es la adaptabilidad: hacer apuestas pequeñas, medir resultados rápido, no casarse con ninguna herramienta y mantener siempre un plan B. No es glamuroso, pero es honesto.
+He aprendido que la única estrategia que me funciona es hacer apuestas pequeñas, medir rápido y no casarme con ninguna herramienta. No es glamuroso. No queda bien en una presentación. Pero es honesto.
 
-## 4. El factor humano que nadie menciona
+## El factor humano
 
-Cuando introduces IA en un equipo, no solo cambian los procesos. Cambian las dinámicas.
+Cuando introduces IA en un equipo, no solo cambian los procesos. Cambian las personas.
 
-Hay gente que se entusiasma. Hay gente que tiene miedo. Hay gente que siente que su trabajo ya no vale lo que valía. Y hay gente que simplemente no quiere cambiar.
+Hay quien se entusiasma. Hay quien tiene miedo. Hay quien siente que lo que hacía ya no vale lo mismo. Y hay quien simplemente no quiere cambiar.
 
-**Gestionar la adopción de IA es, ante todo, gestionar personas.** Y eso requiere mucha más inteligencia emocional que técnica.
+**Las decisiones más difíciles que he tomado sobre IA no han sido técnicas. Han sido humanas.**
 
-Las decisiones más difíciles no han sido sobre qué modelo usar. Han sido sobre cómo hablar con alguien que siente que la IA amenaza su puesto. Sobre cómo motivar a un equipo que está agotado de tanto cambio. Sobre cómo ser honesto cuando tú mismo no sabes qué va a pasar.
+Cómo hablar con alguien que siente que la IA amenaza su puesto. Cómo motivar a un equipo agotado de tanto cambio. Cómo ser honesto cuando yo mismo no sé qué va a pasar.
 
-## 5. El sesgo invisible en tus decisiones
+Gestionar la adopción de IA es, ante todo, gestionar personas. Y eso requiere mucha más inteligencia emocional que técnica.
 
-La IA amplifica sesgos. Eso ya lo sabes. Pero lo que quizá no has pensado es que **tus decisiones sobre IA también están sesgadas**.
+## Tus propios sesgos
 
-¿Elegiste esa herramienta porque es la mejor o porque es la que conoces? ¿Automatizaste esa tarea porque tenía sentido o porque era fácil? ¿Tu estrategia de IA refleja las necesidades reales o las expectativas del mercado?
+La IA amplifica sesgos. Eso ya lo sabemos todos. Pero lo que me costó más ver es que **mis decisiones sobre IA también están sesgadas**.
 
-Ser consciente de tus propios sesgos al tomar decisiones sobre IA es tan importante como detectar los sesgos en los modelos.
+¿Elegí esa herramienta porque es la mejor o porque es la que conozco? ¿Automaticé esa tarea porque tenía sentido o porque era fácil? ¿Mi estrategia refleja necesidades reales o expectativas del mercado?
 
-## 6. Decidir cuánto confiar
+Detectar los sesgos en los modelos es importante. Pero detectar los tuyos propios al decidir sobre IA lo es igual o más.
 
-¿Cuánto confías en el output de una IA? ¿Revisas todo? ¿Solo lo importante? ¿Nada?
+## Cuánto confiar
 
-Es una decisión que parece menor pero tiene implicaciones enormes. **Confiar demasiado es peligroso. No confiar nada anula el beneficio.**
+¿Cuánto confías en lo que genera una IA? ¿Lo revisas todo? ¿Solo lo importante? ¿Nada?
 
-Hemos encontrado que el punto justo cambia según el contexto: alta confianza para tareas de bajo riesgo, revisión exhaustiva para decisiones importantes, y desconfianza total cuando hay personas afectadas.
+Parece una pregunta menor pero tiene implicaciones enormes. **Confiar demasiado es peligroso. No confiar nada anula el beneficio.**
 
-Pero llegar a ese equilibrio ha costado errores. Más de los que nos gustaría admitir.
+No he encontrado una regla universal. Solo un criterio que me funciona: alta confianza para lo de bajo riesgo, revisión exhaustiva para lo importante, desconfianza total cuando hay personas afectadas.
 
-## 7. La presión social de "adoptar IA"
+Llegar a ese equilibrio me ha costado errores. Más de los que me gustaría admitir.
 
-Hay una presión enorme por adoptar IA. Si no lo haces, eres un dinosaurio. Si no tienes estrategia de IA, estás condenado. Si no usas el último modelo, te estás quedando atrás.
+## La presión social
 
-**Esa presión te hace tomar malas decisiones.**
+Hay una presión enorme por adoptar IA. Si no lo haces, eres un dinosaurio. Si no tienes "estrategia de IA", estás condenado.
 
-Hemos visto a gente adoptar herramientas que no necesitaba. Automatizar procesos que funcionaban bien. Invertir en tecnología que no aportaba valor real.
+**Esa presión me ha hecho tomar malas decisiones.** Adoptar herramientas que no necesitaba. Automatizar procesos que funcionaban bien. Invertir tiempo en tecnología que no aportaba valor real.
 
-La decisión más difícil —y más valiente— a veces es decir: "Esto no es para nosotros. Todavía no. O quizá nunca."
+La decisión más difícil —y más valiente— a veces es decir: "Esto no es para mí. Todavía no. O quizá nunca."
 
-## 8. Aceptar que no sabes
+## Aceptar que no sé
 
-Esta es quizá la decisión más importante: **aceptar que estás tomando decisiones con información incompleta**.
+Esta es quizá la decisión más importante de todas: **aceptar que estoy tomando decisiones con información incompleta**.
 
-No sabes cómo va a evolucionar la IA. No sabes si tus decisiones de hoy serán las correctas mañana. No sabes si estás haciendo lo suficiente o demasiado.
+No sé cómo va a evolucionar la IA. No sé si mis decisiones de hoy serán las correctas mañana. No sé si estoy haciendo lo suficiente o demasiado.
 
-Y eso está bien. Porque nadie lo sabe.
+Y he aprendido que eso está bien. Porque nadie lo sabe. Solo que la mayoría no lo admite.
 
-Lo que sí puedes hacer es ser honesto contigo mismo. Revisar tus decisiones con frecuencia. Estar dispuesto a cambiar de rumbo. Y no fingir que tienes todas las respuestas cuando no las tienes.
+Lo que sí puedo hacer es ser honesto conmigo mismo. Revisar mis decisiones con frecuencia. Estar dispuesto a cambiar de rumbo. Y no fingir que tengo todas las respuestas.
 
-## Lo que hemos aprendido
+## Lo que me queda
 
-Que adoptar IA no es un problema técnico. Es un problema humano, estratégico y ético.
+Que adoptar IA no es un problema técnico. Es un problema humano, estratégico y, muchas veces, emocional.
 
-Que las mejores decisiones se toman despacio, con reflexión y con humildad.
+Que las mejores decisiones se toman despacio.
 
 Y que el mayor riesgo no es quedarse atrás. Es correr sin saber hacia dónde.
