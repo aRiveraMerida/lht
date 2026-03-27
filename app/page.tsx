@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, BookOpen, Sparkles, Target } from 'lucide-react';
+import { ArrowRight, Compass, Brain, Route } from 'lucide-react';
 import { Reveal } from '@/components/Reveal';
 import { ScrollFade } from '@/components/ScrollFade';
 
@@ -29,29 +29,29 @@ const Hero = () => {
           </div>
         </div>
       </Reveal>
-      
+
       <Reveal delay={100}>
         <p className="text-2xl md:text-5xl lg:text-6xl font-medium leading-[1.1] tracking-tight uppercase text-gray-800 mb-12 max-w-5xl">
-          Un sitio donde leer<br />
-          sobre lo que importa<br />
-          <span className="text-gray-400">y mueve la aguja.</span>
+          Reflexiones sobre IA,<br />
+          estrategia y las decisiones<br />
+          <span className="text-gray-400">que nadie te enseña a tomar.</span>
         </p>
       </Reveal>
 
       <Reveal delay={200}>
         <div className="max-w-3xl mb-12">
           <p className="text-xl md:text-3xl font-bold text-black mb-6 leading-tight">
-            Filtramos el ruido. Te damos lo que importa.
+            No es otro blog de noticias sobre IA. Es donde paramos a pensar.
           </p>
           <p className="text-lg md:text-xl font-light text-gray-600 leading-relaxed mb-8">
-            Blog sobre inteligencia artificial, tutoriales prácticos y reflexiones sobre cómo la IA está cambiando nuestra forma de trabajar, crear y pensar.
+            Un blog sobre lo que no se dice: las dudas al adoptar IA, las decisiones estratégicas sin manual, la incertidumbre de lo que viene y lo que estamos aprendiendo en el camino.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link 
+            <Link
               href="/blog"
               className="bg-black text-white px-8 py-4 rounded-full uppercase text-sm font-bold tracking-widest hover:bg-gray-800 focus:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-400 transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-2xl hover:scale-105"
             >
-              <BookOpen size={20} aria-hidden="true" /> Explorar el Blog
+              <Compass size={20} aria-hidden="true" /> Explorar el Blog
             </Link>
           </div>
         </div>
@@ -70,24 +70,24 @@ const About = () => {
           <Reveal>
             <div className="text-xs font-medium tracking-widest text-gray-400 uppercase mb-6" aria-label="Sección">1/ ALBERTO RIVERA & DAVID DIX</div>
             <h2 id="about-heading" className="text-3xl md:text-5xl font-medium uppercase leading-tight">
-              Escribimos sobre IA<br />para gente que quiere entender
+              Escribimos desde<br />la trinchera de<br />la adopción de IA
             </h2>
           </Reveal>
         </div>
         <div className="lg:col-span-7 flex flex-col justify-center">
           <Reveal delay={100}>
             <p className="text-lg text-gray-600 leading-relaxed mb-8 border-l-4 border-black pl-6 py-2">
-              Nos apasiona la inteligencia artificial y cómo está transformando todo. Aquí compartimos lo que aprendemos, probamos y descubrimos.
+              No somos investigadores ni evangelistas de la IA. Somos profesionales que la usan cada día, que se equivocan, que dudan y que intentan tomar buenas decisiones con información incompleta.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed mb-8">
-              La Habitación Tortuga es nuestro espacio para escribir tutoriales prácticos, reflexiones profundas y guías que realmente sirven.
+              La Habitación Tortuga es donde compartimos lo que nadie cuenta: las preguntas sin respuesta, las estrategias que probamos, los miedos que sentimos y las lecciones que sacamos de todo ello.
             </p>
             <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-xl border-2 border-gray-200 shadow-sm">
               <p className="text-base text-gray-700 leading-relaxed mb-3">
                 <strong className="text-black text-lg">¿Por qué La Habitación Tortuga?</strong>
               </p>
               <p className="text-base text-gray-600 leading-relaxed">
-                Porque vamos despacio para ir rápido. Porque preferimos profundidad a velocidad. Porque el buen contenido necesita tiempo para cocinarse bien.
+                Porque en un mundo que va demasiado rápido con la IA, nosotros elegimos ir despacio. Pensar antes de actuar. Reflexionar antes de adoptar. Entender antes de recomendar.
               </p>
             </div>
           </Reveal>
@@ -102,24 +102,24 @@ const ContentSection = () => {
   const topics = [
     {
       id: '01',
-      title: 'Tutoriales de IA',
-      subtitle: 'Aprende paso a paso',
-      desc: 'Guías prácticas para usar herramientas de IA, escribir mejores prompts, integrar modelos en tus proyectos y sacar el máximo partido a la tecnología.',
-      icon: Sparkles,
+      title: 'Estrategia e IA',
+      subtitle: 'Decidir con criterio',
+      desc: '¿Adoptar o esperar? ¿Qué herramientas merecen tu tiempo? ¿Cómo integrar IA sin perder el rumbo? Reflexiones para tomar mejores decisiones estratégicas.',
+      icon: Route,
     },
     {
       id: '02',
-      title: 'Reflexiones',
-      subtitle: 'Ideas que importan',
-      desc: 'Artículos sobre cómo la IA está cambiando el trabajo, la creatividad y la forma en que pensamos. Sin hype, con sustancia.',
-      icon: Target,
+      title: 'Inquietudes y Realidades',
+      subtitle: 'Lo que no se dice',
+      desc: 'El miedo a quedarse atrás, la incertidumbre de lo que viene, los dilemas éticos, el desconocimiento que nadie admite. Hablamos de lo incómodo.',
+      icon: Brain,
     },
     {
       id: '03',
-      title: 'Lo Mejor de la Red',
-      subtitle: 'Ya lo filtramos por ti',
-      desc: 'Probamos herramientas, leemos papers y exploramos recursos sobre IA. Te contamos qué vale la pena y qué puedes ignorar.',
-      icon: BookOpen,
+      title: 'Experiencia en Adopción',
+      subtitle: 'Desde la trinchera',
+      desc: 'Qué nos ha funcionado, qué no, qué hemos aprendido integrando IA en el día a día. Sin teoría idealizada: experiencia real con sus aciertos y fracasos.',
+      icon: Compass,
     },
   ];
 
@@ -129,13 +129,13 @@ const ContentSection = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-12 bg-gradient-to-b from-transparent via-gray-300 to-transparent"></div>
       <div className="mb-12 md:mb-16">
         <Reveal>
-          <div className="text-xs font-medium tracking-widest text-gray-400 uppercase mb-6" aria-label="Sección">2/ LO QUE ENCONTRARÁS AQUÍ</div>
+          <div className="text-xs font-medium tracking-widest text-gray-400 uppercase mb-6" aria-label="Sección">2/ DE QUÉ HABLAMOS AQUÍ</div>
           <h2 id="content-heading" className="text-3xl md:text-5xl font-medium uppercase mb-10 max-w-3xl">
-            Tutoriales, reflexiones<br />y contenido que aporta
+            Estrategia, dudas<br />y experiencia real<br />con IA
           </h2>
           <div className="max-w-3xl space-y-5 text-base md:text-lg text-gray-600 leading-relaxed">
-            <p>Escribimos sobre inteligencia artificial con un objetivo claro: que lo que leas te sirva de verdad.</p>
-            <p>Nada de clickbait. Nada de promesas vacías. Solo contenido honesto sobre cómo usar IA para trabajar mejor, crear más y entender qué está pasando.</p>
+            <p>No escribimos sobre la última herramienta ni la novedad de la semana. Escribimos sobre lo que importa cuando tienes que tomar decisiones reales sobre IA.</p>
+            <p>Sobre las preguntas que te haces a las 2 de la mañana. Sobre si estás haciendo lo correcto. Sobre qué significa todo esto para tu trabajo, tu equipo y tu futuro.</p>
           </div>
         </Reveal>
       </div>
@@ -176,9 +176,9 @@ const ContentSection = () => {
 
 const BlogSection = () => {
   const blogPosts = [
-    { category: "Reflexión", title: "Por qué decidimos crear La Habitación Tortuga", slug: "por-que-creamos-la-habitacion-tortuga" },
-    { category: "IA y Trabajo", title: "Cómo la IA está cambiando nuestra forma de trabajar", slug: "ia-cambiando-forma-trabajar" },
-    { category: "Proceso", title: "Aprender en público: lo que hemos descubierto", slug: "aprender-en-publico" },
+    { category: "Reflexión", title: "Por qué necesitábamos un espacio para pensar sobre IA", slug: "por-que-creamos-la-habitacion-tortuga" },
+    { category: "Estrategia", title: "Las decisiones sobre IA que nadie te prepara para tomar", slug: "ia-cambiando-forma-trabajar" },
+    { category: "Experiencia", title: "Lo que hemos aprendido adoptando IA sin mapa", slug: "aprender-en-publico" },
   ];
 
   return (
@@ -193,10 +193,10 @@ const BlogSection = () => {
               Lo más reciente<br />del blog
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              Artículos, tutoriales y reflexiones sobre inteligencia artificial y cómo está cambiando nuestra forma de trabajar.
+              Reflexiones, estrategia y experiencias reales sobre la adopción de inteligencia artificial. Lo que pensamos cuando nadie nos está vendiendo nada.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              Sin relleno, directo al grano.
+              Sin hype. Sin recetas mágicas. Solo honestidad.
             </p>
             <p className="text-base text-gray-500 italic">
               Por Alberto Rivera y David Dix.
@@ -207,7 +207,7 @@ const BlogSection = () => {
           <Reveal delay={100}>
             <nav className="space-y-6" aria-label="Artículos destacados del blog">
               {blogPosts.map((post, index) => (
-                <Link 
+                <Link
                   key={index}
                   href={`/blog/${post.slug}`}
                   className="block border-t border-gray-100 pt-6 hover:pl-4 focus:pl-4 transition-all focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-offset-4 rounded"

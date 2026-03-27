@@ -13,24 +13,26 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://lahabitaciontortuga.com'),
   title: {
-    default: "La Habitación Tortuga [LHT] | Blog sobre IA y Tutoriales",
+    default: "La Habitación Tortuga [LHT] | Reflexiones sobre IA, Estrategia y Adopción",
     template: "%s | La Habitación Tortuga [LHT]",
   },
-  description: "Un sitio donde leer sobre lo que importa y mueve la aguja. Blog sobre inteligencia artificial y tutoriales prácticos. Por Alberto Rivera y David Dix.",
+  description: "Blog reflexivo sobre inteligencia artificial: estrategia, inquietudes, decisiones y experiencia real en la adopción de IA. Por Alberto Rivera y David Dix.",
   keywords: [
     "la habitacion tortuga",
     "lht",
     "blog IA",
-    "tutoriales IA",
+    "estrategia IA",
+    "adopción inteligencia artificial",
+    "reflexiones IA",
+    "decisiones IA",
     "inteligencia artificial",
-    "IA",
-    "tecnología",
-    "tutoriales",
-    "prompts",
-    "machine learning",
+    "IA empresas",
+    "transformación digital",
+    "experiencia IA",
     "alberto rivera",
     "david dix",
-    "aprender IA",
+    "futuro IA",
+    "incertidumbre IA",
   ],
   authors: [
     { name: "Alberto Rivera" },
@@ -58,14 +60,14 @@ export const metadata: Metadata = {
     locale: "es_ES",
     url: "https://lahabitaciontortuga.com",
     siteName: "La Habitación Tortuga [LHT]",
-    title: "La Habitación Tortuga [LHT] - Blog sobre IA y Tutoriales",
-    description: "Un sitio donde leer sobre lo que importa y mueve la aguja. Blog sobre inteligencia artificial y tutoriales prácticos.",
+    title: "La Habitación Tortuga [LHT] - Reflexiones sobre IA, Estrategia y Adopción",
+    description: "Blog reflexivo sobre inteligencia artificial: estrategia, inquietudes, decisiones y experiencia real en la adopción de IA.",
     images: [
       {
         url: '/favicon.svg',
         width: 1200,
         height: 630,
-        alt: 'La Habitación Tortuga [LHT] - Conversaciones sin guión',
+        alt: 'La Habitación Tortuga [LHT] - Reflexiones sobre IA y Estrategia',
       },
     ],
   },
@@ -74,7 +76,7 @@ export const metadata: Metadata = {
     site: "@lahabitaciontortuga",
     creator: "@aRiveraMerida",
     title: "La Habitación Tortuga [LHT]",
-    description: "Blog sobre inteligencia artificial y tutoriales prácticos. Por Alberto Rivera y David Dix.",
+    description: "Reflexiones sobre IA, estrategia y experiencia real en la adopción de inteligencia artificial. Por Alberto Rivera y David Dix.",
     images: ['/favicon.svg'],
   },
   alternates: {
@@ -96,7 +98,7 @@ export default function RootLayout({
     name: 'La Habitación Tortuga',
     alternateName: 'LHT',
     url: 'https://lahabitaciontortuga.com',
-    description: 'Blog sobre inteligencia artificial y tutoriales prácticos. Por Alberto Rivera y David Dix',
+    description: 'Blog reflexivo sobre inteligencia artificial: estrategia, inquietudes, decisiones y experiencia real en la adopción de IA. Por Alberto Rivera y David Dix',
     inLanguage: 'es-ES',
     author: [
       {
@@ -134,8 +136,8 @@ export default function RootLayout({
         className={`${inter.variable} font-sans antialiased bg-white text-black selection:bg-black selection:text-white overflow-x-hidden`}
         style={{ backgroundColor: '#ffffff' }}
       >
-        <a 
-          href="#main-content" 
+        <a
+          href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-6 focus:py-3 focus:bg-black focus:text-white focus:rounded-lg focus:font-bold focus:uppercase focus:text-sm focus:tracking-widest"
         >
           Saltar al contenido principal
