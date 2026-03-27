@@ -18,7 +18,6 @@ export const Footer: React.FC = () => {
     }
   };
 
-  // Determinar qué links mostrar según la página actual
   const isHome = pathname === '/';
   const isBlog = pathname?.startsWith('/blog');
 
@@ -29,13 +28,14 @@ export const Footer: React.FC = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="text-xs font-medium tracking-widest text-gray-400 uppercase mb-8">LA HABITACIÓN TORTUGA [LHT]</div>
             <h2 className="text-3xl md:text-5xl lg:text-6xl uppercase font-medium mb-8 leading-tight">
-              Pensar despacio<br />
-              sobre lo que va<br />
-              demasiado rápido
+              No tengo todas<br />
+              las respuestas.
             </h2>
+            <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto mb-4">
+              Pero creo que necesitamos más sitios donde hacernos mejores preguntas.
+            </p>
             <p className="text-base md:text-lg text-gray-500 italic max-w-2xl mx-auto">
-              Reflexiones sobre IA, estrategia y adopción. Sin prisa. Con honestidad.<br/>
-              Por Alberto Rivera y David Dix.
+              Si algo de esto te resuena, probablemente ya estamos conectados.
             </p>
           </div>
         </Reveal>
@@ -61,7 +61,7 @@ export const Footer: React.FC = () => {
       <div className="mt-10 flex flex-col md:flex-row justify-between items-start md:items-end text-xs font-medium tracking-widest text-gray-400 uppercase gap-6">
         <div>
           © 2025 LA HABITACIÓN TORTUGA [LHT]<br />
-          ALBERTO RIVERA & DAVID DIX
+          ALBERTO RIVERA
         </div>
         <div className="flex flex-wrap gap-6 md:gap-8 text-black">
           {isHome && (
@@ -73,6 +73,14 @@ export const Footer: React.FC = () => {
           {isHome && (
             <Link href="/blog" className="hover:text-gray-600 transition-colors focus:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-offset-2 rounded-sm px-1">Blog</Link>
           )}
+          <a
+            href="https://www.linkedin.com/in/albertoriveramerida"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-gray-600 transition-colors focus:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-offset-2 rounded-sm px-1"
+          >
+            LinkedIn
+          </a>
         </div>
       </div>
     </footer>

@@ -16,11 +16,11 @@ export const metadata: Metadata = {
     default: "La Habitación Tortuga [LHT] | Reflexiones sobre IA, Estrategia y Adopción",
     template: "%s | La Habitación Tortuga [LHT]",
   },
-  description: "Blog reflexivo sobre inteligencia artificial: estrategia, inquietudes, decisiones y experiencia real en la adopción de IA. Por Alberto Rivera y David Dix.",
+  description: "Un espacio para pensar despacio sobre inteligencia artificial. Estrategia, adopción, miedos, decisiones y experiencia real. Por Alberto Rivera.",
   keywords: [
     "la habitacion tortuga",
     "lht",
-    "blog IA",
+    "blog IA reflexivo",
     "estrategia IA",
     "adopción inteligencia artificial",
     "reflexiones IA",
@@ -30,15 +30,14 @@ export const metadata: Metadata = {
     "transformación digital",
     "experiencia IA",
     "alberto rivera",
-    "david dix",
     "futuro IA",
     "incertidumbre IA",
+    "pensar sobre IA",
   ],
   authors: [
     { name: "Alberto Rivera" },
-    { name: "David Dix" },
   ],
-  creator: "La Habitación Tortuga",
+  creator: "Alberto Rivera",
   publisher: "La Habitación Tortuga",
   robots: {
     index: true,
@@ -61,22 +60,22 @@ export const metadata: Metadata = {
     url: "https://lahabitaciontortuga.com",
     siteName: "La Habitación Tortuga [LHT]",
     title: "La Habitación Tortuga [LHT] - Reflexiones sobre IA, Estrategia y Adopción",
-    description: "Blog reflexivo sobre inteligencia artificial: estrategia, inquietudes, decisiones y experiencia real en la adopción de IA.",
+    description: "Un espacio para pensar despacio sobre inteligencia artificial. Estrategia, adopción, miedos, decisiones y experiencia real.",
     images: [
       {
         url: '/favicon.svg',
         width: 1200,
         height: 630,
-        alt: 'La Habitación Tortuga [LHT] - Reflexiones sobre IA y Estrategia',
+        alt: 'La Habitación Tortuga [LHT] - Pensar despacio sobre lo que va demasiado rápido',
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@lahabitaciontortuga",
+    site: "@aRiveraMerida",
     creator: "@aRiveraMerida",
     title: "La Habitación Tortuga [LHT]",
-    description: "Reflexiones sobre IA, estrategia y experiencia real en la adopción de inteligencia artificial. Por Alberto Rivera y David Dix.",
+    description: "Un espacio para pensar despacio sobre inteligencia artificial. Estrategia, adopción y experiencia real. Por Alberto Rivera.",
     images: ['/favicon.svg'],
   },
   alternates: {
@@ -98,18 +97,13 @@ export default function RootLayout({
     name: 'La Habitación Tortuga',
     alternateName: 'LHT',
     url: 'https://lahabitaciontortuga.com',
-    description: 'Blog reflexivo sobre inteligencia artificial: estrategia, inquietudes, decisiones y experiencia real en la adopción de IA. Por Alberto Rivera y David Dix',
+    description: 'Un espacio para pensar despacio sobre inteligencia artificial. Estrategia, adopción, miedos, decisiones y experiencia real. Por Alberto Rivera.',
     inLanguage: 'es-ES',
-    author: [
-      {
-        '@type': 'Person',
-        name: 'Alberto Rivera',
-      },
-      {
-        '@type': 'Person',
-        name: 'David Dix',
-      },
-    ],
+    author: {
+      '@type': 'Person',
+      name: 'Alberto Rivera',
+      url: 'https://www.linkedin.com/in/albertoriveramerida',
+    },
     publisher: {
       '@type': 'Organization',
       name: 'La Habitación Tortuga',
@@ -119,8 +113,7 @@ export default function RootLayout({
       },
     },
     sameAs: [
-      'https://www.youtube.com/@LaHabitacionTortuga',
-      'https://instagram.com/lahabitaciontortuga',
+      'https://www.linkedin.com/in/albertoriveramerida',
     ],
   };
 

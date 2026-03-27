@@ -1,7 +1,7 @@
 {
   "name": "La Habitación Tortuga [LHT]",
   "short_name": "LHT",
-  "description": "Reflexiones sobre IA, estrategia y adopción",
+  "description": "Un espacio para pensar despacio sobre inteligencia artificial",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
