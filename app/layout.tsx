@@ -1,15 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://lahabitaciontortuga.com'),
@@ -128,7 +121,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} font-sans antialiased bg-paper text-ink overflow-x-hidden`}
+        className="font-sans antialiased bg-paper text-ink overflow-x-hidden"
       >
         <a
           href="#main-content"
