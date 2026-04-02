@@ -1,7 +1,6 @@
 # La Habitación Tortuga [LHT]
 # https://lahabitaciontortuga.com
 
-# Permitir todos los bots
 User-agent: *
 Allow: /
 
@@ -10,13 +9,17 @@ Disallow: /api/
 Disallow: /_next/static/
 Disallow: /.git/
 
-# Crawl-delay para ser amigable con los servidores
-Crawl-delay: 0.5
+# AI bots - allowed
+User-agent: GPTBot
+Allow: /
 
-# Sitemaps
-Sitemap: https://lahabitaciontortuga.com/sitemap.xml
+User-agent: ClaudeBot
+Allow: /
 
-# Bots específicos de redes sociales
+User-agent: PerplexityBot
+Allow: /
+
+# Social bots
 User-agent: Twitterbot
 Allow: /
 
@@ -26,5 +29,5 @@ Allow: /
 User-agent: LinkedInBot
 Allow: /
 
-User-agent: WhatsApp
-Allow: /
+# Sitemaps
+Sitemap: https://lahabitaciontortuga.com/sitemap.xml
