@@ -1,13 +1,13 @@
-import React from 'react';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, Calendar, Clock, User } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeRaw from 'rehype-raw';
 import { getPostBySlug, getPostSlugs } from '@/lib/posts';
+import { NewsletterForm } from '@/components/NewsletterForm';
 import 'highlight.js/styles/github-dark.css';
 
 interface PageProps {
@@ -16,9 +16,7 @@ interface PageProps {
 
 export async function generateStaticParams() {
   const slugs = getPostSlugs();
-  return slugs.map((slug) => ({
-    slug,
-  }));
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -26,13 +24,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = getPostBySlug(slug);
 
   if (!post) {
-    return {
-      title: 'Post no encontrado',
-    };
+    return { title: 'Post no encontrado' };
   }
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt,
+    author: { '@type': 'Person', name: post.author },
+    datePublished: post.date,
+    url: `https://lahabitaciontortuga.com/blog/${slug}`,
+  };
+
   return {
-    title: `${post.title} - La Habitación Tortuga`,
+    title: post.title,
     description: post.excerpt,
     authors: [{ name: post.author }],
     openGraph: {
@@ -41,11 +47,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: 'article',
       publishedTime: post.date,
       authors: [post.author],
+      url: `https://lahabitaciontortuga.com/blog/${slug}`,
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.excerpt,
+    },
+    other: {
+      'script:ld+json': JSON.stringify(jsonLd),
     },
   };
 }
@@ -58,91 +68,107 @@ export default async function BlogPostPage({ params }: PageProps) {
     notFound();
   }
 
-  return (
-    <div className="pt-40 pb-20 px-6 md:px-10 max-w-[1200px] mx-auto min-h-screen">
-      <Link 
-        href="/blog"
-        className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest mb-12 hover:translate-x-[-4px] transition-transform"
-      >
-        <ArrowLeft size={16} /> Volver al Blog
-      </Link>
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt,
+    author: { '@type': 'Person', name: post.author },
+    datePublished: post.date,
+    url: `https://lahabitaciontortuga.com/blog/${slug}`,
+  };
 
-      <article>
-        <header className="mb-12 pb-12 border-b border-gray-100">
-          <div className="flex items-center gap-4 mb-6 text-xs uppercase tracking-widest flex-wrap">
-            <span className="font-bold text-gray-800 bg-gray-100 px-3 py-1 rounded-full">
+  return (
+    <div className="pt-28 pb-20 min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      <div className="max-w-3xl mx-auto px-4 md:px-8">
+        {/* Breadcrumb */}
+        <nav className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-bark/60 mb-8">
+          <Link href="/" className="hover:text-bark transition-colors">Inicio</Link>
+          <span>/</span>
+          <Link href="/blog" className="hover:text-bark transition-colors">Blog</Link>
+          <span>/</span>
+          <span className="text-bark">{post.category}</span>
+        </nav>
+
+        <article>
+          {/* Meta */}
+          <div className="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.1em] text-ink/50 mb-6">
+            <span className="rounded-full border border-bark bg-cream px-3 py-1 font-semibold text-bark">
               {post.category}
             </span>
-            <span className="text-gray-400">•</span>
-            <div className="flex items-center gap-2 text-gray-500">
-              <Calendar size={14} />
-              {new Date(post.date).toLocaleDateString('es-ES', { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
-              })}
+            <div className="flex items-center gap-1">
+              <Clock size={12} />
+              {post.readingTime}
             </div>
-            {post.readingTime && (
-              <>
-                <span className="text-gray-400">•</span>
-                <div className="flex items-center gap-2 text-gray-500">
-                  <Clock size={14} />
-                  {post.readingTime}
-                </div>
-              </>
-            )}
-            <span className="text-gray-400">•</span>
-            <div className="flex items-center gap-2 text-gray-500">
-              <User size={14} />
-              {post.author}
+            <div className="flex items-center gap-1">
+              <Calendar size={12} />
+              {new Date(post.date).toLocaleDateString('es-ES', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
             </div>
           </div>
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold uppercase leading-tight mb-6">
+          {/* Title */}
+          <h1 className="font-serif text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[0.95] tracking-[-0.04em] text-ink mb-4">
             {post.title}
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+          <p className="text-lg text-ink/60 leading-relaxed mb-12">
             {post.excerpt}
           </p>
-        </header>
 
-        <div className="prose prose-lg prose-gray max-w-none
-          prose-headings:uppercase prose-headings:font-bold prose-headings:tracking-tight
-          prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl
-          prose-p:leading-relaxed prose-p:text-gray-700
-          prose-a:text-black prose-a:font-bold prose-a:no-underline hover:prose-a:underline
-          prose-strong:text-black prose-strong:font-bold
-          prose-code:text-sm prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
-          prose-pre:bg-gray-900 prose-pre:text-white prose-pre:p-6 prose-pre:rounded-xl prose-pre:overflow-x-auto prose-pre:shadow-lg
-          prose-ul:list-disc prose-ul:ml-6 prose-ul:my-6
-          prose-ol:list-decimal prose-ol:ml-6 prose-ol:my-6
-          prose-li:text-gray-700 prose-li:my-2
-          prose-blockquote:border-l-4 prose-blockquote:border-black prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:my-6
-          prose-img:rounded-lg prose-img:shadow-lg prose-img:my-8
-          prose-table:w-full prose-table:border-collapse prose-table:my-8
-          prose-thead:bg-gray-100
-          prose-th:border prose-th:border-gray-300 prose-th:px-4 prose-th:py-3 prose-th:text-left prose-th:font-bold prose-th:uppercase prose-th:text-sm
-          prose-td:border prose-td:border-gray-300 prose-td:px-4 prose-td:py-3 prose-td:text-gray-700
-          prose-tr:border-b prose-tr:border-gray-200
-          prose-hr:border-gray-200 prose-hr:my-12
-        ">
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            rehypePlugins={[rehypeHighlight, rehypeRaw]}
-          >
-            {post.content}
-          </ReactMarkdown>
+          {/* Content */}
+          <div className="prose prose-lg max-w-none
+            prose-headings:font-serif prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-ink
+            prose-h2:text-2xl prose-h3:text-xl
+            prose-p:leading-[1.8] prose-p:text-ink/90 prose-p:text-[15px] md:prose-p:text-[17px]
+            prose-a:text-bark prose-a:font-semibold prose-a:underline hover:prose-a:text-moss
+            prose-strong:text-ink prose-strong:font-bold
+            prose-code:text-sm prose-code:bg-cream prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:border prose-code:border-bark/20 prose-code:before:content-none prose-code:after:content-none
+            prose-pre:bg-ink prose-pre:text-cream prose-pre:p-6 prose-pre:rounded-2xl prose-pre:overflow-x-auto
+            prose-ul:list-disc prose-ul:ml-6 prose-ul:my-6
+            prose-ol:list-decimal prose-ol:ml-6 prose-ol:my-6
+            prose-li:text-ink/90 prose-li:my-2
+            prose-blockquote:border-l-4 prose-blockquote:border-bark prose-blockquote:bg-paper prose-blockquote:pl-6 prose-blockquote:py-4 prose-blockquote:rounded-r-xl prose-blockquote:font-serif prose-blockquote:font-bold prose-blockquote:italic prose-blockquote:my-8
+            prose-img:rounded-2xl prose-img:my-8
+            prose-hr:border-bark/20 prose-hr:my-12
+          ">
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeHighlight, rehypeRaw]}
+            >
+              {post.content}
+            </ReactMarkdown>
+          </div>
+        </article>
+
+        {/* Newsletter CTA */}
+        <div className="mt-16 rounded-3xl border border-bark bg-bark p-8">
+          <h3 className="font-serif text-xl font-bold text-cream mb-2">
+            ¿Te ha gustado? Entra en la sala.
+          </h3>
+          <p className="text-cream/60 text-sm mb-6">
+            Cada semana, un experimento o aprendizaje directo al email.
+          </p>
+          <NewsletterForm compact />
         </div>
-      </article>
 
-      <div className="mt-20 pt-12 border-t border-gray-100">
-        <Link 
-          href="/blog"
-          className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:translate-x-[-4px] transition-transform"
-        >
-          <ArrowLeft size={16} /> Ver todos los artículos
-        </Link>
+        {/* Back link */}
+        <div className="mt-12">
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.1em] text-bark hover:text-moss transition-colors"
+          >
+            <ArrowLeft size={14} /> Ver todos los artículos
+          </Link>
+        </div>
       </div>
     </div>
   );
