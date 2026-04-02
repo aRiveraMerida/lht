@@ -3,7 +3,7 @@ title: "Por qué necesitaba un sitio donde pensar despacio"
 date: "2025-01-15"
 excerpt: "Todo va demasiado rápido. Y yo necesitaba un lugar donde parar, ordenar ideas y hacer las preguntas que no me atrevo a hacer en voz alta."
 author: "Alberto Rivera"
-category: "Reflexión"
+category: "Sin filtro"
 ---
 
 No sé exactamente cuándo empecé a sentirme abrumado.
