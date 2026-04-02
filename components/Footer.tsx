@@ -1,85 +1,49 @@
-'use client';
-
-import React from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { ArrowRight } from 'lucide-react';
-import { Logo } from './Logo';
-import { Reveal } from './Reveal';
+import { TurtleLogo } from './TurtleLogo';
 
 export const Footer: React.FC = () => {
-  const pathname = usePathname();
-
-  const handleScrollToAbout = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    const element = document.querySelector('#about');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
-  const isHome = pathname === '/';
-  const isBlog = pathname?.startsWith('/blog');
-
   return (
-    <footer className="py-20 px-6 md:px-10 max-w-[1800px] mx-auto mt-10 border-t border-gray-100">
-      <div className="mb-16">
-        <Reveal>
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="text-xs font-medium tracking-widest text-gray-400 uppercase mb-8">LA HABITACIÓN TORTUGA [LHT]</div>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl uppercase font-medium mb-8 leading-tight">
-              No tengo todas<br />
-              las respuestas.
-            </h2>
-            <p className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto mb-4">
-              Pero creo que necesitamos más sitios donde hacernos mejores preguntas.
-            </p>
-            <p className="text-base md:text-lg text-gray-500 italic max-w-2xl mx-auto">
-              Si algo de esto te resuena, probablemente ya estamos conectados.
-            </p>
-          </div>
-        </Reveal>
-      </div>
-
-      <Reveal>
-        <div className="border-t border-gray-100 pt-10">
-          <div className="w-full flex flex-col items-start">
-            <span className="text-[10vw] md:text-[8vw] leading-[0.85] font-bold tracking-tighter select-none text-black">
-              La Habitación
-            </span>
-            <div className="flex items-baseline gap-4">
-              <span className="text-[10vw] md:text-[8vw] leading-[0.85] font-bold tracking-tighter select-none text-black">
-                Tortuga
-              </span>
-              <span className="text-xl md:text-3xl font-bold text-gray-400 mb-2">[LHT]</span>
+    <footer className="bg-bark text-cream">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-20">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10 mb-12">
+          <div className="flex items-center gap-3">
+            <TurtleLogo className="w-10 h-10 text-cream" />
+            <div>
+              <div className="text-sm font-semibold uppercase tracking-[0.16em]">
+                La Habitación Tortuga <span className="text-cream/50">[LHT]</span>
+              </div>
+              <div className="text-[10px] text-cream/50 mt-1">
+                © 2025 · Alberto Rivera · David Dix Hidalgo
+              </div>
             </div>
-            <Logo className="mt-4 md:mt-6 w-16 h-16 md:w-20 md:h-20 text-black opacity-10" />
           </div>
-        </div>
-      </Reveal>
 
-      <div className="mt-10 flex flex-col md:flex-row justify-between items-start md:items-end text-xs font-medium tracking-widest text-gray-400 uppercase gap-6">
-        <div>
-          © 2025 LA HABITACIÓN TORTUGA [LHT]<br />
-          ALBERTO RIVERA
+          <nav className="flex flex-wrap gap-x-6 gap-y-3 text-[11px] font-semibold uppercase tracking-[0.1em]">
+            <Link href="/" className="hover:text-sand transition-colors">Inicio</Link>
+            <Link href="/blog" className="hover:text-sand transition-colors">Blog</Link>
+            <a href="#suscribete" className="hover:text-sand transition-colors">Suscríbete</a>
+            <Link href="/aviso-legal" className="hover:text-sand transition-colors">Aviso Legal</Link>
+            <Link href="/politica-privacidad" className="hover:text-sand transition-colors">Privacidad</Link>
+            <Link href="/politica-cookies" className="hover:text-sand transition-colors">Cookies</Link>
+          </nav>
         </div>
-        <div className="flex flex-wrap gap-6 md:gap-8 text-black">
-          {isHome && (
-            <a href="#about" onClick={handleScrollToAbout} className="hover:text-gray-600 transition-colors focus:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-offset-2 rounded-sm px-1 cursor-pointer">Acerca de</a>
-          )}
-          {isBlog && (
-            <Link href="/" className="hover:text-gray-600 transition-colors focus:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-offset-2 rounded-sm px-1">Inicio</Link>
-          )}
-          {isHome && (
-            <Link href="/blog" className="hover:text-gray-600 transition-colors focus:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-offset-2 rounded-sm px-1">Blog</Link>
-          )}
+
+        <div className="border-t border-cream/20 pt-8 flex flex-wrap gap-4 text-[10px] text-cream/50">
           <a
             href="https://www.linkedin.com/in/albertoriveramerida"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-gray-600 transition-colors focus:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-offset-2 rounded-sm px-1"
+            className="hover:text-cream transition-colors"
           >
-            LinkedIn
+            LinkedIn · Alberto Rivera
+          </a>
+          <a
+            href="https://www.linkedin.com/in/daviddixhidalgo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-cream transition-colors"
+          >
+            LinkedIn · David Dix Hidalgo
           </a>
         </div>
       </div>

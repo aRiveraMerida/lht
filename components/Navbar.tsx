@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
-import { Logo } from './Logo';
+import { Menu, X, Search } from 'lucide-react';
+import { TurtleLogo } from './TurtleLogo';
 
 export const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -12,97 +12,81 @@ export const Navbar: React.FC = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith('#')) {
-      e.preventDefault();
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        setIsMobileMenuOpen(false);
-      }
-    }
-  };
-
-  // Determinar qué links mostrar según la página actual
-  const isHome = pathname === '/';
-  const isBlog = pathname?.startsWith('/blog');
-
-  const navLinks = isHome 
-    ? [
-        { name: "Acerca de", href: "#about" },
-        { name: "Blog", href: "/blog" },
-      ]
-    : isBlog
-    ? [
-        { name: "Inicio", href: "/" },
-      ]
-    : [
-        { name: "Inicio", href: "/" },
-        { name: "Blog", href: "/blog" },
-      ];
-
   return (
     <>
-      <header className="fixed w-full top-0 z-50 px-6 py-4 md:px-10 md:py-6 flex justify-between items-start pointer-events-none">
-        <Link 
-          href="/" 
-          className="pointer-events-auto text-black z-50 transition-all duration-500 ease-in-out origin-top-left focus:outline-none focus:ring-4 focus:ring-gray-600 focus:ring-offset-2 rounded-lg"
-          aria-label="Ir a la página principal de La Habitación Tortuga"
-        >
-           <Logo 
-             className={`transition-all duration-500 ease-in-out text-black ${isScrolled ? 'w-12 h-12' : 'w-20 h-20 md:w-28 md:h-28'}`}
-             aria-hidden="true"
-           />
-        </Link>
+      <header
+        className={`fixed w-full top-0 z-50 transition-all duration-300 border-b
+          ${isScrolled ? 'bg-paper/95 backdrop-blur-sm border-bark/30' : 'bg-paper border-transparent'}`}
+      >
+        <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16 md:h-20">
+          {/* Logo + name */}
+          <Link href="/" className="flex items-center gap-3" aria-label="Ir a inicio">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full border border-bark bg-cream">
+              <TurtleLogo className="w-6 h-6 text-bark" />
+            </div>
+            <div className="hidden sm:block">
+              <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-ink">
+                La Habitación Tortuga
+              </div>
+              <div className="text-[10px] text-ink/50 tracking-wide">
+                Discover slower thinking
+              </div>
+            </div>
+          </Link>
 
-        <nav 
-          className={`hidden md:flex pointer-events-auto bg-white/95 backdrop-blur-sm text-black rounded-full px-1 py-1 items-center shadow-sm border border-gray-200 transition-all duration-500 ${isScrolled ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0 md:translate-y-0 md:opacity-100'}`}
-          aria-label="Navegación principal"
-        >
-          {navLinks.map(link => (
-            <Link 
-              key={link.name} 
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
-              className="px-5 py-2 text-xs font-semibold uppercase hover:bg-gray-100 hover:shadow-sm focus:bg-gray-100 focus:shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-600 rounded-full transition-all"
+          {/* Desktop search + nav */}
+          <div className="hidden lg:flex items-center gap-4">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-bark/50" />
+              <input
+                type="text"
+                placeholder="Buscar estrategia, IA, dudas útiles..."
+                className="pl-9 pr-4 py-2 w-64 rounded-full border border-bark/30 bg-cream text-xs text-ink placeholder:text-ink/40 focus:outline-none focus:border-bark"
+              />
+            </div>
+            <Link
+              href="/blog"
+              className="rounded-full border border-bark bg-cream px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.04em] text-ink hover:-translate-y-0.5 transition-transform"
             >
-              {link.name}
+              Archivo
             </Link>
-          ))}
-        </nav>
+            <a
+              href="#suscribete"
+              className="rounded-full bg-bark px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.04em] text-cream hover:-translate-y-0.5 transition-transform"
+            >
+              Suscríbete
+            </a>
+          </div>
 
-        <button 
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
-          className="md:hidden pointer-events-auto z-50 p-2 bg-white rounded-full shadow-lg text-black border border-gray-200 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-gray-600 transition-colors"
-          aria-label={isMobileMenuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
-          aria-expanded={isMobileMenuOpen}
-        >
-          {isMobileMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
-        </button>
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden p-2 rounded-full border border-bark bg-cream text-bark"
+            aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={isMobileMenuOpen}
+          >
+            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </header>
 
+      {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <nav 
-          className="fixed inset-0 z-40 bg-white flex flex-col items-center justify-center gap-8 md:hidden animate-fade-in"
-          aria-label="Menú de navegación móvil"
-        >
-          {navLinks.map(link => (
-            <Link 
-              key={link.name} 
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
-              className="text-2xl font-medium uppercase tracking-tight text-black hover:text-gray-600 focus:text-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-600 rounded px-4 py-2 transition-colors"
-            >
-              {link.name}
-            </Link>
-          ))}
+        <nav className="fixed inset-0 z-40 bg-paper flex flex-col items-center justify-center gap-8 lg:hidden">
+          <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-serif font-bold text-ink">
+            Inicio
+          </Link>
+          <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-serif font-bold text-ink">
+            Archivo
+          </Link>
+          <a href="#suscribete" onClick={() => setIsMobileMenuOpen(false)} className="rounded-full bg-bark px-6 py-3 text-sm font-semibold uppercase text-cream">
+            Suscríbete
+          </a>
         </nav>
       )}
     </>

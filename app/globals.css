@@ -1,28 +1,45 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-:root {
-  --background: #ffffff;
-  --foreground: #000000;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-paper: #EEE7DA;
+  --color-shell: #6F7C4B;
+  --color-moss: #54633A;
+  --color-olive: #8E9562;
+  --color-pond: #9DB7A7;
+  --color-sand: #D8BA83;
+  --color-bark: #5A4632;
+  --color-amber: #C78A3B;
+  --color-cream: #F7F1E7;
+  --color-ink: #181614;
+  --font-serif: Georgia, "Times New Roman", serif;
   --font-sans: var(--font-inter);
 }
 
 body {
-  background: #ffffff;
-  color: #000000;
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+::selection {
+  background-color: var(--color-bark);
+  color: var(--color-cream);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-bark);
+  outline-offset: 2px;
+}
+
+::placeholder {
+  opacity: 0.6;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-  
-  /* Screen reader only - oculto visualmente pero accesible */
+
   .sr-only {
     position: absolute;
     width: 1px;
@@ -34,7 +51,7 @@ body {
     white-space: nowrap;
     border-width: 0;
   }
-  
+
   .focus\:not-sr-only:focus {
     position: static;
     width: auto;
@@ -45,21 +62,4 @@ body {
     clip: auto;
     white-space: normal;
   }
-}
-
-/* Mejoras de contraste y legibilidad */
-::selection {
-  background-color: #000;
-  color: #fff;
-}
-
-/* Asegurar que el foco sea siempre visible */
-*:focus-visible {
-  outline: 2px solid #10b981;
-  outline-offset: 2px;
-}
-
-/* Mejorar contraste de placeholders */
-::placeholder {
-  opacity: 0.6;
 }
