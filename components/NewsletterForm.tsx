@@ -44,7 +44,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
           disabled={status === 'loading'}
           className="lht-btn lht-btn-primary disabled:opacity-60"
         >
-          {status === 'loading' ? 'Enviando...' : 'Suscribirme'}
+          {status === 'loading' ? 'Enviando...' : 'Me apunto'}
         </button>
       </form>
       {status === 'error' && (
