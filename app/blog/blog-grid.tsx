@@ -12,10 +12,8 @@ interface PostMeta {
   slug: string
   category: string
   title: string
-  author: string
   meta: string
   excerpt: string
-  tone: string
   variant: PreviewVariant
   index: number
 }
@@ -36,29 +34,26 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
   return (
     <div>
       {/* Header */}
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-7xl px-4 py-8 md:px-6 md:py-10 lg:px-8">
+      <section className="border-b-2 border-lht-line">
+        <div className="lht-container py-8 md:py-10">
           <SectionLabel>Archivo</SectionLabel>
-          <h1 className="mt-3 text-[clamp(2.2rem,6vw,4.2rem)] font-semibold leading-[0.92] tracking-[-0.05em] text-text">
-            Archivo
-          </h1>
-          <p className="mt-3 max-w-2xl text-[15px] leading-7 text-text-muted">
+          <h1 className="lht-display mt-4 text-display">Archivo</h1>
+          <p className="mt-4 max-w-2xl text-[15px] leading-7 text-lht-muted">
             Todos los artículos del laboratorio. Estrategia, automatizaciones, experimentos
             y las preguntas que nadie se atreve a hacer.
           </p>
 
-          {/* Search */}
-          <div className="mt-5 flex w-full max-w-xl items-center gap-3 rounded-full border border-border bg-bg px-4 py-3">
-            <Search className="h-4 w-4 shrink-0 text-text-muted" />
+          <div className="mt-5 flex max-w-xl items-center gap-3 border-2 border-lht-line bg-lht-paper px-4 py-3">
+            <Search className="h-4 w-4 shrink-0 text-lht-muted" />
             <input
               type="text"
               placeholder="Buscar por título..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-transparent text-sm text-text outline-none placeholder:text-text-muted"
+              className="w-full bg-transparent text-sm text-lht-ink outline-none placeholder:text-lht-muted"
             />
             {searchQuery && (
-              <button onClick={() => setSearchQuery('')} className="shrink-0 text-[11px] font-medium text-text-muted hover:text-text">
+              <button onClick={() => setSearchQuery('')} className="shrink-0 text-[11px] font-black uppercase tracking-[0.18em] text-lht-muted hover:text-lht-ink">
                 Limpiar
               </button>
             )}
@@ -67,9 +62,9 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
       </section>
 
       {/* Topics */}
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-7xl px-4 py-3 md:px-6 lg:px-8">
-          <div className="flex gap-2.5 overflow-x-auto pb-1">
+      <section className="border-b-2 border-lht-line">
+        <div className="lht-container py-4">
+          <div className="flex gap-3 overflow-x-auto pb-1">
             {categories.map((cat) => (
               <TopicChip key={cat} active={activeCategory === cat} onClick={() => setActiveCategory(cat)}>
                 {cat}
@@ -81,15 +76,15 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
 
       {/* Grid */}
       <section>
-        <div className="mx-auto max-w-7xl px-4 py-6 md:px-6 md:py-8 lg:px-8">
+        <div className="lht-container py-8 md:py-10">
           {filtered.length === 0 ? (
             <div className="py-20 text-center">
-              <p className="text-lg text-text-muted">
-                {searchQuery ? `No hay resultados para "${searchQuery}"` : 'No hay artículos en esta categoría.'}
+              <p className="lht-title">
+                {searchQuery ? `Sin resultados para "${searchQuery}"` : 'No hay artículos aquí.'}
               </p>
               <button
                 onClick={() => { setActiveCategory('Todos'); setSearchQuery(''); }}
-                className="mt-4 rounded-full border border-border bg-bg px-4 py-2 text-[12px] font-medium text-text transition-transform hover:-translate-y-0.5"
+                className="lht-btn lht-btn-secondary mt-4"
               >
                 Ver todos
               </button>
@@ -102,10 +97,8 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
                   slug={post.slug}
                   category={post.category}
                   title={post.title}
-                  author={post.author}
                   meta={post.meta}
                   excerpt={post.excerpt}
-                  tone={post.tone}
                   variant={post.variant}
                   index={i}
                 />

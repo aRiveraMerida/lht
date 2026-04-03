@@ -121,11 +121,11 @@ export default function RootLayout({
         />
       </head>
       <body
-        className="font-sans antialiased bg-bg text-text overflow-x-hidden flex min-h-screen flex-col"
+        className="font-body antialiased bg-lht-bg text-lht-ink overflow-x-hidden flex min-h-screen flex-col"
       >
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-6 focus:py-3 focus:bg-button focus:text-button-text focus:rounded-lg focus:font-bold focus:uppercase focus:text-sm focus:tracking-widest"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-6 focus:py-3 focus:bg-lht-ink focus:text-lht-paper focus:font-bold focus:uppercase focus:text-sm focus:tracking-widest"
         >
           Saltar al contenido principal
         </a>

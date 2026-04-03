@@ -2,34 +2,26 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Aviso Legal',
-  description: 'Aviso legal de La Habitación Tortuga. Información sobre el titular, actividad y propiedad intelectual.',
+  description: 'Aviso legal de La Habitación Tortuga.',
 };
 
 export default function AvisoLegal() {
   return (
-    <div className="px-4 py-16 md:px-8 md:py-20 max-w-[700px] mx-auto">
-      <h1 className="text-3xl font-semibold tracking-[-0.04em] text-text mb-10 md:text-4xl">Aviso Legal</h1>
+    <div className="lht-container py-16 md:py-20">
+      <div className="max-w-[700px]">
+        <h1 className="lht-title text-[32px] md:text-[40px]">Aviso Legal</h1>
 
-      <div className="space-y-8 text-[15px] text-text/80 leading-7">
-        <p>En cumplimiento de la Ley 34/2002 (LSSI-CE):</p>
-
-        <div className="space-y-2">
-          <p><strong className="text-text">Titular:</strong> Alberto Rivera Mérida</p>
-          <p><strong className="text-text">Domicilio:</strong> C/ Costa Rica</p>
-          <p><strong className="text-text">Email:</strong> hola@lahabitaciontortuga.com</p>
+        <div className="mt-10 space-y-8 text-[15px] leading-7 text-lht-muted">
+          <p>En cumplimiento de la Ley 34/2002 (LSSI-CE):</p>
+          <div className="space-y-2">
+            <p><strong className="text-lht-ink">Titular:</strong> Alberto Rivera Mérida</p>
+            <p><strong className="text-lht-ink">Domicilio:</strong> C/ Costa Rica</p>
+            <p><strong className="text-lht-ink">Email:</strong> hola@lahabitaciontortuga.com</p>
+          </div>
+          <p><strong className="text-lht-ink">Actividad:</strong> Blog y newsletter sobre inteligencia artificial y adopción tecnológica en organizaciones.</p>
+          <h2 className="lht-title text-[24px] pt-4">Propiedad Intelectual</h2>
+          <p>Todos los contenidos — textos, imágenes, diseño gráfico y código fuente — son propiedad de sus autores salvo indicación expresa. Queda prohibida su reproducción total o parcial sin autorización.</p>
         </div>
-
-        <p>
-          <strong className="text-text">Actividad:</strong> Blog y newsletter sobre inteligencia artificial
-          y adopción tecnológica en organizaciones.
-        </p>
-
-        <h2 className="text-2xl font-semibold tracking-[-0.04em] text-text pt-4">Propiedad Intelectual</h2>
-        <p>
-          Todos los contenidos — textos, imágenes, diseño gráfico y código fuente —
-          son propiedad de sus autores salvo indicación expresa. Queda prohibida
-          su reproducción total o parcial sin autorización.
-        </p>
       </div>
     </div>
   );

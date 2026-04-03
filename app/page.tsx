@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 import { SectionLabel } from '@/components/SectionLabel';
 import { TopicChip } from '@/components/TopicChip';
 import { TurtleLogo } from '@/components/TurtleLogo';
@@ -7,11 +6,7 @@ import { NewsletterForm } from '@/components/NewsletterForm';
 import { ProductCard } from '@/components/ProductCard';
 import { getPreviewVariant } from '@/lib/assets';
 import { getAllPosts } from '@/lib/posts';
-import { categories, categoryTones } from '@/lib/palette';
-
-function getTone(category: string): string {
-  return categoryTones[category] || '#EEE7DC';
-}
+import { categories } from '@/lib/palette';
 
 export default function Home() {
   const posts = getAllPosts();
@@ -19,47 +14,42 @@ export default function Home() {
   return (
     <div>
       {/* ─── HERO ─── */}
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-7xl px-4 py-6 md:px-6 md:py-8 lg:px-8">
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1.2fr_0.8fr]">
-            <div className="rounded-[20px] border border-border bg-bg p-5 md:p-7 lg:p-8">
-              <SectionLabel>Archivo editorial</SectionLabel>
-              <h1 className="mt-4 max-w-4xl text-[clamp(2.2rem,6vw,4.8rem)] font-semibold leading-[0.92] tracking-[-0.05em] text-text">
-                Un lugar para pensar antes de hacer.
+      <section className="border-b-2 border-lht-line">
+        <div className="lht-container py-6 md:py-8">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1.25fr_0.75fr]">
+            <div className="lht-panel">
+              <SectionLabel number="01">Opening statement</SectionLabel>
+
+              <h1 className="lht-display mt-6 max-w-5xl text-hero">
+                esto no es<br />
+                un blog<br />
+                sobre ia.<br />
+                <span className="text-lht-muted">es donde<br />paro a pensar.</span>
               </h1>
-              <p className="mt-4 max-w-2xl text-[16px] leading-8 text-text-muted md:text-[18px]">
-                Escribimos sobre inteligencia artificial, estrategia y trabajo real.
-                Sin prisas, sin humo. Solo lo que hemos probado, lo que funciona
-                y lo que todavía estamos aprendiendo.
+
+              <p className="mt-6 max-w-2xl text-lg leading-[1.9] md:text-xl">
+                Estrategia, trabajo real y decisiones difíciles alrededor de la inteligencia artificial.
+                Sin prisas, sin humo. Solo lo que hemos probado y lo que todavía estamos aprendiendo.
               </p>
+
               <div className="mt-6 flex flex-wrap gap-3">
-                <Link
-                  href="/blog"
-                  className="inline-flex items-center gap-2 rounded-full border border-button bg-button px-4 py-2.5 text-[12px] font-medium text-button-text transition-transform duration-150 hover:-translate-y-0.5"
-                >
-                  Explorar artículos <ArrowRight className="h-4 w-4" />
-                </Link>
-                <a
-                  href="#suscribete"
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2.5 text-[12px] font-medium text-text transition-transform duration-150 hover:-translate-y-0.5"
-                >
-                  Recibir por email
-                </a>
+                <Link href="/blog" className="lht-btn lht-btn-primary">Ver archivo →</Link>
+                <a href="#suscribete" className="lht-btn lht-btn-secondary">Recibir por email</a>
               </div>
             </div>
 
-            <div className="rounded-[20px] border border-border bg-surface p-5 md:p-6 lg:p-7">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <SectionLabel>La Habitación Tortuga</SectionLabel>
-                  <p className="mt-2 text-sm leading-6 text-text-muted">
-                    Dos personas pensando despacio sobre lo que cambia demasiado rápido.
-                  </p>
-                </div>
-                <TurtleLogo className="h-10 w-10 shrink-0 text-brown" />
+            <div className="grid grid-cols-1 gap-4">
+              <div className="border-2 border-lht-line bg-lht-blue p-5 text-lht-paper md:p-6">
+                <div className="text-[11px] font-black uppercase tracking-[0.18em]">Mission</div>
+                <p className="mt-3 text-sm leading-7 text-white/90">
+                  Dos personas pensando despacio sobre lo que cambia demasiado rápido.
+                  Criterio antes que velocidad. Preguntas antes que respuestas.
+                </p>
               </div>
-              <div className="mt-6 rounded-[16px] border border-border bg-bg p-4 md:p-5">
-                <div className="text-[26px] font-semibold leading-[1] tracking-[-0.04em] text-text md:text-[30px]">
+
+              <div className="border-2 border-lht-line bg-lht-yellow p-5 text-lht-ink md:p-6">
+                <div className="text-[11px] font-black uppercase tracking-[0.18em]">Mood</div>
+                <div className="lht-title mt-4 text-[32px]">
                   Quiet.<br />Focused.<br />Intentional.
                 </div>
               </div>
@@ -69,9 +59,15 @@ export default function Home() {
       </section>
 
       {/* ─── TOPICS ─── */}
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-7xl px-4 py-3 md:px-6 lg:px-8">
-          <div className="flex gap-2.5 overflow-x-auto pb-1">
+      <section className="border-b-2 border-lht-line">
+        <div className="lht-container py-4">
+          <div className="flex items-center justify-between gap-4">
+            <SectionLabel number="02">Topics</SectionLabel>
+            <div className="hidden text-[11px] font-black uppercase tracking-[0.18em] text-lht-muted md:block">
+              pick your discomfort
+            </div>
+          </div>
+          <div className="mt-4 flex gap-3 overflow-x-auto pb-1">
             {categories.map((cat, i) => (
               <Link key={cat} href={i === 0 ? '/blog' : `/blog?category=${encodeURIComponent(cat)}`}>
                 <TopicChip active={i === 0}>{cat}</TopicChip>
@@ -81,17 +77,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── ARTICLES ─── */}
-      <section id="latest">
-        <div className="mx-auto max-w-7xl px-4 py-6 md:px-6 md:py-8 lg:px-8">
+      {/* ─── STORIES ─── */}
+      <section id="stories">
+        <div className="lht-container py-8 md:py-10">
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <SectionLabel>Últimas publicaciones</SectionLabel>
-              <h2 className="mt-3 text-[clamp(1.9rem,4vw,3.1rem)] font-semibold leading-[0.96] tracking-[-0.04em] text-text">
-                Lo más reciente del archivo.
+              <SectionLabel number="03">Últimas publicaciones</SectionLabel>
+              <h2 className="lht-display mt-4 text-display">
+                Lo más reciente.
               </h2>
             </div>
-            <p className="max-w-md text-sm leading-6 text-text-muted">
+            <p className="max-w-md text-sm leading-7 text-lht-muted">
               Estrategia, experimentos y reflexiones sobre IA escritas desde la práctica.
             </p>
           </div>
@@ -103,10 +99,8 @@ export default function Home() {
                 slug={post.slug}
                 category={post.category}
                 title={post.title}
-                author={post.author}
-                meta={`${new Date(post.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })} · ${post.author}`}
+                meta={`${new Date(post.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' }).toUpperCase()} · ${post.author.toUpperCase()}`}
                 excerpt={post.excerpt}
-                tone={getTone(post.category)}
                 variant={getPreviewVariant(index)}
                 index={index}
               />
@@ -115,45 +109,44 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── RESIDENTES ─── */}
-      <section id="residentes" className="border-y border-border">
-        <div className="mx-auto max-w-7xl px-4 py-8 md:px-6 md:py-10 lg:px-8">
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-            <div className="rounded-[20px] border border-border bg-bg p-5 md:p-7">
-              <SectionLabel>Quiénes somos</SectionLabel>
-              <h2 className="mt-3 text-[clamp(1.8rem,4vw,2.8rem)] font-semibold leading-[0.96] tracking-[-0.04em] text-text">
-                Dos profesionales. Un laboratorio compartido.
+      {/* ─── QUIÉNES SOMOS ─── */}
+      <section id="residentes" className="border-y-2 border-lht-line">
+        <div className="lht-container py-8 md:py-10">
+          <SectionLabel number="04">Los residentes</SectionLabel>
+          <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2">
+            <div className="lht-panel">
+              <h2 className="lht-display text-display">
+                Dos profesionales.<br />Un archivo compartido.
               </h2>
-              <p className="mt-4 text-[15px] leading-7 text-text-muted">
+              <p className="mt-4 text-[15px] leading-7 text-lht-muted">
                 No somos teóricos. Trabajamos cada día con IA en empresas reales.
-                Aquí compartimos lo que aprendemos: las decisiones difíciles,
-                los errores útiles y los atajos que funcionan de verdad.
+                Aquí compartimos las decisiones difíciles, los errores útiles y los atajos que funcionan de verdad.
               </p>
             </div>
 
-            <div className="flex flex-col gap-4">
-              <div className="rounded-[20px] border border-border bg-bg p-5 md:p-6">
-                <div className="mb-3 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-sm font-semibold text-brown">AR</div>
+            <div className="grid grid-cols-1 gap-4">
+              <div className="lht-panel">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center border-2 border-lht-line bg-lht-red text-[11px] font-black text-lht-paper">AR</div>
                   <div>
-                    <h3 className="text-base font-semibold text-text">Alberto Rivera</h3>
-                    <a href="https://www.linkedin.com/in/albertoriveramerida" target="_blank" rel="noopener noreferrer" className="text-[11px] text-text-muted transition-colors hover:text-text">LinkedIn →</a>
+                    <div className="text-sm font-black uppercase">Alberto Rivera</div>
+                    <a href="https://www.linkedin.com/in/albertoriveramerida" target="_blank" rel="noopener noreferrer" className="text-[11px] text-lht-muted hover:text-lht-blue">LinkedIn →</a>
                   </div>
                 </div>
-                <p className="text-sm leading-6 text-text-muted">
-                  Ayudo a empresas a adoptar IA con criterio. +150 organizaciones, +10.000 profesionales formados. Escribo sobre las decisiones que importan y los errores que enseñan.
+                <p className="mt-3 text-sm leading-6 text-lht-muted">
+                  Ayudo a empresas a adoptar IA con criterio. +150 organizaciones, +10.000 profesionales formados.
                 </p>
               </div>
-              <div className="rounded-[20px] border border-border bg-bg p-5 md:p-6">
-                <div className="mb-3 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-sm font-semibold text-brown">DD</div>
+              <div className="lht-panel">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center border-2 border-lht-line bg-lht-blue text-[11px] font-black text-lht-paper">DD</div>
                   <div>
-                    <h3 className="text-base font-semibold text-text">David Dix Hidalgo</h3>
-                    <a href="https://www.linkedin.com/in/david-dix-hidalgo-986a8a32b" target="_blank" rel="noopener noreferrer" className="text-[11px] text-text-muted transition-colors hover:text-text">LinkedIn →</a>
+                    <div className="text-sm font-black uppercase">David Dix Hidalgo</div>
+                    <a href="https://www.linkedin.com/in/david-dix-hidalgo-986a8a32b" target="_blank" rel="noopener noreferrer" className="text-[11px] text-lht-muted hover:text-lht-blue">LinkedIn →</a>
                   </div>
                 </div>
-                <p className="text-sm leading-6 text-text-muted">
-                  Especialista en automatizaciones, chatbots y agentes IA. Desarrollo soluciones adaptadas a cada cliente para potenciar sus recursos y optimizar procesos. Aquí comparto los proyectos que aportan valor de verdad.
+                <p className="mt-3 text-sm leading-6 text-lht-muted">
+                  Especialista en automatizaciones, chatbots y agentes IA. Soluciones que optimizan procesos de verdad.
                 </p>
               </div>
             </div>
@@ -162,14 +155,15 @@ export default function Home() {
       </section>
 
       {/* ─── NEWSLETTER ─── */}
-      <section id="suscribete" className="border-t border-border">
-        <div className="mx-auto max-w-7xl px-4 py-8 md:px-6 md:py-10 lg:px-8">
-          <div className="max-w-2xl rounded-[20px] border border-border bg-surface2 p-5 md:p-6">
-            <h2 className="text-[clamp(1.8rem,4vw,2.5rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-text">
+      <section id="suscribete">
+        <div className="lht-container py-8 md:py-10">
+          <SectionLabel number="05">Newsletter</SectionLabel>
+          <div className="mt-6 max-w-2xl lht-panel">
+            <h2 className="lht-title text-[28px] md:text-[36px]">
               Ideas que merecen tiempo de lectura.
             </h2>
-            <p className="mt-2 text-[15px] leading-7 text-text-muted">
-              Una vez a la semana. Un artículo, un aprendizaje o una herramienta que hemos probado. Sin spam, sin urgencia.
+            <p className="mt-3 text-[15px] leading-7 text-lht-muted">
+              Una vez a la semana. Un artículo, un aprendizaje o una herramienta. Sin spam, sin urgencia.
             </p>
             <div className="mt-5">
               <NewsletterForm />

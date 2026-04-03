@@ -1,39 +1,54 @@
 import Link from 'next/link';
-import { TurtleLogo } from './TurtleLogo';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="border-t border-border bg-surface">
-      <div className="mx-auto max-w-7xl px-4 py-10 md:px-6 md:py-14 lg:px-8">
-        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
-          <div className="flex items-center gap-3">
-            <Link href="/" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border bg-bg text-brown">
-              <TurtleLogo className="h-7 w-7" />
-            </Link>
-            <div>
-              <div className="text-sm font-semibold uppercase tracking-[0.14em] text-text">
-                La Habitación Tortuga
-              </div>
-              <div className="mt-0.5 text-[11px] text-text-muted">
-                © 2025 · Alberto Rivera · David Dix Hidalgo
-              </div>
+    <footer className="border-t-2 border-lht-line bg-lht-paper">
+      <div className="lht-container py-8">
+        <div className="grid grid-cols-1 gap-6 border-b-2 border-lht-line pb-6 md:grid-cols-[1fr_auto] md:items-end">
+          <div>
+            <div className="lht-kicker">La Habitación Tortuga</div>
+            <div className="lht-title mt-4 max-w-2xl">
+              un archivo para pensar antes de hacer.
+            </div>
+            <p className="mt-4 max-w-2xl text-[15px] leading-7">
+              Escribimos sobre inteligencia artificial, estrategia y automatizaciones desde la práctica.
+              Sin humo. Sin urgencia. Solo lo que merece quedarse.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 pt-6 md:grid-cols-3">
+          <div>
+            <div className="lht-kicker">Navegación</div>
+            <div className="mt-4 grid gap-2 text-[14px] font-bold uppercase tracking-[0.12em]">
+              <Link href="/" className="hover:text-lht-blue">Inicio</Link>
+              <Link href="/blog" className="hover:text-lht-blue">Blog</Link>
+              <Link href="/#suscribete" className="hover:text-lht-blue">Suscríbete</Link>
+              <Link href="/baja" className="hover:text-lht-blue">Darse de baja</Link>
             </div>
           </div>
 
-          <nav className="flex flex-wrap gap-x-5 gap-y-2 text-[12px] font-medium text-text-muted">
-            <Link href="/" className="transition-colors hover:text-text">Inicio</Link>
-            <Link href="/blog" className="transition-colors hover:text-text">Blog</Link>
-            <Link href="/#suscribete" className="transition-colors hover:text-text">Suscríbete</Link>
-            <Link href="/baja" className="transition-colors hover:text-text">Darse de baja</Link>
-            <Link href="/aviso-legal" className="transition-colors hover:text-text">Aviso Legal</Link>
-            <Link href="/politica-privacidad" className="transition-colors hover:text-text">Privacidad</Link>
-            <Link href="/politica-cookies" className="transition-colors hover:text-text">Cookies</Link>
-          </nav>
+          <div>
+            <div className="lht-kicker">Legal</div>
+            <div className="mt-4 grid gap-2 text-[14px] font-bold uppercase tracking-[0.12em]">
+              <Link href="/aviso-legal" className="hover:text-lht-blue">Aviso Legal</Link>
+              <Link href="/politica-privacidad" className="hover:text-lht-blue">Privacidad</Link>
+              <Link href="/politica-cookies" className="hover:text-lht-blue">Cookies</Link>
+            </div>
+          </div>
+
+          <div>
+            <div className="lht-kicker">Contacto</div>
+            <div className="mt-4 grid gap-2 text-[14px] leading-7">
+              <a href="https://www.linkedin.com/in/albertoriveramerida" target="_blank" rel="noopener noreferrer" className="hover:text-lht-blue">LinkedIn · Alberto Rivera</a>
+              <a href="https://www.linkedin.com/in/david-dix-hidalgo-986a8a32b" target="_blank" rel="noopener noreferrer" className="hover:text-lht-blue">LinkedIn · David Dix Hidalgo</a>
+              <span>hola@lahabitaciontortuga.com</span>
+            </div>
+          </div>
         </div>
 
-        <div className="mt-8 flex flex-wrap gap-5 border-t border-border pt-6 text-[11px] text-text-muted">
-          <a href="https://www.linkedin.com/in/albertoriveramerida" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-text">LinkedIn · Alberto Rivera</a>
-          <a href="https://www.linkedin.com/in/david-dix-hidalgo-986a8a32b" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-text">LinkedIn · David Dix Hidalgo</a>
+        <div className="mt-8 border-t-2 border-lht-line pt-4 text-[11px] text-lht-muted">
+          © 2025 La Habitación Tortuga · Alberto Rivera · David Dix Hidalgo
         </div>
       </div>
     </footer>

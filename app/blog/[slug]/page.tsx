@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, Calendar, Clock } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
@@ -15,8 +15,7 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const slugs = getPostSlugs();
-  return slugs.map((slug) => ({ slug }));
+  return getPostSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -65,16 +64,8 @@ export default async function BlogPostPage({ params }: PageProps) {
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.description,
-    author: {
-      '@type': 'Person',
-      name: post.author,
-      url: 'https://www.linkedin.com/in/albertoriveramerida',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'La Habitación Tortuga',
-      logo: { '@type': 'ImageObject', url: 'https://lahabitaciontortuga.com/favicon.svg' },
-    },
+    author: { '@type': 'Person', name: post.author, url: 'https://www.linkedin.com/in/albertoriveramerida' },
+    publisher: { '@type': 'Organization', name: 'La Habitación Tortuga', logo: { '@type': 'ImageObject', url: 'https://lahabitaciontortuga.com/favicon.svg' } },
     datePublished: post.date,
     url,
     image: imageUrl,
@@ -87,35 +78,30 @@ export default async function BlogPostPage({ params }: PageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* Header */}
-      <section className="border-b border-border">
-        <div className="mx-auto max-w-3xl px-4 py-8 md:px-6 md:py-10">
-          <nav aria-label="Breadcrumb" className="mb-5 flex items-center gap-2 text-[11px] font-medium text-text-muted">
-            <Link href="/" className="transition-colors hover:text-text">Inicio</Link>
+      <section className="border-b-2 border-lht-line">
+        <div className="lht-container py-8 md:py-10">
+          <nav aria-label="Breadcrumb" className="lht-label-row mb-5 text-lht-muted">
+            <Link href="/" className="hover:text-lht-ink">Inicio</Link>
             <span aria-hidden="true">/</span>
-            <Link href="/blog" className="transition-colors hover:text-text">Blog</Link>
+            <Link href="/blog" className="hover:text-lht-ink">Blog</Link>
             <span aria-hidden="true">/</span>
-            <span className="text-text">{post.category}</span>
+            <span className="text-lht-ink">{post.category}</span>
           </nav>
 
-          <div className="mb-4 flex flex-wrap items-center gap-3 text-[11px] font-medium uppercase tracking-[0.16em] text-brown">
+          <div className="mb-4 flex flex-wrap items-center gap-3 text-[11px] font-black uppercase tracking-[0.16em]">
             <span>{post.category}</span>
-            <span className="text-border" aria-hidden="true">·</span>
-            <span className="inline-flex items-center gap-1 normal-case tracking-normal text-text-muted">
-              <Clock size={12} aria-hidden="true" /> <time>{post.readingTime}</time>
-            </span>
-            <span className="text-border" aria-hidden="true">·</span>
-            <span className="inline-flex items-center gap-1 normal-case tracking-normal text-text-muted">
-              <Calendar size={12} aria-hidden="true" />
-              <time dateTime={post.date}>
-                {new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
-              </time>
-            </span>
+            <span className="text-lht-grey" aria-hidden="true">·</span>
+            <span className="text-lht-muted">{post.readingTime}</span>
+            <span className="text-lht-grey" aria-hidden="true">·</span>
+            <time dateTime={post.date} className="text-lht-muted">
+              {new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </time>
           </div>
 
-          <h1 className="text-[clamp(2rem,5vw,3.6rem)] font-semibold leading-[0.95] tracking-[-0.05em] text-text">
+          <h1 className="lht-display max-w-4xl text-[clamp(2rem,5vw,4rem)]">
             {post.title}
           </h1>
-          <p className="mt-4 text-[16px] leading-7 text-text-muted md:text-[18px] md:leading-8">
+          <p className="mt-4 max-w-2xl text-lg leading-[1.9] text-lht-muted">
             {post.excerpt}
           </p>
         </div>
@@ -123,22 +109,22 @@ export default async function BlogPostPage({ params }: PageProps) {
 
       {/* Body */}
       <section>
-        <div className="mx-auto max-w-3xl px-4 py-8 md:px-6 md:py-12">
-          <article className="mx-auto max-w-[42rem]">
+        <div className="lht-container py-8 md:py-12">
+          <article className="lht-reading mx-auto">
             <div className="prose prose-lg max-w-none
-              prose-headings:font-semibold prose-headings:tracking-[-0.04em] prose-headings:text-text
+              prose-headings:font-display prose-headings:font-black prose-headings:uppercase prose-headings:tracking-[-0.04em] prose-headings:leading-[0.96] prose-headings:text-lht-ink
               prose-h2:text-2xl prose-h3:text-xl
-              prose-p:text-[15px] prose-p:leading-8 prose-p:text-text md:prose-p:text-[17px]
-              prose-a:text-brown prose-a:font-medium prose-a:underline hover:prose-a:text-text
-              prose-strong:text-text prose-strong:font-semibold
-              prose-code:text-sm prose-code:bg-surface prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:border prose-code:border-border prose-code:before:content-none prose-code:after:content-none
-              prose-pre:bg-text prose-pre:text-bg prose-pre:p-6 prose-pre:rounded-2xl prose-pre:overflow-x-auto
+              prose-p:text-[17px] prose-p:leading-[1.9] prose-p:text-lht-ink
+              prose-a:text-lht-blue prose-a:font-bold prose-a:underline hover:prose-a:text-lht-ink
+              prose-strong:text-lht-ink prose-strong:font-bold
+              prose-code:text-sm prose-code:bg-lht-paper prose-code:px-2 prose-code:py-1 prose-code:border-2 prose-code:border-lht-line prose-code:before:content-none prose-code:after:content-none
+              prose-pre:bg-lht-ink prose-pre:text-lht-paper prose-pre:p-6 prose-pre:overflow-x-auto
               prose-ul:list-disc prose-ul:ml-6 prose-ul:my-6
               prose-ol:list-decimal prose-ol:ml-6 prose-ol:my-6
-              prose-li:text-text prose-li:my-2
-              prose-blockquote:rounded-[16px] prose-blockquote:border prose-blockquote:border-border prose-blockquote:bg-surface prose-blockquote:px-5 prose-blockquote:py-4 prose-blockquote:not-italic prose-blockquote:font-semibold prose-blockquote:text-lg prose-blockquote:leading-[1.3] prose-blockquote:my-8
-              prose-img:rounded-2xl prose-img:my-8
-              prose-hr:border-border prose-hr:my-12
+              prose-li:text-lht-ink prose-li:my-2
+              prose-blockquote:my-8 prose-blockquote:border-2 prose-blockquote:border-lht-line prose-blockquote:bg-lht-paper prose-blockquote:px-5 prose-blockquote:py-4 prose-blockquote:not-italic prose-blockquote:font-display prose-blockquote:text-2xl prose-blockquote:font-bold prose-blockquote:leading-[1.15]
+              prose-img:my-8
+              prose-hr:border-lht-line prose-hr:my-12
             ">
               <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight, rehypeRaw]}>
                 {post.content}
@@ -147,19 +133,16 @@ export default async function BlogPostPage({ params }: PageProps) {
           </article>
 
           {/* Newsletter CTA */}
-          <div className="mx-auto mt-14 max-w-[42rem] rounded-[20px] border border-border bg-surface2 p-5 md:p-6">
-            <h3 className="text-xl font-semibold text-text">Si esto te ha hecho pensar, hay más.</h3>
-            <p className="mt-1 text-sm text-text-muted">Una vez a la semana. Sin spam, sin urgencia.</p>
+          <div className="mx-auto mt-14 max-w-[42rem] lht-panel">
+            <h3 className="lht-title">Si esto te ha hecho pensar, hay más.</h3>
+            <p className="mt-2 text-sm text-lht-muted">Una vez a la semana. Sin spam, sin urgencia.</p>
             <div className="mt-4">
               <NewsletterForm compact />
             </div>
           </div>
 
           <div className="mx-auto mt-6 max-w-[42rem]">
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-bg px-4 py-2.5 text-[12px] font-medium text-text transition-transform hover:-translate-y-0.5"
-            >
+            <Link href="/blog" className="lht-btn lht-btn-secondary">
               <ArrowLeft size={14} aria-hidden="true" /> Ver todos los artículos
             </Link>
           </div>

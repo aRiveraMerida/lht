@@ -22,39 +22,39 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
 
   if (status === 'success') {
     return (
-      <div className="rounded-[16px] border border-border bg-bg p-5">
-        <p className="text-base font-semibold text-text">{message}</p>
-        <p className="mt-2 text-sm text-text-muted">Bienvenido al archivo. Nos leemos pronto.</p>
+      <div className="border-2 border-lht-line bg-lht-paper p-5">
+        <p className="lht-title text-[22px]">{message}</p>
+        <p className="mt-2 text-sm text-lht-muted">Bienvenido al archivo. Nos leemos pronto.</p>
       </div>
     )
   }
 
   return (
     <div>
-      <form action={handleSubmit} className="flex max-w-xl flex-col gap-3 sm:flex-row">
+      <form action={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
         <input
           type="email"
           name="email"
           required
           placeholder="tu@email.com"
-          className="w-full rounded-full border border-border bg-bg px-5 py-3 text-sm text-text outline-none placeholder:text-text-muted focus:border-brown"
+          className="lht-input flex-1"
         />
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="whitespace-nowrap rounded-full border border-button bg-button px-5 py-3 text-[12px] font-medium text-button-text transition-transform duration-150 hover:-translate-y-0.5 disabled:opacity-60"
+          className="lht-btn lht-btn-primary disabled:opacity-60"
         >
           {status === 'loading' ? 'Enviando...' : 'Suscribirme'}
         </button>
       </form>
       {status === 'error' && (
-        <p className="mt-3 text-sm text-red-600">{message}</p>
+        <p className="mt-3 text-sm text-lht-red">{message}</p>
       )}
-      <p className="mt-3 text-[12px] leading-5 text-text-muted">
+      <p className="mt-3 text-[12px] leading-5 text-lht-muted">
         Puedes{' '}
-        <Link href="/baja" className="underline transition-colors hover:text-text">darte de baja</Link>
+        <Link href="/baja" className="underline hover:text-lht-ink">darte de baja</Link>
         {' '}en cualquier momento.{' '}
-        <Link href="/politica-privacidad" className="underline transition-colors hover:text-text">Política de privacidad</Link>.
+        <Link href="/politica-privacidad" className="underline hover:text-lht-ink">Política de privacidad</Link>.
       </p>
     </div>
   )
