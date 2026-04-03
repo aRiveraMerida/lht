@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# La Habitación Tortuga [LHT]
 
-## Getting Started
+Un archivo editorial sobre inteligencia artificial, estrategia y trabajo real.
 
-First, run the development server:
+## Qué es esto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+La Habitación Tortuga es un espacio donde dos profesionales comparten lo que aprenden trabajando con inteligencia artificial en el mundo real. Sin prisas, sin humo. Solo lo que hemos probado, lo que funciona y lo que todavía estamos aprendiendo.
+
+No somos teóricos. Escribimos desde la práctica: las decisiones difíciles, los errores útiles y los atajos que funcionan de verdad.
+
+## Quiénes somos
+
+**Alberto Rivera** — Ayuda a empresas a adoptar IA con criterio. +150 organizaciones, +10.000 profesionales formados. Escribe sobre las decisiones que importan y los errores que enseñan.
+
+**David Dix Hidalgo** — Especialista en automatizaciones, chatbots y agentes IA. Desarrolla soluciones adaptadas a cada cliente para potenciar recursos y optimizar procesos.
+
+## Stack
+
+- **Framework**: Next.js 16 (App Router, React 19, TypeScript)
+- **Estilos**: Tailwind CSS 4
+- **Blog**: Markdown con gray-matter + react-markdown
+- **Newsletter**: Resend (suscripción y baja)
+- **Media**: Vercel Blob
+- **Analytics**: Vercel Analytics
+- **Deploy**: Vercel
+
+## Estructura
+
+```
+app/
+  page.tsx              # Home
+  blog/
+    page.tsx            # Archivo (búsqueda + filtro por categoría)
+    blog-grid.tsx       # Grid client con filtrado
+    [slug]/page.tsx     # Post individual
+  baja/page.tsx         # Darse de baja
+  aviso-legal/          # Páginas legales
+  politica-privacidad/
+  politica-cookies/
+  feed.xml/route.ts     # RSS feed
+  api/upload/route.ts   # Upload de media (protegido)
+  actions/
+    subscribe.ts        # Server action: suscripción
+    unsubscribe.ts      # Server action: baja
+components/
+  Navbar.tsx            # Header sticky
+  Footer.tsx            # Footer con links legales
+  ProductCard.tsx       # Card de artículo con preview
+  AssetPreview.tsx      # Previews visuales (cover, window, shell)
+  NewsletterForm.tsx    # Formulario de suscripción
+  TopicChip.tsx         # Filtro de categorías
+  SectionLabel.tsx      # Labels de sección
+  TurtleLogo.tsx        # Logo SVG
+content/blog/           # Posts en Markdown
+lib/
+  posts.ts              # Lectura y parseo de posts
+  palette.ts            # Paleta de colores y categorías
+  assets.ts             # Variantes de preview
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Desarrollo local
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Variables de entorno
 
-## Learn More
+Crear `.env.local` en la raíz:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+RESEND_API_KEY=           # Desde Vercel Marketplace (Resend)
+RESEND_AUDIENCE_ID=       # Resend > Audiences > Newsletter LHT > ID
+UPLOAD_SECRET=            # Generar: node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Estas mismas variables deben estar en Vercel Dashboard > Settings > Environment Variables.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Crear un post
 
-## Deploy on Vercel
+Crear un archivo `.md` en `content/blog/`:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```markdown
+---
+title: "Título del post"
+date: "2025-01-20"
+excerpt: "Resumen breve (máx. 160 caracteres)"
+author: "Alberto Rivera"
+category: "Estrategia"
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contenido del post aquí...
+```
+
+Categorías disponibles: Laboratorios, Estrategia, Automatizaciones, Sin filtro, Adopción IA, Personas, Notas de campo.
+
+## Seguridad
+
+- Upload API protegida por `UPLOAD_SECRET` + validación de tipo (imágenes/PDF) y tamaño (10MB)
+- Validación de email por regex en suscripción y baja
+- Security headers: X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy
+- `.env.local` en `.gitignore`
+
+## Licencia
+
+Todos los contenidos son propiedad de sus autores. El código está disponible bajo licencia MIT.
+
+---
+
+lahabitaciontortuga.com

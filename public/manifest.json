@@ -1,0 +1,20 @@
+{
+  "name": "La Habitación Tortuga [LHT]",
+  "short_name": "LHT",
+  "description": "Un espacio para pensar despacio sobre inteligencia artificial",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["education", "technology", "business"],
+  "lang": "es-ES",
+  "dir": "ltr"
+}
