@@ -39,8 +39,7 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
           <SectionLabel>Archivo</SectionLabel>
           <h1 className="lht-display mt-4 text-display">Archivo</h1>
           <p className="mt-4 max-w-2xl text-[15px] leading-7 text-lht-muted">
-            Todos los artículos del laboratorio. Estrategia, automatizaciones, experimentos
-            y las preguntas que nadie se atreve a hacer.
+            Dos profesionales de IA pensando despacio. Estrategia, adopción, laboratorios y lo que no se dice.
           </p>
 
           <div className="mt-5 flex max-w-xl items-center gap-3 border-2 border-lht-line bg-lht-paper px-4 py-3">
