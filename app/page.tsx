@@ -18,39 +18,38 @@ export default function Home() {
         <div className="lht-container py-6 md:py-8">
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1.25fr_0.75fr]">
             <div className="lht-panel">
-              <SectionLabel number="01">Opening statement</SectionLabel>
+              <SectionLabel number="01">Apertura</SectionLabel>
 
               <h1 className="lht-display mt-6 max-w-5xl text-hero">
-                esto no es<br />
-                un blog<br />
-                sobre ia.<br />
-                <span className="text-lht-muted">es donde<br />paro a pensar.</span>
+                la habitación<br />
+                tortuga<br />
+                [lht] 🐢
               </h1>
 
               <p className="mt-6 max-w-2xl text-lg leading-[1.9] md:text-xl">
-                Estrategia, trabajo real y decisiones difíciles alrededor de la inteligencia artificial.
-                Sin prisas, sin humo. Solo lo que hemos probado y lo que todavía estamos aprendiendo.
+                Dos profesionales de IA que paran a pensar. Probamos. Reflexionamos.
+                Y lanzamos laboratorios. Sin prisa. Sin FOMO. Con criterio.
               </p>
 
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link href="/blog" className="lht-btn lht-btn-primary">Ver archivo →</Link>
-                <a href="#suscribete" className="lht-btn lht-btn-secondary">Recibir por email</a>
+                <a href="#suscribete" className="lht-btn lht-btn-secondary">Unirme a la comunidad 🐢</a>
               </div>
             </div>
 
             <div className="grid grid-cols-1 gap-4">
               <div className="border-2 border-lht-line bg-lht-blue p-5 text-lht-paper md:p-6">
-                <div className="text-[11px] font-black uppercase tracking-[0.18em]">Mission</div>
+                <div className="text-[11px] font-black uppercase tracking-[0.18em]">Misión</div>
                 <p className="mt-3 text-sm leading-7 text-white/90">
-                  Dos personas pensando despacio sobre lo que cambia demasiado rápido.
-                  Criterio antes que velocidad. Preguntas antes que respuestas.
+                  Un sitio donde la IA no va a 200 por hora. Probamos de verdad.
+                  Pensamos despacio. Compartimos sin filtro.
                 </p>
               </div>
 
               <div className="border-2 border-lht-line bg-lht-yellow p-5 text-lht-ink md:p-6">
-                <div className="text-[11px] font-black uppercase tracking-[0.18em]">Mood</div>
+                <div className="text-[11px] font-black uppercase tracking-[0.18em]">Actitud</div>
                 <div className="lht-title mt-4 text-[32px]">
-                  Quiet.<br />Focused.<br />Intentional.
+                  Despacio.<br />Con foco.<br />Con criterio.
                 </div>
               </div>
             </div>
@@ -62,9 +61,9 @@ export default function Home() {
       <section className="border-b-2 border-lht-line">
         <div className="lht-container py-4">
           <div className="flex items-center justify-between gap-4">
-            <SectionLabel number="02">Topics</SectionLabel>
+            <SectionLabel number="02">Temas</SectionLabel>
             <div className="hidden text-[11px] font-black uppercase tracking-[0.18em] text-lht-muted md:block">
-              pick your discomfort
+              elige tu incomodidad
             </div>
           </div>
           <div className="mt-4 flex gap-3 overflow-x-auto pb-1">
@@ -116,11 +115,11 @@ export default function Home() {
           <div className="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2">
             <div className="lht-panel">
               <h2 className="lht-display text-display">
-                Dos profesionales.<br />Un archivo compartido.
+                Dos profesionales.<br />Una misma frustración.
               </h2>
               <p className="mt-4 text-[15px] leading-7 text-lht-muted">
-                No somos teóricos. Trabajamos cada día con IA en empresas reales.
-                Aquí compartimos las decisiones difíciles, los errores útiles y los atajos que funcionan de verdad.
+                Demasiado ruido, demasiado FOMO, poca conversación honesta sobre lo que está pasando.
+                La Habitación Tortuga es nuestra forma de arreglarlo.
               </p>
             </div>
 
@@ -134,7 +133,8 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="mt-3 text-sm leading-6 text-lht-muted">
-                  Ayudo a empresas a adoptar IA con criterio. +150 organizaciones, +10.000 profesionales formados.
+                  Director de IA en ThePower. +150 empresas. +10.000 profesionales formados.
+                  Clientes como KPMG, EY, L'Oréal o Estrella Galicia. Obsesión: que la IA se use de verdad.
                 </p>
               </div>
               <div className="lht-panel">
@@ -146,7 +146,8 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="mt-3 text-sm leading-6 text-lht-muted">
-                  Especialista en automatizaciones, chatbots y agentes IA. Soluciones que optimizan procesos de verdad.
+                  Especialista en IA en ThePower. Implementa antes de divulgar.
+                  Lleva herramientas al terreno real: workflows, automatizaciones, casos de uso que funcionan el lunes por la mañana.
                 </p>
               </div>
             </div>
@@ -160,11 +161,17 @@ export default function Home() {
           <SectionLabel number="05">Newsletter</SectionLabel>
           <div className="mt-6 max-w-2xl lht-panel">
             <h2 className="lht-title text-[28px] md:text-[36px]">
-              Ideas que merecen tiempo de lectura.
+              Comunidad tortuga 🐢
             </h2>
             <p className="mt-3 text-[15px] leading-7 text-lht-muted">
-              Una vez a la semana. Un artículo, un aprendizaje o una herramienta. Sin spam, sin urgencia.
+              Una newsletter sin calendario fijo. Publicamos cada semana como mínimo,
+              pero solo cuando hay algo que merece tu tiempo. Sin spam. Sin FOMO. Sin envíos vacíos.
             </p>
+            <div className="mt-4 text-[15px] leading-7 text-lht-muted">
+              — Lo que hemos probado y aprendido<br />
+              — Reflexiones que no caben en LinkedIn<br />
+              — Aviso de nuevos laboratorios
+            </div>
             <div className="mt-5">
               <NewsletterForm />
             </div>
