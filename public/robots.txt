@@ -1,33 +1,35 @@
-# La Habitación Tortuga [LHT]
-# https://lahabitaciontortuga.com
-
+# *
 User-agent: *
 Allow: /
-
-# Bloquear directorios innecesarios
 Disallow: /api/
-Disallow: /_next/static/
-Disallow: /.git/
+Disallow: /_next/
 
-# AI bots - allowed
+# GPTBot
 User-agent: GPTBot
 Allow: /
 
+# ClaudeBot
 User-agent: ClaudeBot
 Allow: /
 
+# PerplexityBot
 User-agent: PerplexityBot
 Allow: /
 
-# Social bots
+# Twitterbot
 User-agent: Twitterbot
 Allow: /
 
+# facebookexternalhit
 User-agent: facebookexternalhit
 Allow: /
 
+# LinkedInBot
 User-agent: LinkedInBot
 Allow: /
+
+# Host
+Host: https://lahabitaciontortuga.com
 
 # Sitemaps
 Sitemap: https://lahabitaciontortuga.com/sitemap.xml

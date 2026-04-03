@@ -2,16 +2,16 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Política de Cookies',
-  description: 'Política de cookies de La Habitación Tortuga.',
+  description: 'Política de cookies de La Habitación Tortuga. Este sitio no usa cookies de seguimiento.',
 };
 
 export default function PoliticaCookies() {
   return (
-    <div className="pt-28 pb-20 px-4 md:px-8 max-w-[700px] mx-auto ">
-      <h1 className="text-4xl font-bold text-text mb-4">Política de Cookies</h1>
-      <p className="text-sm text-text/50 mb-10">Última actualización: enero 2025</p>
+    <div className="px-4 py-16 md:px-8 md:py-20 max-w-[700px] mx-auto">
+      <h1 className="text-3xl font-semibold tracking-[-0.04em] text-text mb-4 md:text-4xl">Política de Cookies</h1>
+      <p className="text-sm text-text-muted mb-10">Última actualización: abril 2026</p>
 
-      <div className="space-y-8 text-text/80 leading-relaxed">
+      <div className="space-y-8 text-[15px] text-text/80 leading-7">
         <p>
           Este sitio no usa cookies de análisis, publicidad ni seguimiento.
           Solo cookies técnicas necesarias para su funcionamiento.
@@ -22,7 +22,7 @@ export default function PoliticaCookies() {
         </p>
 
         <p>
-          Contacto: [COMPLETAR EMAIL]
+          Contacto: hola@lahabitaciontortuga.com
         </p>
       </div>
     </div>

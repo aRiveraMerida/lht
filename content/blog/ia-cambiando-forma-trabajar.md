@@ -1,9 +1,11 @@
 ---
 title: "Las decisiones sobre IA que nadie te prepara para tomar"
 date: "2025-02-03"
+description: "No son decisiones técnicas. Son decisiones sobre personas, estrategia y qué tipo de profesional quieres ser. No hay manual para ninguna."
 excerpt: "No son decisiones técnicas. Son decisiones sobre personas, sobre estrategia, sobre qué tipo de profesional quieres ser. Y no hay manual para ninguna."
 author: "Alberto Rivera"
 category: "Estrategia"
+image: "/favicon.svg"
 ---
 
 Llevo meses tomando decisiones sobre IA. Para mí, para clientes, para equipos.

@@ -1,9 +1,11 @@
 ---
 title: "Lo que he aprendido adoptando IA sin mapa"
 date: "2025-02-20"
+description: "No había manual ni hoja de ruta. Solo preguntas, pruebas y la honestidad de admitir que estaba improvisando. Lo que me ha enseñado el camino."
 excerpt: "No había manual. No había hoja de ruta. Solo preguntas, pruebas y la honestidad de admitir que estaba improvisando. Esto es lo que me ha enseñado el camino."
 author: "Alberto Rivera"
 category: "Laboratorios"
+image: "/favicon.svg"
 ---
 
 Cuando empecé a integrar IA en mi trabajo de verdad, no tenía un plan.

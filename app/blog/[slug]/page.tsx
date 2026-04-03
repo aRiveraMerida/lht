@@ -24,19 +24,31 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = getPostBySlug(slug);
   if (!post) return { title: 'Post no encontrado' };
 
+  const url = `https://lahabitaciontortuga.com/blog/${slug}`;
+  const imageUrl = post.image.startsWith('http') ? post.image : `https://lahabitaciontortuga.com${post.image}`;
+
   return {
     title: post.title,
-    description: post.excerpt,
+    description: post.description,
     authors: [{ name: post.author }],
+    alternates: { canonical: url },
     openGraph: {
       title: post.title,
-      description: post.excerpt,
+      description: post.description,
       type: 'article',
       publishedTime: post.date,
       authors: [post.author],
-      url: `https://lahabitaciontortuga.com/blog/${slug}`,
+      url,
+      siteName: 'La Habitación Tortuga [LHT]',
+      locale: 'es_ES',
+      images: [{ url: imageUrl, width: 1200, height: 630, alt: post.title }],
     },
-    twitter: { card: 'summary_large_image', title: post.title, description: post.excerpt },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+      images: [imageUrl],
+    },
   };
 }
 
@@ -45,14 +57,29 @@ export default async function BlogPostPage({ params }: PageProps) {
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
+  const url = `https://lahabitaciontortuga.com/blog/${slug}`;
+  const imageUrl = post.image.startsWith('http') ? post.image : `https://lahabitaciontortuga.com${post.image}`;
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: post.title,
-    description: post.excerpt,
-    author: { '@type': 'Person', name: post.author },
+    description: post.description,
+    author: {
+      '@type': 'Person',
+      name: post.author,
+      url: 'https://www.linkedin.com/in/albertoriveramerida',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'La Habitación Tortuga',
+      logo: { '@type': 'ImageObject', url: 'https://lahabitaciontortuga.com/favicon.svg' },
+    },
     datePublished: post.date,
-    url: `https://lahabitaciontortuga.com/blog/${slug}`,
+    url,
+    image: imageUrl,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    inLanguage: 'es-ES',
   };
 
   return (
@@ -62,24 +89,26 @@ export default async function BlogPostPage({ params }: PageProps) {
       {/* Header */}
       <section className="border-b border-border">
         <div className="mx-auto max-w-3xl px-4 py-8 md:px-6 md:py-10">
-          <nav className="mb-5 flex items-center gap-2 text-[11px] font-medium text-text-muted">
+          <nav aria-label="Breadcrumb" className="mb-5 flex items-center gap-2 text-[11px] font-medium text-text-muted">
             <Link href="/" className="transition-colors hover:text-text">Inicio</Link>
-            <span>/</span>
+            <span aria-hidden="true">/</span>
             <Link href="/blog" className="transition-colors hover:text-text">Blog</Link>
-            <span>/</span>
+            <span aria-hidden="true">/</span>
             <span className="text-text">{post.category}</span>
           </nav>
 
           <div className="mb-4 flex flex-wrap items-center gap-3 text-[11px] font-medium uppercase tracking-[0.16em] text-brown">
             <span>{post.category}</span>
-            <span className="text-border">·</span>
+            <span className="text-border" aria-hidden="true">·</span>
             <span className="inline-flex items-center gap-1 normal-case tracking-normal text-text-muted">
-              <Clock size={12} /> {post.readingTime}
+              <Clock size={12} aria-hidden="true" /> <time>{post.readingTime}</time>
             </span>
-            <span className="text-border">·</span>
+            <span className="text-border" aria-hidden="true">·</span>
             <span className="inline-flex items-center gap-1 normal-case tracking-normal text-text-muted">
-              <Calendar size={12} />
-              {new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+              <Calendar size={12} aria-hidden="true" />
+              <time dateTime={post.date}>
+                {new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
             </span>
           </div>
 
@@ -131,7 +160,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               href="/blog"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-bg px-4 py-2.5 text-[12px] font-medium text-text transition-transform hover:-translate-y-0.5"
             >
-              <ArrowLeft size={14} /> Ver todos los artículos
+              <ArrowLeft size={14} aria-hidden="true" /> Ver todos los artículos
             </Link>
           </div>
         </div>

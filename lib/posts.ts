@@ -8,9 +8,11 @@ export interface PostData {
   slug: string;
   title: string;
   date: string;
+  description: string;
   excerpt: string;
   author: string;
   category: string;
+  image: string;
   content: string;
   readingTime?: string;
 }
@@ -29,7 +31,6 @@ export function getAllPosts(): PostData[] {
       const fileContents = fs.readFileSync(fullPath, 'utf8');
       const { data, content } = matter(fileContents);
 
-      // Calculate reading time (approx 200 words per minute)
       const words = content.split(/\s+/).length;
       const readingTime = Math.ceil(words / 200);
 
@@ -37,9 +38,11 @@ export function getAllPosts(): PostData[] {
         slug,
         title: data.title,
         date: data.date,
+        description: data.description || data.excerpt,
         excerpt: data.excerpt,
         author: data.author,
         category: data.category,
+        image: data.image || '/favicon.svg',
         content,
         readingTime: `${readingTime} min`,
       } as PostData;
@@ -61,13 +64,15 @@ export function getPostBySlug(slug: string): PostData | null {
       slug,
       title: data.title,
       date: data.date,
+      description: data.description || data.excerpt,
       excerpt: data.excerpt,
       author: data.author,
       category: data.category,
+      image: data.image || '/favicon.svg',
       content,
       readingTime: `${readingTime} min`,
     };
-  } catch (error) {
+  } catch {
     return null;
   }
 }
