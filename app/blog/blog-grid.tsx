@@ -73,6 +73,18 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
         </div>
       </section>
 
+      {/* Transition banner */}
+      <section className="border-b-2 border-lht-line">
+        <div className="lht-container py-4">
+          <div className="lht-panel bg-lht-yellow">
+            <p className="text-sm leading-6 text-lht-ink">
+              Los primeros artículos de La Habitación Tortuga son de Alberto. A partir de aquí, escribimos los dos.
+              Los posts generales van firmados por LHT. Los específicos, por quien los escribe.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Grid */}
       <section>
         <div className="lht-container py-8 md:py-10">
