@@ -176,8 +176,6 @@
   }
   @media (min-width: 768px) { .lht-asset { padding: 1.5rem; } }
 
-  .lht-divider { border-top: 2px solid var(--color-lht-line); }
-
   .lht-label-row {
     display: flex;
     align-items: center;
