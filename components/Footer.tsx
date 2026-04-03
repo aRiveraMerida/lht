@@ -8,11 +8,11 @@ export const Footer: React.FC = () => {
           <div>
             <div className="lht-kicker">La Habitación Tortuga</div>
             <div className="lht-title mt-4 max-w-2xl">
-              un archivo para pensar antes de hacer.
+              IA sin FOMO.
             </div>
             <p className="mt-4 max-w-2xl text-[15px] leading-7">
-              Escribimos sobre inteligencia artificial, estrategia y automatizaciones desde la práctica.
-              Sin humo. Sin urgencia. Solo lo que merece quedarse.
+              No tenemos todas las respuestas. Pero preferimos pensar despacio y acertar
+              que correr y tropezar con lo mismo que todos. Si eso te suena, ya eres tortuga. 🐢
             </p>
           </div>
         </div>
