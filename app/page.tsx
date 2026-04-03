@@ -23,7 +23,7 @@ export default function Home() {
               <h1 className="lht-display mt-6 max-w-5xl text-hero">
                 la habitación<br />
                 tortuga<br />
-                [lht] 🐢
+                [lht]
               </h1>
 
               <p className="mt-6 max-w-2xl text-lg leading-[1.9] md:text-xl">
@@ -33,7 +33,7 @@ export default function Home() {
 
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link href="/blog" className="lht-btn lht-btn-primary">Ver archivo →</Link>
-                <a href="#suscribete" className="lht-btn lht-btn-secondary">Unirme a la comunidad 🐢</a>
+                <a href="#suscribete" className="lht-btn lht-btn-secondary">Unirme a la comunidad</a>
               </div>
             </div>
 
@@ -161,7 +161,7 @@ export default function Home() {
           <SectionLabel number="05">Newsletter</SectionLabel>
           <div className="mt-6 max-w-2xl lht-panel">
             <h2 className="lht-title text-[28px] md:text-[36px]">
-              Comunidad tortuga 🐢
+              Comunidad tortuga
             </h2>
             <p className="mt-3 text-[15px] leading-7 text-lht-muted">
               Una newsletter sin calendario fijo. Publicamos cada semana como mínimo,

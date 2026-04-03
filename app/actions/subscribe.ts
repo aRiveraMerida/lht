@@ -34,7 +34,7 @@ export async function subscribe(formData: FormData) {
     await resend.emails.send({
       from: 'La Habitación Tortuga <onboarding@resend.dev>',
       to: normalizedEmail,
-      subject: 'Bienvenido/a a la comunidad tortuga 🐢',
+      subject: 'Bienvenido/a a la comunidad tortuga',
       text: `Hola,
 
 Somos Alberto y David. Esto es La Habitación Tortuga.
@@ -52,7 +52,7 @@ Publicamos cada semana como mínimo. Pero si una semana no tenemos nada que valg
 Mientras tanto, puedes echar un vistazo a lo que ya hemos escrito:
 → https://lahabitaciontortuga.com/blog
 
-Bienvenido/a al caparazón. 🐢
+Bienvenido/a al caparazón.
 
 Alberto y David
 La Habitación Tortuga [LHT]`,

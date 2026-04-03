@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
             </div>
             <p className="mt-4 max-w-2xl text-[15px] leading-7">
               No tenemos todas las respuestas. Pero preferimos pensar despacio y acertar
-              que correr y tropezar con lo mismo que todos. Si eso te suena, ya eres tortuga. 🐢
+              que correr y tropezar con lo mismo que todos. Si eso te suena, ya eres tortuga.
             </p>
           </div>
         </div>
