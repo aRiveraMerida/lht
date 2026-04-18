@@ -1,25 +1,21 @@
 export const categories = [
   'Todos',
   'Laboratorios',
-  'Estrategia',
-  'Automatizaciones',
-  'Sin filtro',
+  'Sin Filtro',
   'Adopción IA',
-  'Personas',
-  'Notas de campo',
+  'Estrategia',
+  'Guías',
 ] as const
 
 // Solid accent per category — the ONLY color allowed in chrome outside the hero gradient.
-// Used as a 8px dot inside the <CategoryTag />.
+// Used as an 8px dot inside the <fg-cat-tag /> pill.
 export const categoryAccents: Record<string, string> = {
   Todos: '#000000',
   Laboratorios: '#00D26A',
-  Estrategia: '#8B5CF6',
-  Automatizaciones: '#FF4DA6',
-  'Sin filtro': '#FFE55C',
+  'Sin Filtro': '#FFE55C',
   'Adopción IA': '#00A3FF',
-  Personas: '#FF6B3D',
-  'Notas de campo': '#111111',
+  Estrategia: '#8B5CF6',
+  'Guías': '#FF4DA6',
 }
 
 export function getCategoryAccent(category: string): string {
