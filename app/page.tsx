@@ -108,10 +108,12 @@ export default function Home() {
                 slug={post.slug}
                 category={post.category}
                 title={post.title}
-                meta={`${new Date(post.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' }).toUpperCase()} · ${post.author.toUpperCase()}`}
+                date={post.date}
+                authorSlugs={post.authors}
                 excerpt={post.excerpt}
                 variant={getPreviewVariant(index)}
                 index={index}
+                featured={post.featured}
               />
             ))}
           </div>

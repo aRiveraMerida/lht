@@ -12,10 +12,12 @@ interface PostMeta {
   slug: string
   category: string
   title: string
-  meta: string
+  date: string
+  authorSlugs: string[]
   excerpt: string
   variant: PreviewVariant
   index: number
+  featured?: boolean
 }
 
 export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories: string[] }) {
@@ -126,10 +128,12 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
                   slug={post.slug}
                   category={post.category}
                   title={post.title}
-                  meta={post.meta}
+                  date={post.date}
+                  authorSlugs={post.authorSlugs}
                   excerpt={post.excerpt}
                   variant={post.variant}
                   index={i}
+                  featured={post.featured}
                 />
               ))}
             </div>

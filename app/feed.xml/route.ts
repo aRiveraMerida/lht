@@ -1,22 +1,24 @@
 import { getAllPosts } from '@/lib/posts';
+import { getAuthors } from '@/lib/authors';
 
 export async function GET() {
   const posts = getAllPosts();
   const siteUrl = 'https://lahabitaciontortuga.com';
 
   const items = posts
-    .map(
-      (post) => `
+    .map((post) => {
+      const authorNames = getAuthors(post.authors).map((a) => a.name).join(', ');
+      return `
     <item>
       <title><![CDATA[${post.title}]]></title>
       <link>${siteUrl}/blog/${post.slug}</link>
       <guid isPermaLink="true">${siteUrl}/blog/${post.slug}</guid>
       <description><![CDATA[${post.excerpt}]]></description>
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-      <author>${post.author}</author>
+      <author>${authorNames}</author>
       <category>${post.category}</category>
-    </item>`
-    )
+    </item>`;
+    })
     .join('');
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

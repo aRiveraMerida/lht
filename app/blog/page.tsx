@@ -7,7 +7,7 @@ import { BlogGrid } from './blog-grid';
 
 export const metadata: Metadata = {
   title: 'Archivo — La Habitación Tortuga',
-  description: 'Todos los artículos del laboratorio. Estrategia, automatizaciones, experimentos y reflexiones sobre IA.',
+  description: 'Todo lo publicado sobre IA desde la práctica. Laboratorios, casos prácticos, estrategia y preguntas honestas.',
 };
 
 export default function BlogPage() {
@@ -17,10 +17,12 @@ export default function BlogPage() {
     slug: post.slug,
     category: post.category,
     title: post.title,
-    meta: `${new Date(post.date).toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' }).toUpperCase()} · ${post.author.toUpperCase()}`,
+    date: post.date,
+    authorSlugs: post.authors,
     excerpt: post.excerpt,
     variant: getPreviewVariant(index),
     index,
+    featured: Boolean(post.featured),
   }));
 
   return (

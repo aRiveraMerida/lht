@@ -7,7 +7,9 @@ import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeRaw from 'rehype-raw';
 import { getPostBySlug, getPostSlugs } from '@/lib/posts';
+import { getAuthors } from '@/lib/authors';
 import { NewsletterForm } from '@/components/NewsletterForm';
+import { AuthorBio } from '@/components/AuthorBio';
 import { getCategoryAccent } from '@/lib/palette';
 import 'highlight.js/styles/github-dark.css';
 
@@ -26,18 +28,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const url = `https://lahabitaciontortuga.com/blog/${slug}`;
   const imageUrl = post.image.startsWith('http') ? post.image : `https://lahabitaciontortuga.com${post.image}`;
+  const authors = getAuthors(post.authors);
+  const truncate = (s: string, n = 155) => (s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s);
 
   return {
-    title: post.title,
-    description: post.description,
-    authors: [{ name: post.author }],
+    title: `${post.title} — La Habitación Tortuga`,
+    description: truncate(post.excerpt),
+    authors: authors.map((a) => ({ name: a.name, url: a.linkedin })),
     alternates: { canonical: url },
     openGraph: {
       title: post.title,
-      description: post.description,
+      description: truncate(post.excerpt),
       type: 'article',
       publishedTime: post.date,
-      authors: [post.author],
+      authors: authors.map((a) => a.name),
       url,
       siteName: 'La Habitación Tortuga [LHT]',
       locale: 'es_ES',
@@ -46,16 +50,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     twitter: {
       card: 'summary_large_image',
       title: post.title,
-      description: post.description,
+      description: truncate(post.excerpt),
       images: [imageUrl],
     },
   };
 }
 
+const joinNames = (parts: string[]): string => {
+  if (parts.length <= 1) return parts.join('');
+  if (parts.length === 2) return parts.join(' y ');
+  return parts.slice(0, -1).join(' · ') + ' y ' + parts[parts.length - 1];
+};
+
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) notFound();
+
+  const authors = getAuthors(post.authors);
 
   const url = `https://lahabitaciontortuga.com/blog/${slug}`;
   const imageUrl = post.image.startsWith('http') ? post.image : `https://lahabitaciontortuga.com${post.image}`;
@@ -65,7 +77,9 @@ export default async function BlogPostPage({ params }: PageProps) {
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.description,
-    author: { '@type': 'Person', name: post.author, url: 'https://www.linkedin.com/in/albertoriveramerida' },
+    author: authors.length > 0
+      ? authors.map((a) => ({ '@type': 'Person', name: a.name, url: a.linkedin }))
+      : undefined,
     publisher: { '@type': 'Organization', name: 'La Habitación Tortuga', logo: { '@type': 'ImageObject', url: 'https://lahabitaciontortuga.com/favicon.svg' } },
     datePublished: post.date,
     url,
@@ -73,6 +87,8 @@ export default async function BlogPostPage({ params }: PageProps) {
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
     inLanguage: 'es-ES',
   };
+
+  const byline = joinNames(authors.map((a) => a.name));
 
   return (
     <div>
@@ -86,28 +102,39 @@ export default async function BlogPostPage({ params }: PageProps) {
             <span aria-hidden="true">/</span>
             <Link href="/blog" className="hover:text-ink transition-colors">Archivo</Link>
             <span aria-hidden="true">/</span>
-            <span className="text-ink">{post.category}</span>
+            <span className="text-ink">{post.title}</span>
           </nav>
 
           <div className="flex flex-wrap items-center gap-4 mb-8">
-            <span
-              className="fg-cat-tag"
+            <Link
+              href={`/blog?category=${encodeURIComponent(post.category)}`}
+              className="fg-cat-tag hover:opacity-80 transition-opacity"
               style={{ ['--tag-color' as string]: getCategoryAccent(post.category) }}
             >
               {post.category}
-            </span>
+            </Link>
             <span className="fg-mono-label text-ink/55">{post.readingTime}</span>
             <time dateTime={post.date} className="fg-mono-label text-ink/55">
               {new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
             </time>
           </div>
 
-          <h1 className="fg-display max-w-[20ch]">
-            {post.title}
-          </h1>
-          <p className="fg-body-lg mt-8 max-w-2xl text-ink/65">
-            {post.excerpt}
-          </p>
+          <h1 className="fg-display max-w-[20ch]">{post.title}</h1>
+          <p className="fg-body-lg mt-8 max-w-2xl text-ink/65">{post.excerpt}</p>
+
+          {byline && (
+            <p className="fg-mono-label mt-10 text-ink/70">
+              Por{' '}
+              {authors.map((a, i) => (
+                <span key={a.slug}>
+                  <a href={a.linkedin} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
+                    {a.name}
+                  </a>
+                  {i < authors.length - 2 ? ' · ' : i === authors.length - 2 ? ' y ' : ''}
+                </span>
+              ))}
+            </p>
+          )}
         </div>
       </section>
 
@@ -120,8 +147,15 @@ export default async function BlogPostPage({ params }: PageProps) {
             </ReactMarkdown>
           </article>
 
+          {/* Author bios */}
+          {authors.length > 0 && (
+            <div className="mt-20">
+              <AuthorBio authorSlugs={post.authors} />
+            </div>
+          )}
+
           {/* Newsletter CTA */}
-          <div className="fg-reading mt-20">
+          <div className="fg-reading mt-16">
             <div className="rounded-lg bg-black/5 p-8">
               <h3 className="fg-feature-title">Si esto te ha hecho pensar, hay más.</h3>
               <p className="fg-body mt-2 text-ink/65">

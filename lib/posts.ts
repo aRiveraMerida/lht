@@ -10,11 +10,20 @@ export interface PostData {
   date: string;
   description: string;
   excerpt: string;
-  author: string;
+  authors: string[];
   category: string;
   image: string;
+  featured?: boolean;
   content: string;
   readingTime?: string;
+}
+
+function parseAuthors(data: Record<string, unknown>): string[] {
+  // New schema: authors as string[] of author slugs.
+  if (Array.isArray(data.authors)) {
+    return data.authors.filter((a): a is string => typeof a === 'string')
+  }
+  return []
 }
 
 export function getAllPosts(): PostData[] {
@@ -40,9 +49,10 @@ export function getAllPosts(): PostData[] {
         date: data.date,
         description: data.description || data.excerpt,
         excerpt: data.excerpt,
-        author: data.author,
+        authors: parseAuthors(data),
         category: data.category,
         image: data.image || '/favicon.svg',
+        featured: Boolean(data.featured),
         content,
         readingTime: `${readingTime} min`,
       } as PostData;
@@ -66,9 +76,10 @@ export function getPostBySlug(slug: string): PostData | null {
       date: data.date,
       description: data.description || data.excerpt,
       excerpt: data.excerpt,
-      author: data.author,
+      authors: parseAuthors(data),
       category: data.category,
       image: data.image || '/favicon.svg',
+      featured: Boolean(data.featured),
       content,
       readingTime: `${readingTime} min`,
     };
@@ -83,4 +94,10 @@ export function getPostSlugs(): string[] {
   }
   const fileNames = fs.readdirSync(postsDirectory);
   return fileNames.filter((fileName) => fileName.endsWith('.md')).map((fileName) => fileName.replace(/\.md$/, ''));
+}
+
+export function getRelatedPosts(currentSlug: string, category: string, limit = 3): PostData[] {
+  return getAllPosts()
+    .filter((p) => p.slug !== currentSlug && p.category === category)
+    .slice(0, limit);
 }
