@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Search, X } from 'lucide-react'
@@ -33,18 +34,26 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
     return matchesCategory && matchesSearch
   })
 
+  const hasAnyPosts = posts.length > 0
+  const filterIsActive = activeCategory !== 'Todos' || searchQuery !== ''
+
+  const gridClass =
+    filtered.length >= 3
+      ? 'grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3'
+      : filtered.length === 2
+        ? 'grid grid-cols-1 gap-8 md:grid-cols-2 max-w-4xl mx-auto'
+        : 'grid grid-cols-1 gap-8 max-w-3xl mx-auto'
+
   return (
     <div>
       {/* Header */}
       <section className="hairline-b">
         <div className="fg-container py-20 md:py-24">
           <SectionLabel>Archivo</SectionLabel>
-          <h1 className="fg-display mt-6 max-w-[14ch]">
-            Archivo.
-          </h1>
+          <h1 className="fg-display mt-6 max-w-[16ch]">Todo lo publicado.</h1>
           <p className="fg-body-lg mt-6 max-w-2xl text-ink/65">
-            Dos profesionales de IA pensando despacio. Estrategia, adopción,
-            laboratorios y lo que no se dice.
+            Sin orden cronológico obligatorio. Busca por categoría, o deja que algo te
+            llame la atención.
           </p>
 
           <div className="mt-10 flex max-w-xl items-center gap-3 rounded-full bg-black/5 px-5 py-3.5">
@@ -87,41 +96,36 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
         </div>
       </section>
 
-      {/* Transition banner */}
-      <section className="hairline-b">
-        <div className="fg-container py-8">
-          <div className="flex items-start gap-3 rounded-lg bg-black/5 p-5 md:p-6">
-            <span
-              className="shrink-0 mt-1.5 h-2 w-2 rounded-full"
-              style={{ background: '#FFE55C' }}
-              aria-hidden="true"
-            />
-            <p className="fg-body text-ink/80">
-              Los primeros artículos de La Habitación Tortuga son de Alberto.
-              A partir de aquí, escribimos los dos. Los posts generales van firmados
-              por LHT. Los específicos, por quien los escribe.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Grid */}
       <section>
         <div className="fg-container py-16 md:py-20">
           {filtered.length === 0 ? (
-            <div className="py-24 text-center">
-              <p className="fg-feature-title">
-                {searchQuery ? `Sin resultados para "${searchQuery}"` : 'No hay artículos aquí.'}
+            <div className="mx-auto max-w-xl text-center py-16 md:py-24">
+              <h2 className="fg-section-heading">
+                {filterIsActive ? 'Aquí todavía no hay nada.' : 'Aquí todavía no hay nada.'}
+              </h2>
+              <p className="fg-body-lg mt-6 text-ink/65">
+                Publicamos cuando hay algo que probar, no antes.
+                {hasAnyPosts && filterIsActive
+                  ? ' Prueba otra categoría o vuelve al archivo completo.'
+                  : ' Vuelve o apúntate a la newsletter si quieres que te avisemos.'}
               </p>
-              <button
-                onClick={() => { setActiveCategory('Todos'); setSearchQuery('') }}
-                className="fg-btn fg-btn-glass-dark mt-6"
-              >
-                Ver todos
-              </button>
+              <div className="mt-8 flex justify-center gap-3 flex-wrap">
+                {filterIsActive && (
+                  <button
+                    onClick={() => { setActiveCategory('Todos'); setSearchQuery('') }}
+                    className="fg-btn fg-btn-primary"
+                  >
+                    Ir al archivo completo
+                  </button>
+                )}
+                <Link href="/#suscribete" className="fg-btn fg-btn-glass-dark">
+                  Apuntarme a la newsletter
+                </Link>
+              </div>
             </div>
           ) : (
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+            <div className={gridClass}>
               {filtered.map((post, i) => (
                 <ProductCard
                   key={post.slug}
@@ -133,7 +137,7 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
                   excerpt={post.excerpt}
                   variant={post.variant}
                   index={i}
-                  featured={post.featured}
+                  featured={filtered.length === 1 && post.featured}
                 />
               ))}
             </div>

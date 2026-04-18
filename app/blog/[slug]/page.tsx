@@ -6,10 +6,11 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeRaw from 'rehype-raw';
-import { getPostBySlug, getPostSlugs } from '@/lib/posts';
+import { getPostBySlug, getPostSlugs, getRelatedPosts } from '@/lib/posts';
 import { getAuthors } from '@/lib/authors';
-import { NewsletterForm } from '@/components/NewsletterForm';
 import { AuthorBio } from '@/components/AuthorBio';
+import { ProductCard } from '@/components/ProductCard';
+import { getPreviewVariant } from '@/lib/assets';
 import { getCategoryAccent } from '@/lib/palette';
 import 'highlight.js/styles/github-dark.css';
 
@@ -68,6 +69,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   if (!post) notFound();
 
   const authors = getAuthors(post.authors);
+  const related = getRelatedPosts(slug, post.category, 3);
 
   const url = `https://lahabitaciontortuga.com/blog/${slug}`;
   const imageUrl = post.image.startsWith('http') ? post.image : `https://lahabitaciontortuga.com${post.image}`;
@@ -157,12 +159,14 @@ export default async function BlogPostPage({ params }: PageProps) {
           {/* Newsletter CTA */}
           <div className="fg-reading mt-16">
             <div className="rounded-lg bg-black/5 p-8">
-              <h3 className="fg-feature-title">Si esto te ha hecho pensar, hay más.</h3>
+              <h3 className="fg-feature-title">¿Te ha resonado?</h3>
               <p className="fg-body mt-2 text-ink/65">
-                Una vez a la semana. Sin spam, sin urgencia.
+                Entra en la newsletter. Publicamos así, cada semana como mucho.
               </p>
               <div className="mt-6">
-                <NewsletterForm compact />
+                <Link href="/#suscribete" className="fg-btn fg-btn-primary">
+                  Apuntarme
+                </Link>
               </div>
             </div>
 
@@ -174,6 +178,30 @@ export default async function BlogPostPage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      {/* Sigue leyendo */}
+      {related.length > 0 && (
+        <section className="hairline-t bg-black/[0.02]">
+          <div className="fg-container py-16 md:py-20">
+            <div className="fg-mono-label-lg mb-10">Sigue leyendo</div>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {related.map((rp, i) => (
+                <ProductCard
+                  key={rp.slug}
+                  slug={rp.slug}
+                  category={rp.category}
+                  title={rp.title}
+                  date={rp.date}
+                  authorSlugs={rp.authors}
+                  excerpt={rp.excerpt}
+                  variant={getPreviewVariant(i)}
+                  index={i}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </div>
   );
 }
