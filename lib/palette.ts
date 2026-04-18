@@ -5,5 +5,4 @@ export const categories = [
   'Sin Filtro',
   'Adopción IA',
   'Estrategia',
-  'Guías',
 ] as const
