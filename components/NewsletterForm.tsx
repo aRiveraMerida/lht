@@ -39,9 +39,10 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
 
   if (status === 'success') {
     return (
-      <div className="rounded-lg bg-ink text-paper p-6">
-        <p className="fg-feature-title">Te hemos enviado un correo. Confírmalo.</p>
-        <p className="fg-body mt-2 text-white/70">
+      <div className="on-dark bg-ink text-paper p-6 md:p-8">
+        <p className="ed-ribbon-label text-paper/60 mb-3">Confirmación enviada</p>
+        <p className="ed-display-mid">Te hemos enviado un correo. Confírmalo.</p>
+        <p className="ed-body mt-3 text-paper/75">
           Revisa también spam — a veces los proveedores piensan que somos sospechosos
           por no mandar basura.
         </p>
@@ -52,10 +53,10 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
   return (
     <div>
       <form action={handleSubmit} className="flex flex-col gap-3">
-        <label htmlFor={inputId} className="fg-mono-label text-ink/70">
+        <label htmlFor={inputId} className="ed-ribbon-label text-ink">
           Email
         </label>
-        <div className="flex flex-col gap-2 sm:flex-row">
+        <div className="flex flex-col gap-0 sm:flex-row">
           <input
             id={inputId}
             type="email"
@@ -65,7 +66,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
             placeholder="tu@correo.com"
             aria-invalid={status === 'error'}
             aria-describedby={status === 'error' ? `${inputId}-error` : undefined}
-            className="fg-input flex-1"
+            className="ed-input flex-1 sm:border-r-0"
             onChange={() => {
               if (status === 'error') setStatus('idle')
             }}
@@ -73,7 +74,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="fg-btn fg-btn-primary disabled:opacity-60"
+            className="ed-btn ed-btn-invert disabled:opacity-60 min-h-12"
           >
             {status === 'loading' ? 'Apuntando…' : 'Me apunto'}
           </button>
@@ -84,22 +85,19 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
         <p
           id={`${inputId}-error`}
           role="alert"
-          className="fg-body mt-3 text-[#FF4DA6]"
+          className="ed-body mt-3 text-[color:var(--color-error)]"
         >
           {ERROR_COPY[errorKind]}
         </p>
       )}
 
-      <p className="fg-body mt-3 text-ink/55 text-[13px]">
+      <p className="ed-link-ui mt-4 text-muted">
         Puedes{' '}
-        <Link href="/baja" className="underline underline-offset-2 hover:text-ink">
+        <Link href="/baja" className="ed-link text-muted">
           darte de baja
         </Link>{' '}
         en cualquier momento.{' '}
-        <Link
-          href="/politica-privacidad"
-          className="underline underline-offset-2 hover:text-ink"
-        >
+        <Link href="/politica-privacidad" className="ed-link text-muted">
           Política de privacidad
         </Link>.
       </p>

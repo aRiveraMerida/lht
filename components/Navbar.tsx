@@ -15,23 +15,39 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 hairline-b bg-paper/90 backdrop-blur-md">
-        <div className="fg-container flex items-center justify-between py-4">
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <TurtleLogo className="h-7 w-7 text-ink" />
-            <span className="fg-body fw-540 tracking-tight">La Habitación Tortuga</span>
+      {/* Utility bar — black strip */}
+      <div className="on-dark bg-ink text-paper">
+        <div className="ed-container flex items-center justify-between py-2">
+          <div className="ed-meta text-paper/90">La Habitación Tortuga [LHT]</div>
+          <div className="hidden md:flex items-center gap-6">
+            <Link href="/blog" className="ed-meta text-paper/80 hover:text-paper">Archivo</Link>
+            <Link href="/#suscribete" className="ed-meta text-paper/80 hover:text-paper">Newsletter</Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Main nav — paper white */}
+      <header className="sticky top-0 z-50 bg-paper ed-rule-b">
+        <div className="ed-container flex items-center justify-between py-5">
+          <Link href="/" className="flex items-center gap-3">
+            <TurtleLogo className="h-8 w-8 text-ink" />
+            <span className="ed-display text-[22px] md:text-[26px] leading-none">
+              La Habitación Tortuga
+            </span>
           </Link>
 
-          <div className="hidden items-center gap-2 md:flex">
-            <Link href="/blog" className="fg-pill">Archivo</Link>
-            <Link href="/#suscribete" className="fg-btn fg-btn-primary">
+          <div className="hidden items-center gap-8 md:flex">
+            <Link href="/blog" className="ed-btn-label hover:text-link transition-colors">
+              Archivo
+            </Link>
+            <Link href="/#suscribete" className="ed-btn">
               Suscribirse
             </Link>
           </div>
 
           <button
             onClick={() => setOpen(!open)}
-            className="fg-btn-icon md:hidden"
+            className="ed-btn-icon md:hidden"
             aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={open}
           >
@@ -41,13 +57,13 @@ export const Navbar: React.FC = () => {
       </header>
 
       {open && (
-        <nav className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 bg-paper">
-          <Link href="/" onClick={() => setOpen(false)} className="fg-section-heading">Inicio</Link>
-          <Link href="/blog" onClick={() => setOpen(false)} className="fg-section-heading">Archivo</Link>
+        <nav className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 bg-paper">
+          <Link href="/" onClick={() => setOpen(false)} className="ed-display">Inicio</Link>
+          <Link href="/blog" onClick={() => setOpen(false)} className="ed-display">Archivo</Link>
           <Link
             href="/#suscribete"
             onClick={() => setOpen(false)}
-            className="fg-btn fg-btn-primary mt-4"
+            className="ed-btn"
           >
             Suscribirse
           </Link>

@@ -18,6 +18,9 @@ interface ProductCardProps {
   featured?: boolean
 }
 
+// Renders an editorial story tile (was a card in the previous system).
+// No shadow, no rounded corners, no colored covers. Hairline rule at the
+// bottom separates it from the next tile.
 export function ProductCard({
   slug,
   category,
@@ -43,27 +46,37 @@ export function ProductCard({
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 18 }}
+      initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.35, delay: index * 0.05 }}
-      className={`fg-card ${featured ? 'md:col-span-2 xl:col-span-3' : ''}`}
+      transition={{ duration: 0.3, delay: index * 0.04 }}
+      className={`ed-tile ${featured ? 'md:col-span-2 xl:col-span-3' : ''}`}
     >
-      <Link href={`/blog/${slug}`} className="block">
+      <Link href={`/blog/${slug}`} className="group block">
         <AssetPreview variant={variant} index={index} />
 
-        <div className={`p-6 md:p-7 ${featured ? 'md:p-10' : ''}`}>
+        <div className="pt-5">
           <span className="ed-kicker text-ink">{category}</span>
 
-          <h3 className={`mt-4 ${featured ? 'fg-section-heading max-w-3xl' : 'fg-feature-title'}`}>
+          <h3
+            className={`ed-tile-headline mt-3 ${
+              featured
+                ? 'ed-display max-w-3xl'
+                : 'font-[var(--font-display)] text-[1.5rem] leading-[1.18] tracking-[-0.3px]'
+            }`}
+          >
             {title}
           </h3>
 
-          <p className={`mt-3 text-ink/70 ${featured ? 'fg-body-lg max-w-2xl' : 'fg-body'}`}>
+          <p
+            className={`mt-3 text-ink/80 ${
+              featured ? 'ed-deck max-w-2xl' : 'ed-body'
+            }`}
+          >
             {excerpt}
           </p>
 
-          <p className="fg-mono-label mt-5 text-ink/50">
+          <p className="ed-meta mt-5 text-muted">
             {dateLabel}{authorLabel ? ` · ${authorLabel}` : ''}
           </p>
         </div>
