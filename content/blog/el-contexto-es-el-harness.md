@@ -3,7 +3,7 @@ title: "El contexto es el harness"
 date: "2026-04-19"
 description: "Gestión de sesiones en Claude Code con 1M tokens. Cinco acciones (Continue, /rewind, /clear, /compact, subagentes) son en realidad tres decisiones — y lo que las guías de divulgación no te cuentan."
 excerpt: "Cinco acciones (Continue, /rewind, /clear, /compact, subagentes) son en realidad tres decisiones. Lo que las guías de divulgación no te cuentan sobre gestión de contexto."
-category: "Sin Filtro"
+category: "Laboratorios"
 authors:
   - alberto-rivera
 featured: false
