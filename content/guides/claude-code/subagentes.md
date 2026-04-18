@@ -4,23 +4,6 @@ excerpt: "Subagentes especializados: diseño, configuración y patrones de orque
 
 # Módulo 9: Subagentes y Agent SDK
 
-**Duración:** 5-6 horas
-**Nivel:** Avanzado
-**Dependencias:** Módulos 1-8 (especialmente M5 Skills, M7 Agent SDK preview, M8 Agent Teams)
-**Modalidad:** 100% práctica con arquitecturas multi-agente
-**Actualizado:** Marzo 2026
-
-## Objetivos de aprendizaje
-
-Al finalizar este módulo serás capaz de:
-1. **Definir subagentes** en .claude/agents/ con roles, permisos y herramientas específicas
-2. **Usar el Agent tool** (renombrado de Task tool) para spawning programático de subagentes
-3. **Dominar el Agent SDK** (Python/TypeScript) en profundidad: sesiones, guardrails, hooks como callbacks
-4. **Implementar pipelines multi-stage** (analyzer → designer → implementer → tester)
-5. **Configurar hooks de subagentes** (SubagentStart, SubagentStop) en settings.json
-6. **Diferenciar** Agent Teams (M8, coordinación automática) vs subagentes (control programático)
-7. **Diseñar arquitecturas** de subagentes especializados con least-privilege
-
 ## 1. Fundamentos: Subagentes vs Agent Teams
 
 ### 1.1 Lo que ya sabes (resumen de M7-M8)
@@ -734,11 +717,4 @@ intercambiables
 • Anthropic: Equipping Agents for the Real World with Agent Skills — Arquitectura de agentes
 • Anthropic: Effective Harnesses for Long-Running Agents — Pipeline patterns (preview M10)
 
-## 12. Checklist de finalización del módulo
-
-Creé 4 subagentes en .claude/agents/ con frontmatter completo Invoqué subagentes con @nombre desde la sesión interactiva Verifiqué que allowed-tools restringe herramientas correctamente Entiendo la diferencia entre .claude/agents/ y .claude/skills/ Configuré hooks SubagentStart/SubagentStop en settings.json Implementé pipeline multi-stage con Agent SDK (4 stages)
-Usé guardrails del SDK (max_budget_usd, max_turns, allowed_tools)
-Implementé sesión multi-turn con ClaudeSDKClient Orquesté 10+ agentes en proyecto complejo Completé ejercicio integrador (agents/ + SDK + hooks)
-Puedo decidir cuándo usar Agent Teams (M8) vs subagentes (M9)
-Puedo diseñar arquitectura de agentes con least-privilege
 

@@ -1,11 +1,8 @@
 ---
-excerpt: "Nivel mínimo de JavaScript necesario para seguir los ejercicios del curso."
+excerpt: "Nivel mínimo de JavaScript necesario para seguir los ejercicios del programa."
 ---
 
 # Prework Área 4: JavaScript básico
-
-**Objetivo:** Poder LEER y ENTENDER código JavaScript moderno que Claude genera
-**Requisito previo:** Áreas 1-3 completadas (Terminal + Git + Node.js)
 
 ## ¿Por qué es obligatorio?
 
@@ -243,9 +240,9 @@ try {
 ```
 **Recurso:** JavaScript.info — Classes + Error handling
 
-## Conceptos que NO necesitas antes del curso
+## Conceptos que NO necesitas antes del programa
 
-Concepto Por qué no DOM manipulation El curso es backend (Node.js), no frontend React, Vue, Angular No se usan Prototypal inheritance Clases modernas son suficientes Generators, iterators Claude los usa raramente Proxy, Reflect Avanzado, no necesario RegExp avanzado Claude los escribe si los necesita TypeScript Opcional, todo funciona con JS puro Web APIs (fetch en browser)
+Concepto Por qué no DOM manipulation El programa es backend (Node.js), no frontend React, Vue, Angular No se usan Prototypal inheritance Clases modernas son suficientes Generators, iterators Claude los usa raramente Proxy, Reflect Avanzado, no necesario RegExp avanzado Claude los escribe si los necesita TypeScript Opcional, todo funciona con JS puro Web APIs (fetch en browser)
 Se usa en Node, no en browser
 
 ## Referencia rápida
@@ -367,7 +364,7 @@ Repasa Paso 3 con JavaScript.info — Destructuring
 
 **No entendí casi nada**
 
-Haz el curso completo de JavaScript.info Part 1 (1-2 semanas)
+Haz el programa completo de JavaScript.info Part 1 (1-2 semanas)
 
 ## Recursos adicionales (solo si quieres profundizar)
 

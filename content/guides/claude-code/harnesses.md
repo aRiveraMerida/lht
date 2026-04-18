@@ -2,26 +2,8 @@
 excerpt: "Cómo construir harnesses que conviertan a Claude en un agente autónomo de calidad."
 ---
 
-# Módulo 10: Harnesses para agentes de larga
+# Módulo 10: Harnesses para agentes de larga duración
 
-# duración
-
-**Duración:** 5-6 horas
-**Nivel:** Experto
-**Dependencias:** Módulos 1-9 (especialmente M7 Ralph, M8 Multi-Claude, M9 Agent SDK)
-**Modalidad:** 100% práctica con agentes autónomos overnight
-**Actualizado:** Marzo 2026
-
-## Objetivos de aprendizaje
-
-Al finalizar este módulo serás capaz de:
-1. **Implementar el sistema dual** de Anthropic: Initializer Agent + Coding Agent
-2. **Diseñar feature lists JSON** con estado verificable y dependencias
-3. **Usar git logs como memoria** entre sesiones discretas
-4. **Configurar agentes overnight** con safeguards reales (-w, --teleport, --max-turns, hooks)
-5. **Implementar checkpointing y recovery** con /rewind y branches de backup
-6. **Usar el Agent SDK** para harnesses programáticos con guardrails de costo
-7. **Orquestar proyectos multi-día** con tracking de progreso automatizado
 
 ## 1. Fundamentos: De Ralph a harnesses enterprise
 
@@ -759,14 +741,4 @@ dependencies: [1]
 
 • Geoffrey Huntley: $50k contrato completado con Ralph/harness, $297 en API
 • AI Hero: Tips for AI Coding with Ralph Wiggum — 11 tips aplicables a harnesses
-
-## 12. Checklist de finalización del módulo
-
-Implementé Initializer Agent que genera feature_list.json Implementé Coding Agent que lee estado y hace progreso incremental feature_list.json funciona como estado persistente entre sesiones Git log incluido en prompt como memoria entre sesiones Ejecuté 3+ sesiones con estado persistente Commits semánticos por feature (#ID)
-Configuré overnight con todos los safeguards (backup, timeout, tests, max features)
-Ejecuté sesión overnight de 4+ horas overnight_report.md generado automáticamente Probé checkpointing (/rewind o backup branch)
-Implementé versión con Agent SDK (max_budget_usd)
-Completé proyecto multi-día (15+ features)
-Métricas documentadas (sesiones, costo, tiempo, comparación)
-Puedo decidir cuándo usar Ralph (M7) vs Harness (M10) vs Agent Teams (M8)
 

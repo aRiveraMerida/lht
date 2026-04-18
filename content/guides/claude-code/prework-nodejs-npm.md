@@ -4,12 +4,9 @@ excerpt: "Instalación y uso básico de Node.js y npm, requisito técnico de Cla
 
 # Prework Área 3: Node.js y npm
 
-**Objetivo:** Tener Node.js instalado, saber crear un proyecto con npm, ejecutar scripts y tests
-**Requisito previo:** Áreas 1-2 (Terminal + Git) completadas
-
 ## ¿Por qué es obligatorio?
 
-El curso usa Node.js como stack principal para todos los ejercicios. Claude Code genera código JavaScript/TypeScript que se ejecuta con Node.js. Necesitas:
+El programa usa Node.js como stack principal para todos los ejercicios. Claude Code genera código JavaScript/TypeScript que se ejecuta con Node.js. Necesitas:
 • Node.js instalado y funcionando (≥18)
 • Saber crear un proyecto con npm init
 • Instalar dependencias con npm install
@@ -139,7 +136,7 @@ node src/index.js   # Ejecuta un archivo JavaScript
 
 ### Paso 4 — Módulos ESM: import/export (30 min)
 
-El curso usa ESM (ECMAScript Modules) con import/export, no CommonJS con require.
+El programa usa ESM (ECMAScript Modules) con import/export, no CommonJS con require.
 
 **Recurso:**
 
@@ -171,7 +168,7 @@ import createServer from './server.js';
 
 ### Paso 5 — Testing con Vitest (30 min)
 
-El curso usa Vitest (compatible con Jest) desde M3. No necesitas dominarlo — se enseña en profundidad en M3. Pero necesitas poder EJECUTAR tests.
+El programa usa Vitest (compatible con Jest) desde M3. No necesitas dominarlo — se enseña en profundidad en M3. Pero necesitas poder EJECUTAR tests.
 ```
 # Setup
 npm install --save-dev vitest @vitest/coverage-v8
@@ -209,7 +206,7 @@ los tests usan describe, it, expect.
 
 ### Paso 6 (opcional) — Express.js básico (1 hora)
 
-Los ejercicios del curso construyen APIs con Express. Claude escribe el código, pero ayuda entender la estructura.
+Los ejercicios del programa construyen APIs con Express. Claude escribe el código, pero ayuda entender la estructura.
 
 **Recurso:**
 
@@ -235,12 +232,12 @@ node src/index.js
 curl http://localhost:3000/api/hello
 # {"message":"Hello World"}
 ```
-**No es obligatorio** saber Express antes del curso. Pero si ya lo conoces, irás más rápido en M2-M3.
+**No es obligatorio** saber Express antes del programa. Pero si ya lo conoces, irás más rápido en M2-M3.
 
-## Conceptos que NO necesitas antes del curso
+## Conceptos que NO necesitas antes del programa
 
-Concepto Por qué no Streams, Buffers, Event Loop Se mencionan pero Claude los maneja Clustering, Worker Threads No se usan en el curso TypeScript Opcional, todo funciona con JS puro Frameworks (Nest, Fastify, Koa)
-El curso usa Express Bases de datos avanzadas Se usa SQLite (simple), no Postgres/MongoDB Docker / deployment No es foco del curso
+Concepto Por qué no Streams, Buffers, Event Loop Se mencionan pero Claude los maneja Clustering, Worker Threads No se usan en el programa TypeScript Opcional, todo funciona con JS puro Frameworks (Nest, Fastify, Koa)
+El programa usa Express Bases de datos avanzadas Se usa SQLite (simple), no Postgres/MongoDB Docker / deployment No es foco del programa
 
 ## Referencia rápida
 

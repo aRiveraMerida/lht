@@ -1,15 +1,12 @@
 ---
-excerpt: "Áreas opcionales de Python y SQL para quien quiera profundizar antes del curso."
+excerpt: "Áreas opcionales de Python y SQL para quien quiera profundizar antes del programa."
 ---
 
 # Prework Área 9: Python (opcional)
 
-**Objetivo:** Poder ejecutar scripts Python y leer código básico
-**Obligatorio:** No. Solo necesario para M9 (Agent SDK en Python) y M10 (overnight SDK)
-
 ## ¿Cuándo lo necesitarás?
 
-Módulo Uso de Python M9 Agent SDK (claude-agent-sdk Python): orquestación programática M10 overnight_sdk.py: harness overnight con guardrails Resto No se usa Python Si planeas seguir el curso solo con bash y JavaScript, puedes saltar esta área.
+Módulo Uso de Python M9 Agent SDK (claude-agent-sdk Python): orquestación programática M10 overnight_sdk.py: harness overnight con guardrails Resto No se usa Python Si planeas seguir el programa solo con bash y JavaScript, puedes saltar esta área.
 
 ## Lo mínimo necesario
 
@@ -97,7 +94,7 @@ print('I Async Python funciona')
 
 ## ¿Cuándo lo necesitarás?
 
-Varios ejercicios del curso usan SQLite como base de datos (simple, sin servidor, un solo archivo). Claude genera las queries, pero entender SQL básico te ayuda a validar que la lógica es correcta.
+Varios ejercicios del programa usan SQLite como base de datos (simple, sin servidor, un solo archivo). Claude genera las queries, pero entender SQL básico te ayuda a validar que la lógica es correcta.
 
 ## Lo mínimo necesario
 
@@ -127,7 +124,7 @@ JOIN reviews r ON r.book_id = b.id
 WHERE b.id = 1;
 ```
 **Si nunca has usado SQL:** Son 6 operaciones: CREATE TABLE, INSERT, SELECT, UPDATE, DELETE, JOIN. El
-90% del SQL del curso es SELECT y INSERT.
+90% del SQL del programa es SELECT y INSERT.
 
 ### Recursos
 

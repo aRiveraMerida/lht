@@ -2,13 +2,8 @@
 excerpt: "Primera sesión práctica con Claude Code antes de entrar en los módulos."
 ---
 
-# Prework Área 9: Hablar con un agente de
+# Prework Área 9: Hablar con un agente de código
 
-# código
-
-**Objetivo:** Entender cómo dar instrucciones a un LLM, la diferencia entre Claude.ai y Claude Code, y completar tu
-primera sesión guiada
-**Requisito previo:** Área 8 (Claude Code instalado y claude doctor pasando)
 
 ## ¿Por qué es importante?
 

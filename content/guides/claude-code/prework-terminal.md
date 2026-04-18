@@ -1,11 +1,9 @@
 ---
-excerpt: "Ruta de estudio de terminal y línea de comandos como prerrequisito del curso."
+excerpt: "Ruta de estudio de terminal y línea de comandos como prerrequisito del programa."
 ---
 
 # Prework Área 1: Terminal y línea de comandos
 
-**Objetivo:** Moverte por la terminal con soltura, sin buscar cada comando
-**Plataformas:** macOS (Terminal/iTerm2) · Linux (cualquier terminal) · Windows (WSL2)
 
 ## ¿Por qué es obligatorio?
 
@@ -167,7 +165,7 @@ scripts; tú los validas.
 
 ## Referencia rápida
 
-Imprime o guarda esta tabla. La usarás constantemente durante el curso:
+Imprime o guarda esta tabla. La usarás constantemente durante el programa:
 ```
 NAVEGACIÓN
   pwd                  Dónde estoy
@@ -258,7 +256,7 @@ chmod +x run.sh
 cd /tmp
 rm -rf /tmp/prework-terminal
 echo ""
-echo "I Test completado — estás listo para el curso"
+echo "I Test completado — estás listo para el programa"
 ```
 
 ### Evaluación
@@ -283,6 +281,6 @@ Empieza por el Paso 1 y dedica 1 semana a este área
 
 ## Recursos adicionales (solo si quieres profundizar)
 
-Estos NO son necesarios para el curso, pero te harán más productivo:
+Estos NO son necesarios para el programa, pero te harán más productivo:
 Recurso Qué aporta Tiempo The Missing Semester (MIT) —
 Lecciones 1-5 Profundidad en shell, scripting, regex, data wrangling 10h Explain Shell Pega cualquier comando y te explica cada parte Referencia tldr pages Alternativa a man con ejemplos prácticos Referencia Boot.dev: Learn Linux Curso gamificado, ejecutas en tu terminal 8-10h Bash scripting cheatsheet Referencia rápida de sintaxis bash Referencia

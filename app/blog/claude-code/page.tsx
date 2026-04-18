@@ -4,9 +4,9 @@ import { SectionLabel, SectionRibbon } from '@/components/SectionLabel'
 import { course } from '@/lib/course'
 
 export const metadata: Metadata = {
-  title: 'Claude Code Console — De cero a experto',
+  title: 'Programa de Claude Code',
   description:
-    'Curso completo en español sobre Claude Code: prework, 13 módulos, 5 proyectos capstone y preparación para la certificación Claude Certified Architect.',
+    'Un recorrido completo en español por Claude Code: prework, fundamentos, configuración profesional, agentes avanzados, producción y proyectos capstone.',
   alternates: { canonical: 'https://lahabitaciontortuga.com/blog/claude-code' },
 }
 
@@ -24,12 +24,12 @@ export default function ClaudeCodeIndex() {
             <span className="text-ink">Claude Code</span>
           </nav>
 
-          <SectionLabel>Curso</SectionLabel>
+          <SectionLabel>Programa</SectionLabel>
           <h1 className="ed-display-xl mt-6 max-w-[18ch]">
             {course.title}.
           </h1>
           <p className="ed-deck mt-8 max-w-2xl text-ink/80">
-            {course.subtitle}. {course.summary}
+            {course.summary}
           </p>
 
           <div className="mt-12 flex flex-wrap gap-x-10 gap-y-3 pt-6 border-t border-ink">

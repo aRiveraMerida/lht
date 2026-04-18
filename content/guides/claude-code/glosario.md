@@ -1,8 +1,8 @@
 ---
-excerpt: "Glosario completo de términos técnicos usados en el curso."
+excerpt: "Glosario completo de términos técnicos usados en el programa."
 ---
 
-# Glosario: Términos técnicos del curso
+# Glosario: Términos técnicos del programa
 
 **50+ términos organizados alfabéticamente.** Referencia rápida para consultar durante cualquier módulo.
 
@@ -84,7 +84,7 @@ skills, agents, commands y rules con campos como paths:, allowed-tools:, model:.
 
 ### H
 
-**Harness** — Sistema envolvente que gestiona la ejecución de un agente. En el curso: sistema dual Initializer Agent +
+**Harness** — Sistema envolvente que gestiona la ejecución de un agente. En el programa: sistema dual Initializer Agent +
 Coding Agent con estado persistente para proyectos multi-día. → M10
 **Headless mode** — Modo de Claude Code sin interfaz interactiva. Se invoca con claude -p "prompt". Base para
 automatización, Ralph loops, CI/CD. → M7
@@ -158,7 +158,7 @@ WebSearch, Agent tool, entre otras. Las usa autónomamente según la tarea. → 
 
 ### V
 
-**Vitest** — Framework de testing compatible con Jest usado en todo el curso. Se configura con npm install
+**Vitest** — Framework de testing compatible con Jest usado en todo el programa. Se configura con npm install
 --save-dev vitest. API: describe, it, expect. → M3
 
 ### W

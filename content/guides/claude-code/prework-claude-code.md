@@ -6,9 +6,6 @@ excerpt: "Guía paso a paso para instalar Claude Code y dejarlo listo para el m�
 
 # verificación)
 
-**Objetivo:** Claude Code instalado, autenticado, y claude doctor pasando todos los checks
-**Requisito previo:** Áreas 1-3 completadas (Terminal + Git + Node.js ≥18)
-
 ## ¿Por qué hacerlo antes de M1?
 
 M1 asume que Claude Code ya está instalado. Si lo instalas durante M1, pierdes tiempo en troubleshooting que no es parte del contenido del módulo.

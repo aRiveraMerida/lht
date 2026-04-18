@@ -1,16 +1,13 @@
 ---
-excerpt: "Uso básico de GitHub y de la CLI para los flujos de trabajo del curso."
+excerpt: "Uso básico de GitHub y de la CLI para los flujos de trabajo del programa."
 ---
 
 # Prework Área 6: GitHub y GitHub CLI
 
-**Objetivo:** Cuenta de GitHub activa, GitHub CLI instalado y autenticado, saber crear repos/issues/PRs desde terminal
-**Requisito previo:** Áreas 1-2 (Terminal + Git) completadas
-
 ## ¿Por qué es obligatorio?
 
 Los módulos M12-M13 usan GitHub Actions y GitHub CLI extensivamente. Pero incluso desde M1, necesitas:
-• Un repo en GitHub para alojar tus proyectos del curso
+• Un repo en GitHub para alojar tus proyectos del programa
 • gh para crear issues y PRs desde la terminal (M12-M13 lo automatizan)
 • Autenticación configurada para git push sin problemas
 

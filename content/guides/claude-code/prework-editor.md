@@ -4,9 +4,6 @@ excerpt: "Configuración del editor de código recomendado para trabajar con Cla
 
 # Prework Área 7: Editor de código
 
-**Objetivo:** Tener un editor funcional para leer y editar código que Claude genera
-**Requisito previo:** Terminal funcional (Área 1)
-
 ## ¿Por qué es obligatorio?
 
 Claude Code trabaja en la terminal, pero tú necesitas un editor para:

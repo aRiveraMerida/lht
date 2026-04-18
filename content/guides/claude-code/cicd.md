@@ -4,23 +4,6 @@ excerpt: "Integración de Claude Code en pipelines de CI/CD para automatización
 
 # Módulo 12: Operacionalización y CI/CD
 
-**Duración:** 5-6 horas
-**Nivel:** Experto
-**Dependencias:** Módulos 1-11 (todo el curso)
-**Modalidad:** 100% práctica con deployment en producción
-**Actualizado:** Marzo 2026
-
-## Objetivos de aprendizaje
-
-Al finalizar este módulo serás capaz de:
-1. **Usar** claude-code-action (~6.589#) para integrar Claude Code en GitHub Actions
-2. **Automatizar code review** en cada PR con Claude
-3. **Implementar issue triage** automático con labeling
-4. **Configurar security review** en CI con claude-code-security-review
-5. **Optimizar costos** con RTK (~12.300#) — reducción de 60-90% de tokens
-6. **Ejecutar evals en CI** como quality gate (conexión con M11)
-7. **Cerrar el loop** completo: issue → agent → PR → review → merge → monitor
-
 ## 1. Fundamentos: De desarrollo local a producción
 
 ### 1.1 El gap entre local y CI/CD
@@ -370,7 +353,7 @@ Configurar 3 workflows de GitHub Actions usando claude-code-action.
 ### Setup
 
 ```
-cd library-api  # Tu proyecto del curso
+cd library-api  # Tu proyecto del programa
 mkdir -p .github/workflows
 ```
 
@@ -506,7 +489,7 @@ jobs:
 
 ### Descripción
 
-Ensamblar todo el curso en un sistema de producción funcional.
+Ensamblar todo el programa en un sistema de producción funcional.
 
 ### Componentes del sistema
 
@@ -669,15 +652,3 @@ workflow
 
 • Anthropic: Claude Code Best Practices — Sección de CI/CD
 • RTK README_es.md — Documentación en español
-
-## 11. Checklist de finalización del módulo
-
-Configuré claude-code-action para code review en PRs Configuré triage automático de issues Configuré implementación automática (issue → PR)
-Configuré security review en CI Configuré evals como quality gate Instalé y configuré RTK (local + CI)
-Medí ahorro de tokens con rtk gain Pipeline completo funciona: issue → triage → implement → review → evals → merge Weekly maintenance cron configurado Métricas documentadas (tiempo, costo, tokens, quality)
-PRODUCTION_REPORT.md con análisis completo
-
-## Conclusión de M12
-
-Este módulo introdujo las herramientas operacionales: RTK para optimización de costos, claude-code-action para CI/CD, y security review en producción. El **Módulo 13** profundiza en pipelines avanzados, PR-from-anywhere, monitoreo, safeguards de producción, y el sistema operacional completo.
-

@@ -2,28 +2,8 @@
 excerpt: "El workflow profesional de cuatro fases para trabajar con Claude Code en proyectos reales."
 ---
 
-# Módulo 2: El workflow EXPLORE → PLAN →
+# Módulo 2: El workflow EXPLORE → PLAN → CODE → COMMIT
 
-# CODE → COMMIT
-
-**Duración:** 5-6 horas
-**Nivel:** Principiante-Intermedio
-**Dependencias:** Módulo 1 (modelo mental + CLAUDE.md + settings.json configurados)
-**Modalidad:** 100% práctica con ejercicios ejecutables
-**Actualizado:** Marzo 2026
-
-## Objetivos de aprendizaje
-
-Al finalizar este módulo serás capaz de:
-1. **Aplicar el workflow de 4 fases** en implementaciones reales de features
-2. **Activar Plan Mode con Shift+Tab** y dominar la iteración sobre planes
-3. **Controlar el esfuerzo de razonamiento** con /effort y extended thinking (Option+T)
-4. **Gestionar contexto** usando /context (grid visual), /compact focus, auto-compactación y /clear
-5. **Usar @referencias** para archivos, rangos de línea y output de terminal
-6. **Dominar patrones de interrupción y recuperación**: Escape, doble-Escape, /rewind, y checkpointing
-automático
-7. **Enviar tareas a background** con Ctrl+B para trabajar en paralelo
-8. **Iterar sin degradación** manteniendo calidad de código constante en sesiones largas
 
 ## 1. El workflow de 4 fases: Fundamentos
 
@@ -1215,11 +1195,4 @@ curl http://localhost:3000/webhooks/logs \
 
 • Status line customization — HUD personalizado para Claude Code
 • GermanDZ/ai-guided-project — Proyecto guiado por IA
-
-## 12. Checklist de finalización del módulo
-
-Completé feature con workflow EXPLORE→PLAN→CODE→COMMIT Activé Plan Mode con **Shift+Tab** (no con flags CLI)
-Usé @referencias para archivos y directorios en exploración Iteré sobre un plan antes de implementar Usé /effort para ajustar profundidad de razonamiento Togglé extended thinking con Option+T / Alt+T Monitoré contexto con /context múltiples veces Usé /compact focus on [tema] para compactación selectiva Hice /clear correctamente (documenta estado → clear → reinicializa)
-Auto-verificación en cada paso del CODE ("Y LUEGO verifica que...")
-Interrumpí con Escape cuando Claude iba en dirección incorrecta Probé doble-Escape para revertir archivos Probé /rewind para recuperar estado anterior Envié tarea a background con Ctrl+B Commits atómicos con Conventional Commits Completé ejercicio integrador (webhooks) exitosamente Puedo explicar diferencia entre Escape, doble-Escape y /rewind
 

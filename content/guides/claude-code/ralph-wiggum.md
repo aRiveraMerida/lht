@@ -4,24 +4,6 @@ excerpt: "El patrón Ralph Wiggum: iteración agéntica persistente para tareas 
 
 # Módulo 7: Metodología Ralph Wiggum
 
-**Duración:** 6-7 horas
-**Nivel:** Avanzado
-**Dependencias:** Módulos 1-6 (especialmente M3 TDD, M6 Hooks)
-**Modalidad:** 100% práctica con tareas de larga duración reales
-**Actualizado:** Marzo 2026
-
-## Objetivos de aprendizaje
-
-Al finalizar este módulo serás capaz de:
-1. **Implementar Ralph loops** usando headless mode (claude -p) con --max-turns para tareas iterativas
-2. **Diseñar completion promises** verificables automáticamente con tests o comandos
-3. **Configurar Stop hooks** en settings.json para interceptar salida prematura
-4. **Diferenciar AFK-Ralph vs HITL-Ralph vs Auto mode** y cuándo usar cada uno
-5. **Configurar worktree isolation** con -w para sesiones Ralph aisladas
-6. **Monitorear remotamente** con --teleport para tareas overnight
-7. **Usar el Agent SDK** como alternativa programática a bash loops
-8. **Optimizar costos** con guardrails de tokens y turnos
-
 ## 1. Fundamentos: ¿Qué es Ralph y qué problema resuelve?
 
 ### 1.1 El problema de las tareas que exceden una sesión
@@ -1007,12 +989,4 @@ Auto  → Tarea de 1-2h que no excede una sesión
 • CLI Reference — Flags -p, --max-turns, -w, -c, -r
 • Agent SDK overview — SDK Python/TypeScript
 • Manage costs — Optimización de costos
-
-## 14. Checklist de finalización del módulo
-
-Implementé Ralph básico con headless mode (claude -p)
-Usé --max-turns para limitar cada invocación Creé PRD.md con completion promise verificable automáticamente PROGRESS.md se actualiza correctamente entre iteraciones Configuré Stop hook en settings.json (exit 2 para denegar)
-Entiendo diferencia entre AFK-Ralph, HITL-Ralph y Auto mode Completé migración Jest→Vitest con Ralph Probé worktree isolation con -w Implementé Ralph con Agent SDK en Python Usé max_budget_usd como guardrail de costo Completé ejercicio integrador (migración con HITL)
-Métricas documentadas (iteraciones, costo, tiempo, comparación)
-Puedo decidir cuándo usar Ralph vs Auto mode vs Agent SDK
 

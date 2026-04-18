@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const content = getGuideContent(slug)
   const description =
     content?.excerpt ??
-    `${guide.kicker} — ${guide.title}. Parte del curso Claude Code Console en La Habitación Tortuga.`
+    `${guide.kicker} — ${guide.title}. Parte del Programa de Claude Code en La Habitación Tortuga.`
 
   return {
     title: guide.title,
@@ -239,11 +239,11 @@ export default async function GuidePage({ params }: PageProps) {
               </Link>
             ) : (
               <div className="md:text-right">
-                <SectionLabel>Fin del curso</SectionLabel>
+                <SectionLabel>Fin del programa</SectionLabel>
                 <p className="ed-body mt-3 text-ink/80">
                   Has llegado al final de la secuencia. Vuelve al{' '}
                   <Link href="/blog/claude-code" className="ed-link">
-                    índice del curso
+                    índice del programa
                   </Link>
                   {' '}o al{' '}
                   <Link href="/blog" className="ed-link">
@@ -256,7 +256,7 @@ export default async function GuidePage({ params }: PageProps) {
 
           <div className="mt-12 border-t border-ink/15 pt-8 flex flex-wrap gap-4">
             <Link href="/blog/claude-code" className="ed-btn">
-              Ver índice del curso
+              Ver programa completo
             </Link>
             <Link href="/blog" className="ed-btn">
               <ArrowLeft size={14} aria-hidden="true" /> Archivo

@@ -4,23 +4,6 @@ excerpt: "Evals: cómo medir y mejorar objetivamente la calidad del trabajo del 
 
 # Módulo 11: Sistema de evaluaciones (Evals)
 
-**Duración:** 5-6 horas
-**Nivel:** Experto
-**Dependencias:** Módulos 1-10 (especialmente M3 TDD, M7 Headless, M9 Agent SDK)
-**Modalidad:** 100% práctica con suite de evals funcionando
-**Actualizado:** Marzo 2026
-
-## Objetivos de aprendizaje
-
-Al finalizar este módulo serás capaz de:
-1. **Entender evals como TDD para agentes** — la extensión natural de M3
-2. **Implementar el roadmap de 8 pasos** de Anthropic: de "no evals" a eval-driven development
-3. **Crear 3 tipos de graders:** code-based (determinista), model-based (LLM judge), hybrid
-4. **Usar** claude -p **(headless)** para ejecutar evals automatizados
-5. **Calcular pass@k** y ejecutar saturation testing (N=30+)
-6. **Distinguir capability vs regression testing** y cuándo usar cada uno
-7. **Integrar evals en CI/CD** con claude-code-action (preview de M12)
-
 ## 1. Fundamentos: Evals = TDD para agentes
 
 ### 1.1 El problema sin evals
@@ -619,13 +602,4 @@ Nuevo eval: "¿puede debuggear race conditions?"
 
 • Anthropic: Claude Code Best Practices — Evals — Sección de evaluaciones
 • Anthropic: Effective Harnesses — Evals integrados en harnesses
-
-## 11. Checklist de finalización del módulo
-
-Entiendo evals como TDD para agentes Implementé el roadmap de 8 pasos (al menos steps 1-6)
-Creé grader code-based (determinista)
-Creé grader model-based (LLM judge)
-Uso claude -p para ejecutar evals headless Implementé pass@k con k=3 Ejecuté saturation test con N=30 para al menos 2 evals Distinguo capability testing vs regression testing Practiqué eval-driven development (1 ciclo completo)
-Suite de 10+ evals en 4 categorías Dashboard de resultados generado CI workflow configurado (GitHub Actions)
-Identifiqué fortalezas y debilidades del agente con datos
 

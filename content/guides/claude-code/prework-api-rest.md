@@ -4,12 +4,9 @@ excerpt: "Conceptos de API REST necesarios para entender la arquitectura del age
 
 # Prework Área 5: API REST (conceptos)
 
-**Objetivo:** Entender HTTP methods, status codes, JSON, y poder leer/probar endpoints
-**Requisito previo:** Áreas 1-4 completadas
-
 ## ¿Por qué es obligatorio?
 
-Los ejercicios del curso (M2-M10) construyen APIs REST. Claude genera endpoints, y tú necesitas:
+Los ejercicios del programa (M2-M10) construyen APIs REST. Claude genera endpoints, y tú necesitas:
 • Entender qué hace cada endpoint (GET, POST, PATCH, DELETE)
 • Leer status codes en respuestas (200, 201, 400, 404, 500)
 • Probar endpoints con curl desde la terminal
@@ -79,7 +76,7 @@ DELETE /api/v1/books/42       → Eliminar libro 42
 
 ### Paso 3 — Status codes (30 min)
 
-No necesitas memorizar todos. Estos son los que aparecen en el curso:
+No necesitas memorizar todos. Estos son los que aparecen en el programa:
 Código Significado Cuándo
 
 **200**
@@ -221,9 +218,9 @@ Content-Type: application/json        ← Header
 2. **Headers** — Metadatos de respuesta
 3. **Body** — Datos retornados (JSON)
 
-## Conceptos que NO necesitas antes del curso
+## Conceptos que NO necesitas antes del programa
 
-Concepto Por qué no GraphQL El curso usa REST WebSockets No se usan OAuth2 / OpenID Connect Se menciona pero Claude lo implementa API versioning strategies Se usa /v1/ simple Rate limiting implementation Claude lo implementa si se pide OpenAPI / Swagger Se menciona en M9 pero Claude lo genera CORS Claude lo configura
+Concepto Por qué no GraphQL El programa usa REST WebSockets No se usan OAuth2 / OpenID Connect Se menciona pero Claude lo implementa API versioning strategies Se usa /v1/ simple Rate limiting implementation Claude lo implementa si se pide OpenAPI / Swagger Se menciona en M9 pero Claude lo genera CORS Claude lo configura
 
 ## Referencia rápida
 

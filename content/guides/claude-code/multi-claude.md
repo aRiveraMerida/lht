@@ -2,27 +2,7 @@
 excerpt: "Coordinación de múltiples instancias de Claude trabajando en paralelo."
 ---
 
-# Módulo 8: Multi-Claude workflows y Agent
-
-# Teams
-
-**Duración:** 5-6 horas
-**Nivel:** Avanzado
-**Dependencias:** Módulos 1-7 (especialmente M6 Hooks, M7 Ralph/Headless)
-**Modalidad:** 100% práctica con orquestación de múltiples agentes
-**Actualizado:** Marzo 2026
-
-## Objetivos de aprendizaje
-
-Al finalizar este módulo serás capaz de:
-1. **Usar Agent Teams** — múltiples Claude coordinados nativamente con agente líder + workers
-2. **Ejecutar tareas en background** con Ctrl+B para paralelismo local
-3. **Usar** -w para worktree isolation nativo (sin scripts manuales)
-4. **Monitorear remotamente** con --teleport y Claude Code en la web
-5. **Usar claude-squad** (~5.600#) para multi-agente con tmux
-6. **Implementar patrón write-review** con agentes especializados
-7. **Gestionar costos** — entender el ~7x de overhead de Agent Teams
-8. **Decidir** cuándo usar Agent Teams vs claude-squad vs sesiones manuales vs Auto mode
+# Módulo 8: Multi-Claude workflows y Agent Teams
 
 ## 1. Fundamentos: El salto de single-Claude a multi-Claude
 
@@ -658,12 +638,4 @@ Writer → Corrige
 
 • Anthropic: Claude Code Best Practices — Multi-agent — Sección de paralelismo
 • Boris Cherny: Multi-Claude setup — Thread con detalles
-
-## 14. Checklist de finalización del módulo
-
-Usé Ctrl+B para enviar tarea a background mientras sigo trabajando Ejecuté 3+ sesiones paralelas con -w (worktree isolation)
-Probé Agent Teams con Opus 4.6 como líder Entiendo el costo ~7x de Agent Teams y cuándo se justifica Instalé y probé claude-squad con tmux Implementé patrón write-review (writer + reviewer read-only)
-Usé --teleport o /remote-control para monitoreo remoto Completé ejercicio integrador (4 features en paralelo)
-Métricas documentadas (tiempo, costo, tokens, comparación)
-Puedo decidir cuándo usar Agent Teams vs claude-squad vs Ctrl+B vs secuencial Sé cuándo NO paralelizar (features dependientes, proyecto pequeño)
 

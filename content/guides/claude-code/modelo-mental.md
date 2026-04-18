@@ -4,23 +4,6 @@ excerpt: "El modelo mental correcto para entender Claude Code como agente, no co
 
 # Módulo 1: El modelo mental de Claude Code
 
-**Duración:** 4-5 horas
-**Nivel:** Principiante (0 conocimiento previo requerido)
-**Modalidad:** 100% práctica con ejercicios ejecutables
-**Actualizado:** Marzo 2026
-
-## Objetivos de aprendizaje
-
-Al finalizar este módulo serás capaz de:
-1. **Explicar la arquitectura diferencial de Claude Code** frente a Copilot, Cursor, Cline y otros asistentes de IA
-2. **Instalar, autenticar y diagnosticar** Claude Code en tu máquina usando los métodos actuales
-3. **Comprender el sistema de configuración jerárquico** de 4 capas (managed → user → project → local)
-4. **Crear y estructurar un CLAUDE.md efectivo** siguiendo el patrón WHAT/WHY/HOW
-5. **Configurar settings.json** con permisos y modelo por defecto
-6. **Navegar codebases existentes** usando @referencias y herramientas de exploración
-7. **Comprender el concepto de "agent harness"** y su importancia para coding agents
-8. **Entender la auto-memoria** y cómo complementa al CLAUDE.md
-
 ## 1. Fundamentos conceptuales
 
 ### 1.1 ¿Qué hace único a Claude Code?
@@ -176,7 +159,7 @@ Permisos       I    I  Lint/type-check
 **La frase que resume todo:**
 
 Sin harness, Claude es un chatbot. Con harness, Claude es un agente autónomo.
-La calidad de tu harness determina la calidad del trabajo de Claude. Este curso entero es, en esencia, aprender a construir harnesses cada vez más sofisticados.
+La calidad de tu harness determina la calidad del trabajo de Claude. Este programa entero es, en esencia, aprender a construir harnesses cada vez más sofisticados.
 
 ### 1.5 El sistema de configuración jerárquico (4 capas)
 
@@ -927,10 +910,4 @@ Instalación: brew install rtk && rtk init --global. Se profundiza en M12.
 • **GitHub Discussions**: anthropics/claude-code — Q&A oficial
 • **Reddit**: r/ClaudeAI — Casos de uso y troubleshooting
 • **Twitter/X**: #ClaudeCode — Showcase de proyectos
-
-## 8. Checklist de finalización del módulo
-
-Antes de pasar al Módulo 2, asegúrate de que puedes marcar TODOS estos ítems:
-Claude Code instalado via claude install y actualizado claude doctor pasa todos los checks Puedo ejecutar comandos bash a través de Claude Creé settings.json global con modelo y deny rules Creé CLAUDE.md funcional de <200 líneas con WHAT/WHY/HOW Creé settings.json de proyecto con allowedTools y deny rules Claude siguió mis convenciones sin recordatorios explícitos Claude respetó los permisos de settings.json (deny rules funcionan)
-Navegué un codebase desconocido usando @referencias Usé /init para generar CLAUDE.md automático y lo revisé críticamente Verifiqué auto-memoria con /memory después de una sesión Puedo explicar las 4 capas de configuración con mis propias palabras Puedo explicar qué es un "agent harness" y sus 4 componentes Entiendo la diferencia entre CLAUDE.md y settings.json Completé el ejercicio integrador con mi proyecto real Puedo responder las 8 preguntas de autoevaluación correctamente
 

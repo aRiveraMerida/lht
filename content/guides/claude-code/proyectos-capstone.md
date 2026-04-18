@@ -1,29 +1,14 @@
 ---
-excerpt: "Los 5 proyectos capstone del curso con deployment real y evaluación completa."
+excerpt: "Los 5 proyectos capstone del programa con deployment real y evaluación completa."
 ---
 
 # Proyectos Capstone: De cero a despliegue
-
-**Posición en el curso:** Después de M13 (cierre del curso)
-**Objetivo:** Construir 5 proyectos reales usando todo lo aprendido, cada uno desplegado en producción
-**Formato:** Guía paso a paso con checkpoints verificables por fase
-
-## Progresión de los proyectos
-
-#
-Tipo Proyecto Módulos que aplica Deploy Dificultad P1 Backend puro API de gestión de tareas M1-M6 Railway II P2 Herramienta interna Bot de monitoreo de precios M1-M7 (Ralph)
-Railway + Cron III P3 Fullstack Plataforma de notas colaborativas M1-M8 (Multi-Claude)
-Vercel + Railway III P4 Dashboard + integraciones Panel de métricas de equipo M1-M9 (Subagentes)
-Vercel IIII P5 SaaS completo Plataforma de feedback de clientes M1-M13 (Todo)
-Fly.io + Vercel IIIII
-**Recomendación:** Hacer los proyectos en orden. Cada uno construye sobre habilidades del anterior.
 
 ## Proyecto 1: TaskFlow API
 
 ## API REST de gestión de tareas con autenticación
 
 **Tipo:** Backend puro
-**Módulos:** M1 (modelo mental), M2 (workflow), M3 (TDD), M4 (CLAUDE.md), M5 (skills), M6 (hooks)
 **Deploy:** Railway
 **Stack:** Express + SQLite + JWT + Vitest
 
@@ -56,15 +41,6 @@ Construir una API REST completa para gestión de tareas personales. Usuarios pue
 6. Commit: "chore: initialize project with Claude Code config"
 ```
 
-**Checkpoint 1:**
-
-```
-claude doctor pasa
-```
-CLAUDE.md tiene WHAT/WHY/HOW (<200 líneas)
-.claude/rules/ tiene 3 archivos con paths:
-settings.json tiene deny rules Commit inicial en git
-
 ### Fase 2: Modelos y base de datos con TDD (M3)
 
 **Objetivo:** Crear modelos de datos con TDD estricto.
@@ -92,11 +68,6 @@ settings.json tiene deny rules Commit inicial en git
 5. Ejecutar: npm test -- --coverage
 ```
 
-**Checkpoint 2:**
-
-3 modelos con migraciones SQL Tests unitarios para cada modelo npm test pasa (15+ tests)
-Coverage >80% en src/models/ Un commit por modelo (3 commits)
-
 ### Fase 3: Endpoints REST con validación (M2, M3)
 
 **Objetivo:** CRUD completo para Users, Projects y Tasks.
@@ -119,14 +90,6 @@ Coverage >80% en src/models/ Un commit por modelo (3 commits)
     request/response examples, y status codes."
 ```
 
-**Checkpoint 3:**
-
-10+ endpoints funcionando Validación Joi en POST/PATCH Tests de integración (30+ tests)
-```
-npm test pasa
-```
-api-reference.md generado
-
 ### Fase 4: Autenticación JWT (M2, M6)
 
 **Objetivo:** Registro, login, y protección de rutas con JWT.
@@ -146,11 +109,6 @@ api-reference.md generado
 3. Configurar hook PreToolUse para seguridad (M6):
    Denegar escritura a archivos .env
 ```
-
-**Checkpoint 4:**
-
-Register + login funcionando Middleware protege rutas Tests de auth (10+ tests)
-Hooks de formateo y seguridad configurados No hay passwords en texto plano en ningún archivo
 
 ### Fase 5: Deploy a Railway (NUEVO)
 
@@ -184,11 +142,6 @@ Hooks de formateo y seguridad configurados No hay passwords en texto plano en ni
      -d '{"name":"Test","email":"test@test.com","password":"secret123"}'
 ```
 
-**Checkpoint 5 (FINAL):**
-
-API funcionando en Railway con URL pública Health endpoint responde 200 Register + login funcionan en producción CRUD de tasks funciona con autenticación Variables de entorno configuradas (no hardcoded)
-.env en .gitignore
-
 ### Entregable del Proyecto 1
 
 1. **Repo en GitHub** con código completo
@@ -203,9 +156,7 @@ API funcionando en Railway con URL pública Health endpoint responde 200 Registe
 ## Bot de monitoreo de precios con alertas
 
 **Tipo:** Herramienta interna (scraper + bot)
-**Módulos:** M1-M7 (Ralph para ejecución autónoma)
 **Deploy:** Railway (cron job)
-**Tiempo estimado:** 10-14 horas
 **Stack:** Node.js + cheerio + better-sqlite3 + nodemailer
 
 ### Briefing
@@ -228,9 +179,6 @@ Construir un bot que monitorea precios de productos en 2-3 sitios web, almacena 
 4. Base de datos SQLite: products, price_checks, alerts
 ```
 
-**Checkpoint 1:**
-
-CLI funciona: add, list, history Base de datos con schema Skill de scraping en .claude/skills/ Tests unitarios para modelos
 
 ### Fase 2: Scraping engine (M3, M5)
 
@@ -250,9 +198,6 @@ CLI funciona: add, list, history Base de datos con schema Skill de scraping en .
    # AirPods Pro: 199€ (target: 220€) — I BELOW TARGET!
 ```
 
-**Checkpoint 2:**
-
-Scraper funciona con 2 sitios Tests con HTML mockeado Comando check funciona Precios se guardan en DB con timestamp
 
 ### Fase 3: Sistema de alertas (M3, M6)
 
@@ -269,10 +214,6 @@ Scraper funciona con 2 sitios Tests con HTML mockeado Comando check funciona Pre
    - Hook Stop: reporte de sesión
 ```
 
-**Checkpoint 3:**
-
-Alertas se generan correctamente Email se envía (o se simula en tests)
-No hay alertas duplicadas Hooks configurados
 
 ### Fase 4: Ralph loop para monitoreo autónomo (M7)
 
@@ -288,10 +229,6 @@ No hay alertas duplicadas Hooks configurados
 2. Script overnight:
    ./watch-overnight.sh --hours 8 --interval 30
 ```
-
-**Checkpoint 4:**
-
-pricewatch watch ejecuta loop autónomo PROGRESS.md se actualiza en cada check Stop automático después de timeout o errores Funciona 2+ horas sin intervención
 
 ### Fase 5: Deploy a Railway con cron (NUEVO)
 
@@ -313,18 +250,12 @@ pricewatch watch ejecuta loop autónomo PROGRESS.md se actualiza en cada check S
    - Verificar que el check se ejecutó (logs de Railway)
 ```
 
-**Checkpoint 5 (FINAL):**
-
-Bot corriendo en Railway con cron Checks automáticos cada 30 min Alertas email funcionando Dashboard de logs en Railway README con setup y configuración
-
 ## Proyecto 3: NoteHub
 
 ## Plataforma de notas colaborativas (fullstack)
 
 **Tipo:** Fullstack (backend + frontend React)
-**Módulos:** M1-M8 (Multi-Claude: backend + frontend en paralelo)
 **Deploy:** Vercel (frontend) + Railway (backend)
-**Tiempo estimado:** 14-20 horas
 **Stack:** Express + SQLite + JWT (backend) · React + Tailwind (frontend)
 
 ### Briefing
@@ -355,9 +286,6 @@ Plataforma donde usuarios crean, editan y organizan notas en carpetas. Soporte m
    npm install tailwindcss axios react-router-dom
 ```
 
-**Checkpoint 1:**
-
-Monorepo con backend/ y frontend/ CLAUDE.md raíz con proyecto completo .claude/rules/ con paths condicionales Ambos proyectos inicializados
 
 ### Fase 2: Backend API con TDD (M3, M6)
 
@@ -378,10 +306,6 @@ Monorepo con backend/ y frontend/ CLAUDE.md raíz con proyecto completo .claude/
 2. Configurar hooks PostToolUse para formateo
 ```
 
-**Checkpoint 2:**
-
-Backend API completa (15+ endpoints)
-Auth JWT funcionando Full-text search Tests pasando (40+ tests, >80% coverage)
 
 ### Fase 3: Frontend React (M8 — Multi-Claude)
 
@@ -412,11 +336,6 @@ Auth JWT funcionando Full-text search Tests pasando (40+ tests, >80% coverage)
    Usar @reviewer para revisar el backend (M9 preview)
 ```
 
-**Checkpoint 3:**
-
-Frontend React funcional con todas las páginas Conectado al backend API Auth flow completo (register → login → dashboard)
-Editor markdown con preview Búsqueda funcional
-
 ### Fase 4: Pulido y testing E2E (M3)
 
 **Pasos:**
@@ -431,10 +350,6 @@ Editor markdown con preview Búsqueda funcional
     - Frontend: toast notifications para errores de API
     - Backend: error middleware centralizado"
 ```
-
-**Checkpoint 4:**
-
-Tests E2E pasando Responsive en móvil Error handling completo
 
 ### Fase 5: Deploy dual Vercel + Railway (NUEVO)
 
@@ -459,18 +374,12 @@ Tests E2E pasando Responsive en móvil Error handling completo
    # Register → login → crear nota → compartir → abrir link público
 ```
 
-**Checkpoint 5 (FINAL):**
-
-Frontend en Vercel con URL pública Backend en Railway con URL pública Flow completo funciona en producción Notas compartidas accesibles por link CORS configurado correctamente
-
 ## Proyecto 4: TeamPulse Dashboard
 
 ## Panel de métricas de equipo con integraciones
 
 **Tipo:** Dashboard + integraciones
-**Módulos:** M1-M9 (Subagentes para cada integración)
 **Deploy:** Vercel (app completa con API routes)
-**Tiempo estimado:** 16-22 horas
 **Stack:** Next.js + Tailwind + Chart.js + APIs externas
 
 ### Briefing
@@ -501,10 +410,6 @@ Dashboard interno que agrega métricas de un equipo de desarrollo desde múltipl
      "Process and aggregate metrics data"
 ```
 
-**Checkpoint 1:**
-
-Next.js app funcional 4 subagentes en .claude/agents/ CLAUDE.md con convenciones Next.js Settings con TypeScript configurado
-
 ### Fase 2: GitHub integration (M9 — subagentes)
 
 **Pasos:**
@@ -525,10 +430,6 @@ Next.js app funcional 4 subagentes en .claude/agents/ CLAUDE.md con convenciones
     - Usa Chart.js con react-chartjs-2"
 ```
 
-**Checkpoint 2:**
-
-API route de GitHub funciona Chart de PRs por semana Stat cards con métricas Cache implementado Tests para la API route
-
 ### Fase 3: Health checks + métricas custom (M9)
 
 **Pasos:**
@@ -547,10 +448,6 @@ API route de GitHub funciona Chart de PRs por semana Stat cards con métricas Ca
 3. Componentes de dashboard para cada fuente
 ```
 
-**Checkpoint 3:**
-
-Health checks funcionando con N endpoints Histórico de disponibilidad CRUD de métricas custom Dashboard muestra las 3 fuentes
-
 ### Fase 4: Dashboard unificado (M8, M9)
 
 **Pasos:**
@@ -567,10 +464,6 @@ Health checks funcionando con N endpoints Histórico de disponibilidad CRUD de m
    # Terminal 1: Claude mejora UI/UX
    # Terminal 2: Claude añade tests
 ```
-
-**Checkpoint 4:**
-
-Dashboard unificado con 3 secciones Auto-refresh funciona Responsive Dark mode Tests pasando
 
 ### Fase 5: Deploy a Vercel (NUEVO)
 
@@ -592,24 +485,18 @@ Dashboard unificado con 3 secciones Auto-refresh funciona Responsive Dark mode T
    # Health checks ejecutan contra endpoints reales
 ```
 
-**Checkpoint 5 (FINAL):**
-
-Dashboard en Vercel con URL pública GitHub metrics reales cargando Health checks ejecutándose Auto-refresh funcionando Dark mode en producción
-
 ## Proyecto 5: FeedbackLoop SaaS
 
 ## Plataforma multi-tenant de feedback de clientes
 
 **Tipo:** SaaS completo
-**Módulos:** M1-M13 (todos los módulos del curso)
 **Deploy:** Fly.io (backend) + Vercel (frontend)
-**Tiempo estimado:** 24-32 horas
 **Stack:** Express + PostgreSQL + JWT + React + Tailwind + Stripe (test mode)
 
 ### Briefing
 
 Plataforma SaaS donde empresas (tenants) crean formularios de feedback, los embeben en sus productos, y visualizan respuestas con analytics. Incluye: multi-tenancy, auth con roles, billing con Stripe (test mode), API pública con API keys, dashboard de analytics, y CI/CD completo.
-Este proyecto usa TODOS los módulos del curso.
+Este proyecto usa TODOS los módulos del programa.
 
 ### Fase 1: Arquitectura y setup enterprise (M1, M4, M5, M6)
 
@@ -643,11 +530,6 @@ Este proyecto usa TODOS los módulos del curso.
    npm create vite@latest frontend -- --template react-ts
 ```
 
-**Checkpoint 1:**
-
-Monorepo con configuración completa CLAUDE.md + rules/ + skills/ + hooks PostgreSQL local funcionando (o Docker)
-Ambos proyectos inicializados
-
 ### Fase 2: Multi-tenancy + Auth (M3, M9 — subagentes)
 
 **Pasos:**
@@ -674,10 +556,6 @@ Ambos proyectos inicializados
     - Verifica que usuario pertenece al tenant
     - Rate limiting por tenant"
 ```
-
-**Checkpoint 2:**
-
-Schema multi-tenant con migraciones Auth completa con roles Tenant isolation verificada con tests 50+ tests pasando
 
 ### Fase 3: Core features — Forms + Responses (M7 — Ralph)
 
@@ -707,10 +585,6 @@ Schema multi-tenant con migraciones Auth completa con roles Tenant isolation ver
    claude -p "$(cat features.md)" --max-turns 50 -w
 ```
 
-**Checkpoint 3:**
-
-CRUD de formularios API pública con API keys Analytics de respuestas Embed widget generando HTML PROGRESS.md con log de features 80+ tests pasando
-
 ### Fase 4: Billing con Stripe (M3)
 
 **Pasos:**
@@ -727,12 +601,6 @@ CRUD de formularios API pública con API keys Analytics de respuestas Embed widg
 2. Configurar Stripe CLI para testing local:
    stripe listen --forward-to localhost:3000/api/v1/webhooks/stripe
 ```
-
-**Checkpoint 4:**
-
-Stripe Checkout funciona (test mode)
-Webhook procesa pagos Quota enforcement (Free limitado a 100)
-Tests con Stripe mock
 
 ### Fase 5: Frontend React (M8 — Multi-Claude)
 
@@ -755,9 +623,6 @@ Tests con Stripe mock
    - Table de responses con filtros
 ```
 
-**Checkpoint 5:**
-
-Frontend completo con todas las páginas Form builder funcional Analytics charts Billing page con link a Stripe Responsive
 
 ### Fase 6: Evals + CI/CD (M11, M12, M13)
 
@@ -777,9 +642,6 @@ Frontend completo con todas las páginas Form builder funcional Analytics charts
 3. Configurar claude-code-action para issue triage
 ```
 
-**Checkpoint 6:**
-
-5 evals pasando con pass@3 CI/CD pipeline funcional Code review automático en PRs Security review configurado RTK instalado en CI
 
 ### Fase 7: Deploy Fly.io + Vercel (NUEVO)
 
@@ -809,68 +671,3 @@ Frontend completo con todas las páginas Form builder funcional Analytics charts
    - Ver response en dashboard
    - Upgrade a Pro (Stripe test card: 4242 4242 4242 4242)
 ```
-
-**Checkpoint 7 (FINAL):**
-
-Backend en Fly.io con PostgreSQL Frontend en Vercel Flow completo funciona en producción Stripe billing funciona (test mode)
-Embed widget funciona desde sitio externo CI/CD ejecutándose en cada push Multi-tenancy verificada (2 tenants no ven datos del otro)
-
-### Entregable del Proyecto 5
-
-1. **Monorepo en GitHub** con código completo
-2. **URLs de producción:** Fly.io (backend) + Vercel (frontend)
-3. **Demo grabada** (5 min): register → crear form → embed → ver responses → billing
-4. **README.md** completo: setup, deploy, arquitectura
-5. **CLAUDE.md + .claude/** configuración enterprise
-6. **CI/CD** pipeline funcional con code review + security + evals
-7. **Tests:** >80% coverage backend, evals pasando
-8. **Post-mortem:** Documento con:
-• Horas reales vs estimadas
-• Qué módulos del curso usaste más
-• Dónde Claude Code fue más efectivo
-• Dónde tuviste que intervenir manualmente
-• Lecciones aprendidas
-
-## Resumen de los 5 proyectos
-
-P1: TaskFlow P2: PriceWatch P3: NoteHub P4: TeamPulse P5:
-FeedbackLoop
-
-**Tipo**
-
-Backend API Bot/scraper Fullstack Dashboard SaaS
-
-**Módulos**
-
-M1-M6 M1-M7 M1-M8 M1-M9 M1-M13
-
-**Deploy**
-
-Railway Railway+cron Vercel+Railway Vercel Fly.io+Vercel
-
-**DB**
-
-SQLite SQLite SQLite SQLite PostgreSQL
-
-**Auth**
-
-JWT N/A JWT GitHub token JWT + roles
-
-**Billing**
-
-No No No No Stripe
-
-**CI/CD**
-
-No No No No Completo
-
-**Horas**
-
-8-12 10-14 14-20 16-22 24-32
-
-**Dificultad**
-
-II III III IIII IIIII
-**Total estimado:** 72-100 horas (los 5 proyectos)
-**Mínimo recomendado:** Hacer al menos P1 + P3 + P5 (backend + fullstack + SaaS) para cubrir toda la gama del
-curso.

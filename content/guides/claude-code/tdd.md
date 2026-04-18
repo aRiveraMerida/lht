@@ -4,24 +4,6 @@ excerpt: "Test-Driven Development aplicado al trabajo con agentes: auto-verifica
 
 # Módulo 3: TDD con Claude Code
 
-**Duración:** 5-6 horas
-**Nivel:** Intermedio
-**Dependencias:** Módulo 2 (workflow EXPLORE→PLAN→CODE→COMMIT + auto-verificación dominados)
-**Modalidad:** 100% práctica con ejercicios ejecutables
-**Actualizado:** Marzo 2026
-
-## Objetivos de aprendizaje
-
-Al finalizar este módulo serás capaz de:
-1. **Aplicar el ciclo SPEC**→**RED**→**GREEN**→**VALIDATE**→**REFACTOR** con Claude como implementador
-2. **Escribir tests antes que código** de forma sistemática, entendiendo por qué multiplica la calidad 2-3x
-3. **Aplicar la regla de oro de Anthropic**: tests primero → confirmar que fallan → implementar → NO modificar
-tests durante implementación
-4. **Ejecutar tests en** /sandbox para aislamiento de filesystem y red
-5. **Complementar TDD con** /security-review para detectar vulnerabilidades
-6. **Configurar coverage como gate de calidad** (mínimo 80%)
-7. **Integrar test runners como feedback loop** del harness (conexión directa con M1 y M2)
-
 ## 1. Fundamentos: Por qué TDD transforma el trabajo con Claude Code
 
 ### 1.1 El problema de "código primero" con LLMs
@@ -133,7 +115,7 @@ REFACTOR (Claude):         Mejorar código manteniendo tests verdes
 
 ### 1.5 Testing framework: Vitest como recomendación
 
-El curso usa **Vitest** como framework de testing por defecto:
+El programa usa **Vitest** como framework de testing por defecto:
 Vitest Por qué ESM nativo Sin configuración para import/export Compatibilidad Jest Misma API (describe, it, expect) — migración trivial Velocidad 2-5x más rápido que Jest en proyectos medianos Watch mode HMR integrado, re-ejecuta solo tests afectados Coverage built-in
 --coverage sin dependencias adicionales
 TypeScript nativo Sin ts-jest ni configuración extra Si tu proyecto ya usa Jest, todo el conocimiento de este módulo aplica directamente — la API es la misma. Los ejemplos usan Vitest pero son intercambiables con Jest.
@@ -1293,13 +1275,3 @@ estado.
 • Mockito — Mocking framework
 • JaCoCo — Coverage reporting
 • REST Assured — Testing de APIs REST
-
-## 12. Checklist de finalización del módulo
-
-Completé ciclo SPEC→RED→GREEN→VALIDATE→REFACTOR en función pura Confirmé fase RED (tests fallando correctamente con stub)
-Llegué a GREEN sin modificar tests Usé /sandbox para ejecución fluida de tests Implementé servicio con mocking de dependencias (vi.mock)
-Entiendo diferencia entre unit tests (mocked) e integration tests (real)
-Coverage >80% en todos los ejercicios Ejecuté /security-review y triagé findings (critical/warning/info)
-Corregí issues CRITICAL de security review antes de commitear Probé el skill TDD (preview M5) y comparé con TDD manual Completé API completa con TDD (integrador: library-api)
-Documenté proceso en TDD_PROCESS.md con reflexión sobre bugs prevenidos Puedo explicar por qué TDD multiplica calidad 2-3x con Claude Code Puedo explicar la regla de oro: no modificar tests durante implementación Sé cómo adaptar el workflow TDD a Python (pytest) o Java (JUnit 5)
-

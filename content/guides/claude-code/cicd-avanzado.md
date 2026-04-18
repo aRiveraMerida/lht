@@ -4,23 +4,6 @@ excerpt: "Patrones avanzados de CI/CD con Claude Code en entornos productivos."
 
 # Módulo 13: CI/CD avanzado y operaciones en
 
-**Duración:** 5-6 horas
-**Nivel:** Experto
-**Dependencias:** Módulos 1-12 (especialmente M11 Evals y M12 claude-code-action + RTK)
-**Modalidad:** 100% práctica con pipelines reales en GitHub Actions
-**Actualizado:** Marzo 2026
-
-## Objetivos de aprendizaje
-
-Al finalizar este módulo serás capaz de:
-1. **Diseñar pipelines multi-stage** con quality gates escalonados
-2. **Implementar PR-from-anywhere** — cualquier evento GitHub genera PRs automáticas
-3. **Configurar issue triage + auto-implementación + auto-review** como pipeline unificado
-4. **Orquestar múltiples repos** con workflows compartidos
-5. **Monitorear agentes en producción** con métricas, alertas y dashboards
-6. **Implementar safeguards de producción** — rate limiting, cost caps, rollback
-7. **Cerrar el loop completo** del curso: idea → issue → agent → PR → review → evals → merge → deploy
-
 ## 1. De M12 a producción real
 
 ### 1.1 Lo que M12 cubre vs lo que falta
@@ -340,7 +323,7 @@ jobs:
   implement:
     concurrency:
       group: agent-implement
-      cancel-in-progress: false  # No cancelar jobs en curso
+      cancel-in-progress: false  # No cancelar jobs en programa
     # Máximo 3 agentes simultáneos:
     strategy:
       max-parallel: 3
@@ -547,7 +530,7 @@ Incluye también rtk gain --format json para métricas de ahorro de tokens.
 
 ### Descripción
 
-Ensamblar TODOS los módulos del curso en un sistema de producción funcional.
+Ensamblar TODOS los módulos del programa en un sistema de producción funcional.
 
 ### Checklist del sistema completo
 
@@ -666,17 +649,9 @@ Un cambio → actualiza review en N repos
 • GitHub Reusable Workflows — Compartir workflows
 • Manage costs — Optimización de costos
 
-## 13. Checklist de finalización del módulo
+## Conclusión del programa
 
-Configuré PR-from-anywhere (label, comment, cron triggers)
-Comment-triggered agent funciona (/agent en issues)
-Auto-fix en PRs con "request changes" funciona Pipeline multi-stage completo: issue → triage → implement → review → evals → merge Safeguards configurados (rate limit, max turns, human approval)
-Rollback automático si tests fallan post-merge Dashboard de métricas generado semanalmente RTK instalado en TODOS los workflows CI Reusable workflow creado (al menos 1)
-Test end-to-end documentado con tiempos PRODUCTION_REPORT.md con análisis completo
-
-## Conclusión del curso
-
-Has completado los **13 módulos de "Claude Code Console: De cero a experto"**.
+Has completado los ** módulos de "Claude Code Console"**.
 
 ### El stack completo que dominas
 
@@ -695,20 +670,4 @@ Ralph/Harness (overnight)          II Rate limiting
 Agent Teams (paralelo)             II Cost caps
 Post-merge verify
 ```
-
-### Los 13 módulos en una línea cada uno
-
-1. **Modelo mental** — Context + Tools + Feedback Loops + Control Flow
-2. **Workflow** — EXPLORE → PLAN → CODE → COMMIT con auto-verificación
-3. **TDD** — Tests como feedback loop definitivo, /sandbox, /security-review
-4. **Arquitectura** — CLAUDE.md + .claude/rules/ + settings.json + agent_docs/
-5. **Skills/Plugins** — Progressive disclosure de capacidades, frontmatter YAML
-6. **Commands/Hooks** — 30+ commands built-in, hooks en settings.json, exit 2
-7. **Ralph** — Headless loops con completion promises y stop hooks
-8. **Multi-Claude** — Agent Teams, claude-squad, Ctrl+B, -w, --teleport
-9. **Subagentes/SDK** — .claude/agents/, Agent SDK con guardrails
-10. **Harnesses** — Sistema dual para proyectos multi-día con feature_list.json
-11. **Evals** — TDD para agentes: pass@k, graders, eval-driven development
-12. **RTK + CI basics** — Token optimization + claude-code-action + security review
-13. **CI/CD avanzado** — Pipelines, PR-from-anywhere, monitoreo, safeguards, producción
 

@@ -4,24 +4,6 @@ excerpt: "Cómo diseñar un CLAUDE.md profesional que guíe al agente en proyect
 
 # Módulo 4: Arquitectura de CLAUDE.md
 
-# profesional
-
-**Duración:** 5-6 horas
-**Nivel:** Intermedio
-**Dependencias:** Módulos 1-3 (CLAUDE.md básico + settings.json + TDD dominados)
-**Modalidad:** 100% práctica con refactoring de proyectos reales
-**Actualizado:** Marzo 2026
-
-## Objetivos de aprendizaje
-
-Al finalizar este módulo serás capaz de:
-1. **Aplicar progressive disclosure** usando el directorio oficial .claude/rules/ con carga condicional por paths
-2. **Diferenciar claramente** qué va en CLAUDE.md vs settings.json vs .claude/rules/ vs auto-memoria
-3. **Crear reglas condicionales** que solo se cargan cuando Claude trabaja con archivos específicos
-4. **Implementar el patrón de actualización continua** (bugs → reglas mejoradas + auto-memoria)
-5. **Escalar configuración** para proyectos enterprise multi-módulo sin sobrecargar el contexto
-6. **Diseñar instrucciones positivas** que Claude sigue consistentemente
-
 ## 1. El problema: cuando CLAUDE.md crece demasiado
 
 ### 1.1 Por qué tu CLAUDE.md se vuelve un problema
@@ -1013,13 +995,4 @@ paths
 • alinaqi/claude-bootstrap — Bootstrapping con guardrails
 • shinpr/ai-coding-project-boilerplate — Boilerplate con 10 agentes y estructura profesional
 • repomirrorhq/repomirror — Documentación profunda de referencia
-
-## 10. Checklist de finalización del módulo
-
-Entiendo las 4 capas de configuración y qué va en cada una Creé .claude/rules/ con reglas condicionales (paths en frontmatter)
-Cada regla usa instrucciones positivas (no negaciones)
-CLAUDE.md reducido a <40 líneas sin perder información No hay duplicación entre CLAUDE.md, rules/, settings.json y agent_docs/ Reglas condicionales se cargan correctamente (validado con tests)
-agent_docs/ tiene documentación de referencia profunda Settings.json tiene permisos granulares apropiados Auto-memoria revisada con /memory, insights formalizados en reglas Sistema de actualización continua implementado (PR template + script)
-Completé el ejercicio integrador (Library API refactorizada)
-Puedo diseñar rules/ para un monorepo multi-servicio
 

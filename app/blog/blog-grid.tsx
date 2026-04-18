@@ -114,15 +114,14 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
               <div className="ed-ribbon-label text-paper/60 uppercase">Programas</div>
               <div>
                 <div className="font-[var(--font-display)] text-[1.5rem] md:text-[2rem] leading-[1.15] tracking-[-0.3px] text-paper">
-                  {course.title}. {course.subtitle}.
+                  {course.title}.
                 </div>
                 <p className="ed-body mt-4 text-paper/75 max-w-2xl">
-                  {course.stats.guides} guías en secuencia. Prework, {course.stats.blocks - 1} bloques
-                  temáticos y preparación para la certificación.
+                  {course.summary}
                 </p>
               </div>
               <Link href="/blog/claude-code" className="ed-btn ed-btn-on-dark self-start md:self-center">
-                Entrar al curso <ArrowRight size={16} aria-hidden="true" />
+                Entrar al programa <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
           </div>

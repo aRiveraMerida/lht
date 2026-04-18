@@ -2,30 +2,7 @@
 excerpt: "Skills y plugins de Claude Code: cómo extender al agente con capacidades específicas."
 ---
 
-# Módulo 5: Skills, plugins y el ecosistema
-
-# extensible
-
-**Duración:** 5-6 horas
-**Nivel:** Intermedio-Avanzado
-**Dependencias:** Módulos 1-4 (CLAUDE.md + .claude/rules/ + settings.json dominados)
-**Modalidad:** 100% práctica con instalación, creación y composición
-**Actualizado:** Marzo 2026
-
-## Objetivos de aprendizaje
-
-Al finalizar este módulo serás capaz de:
-1. **Comprender skills como progressive disclosure de capacidades** — el mismo patrón de M4 aplicado a
-workflows
-2. **Crear skills con frontmatter YAML avanzado** (model, allowed-tools, disable-model-invocation, isolation)
-3. **Diferenciar los dos tipos de invocación** — user-invoked vs model-invoked
-4. **Instalar y gestionar plugins** — paquetes que agrupan commands + agents + hooks + MCP
-```
-5. Usar el ecosistema — anthropics/skills, anthropics/claude-plugins-official, ComposioHQ,
-```
-obra/superpowers
-6. **Diferenciar skills vs plugins vs MCP vs hooks vs** .claude/rules/ — cuándo usar cada uno
-7. **Gestionar el budget de skills** — 2% de contexto para descripciones, tool search automático
+# Módulo 5: Skills, plugins y el ecosistema extensible
 
 ## 1. Fundamentos: ¿Qué son los skills?
 
@@ -841,10 +818,3 @@ hacer el trabajo)
 
 • Anthropic: Claude Code Best Practices — Skills en contexto del workflow completo
 • Matt Pocock thread — Skills en práctica
-
-## 10. Checklist de finalización del módulo
-
-Entiendo skills como progressive disclosure de capacidades (diferencia con rules/ de M4)
-Instalé 5+ skills de comunidad (ComposioHQ, VoltAgent, obra/superpowers)
-Instalé 1+ plugin desde /plugin Uso /skills y /commands para ver skills disponibles Creé skill user-invoked con frontmatter completo Creé skill model-invoked que se auto-activa correctamente Configuré allowed-tools para restringir herramientas por skill Entiendo el budget de 2% y cuándo tool search se activa Completé workflow secuencial con 4 skills de VoltAgent Creé plugin que agrupa 3 skills interoperables Puedo decidir cuándo usar skill vs plugin vs MCP vs hook vs rules/ vs command Sé identificar candidatos a skill (repetitivo, multi-paso, reutilizable)
-

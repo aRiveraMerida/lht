@@ -4,11 +4,9 @@ excerpt: "Verificación rápida de todas las áreas de prework con test ejecutab
 
 # Prework: Conocimientos previos y preparación
 
-**Objetivo:** Verificar que tienes todo lo necesario antes de empezar el Módulo 1
+## ¿Para quién es este programa?
 
-## ¿Para quién es este curso?
-
-Este curso está diseñado para **profesionales técnicos que quieren dominar Claude Code Console como**
+Este programa está diseñado para **profesionales técnicos que quieren dominar Claude Code Console como**
 **herramienta de desarrollo**. No necesitas ser developer senior, pero sí necesitas soltura con terminal, git y al menos
 un lenguaje de programación.
 
@@ -24,13 +22,13 @@ un lenguaje de programación.
 • Nunca has abierto una terminal
 • No sabes qué es git ni un commit
 • No has programado en ningún lenguaje
-• Buscas un curso de "qué es la IA" (esto es 100% práctico)
+• Buscas un programa de "qué es la IA" (esto es 100% práctico)
 
 ## 1. Terminal / Línea de comandos
 
 ### Lo que necesitas saber
 
-Debes poder moverte por la terminal sin buscar cada comando. El curso asume que sabes:
+Debes poder moverte por la terminal sin buscar cada comando. El programa asume que sabes:
 Comando Qué hace Ejemplo Cambiar directorio
 ```
 cd
@@ -146,7 +144,7 @@ rm -rf /tmp/prework-test
 
 ### Lo que necesitas saber
 
-El curso usa git en CADA módulo. Claude Code genera commits, crea branches, y trabaja con worktrees. Necesitas entender qué está haciendo.
+El programa usa git en CADA módulo. Claude Code genera commits, crea branches, y trabaja con worktrees. Necesitas entender qué está haciendo.
 Concepto Comando Debes saber Inicializar repo Qué es un repositorio
 ```
 git init
@@ -197,7 +195,7 @@ Guardar cambios temporalmente .gitignore
 Editar .gitignore
 ```
 Qué archivos excluir
-**Conceptos avanzados que se enseñan en el curso** (no necesitas saberlos antes):
+**Conceptos avanzados que se enseñan en el programa** (no necesitas saberlos antes):
 • Git worktrees (-w en M7-M8) — se explica
 • Conventional Commits (feat:, fix:) — se explica
 • Cherry-pick, rebase — no se usan
@@ -231,7 +229,7 @@ rm -rf /tmp/git-test
 
 ### Lo que necesitas saber
 
-Los ejercicios del curso usan Node.js como stack principal. No necesitas ser experto en JavaScript — Claude escribe la mayoría del código. Pero necesitas entender la estructura de un proyecto Node.js.
+Los ejercicios del programa usan Node.js como stack principal. No necesitas ser experto en JavaScript — Claude escribe la mayoría del código. Pero necesitas entender la estructura de un proyecto Node.js.
 Concepto Comando/archivo Debes saber Instalar Node
 ```
 node --version (≥18)
@@ -390,7 +388,7 @@ export async function getUser(id) {
 
 ### Lo que necesitas saber
 
-Varios ejercicios del curso construyen APIs REST. No necesitas haber creado una, pero necesitas entender los conceptos.
+Varios ejercicios del programa construyen APIs REST. No necesitas haber creado una, pero necesitas entender los conceptos.
 Concepto Qué es Ejemplo Endpoint URL que recibe requests
 ```
 GET /api/v1/books
@@ -443,7 +441,7 @@ curl -X POST http://localhost:3000/api/books \
 
 ### Lo que necesitas saber
 
-El curso usa GitHub para repositories y GitHub CLI para automatización (especialmente M12-M13).
+El programa usa GitHub para repositories y GitHub CLI para automatización (especialmente M12-M13).
 Necesitas Cómo verificar Cuenta de GitHub github.com → Sign in GitHub CLI instalado
 ```
 gh --version
@@ -570,7 +568,7 @@ M12-M13 Concepto de pipeline
 M8 (claude-squad)
 Navegación básica
 **Guías opcionales detalladas:** prework_10_11_opcionales.md
-**El curso enseña todo lo que necesitas de estas herramientas.** Si ya las conoces, avanzarás más rápido. Si no, los
+**El programa enseña todo lo que necesitas de estas herramientas.** Si ya las conoces, avanzarás más rápido. Si no, los
 módulos explican lo necesario.
 
 ## 11. Checklist final de preparación

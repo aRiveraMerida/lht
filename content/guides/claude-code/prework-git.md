@@ -4,9 +4,6 @@ excerpt: "Fundamentos de Git imprescindibles antes de empezar con Claude Code."
 
 # Prework Área 2: Git
 
-**Objetivo:** Dominar el flujo init→add→commit→branch→merge→push sin pensar
-**Requisito previo:** Área 1 (Terminal) completada
-
 ## ¿Por qué es obligatorio?
 
 Claude Code genera commits automáticamente. Crea branches, hace merges, trabaja en worktrees. Si no entiendes git, no podrás:
@@ -136,7 +133,7 @@ No entres en pánico cuando aparezcan marcadores <<<<<<<
 git add, git commit
 ```
 
-**Patrón que usarás en el curso (memoriza):**
+**Patrón que usarás en el programa (memoriza):**
 
 ```
 # 1. Crear branch para feature
@@ -220,7 +217,7 @@ git stash pop
 git reflog
 ```
 
-## Conceptos que NO necesitas antes del curso
+## Conceptos que NO necesitas antes del programa
 
 Estos se enseñan en los módulos correspondientes:
 Concepto Dónde se enseña Git worktrees M7-M8 (Claude Code -w flag)
@@ -228,7 +225,7 @@ Conventional Commits (feat:, fix:)
 M2 (workflow)
 Git hooks (pre-commit, etc.)
 M6 (hooks de Claude Code, no git hooks)
-Rebase interactivo No se usa en el curso Cherry-pick No se usa en el curso Submodules No se usa en el curso
+Rebase interactivo No se usa en el programa Cherry-pick No se usa en el programa Submodules No se usa en el programa
 
 ## Referencia rápida
 

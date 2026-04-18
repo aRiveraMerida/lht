@@ -4,26 +4,6 @@ excerpt: "Slash commands y hooks como mecanismos de personalización avanzada de
 
 # Módulo 6: Slash commands y hooks
 
-# personalizados
-
-**Duración:** 5-6 horas
-**Nivel:** Intermedio-Avanzado
-**Dependencias:** Módulos 1-5 (CLAUDE.md + rules/ + skills + plugins dominados)
-**Modalidad:** 100% práctica con creación de comandos y hooks funcionales
-**Actualizado:** Marzo 2026
-
-## Objetivos de aprendizaje
-
-Al finalizar este módulo serás capaz de:
-1. **Dominar los 30+ slash commands built-in** y los atajos de teclado esenciales
-2. **Crear slash commands personalizados** en .claude/commands/ como archivos markdown
-3. **Configurar hooks en settings.json** con los 20+ eventos disponibles (PreToolUse, PostToolUse, Stop,
-SessionStart, SubagentStop...)
-4. **Implementar hooks de tipo command** (shell) y **tipo http** (integración con servicios externos)
-5. **Diseñar hooks con matchers** para filtrar por herramienta y patrón de archivo
-6. **Diferenciar block-at-submit** (exit code 2 = denegar) **vs hint hooks** (exit 0 con output)
-7. **Integrar commands + hooks + skills** en un sistema de automatización cohesivo
-
 ## 1. Fundamentos: Las dos caras de la extensibilidad
 
 ### 1.1 Slash commands vs Hooks — dos filosofías
@@ -1139,12 +1119,6 @@ Read(.env*)    → Lectura de archivos .env
 
 • **Boris Cherny:** /commit-push-pr docenas de veces al día
 • **Matt Pocock:** Commands para generación de TypeScript types
-• Fuentes del curso: Boris Cherny thread, Matt Pocock thread
+• Fuentes del programa: Boris Cherny thread, Matt Pocock thread
 
-## 13. Checklist de finalización del módulo
-
-Conozco los 30+ slash commands built-in (al menos los 15 más usados)
-Creé 3 slash commands personalizados en .claude/commands/ Uso $ARGUMENTS para parametrizar commands Uso bash inline para pre-computar estado Configuré hooks PostToolUse para formateo automático Configuré hook PreToolUse que bloquea con exit 2 Configuré hook HTTP que notifica a servicio externo Entiendo los 20+ eventos de hooks disponibles Sé la diferencia entre exit 0 (hint), exit 1 (error), exit 2 (deny)
-Uso matchers para filtrar por herramienta y patrón de archivo Sé que hooks se recargan al iniciar nueva sesión Completé ejercicio integrador (3 commands + 4 hooks + documentación)
-CLAUDE.md documenta mi sistema de automatización Puedo explicar cuándo usar command vs hook vs skill
 
