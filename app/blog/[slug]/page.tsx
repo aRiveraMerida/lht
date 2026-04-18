@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const truncate = (s: string, n = 155) => (s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s);
 
   return {
-    title: `${post.title} — La Habitación Tortuga`,
+    title: post.title,
     description: truncate(post.excerpt),
     authors: authors.map((a) => ({ name: a.name, url: a.linkedin })),
     alternates: { canonical: url },

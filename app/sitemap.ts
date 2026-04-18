@@ -27,12 +27,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...postEntries,
     {
-      url: `${baseUrl}/baja`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
       url: `${baseUrl}/aviso-legal`,
       lastModified: new Date(),
       changeFrequency: 'yearly',

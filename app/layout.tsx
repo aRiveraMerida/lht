@@ -21,10 +21,10 @@ const jbmono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://lahabitaciontortuga.com'),
   title: {
-    default: "La Habitación Tortuga [LHT] | Laboratorio abierto sobre IA",
-    template: "%s | La Habitación Tortuga [LHT]",
+    default: "La Habitación Tortuga — IA sin FOMO. Criterio sobre ruido.",
+    template: "%s — La Habitación Tortuga",
   },
-  description: "Un laboratorio abierto sobre inteligencia artificial. Sin filtro. Sin teoría. Experimentos reales por Alberto Rivera y David Dix Hidalgo.",
+  description: "Espacio colectivo del equipo IA de ThePower Education. Laboratorios, casos prácticos y reflexiones honestas sobre inteligencia artificial. Despacio, con foco, con criterio.",
   keywords: [
     "la habitacion tortuga",
     "lht",
@@ -62,15 +62,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_ES",
     url: "https://lahabitaciontortuga.com",
-    siteName: "La Habitación Tortuga [LHT]",
-    title: "La Habitación Tortuga [LHT] — Laboratorio abierto sobre IA",
-    description: "Un laboratorio abierto sobre inteligencia artificial. Sin filtro. Sin teoría. Experimentos reales.",
+    siteName: "La Habitación Tortuga",
+    title: "La Habitación Tortuga — IA sin FOMO. Criterio sobre ruido.",
+    description: "Espacio colectivo del equipo IA de ThePower Education. Laboratorios, casos prácticos y reflexiones honestas sobre IA.",
     images: [
       {
         url: '/favicon.svg',
         width: 1200,
         height: 630,
-        alt: 'La Habitación Tortuga [LHT]',
+        alt: 'La Habitación Tortuga',
       },
     ],
   },
@@ -78,8 +78,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@aRiveraMerida",
     creator: "@aRiveraMerida",
-    title: "La Habitación Tortuga [LHT]",
-    description: "Un laboratorio abierto sobre inteligencia artificial. Sin filtro. Sin teoría. Experimentos reales.",
+    title: "La Habitación Tortuga — IA sin FOMO.",
+    description: "Espacio colectivo del equipo IA de ThePower Education. Despacio, con foco, con criterio.",
     images: ['/favicon.svg'],
   },
   alternates: {
@@ -98,7 +98,7 @@ export default function RootLayout({
     name: 'La Habitación Tortuga',
     alternateName: 'LHT',
     url: 'https://lahabitaciontortuga.com',
-    description: 'Un laboratorio abierto sobre inteligencia artificial. Sin filtro. Sin teoría. Experimentos reales por Alberto Rivera y David Dix Hidalgo.',
+    description: 'Espacio colectivo del equipo IA de ThePower Education. Laboratorios, casos prácticos y reflexiones honestas sobre inteligencia artificial.',
     inLanguage: 'es-ES',
     author: [
       {

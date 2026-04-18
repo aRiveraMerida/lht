@@ -6,7 +6,7 @@ import { getPreviewVariant } from '@/lib/assets';
 import { BlogGrid } from './blog-grid';
 
 export const metadata: Metadata = {
-  title: 'Archivo — La Habitación Tortuga',
+  title: 'Archivo',
   description: 'Todo lo publicado sobre IA desde la práctica. Laboratorios, casos prácticos, estrategia y preguntas honestas.',
 };
 
