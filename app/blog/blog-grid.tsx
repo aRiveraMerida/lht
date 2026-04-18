@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { Search, X, ArrowRight } from 'lucide-react'
+import { Search, X } from 'lucide-react'
 import { SectionLabel, SectionRibbon } from '@/components/SectionLabel'
 import { TopicChip } from '@/components/TopicChip'
 import { ProductCard } from '@/components/ProductCard'
@@ -22,6 +22,44 @@ interface PostMeta {
   featured?: boolean
 }
 
+// Inline tile that shows the program as a first-class item in the grid,
+// visually consistent with ProductCard but with an inverted cover.
+function ProgramTile() {
+  return (
+    <article className="ed-tile">
+      <Link href="/blog/claude-code" className="group block">
+        <div className="on-dark aspect-[16/9] bg-ink text-paper relative overflow-hidden">
+          <div className="absolute top-5 left-5 ed-kicker text-paper/70">
+            LHT · Programa
+          </div>
+          <div
+            aria-hidden="true"
+            className="absolute -bottom-2 right-4 font-[var(--font-display)] text-[clamp(6rem,14vw,10rem)] leading-none text-paper/15 select-none"
+          >
+            {course.stats.guides}
+          </div>
+          <div className="absolute bottom-5 left-5 ed-ribbon-label text-paper">
+            {course.stats.guides} guías · {course.stats.blocks} bloques
+          </div>
+        </div>
+
+        <div className="pt-5">
+          <span className="ed-kicker text-ink">Programas</span>
+          <h3 className="ed-tile-headline font-[var(--font-display)] text-[1.5rem] leading-[1.18] tracking-[-0.3px] mt-3 text-ink group-hover:text-link transition-colors">
+            {course.title}
+          </h3>
+          <p className="ed-body mt-3 text-ink/80">
+            {course.summary}
+          </p>
+          <p className="ed-meta mt-5 text-muted">
+            Prework · 4 bloques · Capstone
+          </p>
+        </div>
+      </Link>
+    </article>
+  )
+}
+
 export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories: string[] }) {
   const searchParams = useSearchParams()
   const initialCategory = searchParams.get('category') || 'Todos'
@@ -35,14 +73,20 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
     return matchesCategory && matchesSearch
   })
 
+  // Program tile shows in 'Todos' and 'Programas', ignoring search text
+  const showProgramTile =
+    searchQuery === '' &&
+    (activeCategory === 'Todos' || activeCategory === 'Programas')
+
   const hasAnyPosts = posts.length > 0
   const filterIsActive = activeCategory !== 'Todos' || searchQuery !== ''
-  const showProgramas = activeCategory === 'Programas'
+
+  const totalTiles = filtered.length + (showProgramTile ? 1 : 0)
 
   const gridClass =
-    filtered.length >= 3
+    totalTiles >= 3
       ? 'grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3 md:gap-x-8'
-      : filtered.length === 2
+      : totalTiles === 2
         ? 'grid grid-cols-1 gap-10 md:grid-cols-2 max-w-5xl mx-auto md:gap-x-8'
         : 'grid grid-cols-1 gap-10 max-w-4xl mx-auto'
 
@@ -106,32 +150,10 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
         </div>
       </section>
 
-      {/* Programas callout — only when filtering by Programas */}
-      {showProgramas && (
-        <section className="on-dark bg-ink text-paper">
-          <div className="ed-container py-10 md:py-14">
-            <div className="grid grid-cols-1 md:grid-cols-[auto_1fr_auto] items-start gap-x-10 gap-y-6">
-              <div className="ed-ribbon-label text-paper/60 uppercase">Programas</div>
-              <div>
-                <div className="font-[var(--font-display)] text-[1.5rem] md:text-[2rem] leading-[1.15] tracking-[-0.3px] text-paper">
-                  {course.title}.
-                </div>
-                <p className="ed-body mt-4 text-paper/75 max-w-2xl">
-                  {course.summary}
-                </p>
-              </div>
-              <Link href="/blog/claude-code" className="ed-btn ed-btn-on-dark self-start md:self-center">
-                Entrar al programa <ArrowRight size={16} aria-hidden="true" />
-              </Link>
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Grid */}
       <section>
         <div className="ed-container py-16 md:py-20">
-          {filtered.length === 0 ? (
+          {totalTiles === 0 ? (
             <div className="mx-auto max-w-xl py-16 md:py-24">
               <SectionLabel>Sin resultados</SectionLabel>
               <h2 className="ed-display mt-5">Aquí todavía no hay nada.</h2>
@@ -158,9 +180,10 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
           ) : (
             <>
               <SectionRibbon>
-                {filtered.length} {filtered.length === 1 ? 'Publicación' : 'Publicaciones'}
+                {totalTiles} {totalTiles === 1 ? 'Publicación' : 'Publicaciones'}
               </SectionRibbon>
               <div className={`mt-12 ${gridClass}`}>
+                {showProgramTile && <ProgramTile />}
                 {filtered.map((post, i) => (
                   <ProductCard
                     key={post.slug}
@@ -172,7 +195,7 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
                     excerpt={post.excerpt}
                     variant={post.variant}
                     index={i}
-                    featured={filtered.length === 1 && post.featured}
+                    featured={totalTiles === 1 && post.featured}
                   />
                 ))}
               </div>
