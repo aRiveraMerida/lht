@@ -43,10 +43,10 @@ export default function ClaudeCodeIndex() {
       {/* Jump to block — sticky quick nav */}
       <nav
         aria-label="Saltar a bloque"
-        className="sticky top-[132px] bg-paper z-40 ed-rule-b"
+        className="sticky top-[89px] bg-paper z-30 ed-rule-b"
       >
         <div className="ed-container">
-          <div className="flex items-center gap-x-8 gap-y-0 overflow-x-auto py-4 -mx-4 px-4 md:mx-0 md:px-0">
+          <div className="flex items-center gap-x-8 gap-y-0 overflow-x-auto py-3 -mx-4 px-4 md:mx-0 md:px-0">
             <span className="shrink-0 ed-ribbon-label text-muted hidden md:inline">
               Bloques
             </span>
@@ -71,7 +71,7 @@ export default function ClaudeCodeIndex() {
           <section
             key={block.id}
             id={block.id}
-            className="ed-rule-b-soft scroll-mt-52"
+            className="ed-rule-b-soft scroll-mt-[140px]"
           >
             <div className="ed-container py-16 md:py-20">
               <SectionRibbon>{block.kicker} · {block.title}</SectionRibbon>

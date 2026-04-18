@@ -114,7 +114,7 @@ export default async function GuidePage({ params }: PageProps) {
       {block && block.guides.length > 1 && (
         <nav
           aria-label={`Guías del bloque ${block.title}`}
-          className="sticky top-[132px] bg-paper z-40 ed-rule-b"
+          className="sticky top-[89px] bg-paper z-30 ed-rule-b"
         >
           <div className="ed-container">
             <div className="flex items-center gap-x-6 gap-y-0 overflow-x-auto py-3 -mx-4 px-4 md:mx-0 md:px-0">
