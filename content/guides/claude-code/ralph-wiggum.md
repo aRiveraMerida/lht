@@ -1016,14 +1016,3 @@ Entiendo diferencia entre AFK-Ralph, HITL-Ralph y Auto mode Completé migración
 Métricas documentadas (iteraciones, costo, tiempo, comparación)
 Puedo decidir cuándo usar Ralph vs Auto mode vs Agent SDK
 
-## Próximos pasos
-
-En **Módulo 8: Multi-Claude workflows y Agent Teams** aprenderás:
-• **Agent Teams** (Opus 4.6) — múltiples Claude coordinados nativamente
-• **claude-squad** (~5.600#) — multi-agente con tmux
-• Git worktrees para aislar trabajo de cada instancia
-• Patrón write-review-edit con 3 agentes
-• Claude Code en la web para tareas paralelas
-• El costo de Agent Teams (~7x tokens vs sesión estándar)
-**Conexión con M7:** Ralph es SECUENCIAL (una tarea, múltiples iteraciones). Multi-Claude es PARALELO (múltiples
-tareas, simultáneamente). Los concepts de tracking (PROGRESS.md) y completion promises aplican a cada agente del equipo.

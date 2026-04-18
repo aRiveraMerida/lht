@@ -770,14 +770,3 @@ Completé proyecto multi-día (15+ features)
 Métricas documentadas (sesiones, costo, tiempo, comparación)
 Puedo decidir cuándo usar Ralph (M7) vs Harness (M10) vs Agent Teams (M8)
 
-## Próximos pasos
-
-En **Módulo 11: Sistema de evaluaciones (Evals)** aprenderás:
-• Roadmap de 8 pasos para crear eval suites
-• Graders: code-based (determinista), model-based (LLM judge), humanos
-• Métricas: pass@k, saturation testing, regression tracking
-• Eval-driven development (TDD para agentes)
-• Suite de 20+ evals para medir calidad del agente
-• Capability testing vs regression testing
-**Conexión con M10:** Los harnesses crean agentes autónomos que implementan features. Las evals miden si esas
-features tienen la calidad esperada. Sin evals, no sabes si el harness produce código bueno — solo sabes que produce código.

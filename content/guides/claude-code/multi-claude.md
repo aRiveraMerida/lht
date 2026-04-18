@@ -667,13 +667,3 @@ Usé --teleport o /remote-control para monitoreo remoto Completé ejercicio inte
 Métricas documentadas (tiempo, costo, tokens, comparación)
 Puedo decidir cuándo usar Agent Teams vs claude-squad vs Ctrl+B vs secuencial Sé cuándo NO paralelizar (features dependientes, proyecto pequeño)
 
-## Próximos pasos
-
-En **Módulo 9: Subagentes y Agent SDK** aprenderás:
-• Agent tool (renombrado de Task tool) para spawning de subagentes
-• .claude/agents/ — definir agentes con roles, permisos y herramientas específicas
-• Agent SDK en profundidad (Python/TypeScript): sesiones, hooks como callbacks, MCP custom
-• Pipeline multi-stage (analyzer → designer → implementer → tester)
-• Diferencia entre Agent Teams (coordinación automática) y subagentes (control programático)
-**Conexión con M8:** Agent Teams coordina automáticamente. Subagentes te dan **control programático** sobre cada
-agente: qué modelo usa, qué herramientas tiene, qué instrucciones sigue. M8 es "deja que Claude coordine". M9 es "yo defino cada agente".

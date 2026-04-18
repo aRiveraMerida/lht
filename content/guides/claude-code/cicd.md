@@ -681,15 +681,3 @@ PRODUCTION_REPORT.md con análisis completo
 
 Este módulo introdujo las herramientas operacionales: RTK para optimización de costos, claude-code-action para CI/CD, y security review en producción. El **Módulo 13** profundiza en pipelines avanzados, PR-from-anywhere, monitoreo, safeguards de producción, y el sistema operacional completo.
 
-## Próximos pasos
-
-En **Módulo 13: CI/CD avanzado y producción** aprenderás:
-• PR-from-anywhere (comment, label, cron, review triggers)
-• Pipelines multi-stage con quality gates escalonados
-• Auto-fix de review comments
-• Monitoreo con dashboard semanal y alertas
-• Safeguards: rate limiting, cost caps, rollback automático
-• Reusable workflows para multi-repo
-• El sistema operacional completo (13 módulos ensamblados)
-**Conexión con M12:** M12 configuró los building blocks (RTK, claude-code-action, security review). M13 los ensambla
-en un sistema de producción con pipelines, monitoreo y safeguards.

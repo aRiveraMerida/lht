@@ -934,17 +934,3 @@ Antes de pasar al Módulo 2, asegúrate de que puedes marcar TODOS estos ítems:
 Claude Code instalado via claude install y actualizado claude doctor pasa todos los checks Puedo ejecutar comandos bash a través de Claude Creé settings.json global con modelo y deny rules Creé CLAUDE.md funcional de <200 líneas con WHAT/WHY/HOW Creé settings.json de proyecto con allowedTools y deny rules Claude siguió mis convenciones sin recordatorios explícitos Claude respetó los permisos de settings.json (deny rules funcionan)
 Navegué un codebase desconocido usando @referencias Usé /init para generar CLAUDE.md automático y lo revisé críticamente Verifiqué auto-memoria con /memory después de una sesión Puedo explicar las 4 capas de configuración con mis propias palabras Puedo explicar qué es un "agent harness" y sus 4 componentes Entiendo la diferencia entre CLAUDE.md y settings.json Completé el ejercicio integrador con mi proyecto real Puedo responder las 8 preguntas de autoevaluación correctamente
 
-## Próximos pasos
-
-Una vez domines estos conceptos, estarás listo para **Módulo 2: El workflow EXPLORE** → **PLAN** → **CODE** →
-**COMMIT**, donde aprenderás:
-• Plan Mode con **Shift+Tab** y sus implicaciones en calidad de código
-• El sistema de esfuerzo con /effort (low/medium/high/auto)
-• Extended thinking con **Option+T** y keywords (think, think hard, ultra think)
-• Gestión de contexto con /context (grid visual), /compact focus, y auto-compactación
-• @referencias avanzadas (archivos, rangos de línea, terminal output)
-• Patrones de interrupción: Escape, doble-Escape, /rewind
-• Background tasks con **Ctrl+B**
-• Workflow completo desde exploración hasta commit con ejercicio integrador
-**Clave para el éxito:** No avances hasta dominar el modelo mental. Todo lo que sigue asume que entiendes por qué
-CLAUDE.md y settings.json existen, cómo funcionan las 4 capas de configuración, y qué es un harness. Si algo no quedó claro, repite los ejercicios.

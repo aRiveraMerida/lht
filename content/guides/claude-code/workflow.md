@@ -1223,15 +1223,3 @@ Usé @referencias para archivos y directorios en exploración Iteré sobre un pl
 Auto-verificación en cada paso del CODE ("Y LUEGO verifica que...")
 Interrumpí con Escape cuando Claude iba en dirección incorrecta Probé doble-Escape para revertir archivos Probé /rewind para recuperar estado anterior Envié tarea a background con Ctrl+B Commits atómicos con Conventional Commits Completé ejercicio integrador (webhooks) exitosamente Puedo explicar diferencia entre Escape, doble-Escape y /rewind
 
-## Próximos pasos
-
-En **Módulo 3: TDD con Claude Code** aprenderás:
-• Ciclo Red-Green-Refactor adaptado a coding agents
-• Por qué tests-first multiplica calidad 2-3x (confirmado por Boris Cherny)
-• /sandbox para testing aislado (84% menos prompts de permiso)
-• Security review con /security-review como complemento del TDD
-• Skills de testing (test-driven-development de ComposioHQ)
-• Coverage como gate de calidad, no solo métrica
-• Integración de test runners en el workflow de auto-verificación
-**Preparación para M3:** Asegúrate de dominar el workflow de M2 — especialmente la auto-verificación ("Y LUEGO
-verifica que..."). TDD es exactamente este patrón elevado a sistema: los tests SON el mecanismo de verificación. Si la auto-verificación no es un hábito, TDD no funcionará.

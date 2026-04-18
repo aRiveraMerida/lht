@@ -1023,16 +1023,3 @@ agent_docs/ tiene documentación de referencia profunda Settings.json tiene perm
 Completé el ejercicio integrador (Library API refactorizada)
 Puedo diseñar rules/ para un monorepo multi-servicio
 
-## Próximos pasos
-
-En **Módulo 5: Skills, plugins y el ecosistema extensible** aprenderás:
-• Skills como "progressive disclosure para capacidades de Claude"
-• Crear skills con frontmatter YAML avanzado (model, tools, isolation)
-• El sistema de plugins (commands + agents + hooks + MCP en paquetes compartibles)
-```
-• anthropics/skills (~102.854#) y anthropics/claude-plugins-official (~2.800#)
-```
-• Diferencia entre skills vs MCP vs hooks vs plugins
-• Cuándo usar cada tipo de extensión
-**Conexión con M4:** En M4 aprendiste progressive disclosure para CONTEXTO (rules/ + agent_docs/). M5 aplica el
-mismo principio a CAPACIDADES — skills que consumen ~100 tokens en escaneo pero <5K cuando se activan. Es el mismo patrón, aplicado a herramientas en lugar de documentación.

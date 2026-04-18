@@ -629,14 +629,3 @@ Uso claude -p para ejecutar evals headless Implementé pass@k con k=3 Ejecuté s
 Suite de 10+ evals en 4 categorías Dashboard de resultados generado CI workflow configurado (GitHub Actions)
 Identifiqué fortalezas y debilidades del agente con datos
 
-## Próximos pasos
-
-En **Módulo 12: Operacionalización y CI/CD** aprenderás:
-• claude-code-action (~6.589#) para GitHub Actions
-• PR automation: Claude revisa, comenta y crea PRs automáticamente
-• Issue triage automático con labeling
-• Code review automation en cada PR
-• Headless mode con fan-out para múltiples repos
-• Production patterns: deployment gates, rollback triggers
-**Conexión con M11:** Las evals que creaste son el "quality gate" del pipeline CI/CD. M12 enseña cómo ejecutarlas
-automáticamente en cada PR y deployment, cerrando el loop: código → evals → deploy → monitor → mejora.

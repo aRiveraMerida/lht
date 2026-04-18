@@ -1303,13 +1303,3 @@ Coverage >80% en todos los ejercicios Ejecuté /security-review y triagé findin
 Corregí issues CRITICAL de security review antes de commitear Probé el skill TDD (preview M5) y comparé con TDD manual Completé API completa con TDD (integrador: library-api)
 Documenté proceso en TDD_PROCESS.md con reflexión sobre bugs prevenidos Puedo explicar por qué TDD multiplica calidad 2-3x con Claude Code Puedo explicar la regla de oro: no modificar tests durante implementación Sé cómo adaptar el workflow TDD a Python (pytest) o Java (JUnit 5)
 
-## Próximos pasos
-
-En **Módulo 4: Arquitectura de CLAUDE.md profesional** aprenderás:
-• .claude/rules/ con frontmatter YAML paths: para carga condicional
-• Diferencia entre CLAUDE.md (instrucciones), settings.json (permisos), y rules/ (condiciones)
-• Patrón de actualización continua (bugs → reglas + auto-memoria)
-• Cómo escalar para proyectos enterprise sin que Claude ignore instrucciones
-• Auto-memoria (/memory) como complemento de actualización implícita
-**Preparación para M4:** El CLAUDE.md que has usado hasta ahora tiene <50 líneas. Funciona para proyectos simples.
-M4 te enseñará a escalar a proyectos con múltiples dominios (frontend, backend, API, infra) donde necesitas reglas diferentes según qué archivos estés editando — sin sobrecargar el contexto.

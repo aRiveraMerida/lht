@@ -742,14 +742,3 @@ Implementé sesión multi-turn con ClaudeSDKClient Orquesté 10+ agentes en proy
 Puedo decidir cuándo usar Agent Teams (M8) vs subagentes (M9)
 Puedo diseñar arquitectura de agentes con least-privilege
 
-## Próximos pasos
-
-En **Módulo 10: Harnesses para agentes de larga duración** aprenderás:
-• Sistema dual de Anthropic: Initializer Agent + Coding Agent
-• Feature list JSON con estado persistente entre sesiones
-• Git logs como memoria implícita
-• Checkpointing y recovery para sesiones overnight
-• Métricas de progreso automatizadas
-• Puppeteer MCP para testing visual E2E
-**Conexión con M9:** Los subagentes que definiste en M9 pueden ser los "workers" de un harness de larga duración.
-M10 enseña cómo hacer que estos agentes trabajen durante horas o días con tracking de progreso, recovery ante fallos, y verificación automática de completitud. Es la unión de Ralph (M7) + Multi-Claude (M8) + Subagentes (M9) en un sistema enterprise.

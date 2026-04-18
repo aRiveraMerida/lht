@@ -4,8 +4,6 @@ excerpt: "Patrones avanzados de CI/CD con Claude Code en entornos productivos."
 
 # Módulo 13: CI/CD avanzado y operaciones en
 
-# producción
-
 **Duración:** 5-6 horas
 **Nivel:** Experto
 **Dependencias:** Módulos 1-12 (especialmente M11 Evals y M12 claude-code-action + RTK)
@@ -714,29 +712,3 @@ Post-merge verify
 12. **RTK + CI basics** — Token optimization + claude-code-action + security review
 13. **CI/CD avanzado** — Pipelines, PR-from-anywhere, monitoreo, safeguards, producción
 
-## Próximos pasos: Proyectos Capstone
-
-Has dominado los 13 módulos. Ahora construye proyectos reales de cero a deploy:
-Proyecto Tipo Deploy Módulos
-
-**P1: TaskFlow API**
-
-Backend puro Railway M1-M6
-
-**P2: PriceWatch Bot**
-
-Scraper + bot Railway + cron M1-M7
-
-**P3: NoteHub**
-
-Fullstack Vercel + Railway M1-M8
-
-**P4: TeamPulse**
-
-**Dashboard**
-
-Dashboard Vercel M1-M9
-
-**P5: FeedbackLoop SaaS**
-
-SaaS multi-tenant Fly.io + Vercel M1-M13 Ver 14_proyectos_capstone.md para guía paso a paso con checkpoints.

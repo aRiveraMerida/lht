@@ -848,14 +848,3 @@ Entiendo skills como progressive disclosure de capacidades (diferencia con rules
 Instalé 5+ skills de comunidad (ComposioHQ, VoltAgent, obra/superpowers)
 Instalé 1+ plugin desde /plugin Uso /skills y /commands para ver skills disponibles Creé skill user-invoked con frontmatter completo Creé skill model-invoked que se auto-activa correctamente Configuré allowed-tools para restringir herramientas por skill Entiendo el budget de 2% y cuándo tool search se activa Completé workflow secuencial con 4 skills de VoltAgent Creé plugin que agrupa 3 skills interoperables Puedo decidir cuándo usar skill vs plugin vs MCP vs hook vs rules/ vs command Sé identificar candidatos a skill (repetitivo, multi-paso, reutilizable)
 
-## Próximos pasos
-
-En **Módulo 6: Slash commands y hooks personalizados** aprenderás:
-• Los 30+ slash commands built-in y atajos de teclado
-• Crear slash commands personalizados en .claude/commands/
-• Los 20+ eventos de hooks (PreToolUse, PostToolUse, Stop, Session, Subagent...)
-• HTTP hooks para integración con servicios externos (Slack, Discord)
-• Bash inline en commands para pre-computar estado
-• Diferencia entre block-at-submit hooks (verificación) y hint hooks (feedback)
-**Conexión con M5:** Skills son workflows multi-paso que definen QUÉ hacer. Slash commands son acciones
-single-shot que ejecutan algo concreto. Hooks son interceptores que automatizan CUÁNDO hacer algo. Los tres se complementan: un skill puede referenciar slash commands y activarse via hooks.

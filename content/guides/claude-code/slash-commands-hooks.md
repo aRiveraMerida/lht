@@ -1148,15 +1148,3 @@ Creé 3 slash commands personalizados en .claude/commands/ Uso $ARGUMENTS para p
 Uso matchers para filtrar por herramienta y patrón de archivo Sé que hooks se recargan al iniciar nueva sesión Completé ejercicio integrador (3 commands + 4 hooks + documentación)
 CLAUDE.md documenta mi sistema de automatización Puedo explicar cuándo usar command vs hook vs skill
 
-## Próximos pasos
-
-En **Módulo 7: Metodología Ralph Wiggum** aprenderás:
-• Ralph loops para tareas que requieren múltiples iteraciones autónomas
-• Stop hooks para interceptar intentos de salida prematura de Claude
-• Completion promises verificables con tests
-• Diferencia entre AFK-Ralph (autónomo overnight) y HITL-Ralph (human-in-the-loop)
-• Auto mode vs Ralph: cuándo usar cada uno
-• Worktree isolation con -w para sesiones aisladas
-• Tracking de progreso persistente (PRD.md, PROGRESS.md)
-**Conexión con M6:** Ralph usa Stop hooks (que aprendiste aquí) para evitar que Claude declare "terminado"
-prematuramente. Los slash commands que creaste serán la base para automatizar pasos dentro del loop Ralph. Todo lo de M6 alimenta directamente a M7.
