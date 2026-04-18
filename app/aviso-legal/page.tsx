@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { SectionLabel } from '@/components/SectionLabel';
 
 export const metadata: Metadata = {
   title: 'Aviso Legal',
@@ -7,20 +8,28 @@ export const metadata: Metadata = {
 
 export default function AvisoLegal() {
   return (
-    <div className="lht-container py-16 md:py-20">
-      <div className="max-w-[700px]">
-        <h1 className="lht-title text-[32px] md:text-[40px]">Aviso Legal</h1>
+    <div className="fg-container py-24 md:py-32">
+      <div className="max-w-2xl">
+        <SectionLabel>Legal</SectionLabel>
+        <h1 className="fg-section-heading mt-6">Aviso Legal</h1>
 
-        <div className="mt-10 space-y-8 text-[15px] leading-7 text-lht-muted">
+        <div className="fg-reading mt-16 max-w-none">
           <p>En cumplimiento de la Ley 34/2002 (LSSI-CE):</p>
-          <div className="space-y-2">
-            <p><strong className="text-lht-ink">Titular:</strong> Alberto Rivera Mérida</p>
-            <p><strong className="text-lht-ink">Domicilio:</strong> C/ Costa Rica</p>
-            <p><strong className="text-lht-ink">Email:</strong> hola@lahabitaciontortuga.com</p>
-          </div>
-          <p><strong className="text-lht-ink">Actividad:</strong> Blog y newsletter sobre inteligencia artificial y adopción tecnológica en organizaciones.</p>
-          <h2 className="lht-title text-[24px] pt-4">Propiedad Intelectual</h2>
-          <p>Todos los contenidos — textos, imágenes, diseño gráfico y código fuente — son propiedad de sus autores salvo indicación expresa. Queda prohibida su reproducción total o parcial sin autorización.</p>
+          <ul>
+            <li><strong>Titular:</strong> Alberto Rivera Mérida</li>
+            <li><strong>Domicilio:</strong> C/ Costa Rica</li>
+            <li><strong>Email:</strong> hola@lahabitaciontortuga.com</li>
+          </ul>
+          <p>
+            <strong>Actividad:</strong> Blog y newsletter sobre inteligencia artificial y
+            adopción tecnológica en organizaciones.
+          </p>
+          <h2>Propiedad Intelectual</h2>
+          <p>
+            Todos los contenidos — textos, imágenes, diseño gráfico y código fuente — son
+            propiedad de sus autores salvo indicación expresa. Queda prohibida su
+            reproducción total o parcial sin autorización.
+          </p>
         </div>
       </div>
     </div>

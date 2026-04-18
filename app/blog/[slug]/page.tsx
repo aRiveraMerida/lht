@@ -8,6 +8,7 @@ import rehypeHighlight from 'rehype-highlight';
 import rehypeRaw from 'rehype-raw';
 import { getPostBySlug, getPostSlugs } from '@/lib/posts';
 import { NewsletterForm } from '@/components/NewsletterForm';
+import { getCategoryAccent } from '@/lib/palette';
 import 'highlight.js/styles/github-dark.css';
 
 interface PageProps {
@@ -78,30 +79,33 @@ export default async function BlogPostPage({ params }: PageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* Header */}
-      <section className="border-b-2 border-lht-line">
-        <div className="lht-container py-8 md:py-10">
-          <nav aria-label="Breadcrumb" className="lht-label-row mb-5 text-lht-muted">
-            <Link href="/" className="hover:text-lht-ink">Inicio</Link>
+      <section className="hairline-b">
+        <div className="fg-container py-16 md:py-20">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 fg-mono-label text-ink/55 mb-10">
+            <Link href="/" className="hover:text-ink transition-colors">Inicio</Link>
             <span aria-hidden="true">/</span>
-            <Link href="/blog" className="hover:text-lht-ink">Blog</Link>
+            <Link href="/blog" className="hover:text-ink transition-colors">Archivo</Link>
             <span aria-hidden="true">/</span>
-            <span className="text-lht-ink">{post.category}</span>
+            <span className="text-ink">{post.category}</span>
           </nav>
 
-          <div className="mb-4 flex flex-wrap items-center gap-3 text-[11px] font-black uppercase tracking-[0.16em]">
-            <span>{post.category}</span>
-            <span className="text-lht-grey" aria-hidden="true">·</span>
-            <span className="text-lht-muted">{post.readingTime}</span>
-            <span className="text-lht-grey" aria-hidden="true">·</span>
-            <time dateTime={post.date} className="text-lht-muted">
+          <div className="flex flex-wrap items-center gap-4 mb-8">
+            <span
+              className="fg-cat-tag"
+              style={{ ['--tag-color' as string]: getCategoryAccent(post.category) }}
+            >
+              {post.category}
+            </span>
+            <span className="fg-mono-label text-ink/55">{post.readingTime}</span>
+            <time dateTime={post.date} className="fg-mono-label text-ink/55">
               {new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
             </time>
           </div>
 
-          <h1 className="lht-display max-w-4xl text-[clamp(2rem,5vw,4rem)]">
+          <h1 className="fg-display max-w-[20ch]">
             {post.title}
           </h1>
-          <p className="mt-4 max-w-2xl text-lg leading-[1.9] text-lht-muted">
+          <p className="fg-body-lg mt-8 max-w-2xl text-ink/65">
             {post.excerpt}
           </p>
         </div>
@@ -109,42 +113,30 @@ export default async function BlogPostPage({ params }: PageProps) {
 
       {/* Body */}
       <section>
-        <div className="lht-container py-8 md:py-12">
-          <article className="lht-reading mx-auto">
-            <div className="prose prose-lg max-w-none
-              prose-headings:font-display prose-headings:font-black prose-headings:uppercase prose-headings:tracking-[-0.04em] prose-headings:leading-[0.96] prose-headings:text-lht-ink
-              prose-h2:text-2xl prose-h3:text-xl
-              prose-p:text-[17px] prose-p:leading-[1.9] prose-p:text-lht-ink
-              prose-a:text-lht-blue prose-a:font-bold prose-a:underline hover:prose-a:text-lht-ink
-              prose-strong:text-lht-ink prose-strong:font-bold
-              prose-code:text-sm prose-code:bg-lht-paper prose-code:px-2 prose-code:py-1 prose-code:border-2 prose-code:border-lht-line prose-code:before:content-none prose-code:after:content-none
-              prose-pre:bg-lht-ink prose-pre:text-lht-paper prose-pre:p-6 prose-pre:overflow-x-auto
-              prose-ul:list-disc prose-ul:ml-6 prose-ul:my-6
-              prose-ol:list-decimal prose-ol:ml-6 prose-ol:my-6
-              prose-li:text-lht-ink prose-li:my-2
-              prose-blockquote:my-8 prose-blockquote:border-2 prose-blockquote:border-lht-line prose-blockquote:bg-lht-paper prose-blockquote:px-5 prose-blockquote:py-4 prose-blockquote:not-italic prose-blockquote:font-display prose-blockquote:text-2xl prose-blockquote:font-bold prose-blockquote:leading-[1.15]
-              prose-img:my-8
-              prose-hr:border-lht-line prose-hr:my-12
-            ">
-              <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight, rehypeRaw]}>
-                {post.content}
-              </ReactMarkdown>
-            </div>
+        <div className="fg-container py-16 md:py-24">
+          <article className="fg-reading">
+            <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight, rehypeRaw]}>
+              {post.content}
+            </ReactMarkdown>
           </article>
 
           {/* Newsletter CTA */}
-          <div className="mx-auto mt-14 max-w-[42rem] lht-panel">
-            <h3 className="lht-title">Si esto te ha hecho pensar, hay más.</h3>
-            <p className="mt-2 text-sm text-lht-muted">Una vez a la semana. Sin spam, sin urgencia.</p>
-            <div className="mt-4">
-              <NewsletterForm compact />
+          <div className="fg-reading mt-20">
+            <div className="rounded-lg bg-black/5 p-8">
+              <h3 className="fg-feature-title">Si esto te ha hecho pensar, hay más.</h3>
+              <p className="fg-body mt-2 text-ink/65">
+                Una vez a la semana. Sin spam, sin urgencia.
+              </p>
+              <div className="mt-6">
+                <NewsletterForm compact />
+              </div>
             </div>
-          </div>
 
-          <div className="mx-auto mt-6 max-w-[42rem]">
-            <Link href="/blog" className="lht-btn lht-btn-secondary">
-              <ArrowLeft size={14} aria-hidden="true" /> Ver todos los artículos
-            </Link>
+            <div className="mt-10">
+              <Link href="/blog" className="fg-btn fg-btn-glass-dark">
+                <ArrowLeft size={14} aria-hidden="true" /> Ver todos los artículos
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -1,9 +1,3 @@
-export function SectionLabel({ number, children }: { number?: string; children: React.ReactNode }) {
-  return (
-    <div className="lht-label-row">
-      {number && <span>{number}</span>}
-      {number && <span className="lht-label-line" />}
-      <span>{children}</span>
-    </div>
-  )
+export function SectionLabel({ children }: { children: React.ReactNode }) {
+  return <div className="fg-mono-label-lg">{children}</div>
 }

@@ -15,26 +15,23 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b-2 border-lht-line bg-lht-bg">
-        <div className="lht-container flex items-center justify-between py-3 md:py-4">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center border-2 border-lht-line bg-lht-paper">
-              <TurtleLogo className="h-7 w-7 text-lht-ink" />
-            </div>
-            <div>
-              <div className="lht-kicker">La Habitación Tortuga</div>
-              <div className="text-[11px] text-lht-muted">Archivo editorial</div>
-            </div>
+      <header className="sticky top-0 z-50 hairline-b bg-paper/90 backdrop-blur-md">
+        <div className="fg-container flex items-center justify-between py-4">
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <TurtleLogo className="h-7 w-7 text-ink" />
+            <span className="fg-body fw-540 tracking-tight">La Habitación Tortuga</span>
           </Link>
 
-          <div className="hidden items-center gap-3 md:flex">
-            <Link href="/blog" className="lht-btn lht-btn-secondary">Archivo</Link>
-            <Link href="/#suscribete" className="lht-btn lht-btn-primary">Suscribirse</Link>
+          <div className="hidden items-center gap-2 md:flex">
+            <Link href="/blog" className="fg-pill">Archivo</Link>
+            <Link href="/#suscribete" className="fg-btn fg-btn-primary">
+              Suscribirse
+            </Link>
           </div>
 
           <button
             onClick={() => setOpen(!open)}
-            className="flex h-10 w-10 items-center justify-center border-2 border-lht-line bg-lht-paper md:hidden"
+            className="fg-btn-icon md:hidden"
             aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={open}
           >
@@ -44,10 +41,16 @@ export const Navbar: React.FC = () => {
       </header>
 
       {open && (
-        <nav className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-6 bg-lht-bg">
-          <Link href="/" onClick={() => setOpen(false)} className="lht-title">Inicio</Link>
-          <Link href="/blog" onClick={() => setOpen(false)} className="lht-title">Archivo</Link>
-          <Link href="/#suscribete" onClick={() => setOpen(false)} className="lht-btn lht-btn-primary">Suscribirse</Link>
+        <nav className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8 bg-paper">
+          <Link href="/" onClick={() => setOpen(false)} className="fg-section-heading">Inicio</Link>
+          <Link href="/blog" onClick={() => setOpen(false)} className="fg-section-heading">Archivo</Link>
+          <Link
+            href="/#suscribete"
+            onClick={() => setOpen(false)}
+            className="fg-btn fg-btn-primary mt-4"
+          >
+            Suscribirse
+          </Link>
         </nav>
       )}
     </>

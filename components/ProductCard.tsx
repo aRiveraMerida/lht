@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { AssetPreview } from './AssetPreview'
 import type { PreviewVariant } from '@/lib/assets'
+import { getCategoryAccent } from '@/lib/palette'
 
 interface ProductCardProps {
   slug: string
@@ -21,28 +22,30 @@ export function ProductCard({ slug, category, title, meta, excerpt, variant, ind
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.3, delay: index * 0.05 }}
-      className="lht-card"
+      transition={{ duration: 0.35, delay: index * 0.05 }}
+      className="fg-card"
     >
-      <Link href={`/blog/${slug}`}>
+      <Link href={`/blog/${slug}`} className="block">
         <AssetPreview variant={variant} index={index} />
 
-        <div className="p-5 md:p-6">
-          <div className="flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.16em]">
-            <span>{category}</span>
-            <span>+</span>
-          </div>
+        <div className="p-6 md:p-7">
+          <span
+            className="fg-cat-tag"
+            style={{ ['--tag-color' as string]: getCategoryAccent(category) }}
+          >
+            {category}
+          </span>
 
-          <h3 className="lht-title mt-4">
+          <h3 className="fg-feature-title mt-4">
             {title}
           </h3>
 
-          <p className="mt-4 text-[11px] font-black uppercase tracking-[0.16em] text-lht-muted">
-            {meta}
+          <p className="fg-body mt-3 text-ink/70">
+            {excerpt}
           </p>
 
-          <p className="mt-4 text-[15px] leading-7">
-            {excerpt}
+          <p className="fg-mono-label mt-5 text-ink/50">
+            {meta}
           </p>
         </div>
       </Link>

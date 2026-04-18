@@ -22,39 +22,45 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
 
   if (status === 'success') {
     return (
-      <div className="border-2 border-lht-line bg-lht-paper p-5">
-        <p className="lht-title text-[22px]">{message}</p>
-        <p className="mt-2 text-sm text-lht-muted">Bienvenido al archivo. Nos leemos pronto.</p>
+      <div className="rounded-lg bg-ink text-paper p-6">
+        <p className="fg-feature-title">{message}</p>
+        <p className="fg-body mt-2 text-white/70">
+          Bienvenido al archivo. Nos leemos pronto.
+        </p>
       </div>
     )
   }
 
   return (
     <div>
-      <form action={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
+      <form action={handleSubmit} className="flex flex-col gap-2 sm:flex-row">
         <input
           type="email"
           name="email"
           required
           placeholder="tu@email.com"
-          className="lht-input flex-1"
+          className={`fg-input ${compact ? 'sm:flex-1' : 'flex-1'}`}
         />
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="lht-btn lht-btn-primary disabled:opacity-60"
+          className="fg-btn fg-btn-primary disabled:opacity-60"
         >
-          {status === 'loading' ? 'Enviando...' : 'Me apunto'}
+          {status === 'loading' ? 'Enviando…' : 'Me apunto'}
         </button>
       </form>
       {status === 'error' && (
-        <p className="mt-3 text-sm text-lht-red">{message}</p>
+        <p className="fg-body mt-3 text-[#FF4DA6]">{message}</p>
       )}
-      <p className="mt-3 text-[12px] leading-5 text-lht-muted">
+      <p className="fg-body mt-3 text-ink/55 text-[13px]">
         Puedes{' '}
-        <Link href="/baja" className="underline hover:text-lht-ink">darte de baja</Link>
-        {' '}en cualquier momento.{' '}
-        <Link href="/politica-privacidad" className="underline hover:text-lht-ink">Política de privacidad</Link>.
+        <Link href="/baja" className="underline underline-offset-2 hover:text-ink">
+          darte de baja
+        </Link>{' '}
+        en cualquier momento.{' '}
+        <Link href="/politica-privacidad" className="underline underline-offset-2 hover:text-ink">
+          Política de privacidad
+        </Link>.
       </p>
     </div>
   )

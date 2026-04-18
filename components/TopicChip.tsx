@@ -6,7 +6,8 @@ export function TopicChip({ children, active = false, onClick }: {
   return (
     <button
       onClick={onClick}
-      className={`lht-chip ${active ? 'lht-chip-active' : ''}`}
+      className={`fg-pill ${active ? 'fg-pill-active' : ''}`}
+      type="button"
     >
       {children}
     </button>
