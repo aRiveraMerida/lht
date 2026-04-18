@@ -3,7 +3,7 @@ title: "Qué buscamos en esta habitación"
 date: "2026-04-18"
 description: "Empezamos este sitio porque no encontrábamos lo que queríamos leer. Esto es lo que queremos publicar aquí, lo que no, y cómo participar."
 excerpt: "Empezamos este sitio porque no encontrábamos lo que queríamos leer. Esto es lo que queremos publicar aquí, lo que no, y cómo participar."
-category: "Sin Filtro"
+category: "Guías"
 authors:
   - alberto-rivera
   - david-dix
