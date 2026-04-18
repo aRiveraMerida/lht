@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { getAllPosts } from '@/lib/posts';
+import { sequence as guides } from '@/lib/course';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
@@ -10,6 +11,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(post.date),
     changeFrequency: 'monthly',
     priority: 0.8,
+  }));
+
+  const guideEntries: MetadataRoute.Sitemap = guides.map((g) => ({
+    url: `${baseUrl}/blog/claude-code/${g.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.7,
   }));
 
   return [
@@ -25,7 +33,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'daily',
       priority: 0.9,
     },
+    {
+      url: `${baseUrl}/blog/claude-code`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
     ...postEntries,
+    ...guideEntries,
     {
       url: `${baseUrl}/aviso-legal`,
       lastModified: new Date(),
