@@ -84,16 +84,21 @@ Crear un archivo `.md` en `content/blog/`:
 ```markdown
 ---
 title: "Título del post"
-date: "2025-01-20"
+date: "2026-04-18"
 excerpt: "Resumen breve (máx. 160 caracteres)"
-author: "Alberto Rivera"
+authors:
+  - alberto-rivera
+  - david-dix
 category: "Estrategia"
+featured: false
 ---
 
 Contenido del post aquí...
 ```
 
-Categorías disponibles: Laboratorios, Estrategia, Automatizaciones, Sin filtro, Adopción IA, Personas, Notas de campo.
+Categorías disponibles: Laboratorios, Sin Filtro, Adopción IA, Estrategia, Guías.
+
+Autores disponibles: definidos en `lib/authors.ts` (slugs: `alberto-rivera`, `david-dix`). Un post puede firmarlo más de uno.
 
 ## Seguridad
 

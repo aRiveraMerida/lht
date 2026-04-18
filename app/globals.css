@@ -365,6 +365,15 @@
     text-underline-offset: 3px;
   }
   .fg-reading a:hover { color: var(--color-muted); }
+  /* Buttons inside reading column keep their own color + remove underline */
+  .fg-reading a.fg-btn,
+  .fg-reading a.fg-pill {
+    text-decoration: none;
+  }
+  .fg-reading a.fg-btn-primary { color: var(--color-paper); }
+  .fg-reading a.fg-btn-invert { color: var(--color-ink); }
+  .fg-reading a.fg-btn-glass-dark { color: var(--color-ink); }
+  .fg-reading a.fg-btn-glass-light { color: var(--color-paper); }
   .fg-reading strong { font-weight: 540; }
   .fg-reading blockquote {
     margin-block: 2rem;
