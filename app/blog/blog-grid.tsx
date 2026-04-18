@@ -37,6 +37,7 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
 
   const hasAnyPosts = posts.length > 0
   const filterIsActive = activeCategory !== 'Todos' || searchQuery !== ''
+  const showProgramas = activeCategory === 'Programas'
 
   const gridClass =
     filtered.length >= 3
@@ -87,29 +88,8 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
         </div>
       </section>
 
-      {/* Course callout */}
-      <section className="on-dark bg-ink text-paper">
-        <div className="ed-container py-10 md:py-12">
-          <div className="grid grid-cols-1 md:grid-cols-[auto_1fr_auto] items-baseline gap-x-10 gap-y-4">
-            <div className="ed-ribbon-label text-paper/60 uppercase">Curso</div>
-            <div>
-              <div className="font-[var(--font-display)] text-[1.5rem] md:text-[1.875rem] leading-[1.15] tracking-[-0.3px] text-paper">
-                {course.title}. {course.subtitle}.
-              </div>
-              <p className="ed-body mt-3 text-paper/70 max-w-2xl">
-                {course.stats.guides} guías en secuencia. Prework, {course.stats.blocks - 1} bloques
-                temáticos y preparación para la certificación.
-              </p>
-            </div>
-            <Link href="/blog/claude-code" className="ed-btn ed-btn-on-dark self-center">
-              Entrar al curso <ArrowRight size={16} aria-hidden="true" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Topics (horizontal rule of filters) */}
-      <section className="sticky top-[132px] bg-paper z-40 ed-rule-b">
+      <section className="sticky top-[89px] bg-paper z-30 ed-rule-b">
         <div className="ed-container">
           <div className="flex gap-x-8 gap-y-0 overflow-x-auto py-4 -mx-4 px-4 md:mx-0 md:px-0">
             {categories.map((cat) => (
@@ -125,6 +105,29 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
           </div>
         </div>
       </section>
+
+      {/* Programas callout — only when filtering by Programas */}
+      {showProgramas && (
+        <section className="on-dark bg-ink text-paper">
+          <div className="ed-container py-10 md:py-14">
+            <div className="grid grid-cols-1 md:grid-cols-[auto_1fr_auto] items-start gap-x-10 gap-y-6">
+              <div className="ed-ribbon-label text-paper/60 uppercase">Programas</div>
+              <div>
+                <div className="font-[var(--font-display)] text-[1.5rem] md:text-[2rem] leading-[1.15] tracking-[-0.3px] text-paper">
+                  {course.title}. {course.subtitle}.
+                </div>
+                <p className="ed-body mt-4 text-paper/75 max-w-2xl">
+                  {course.stats.guides} guías en secuencia. Prework, {course.stats.blocks - 1} bloques
+                  temáticos y preparación para la certificación.
+                </p>
+              </div>
+              <Link href="/blog/claude-code" className="ed-btn ed-btn-on-dark self-start md:self-center">
+                Entrar al curso <ArrowRight size={16} aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Grid */}
       <section>
