@@ -8,7 +8,6 @@ import rehypeHighlight from 'rehype-highlight';
 import rehypeRaw from 'rehype-raw';
 import { getPostBySlug, getPostSlugs, getRelatedPosts } from '@/lib/posts';
 import { getAuthors } from '@/lib/authors';
-import { AuthorBio } from '@/components/AuthorBio';
 import { ProductCard } from '@/components/ProductCard';
 import { getPreviewVariant } from '@/lib/assets';
 import { getCategoryAccent } from '@/lib/palette';
@@ -148,13 +147,6 @@ export default async function BlogPostPage({ params }: PageProps) {
               {post.content}
             </ReactMarkdown>
           </article>
-
-          {/* Author bios */}
-          {authors.length > 0 && (
-            <div className="mt-20">
-              <AuthorBio authorSlugs={post.authors} />
-            </div>
-          )}
 
           {/* Newsletter CTA */}
           <div className="fg-reading mt-16">

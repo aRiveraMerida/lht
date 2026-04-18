@@ -37,12 +37,12 @@ Hot takes sobre el modelo que salió ayer. Predicciones sobre 2030. "La IA va a 
 
 Si algo de eso te sirve, perfecto — hay otros sitios que lo hacen muy bien. Aquí no.
 
-## Cómo participar
+## Cómo funciona esto
 
-Por ahora escribimos nosotros. Alberto, David, y quien del equipo IA de ThePower tenga algo probado que contar. Va por oleadas: a veces uno, a veces dos, a veces más.
+Solo escribe el equipo IA de ThePower Education. Va por oleadas: a veces uno del equipo, a veces varios, a veces nadie durante unas semanas. Sin calendario fijo.
 
-Si tú tienes algo probado, con contexto real, con las dudas delante — escríbenos a [hola@lahabitaciontortuga.com](mailto:hola@lahabitaciontortuga.com). Si encaja con lo que queremos que pase aquí, lo publicamos. Si no, te lo decimos sin rodeos y te contamos por qué.
+¿Tienes algo probado, con contexto real, con las dudas delante? Escríbenos a [hola@lahabitaciontortuga.com](mailto:hola@lahabitaciontortuga.com). Leemos todo. Si encaja con lo que queremos que pase aquí, te proponemos formato. Si no, te lo decimos sin rodeos y te contamos por qué.
 
-La newsletter es el canal principal. Lo que publicamos acaba ahí. Y si respondes a cualquier correo, te leemos — esa es la parte conversación.
+La newsletter es el canal principal. Lo que publicamos acaba ahí. Respondes a cualquier correo y te leemos — esa es la parte conversación.
 
 No hay mucho más. Despacio, con foco, con criterio.

@@ -34,10 +34,3 @@ export function getAuthor(slug: string): Author | null {
 export function getAuthors(slugs: string[]): Author[] {
   return slugs.map((s) => authors[s]).filter((a): a is Author => Boolean(a))
 }
-
-export function getAuthorInitials(author: Author): string {
-  const parts = author.name.split(' ')
-  const first = parts[0]?.[0] ?? ''
-  const last = parts[parts.length - 1]?.[0] ?? ''
-  return (first + last).toUpperCase()
-}

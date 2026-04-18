@@ -6,14 +6,8 @@ import { ProductCard } from '@/components/ProductCard';
 import { getPreviewVariant } from '@/lib/assets';
 import { getAllPosts } from '@/lib/posts';
 import { categories } from '@/lib/palette';
-import { authors, getAuthorInitials } from '@/lib/authors';
-
-// Avatar accent cycles through hero gradient stops, in author insertion order.
-const avatarColors = ['#8B5CF6', '#00A3FF', '#00D26A', '#FF4DA6', '#FFE55C']
-
 export default function Home() {
   const posts = getAllPosts();
-  const residents = Object.values(authors);
 
   const onlyOne = posts.length === 1;
 
@@ -196,7 +190,7 @@ export default function Home() {
           <SectionLabel>Quién escribe aquí</SectionLabel>
 
           <h2 className="fg-section-heading mt-8 max-w-3xl">
-            Equipo IA de ThePower Education.
+            Solo escribe el equipo de ThePower.
           </h2>
           <p className="fg-body-lg mt-6 max-w-2xl text-ink/65">
             Este no es un blog corporativo. Es un espacio diferente: el mismo equipo
@@ -217,39 +211,9 @@ export default function Home() {
               <div className="fg-mono-label text-ink/55">Lo que pasa aquí</div>
               <p className="fg-body-lg mt-4 text-ink/80">
                 Dudamos de todo lo que está pasando. Probamos antes de opinar.
-                Publicamos con nombre y apellidos.
+                Publicamos con criterio, no con prisa.
               </p>
             </div>
-          </div>
-
-          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
-            {residents.map((author, i) => (
-              <article key={author.slug} className="fg-card p-7 hairline-t hairline-b">
-                <div className="flex items-center gap-3">
-                  <div
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full text-white fg-mono-label"
-                    style={{ background: avatarColors[i % avatarColors.length] }}
-                    aria-hidden="true"
-                  >
-                    {getAuthorInitials(author)}
-                  </div>
-                  <div>
-                    <div className="fg-body fw-540">{author.name}</div>
-                    <div className="fg-mono-label text-ink/55 mt-1">
-                      {author.role} · {author.company}
-                    </div>
-                  </div>
-                </div>
-                <a
-                  href={author.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="fg-body mt-5 inline-block underline underline-offset-2"
-                >
-                  LinkedIn →
-                </a>
-              </article>
-            ))}
           </div>
         </div>
       </section>
