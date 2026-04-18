@@ -2,22 +2,23 @@
 
 import { Resend } from 'resend'
 
-export async function subscribe(formData: FormData) {
+export type SubscribeErrorKind = 'validation' | 'already' | 'server'
+
+export type SubscribeResult =
+  | { success: true }
+  | { success: false; kind: SubscribeErrorKind }
+
+export async function subscribe(formData: FormData): Promise<SubscribeResult> {
   const email = formData.get('email') as string
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   if (!email || !emailRegex.test(email)) {
-    return { error: 'Por favor, introduce un email válido.' }
+    return { success: false, kind: 'validation' }
   }
 
-  if (!process.env.RESEND_API_KEY) {
-    console.error('RESEND_API_KEY is not configured')
-    return { error: 'El servicio de suscripción no está disponible en este momento.' }
-  }
-
-  if (!process.env.RESEND_AUDIENCE_ID) {
-    console.error('RESEND_AUDIENCE_ID is not configured')
-    return { error: 'El servicio de suscripción no está disponible en este momento.' }
+  if (!process.env.RESEND_API_KEY || !process.env.RESEND_AUDIENCE_ID) {
+    console.error('Resend env vars not configured')
+    return { success: false, kind: 'server' }
   }
 
   try {
@@ -30,7 +31,7 @@ export async function subscribe(formData: FormData) {
       audienceId: process.env.RESEND_AUDIENCE_ID,
     })
 
-    // Send welcome email
+    // Send welcome email (non-blocking: subscription succeeds even if email fails)
     await resend.emails.send({
       from: 'La Habitación Tortuga <onboarding@resend.dev>',
       to: normalizedEmail,
@@ -57,7 +58,6 @@ Bienvenido/a al caparazón.
 Alberto y David
 La Habitación Tortuga [LHT]`,
     }).catch((err) => {
-      // Don't fail the subscription if the welcome email fails
       console.error('Welcome email failed:', err)
     })
 
@@ -65,9 +65,9 @@ La Habitación Tortuga [LHT]`,
   } catch (error: unknown) {
     const resendError = error as { statusCode?: number }
     if (resendError?.statusCode === 409) {
-      return { error: 'Ya estás suscrito al laboratorio.' }
+      return { success: false, kind: 'already' }
     }
     console.error('Error suscribiendo:', error)
-    return { error: 'Ha ocurrido un error. Inténtalo de nuevo.' }
+    return { success: false, kind: 'server' }
   }
 }
