@@ -35,28 +35,23 @@ export async function subscribe(formData: FormData): Promise<SubscribeResult> {
     await resend.emails.send({
       from: 'La Habitación Tortuga <onboarding@resend.dev>',
       to: normalizedEmail,
-      subject: 'Bienvenido/a a la comunidad tortuga',
+      subject: 'Bienvenido a la habitación',
       text: `Hola,
 
-Somos Alberto y David. Esto es La Habitación Tortuga.
+Ya estás en la newsletter de La Habitación Tortuga.
 
-No somos una newsletter más sobre IA. Somos dos profesionales que trabajan con inteligencia artificial todos los días y necesitaban un sitio para pensar despacio.
+Publicamos cada semana como mucho, a veces menos. Siempre que haya algo probado y pensado — nunca por obligación de calendario.
 
-Esto es lo que vas a recibir:
+Tres cosas antes de empezar:
 
-— Lo que probamos cada semana y lo que aprendemos de verdad
-— Reflexiones sobre adopción, estrategia y el factor humano de la IA
-— Laboratorios: experimentos en profundidad con herramientas reales
+1. Puedes responder a cualquier correo. Lo leemos.
+2. Si en algún momento no te aporta, te das de baja sin dramas.
+3. Si hay alguien que debería estar aquí, reenvíaselo.
 
-Publicamos cada semana como mínimo. Pero si una semana no tenemos nada que valga la pena, no te mandamos nada. Preferimos respetarte el tiempo.
+Despacio, con foco, con criterio.
 
-Mientras tanto, puedes echar un vistazo a lo que ya hemos escrito:
-→ https://lahabitaciontortuga.com/blog
-
-Bienvenido/a al caparazón.
-
-Alberto y David
-La Habitación Tortuga [LHT]`,
+— Equipo IA de ThePower Education
+La Habitación Tortuga · lahabitaciontortuga.com`,
     }).catch((err) => {
       console.error('Welcome email failed:', err)
     })
