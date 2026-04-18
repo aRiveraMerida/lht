@@ -19,13 +19,18 @@
   --color-cat-personas: #FF6B3D;
   --color-cat-notas: #111111;
 
-  /* ─── Signature hero gradient (green → yellow → purple → pink) ─── */
+  /* ─── Signature hero gradient (deeper saturation for text legibility) ─── */
   --gradient-hero: linear-gradient(
     135deg,
-    #00D26A 0%,
-    #FFE55C 32%,
-    #8B5CF6 66%,
-    #FF4DA6 100%
+    #009E4F 0%,
+    #C97800 32%,
+    #6D28D9 66%,
+    #BE185D 100%
+  );
+  --gradient-hero-veil: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.12) 0%,
+    rgba(0, 0, 0, 0.32) 100%
   );
 
   /* ─── Fonts (CSS vars defined in layout.tsx via next/font) ─── */
@@ -321,11 +326,14 @@
     background: var(--tag-color, var(--color-ink));
   }
 
-  /* ─── Hero gradient surface ─── */
+  /* ─── Hero gradient surface (with legibility veil layered on top) ─── */
   .fg-hero-gradient {
-    background: var(--gradient-hero);
+    background: var(--gradient-hero-veil), var(--gradient-hero);
     color: var(--color-paper);
   }
+  /* Boost body-text weight on dark/gradient surfaces for readability */
+  .on-dark .fg-body-lg { font-weight: 400; }
+  .on-dark .fg-body { font-weight: 400; }
 
   /* ─── Reading column (blog post body) ─── */
   .fg-reading {
