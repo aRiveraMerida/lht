@@ -1,13 +1,5 @@
 ---
-title: "Módulo 13 — CI/CD avanzado"
-date: "2026-04-18"
-description: "Patrones avanzados de CI/CD con Claude Code en entornos productivos."
-excerpt: "Dependencias: Módulos 1-12 (especialmente M11 Evals y M12 claude-code-action + RTK) Modalidad: 100% práctica con pipelines reales en GitHub Actions Actualizado: Marzo 2026 Al…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Patrones avanzados de CI/CD con Claude Code en entornos productivos."
 ---
 
 # Módulo 13: CI/CD avanzado y operaciones en

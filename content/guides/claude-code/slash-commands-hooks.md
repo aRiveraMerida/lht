@@ -1,13 +1,5 @@
 ---
-title: "Módulo 6 — Slash commands y hooks"
-date: "2026-04-18"
-description: "Slash commands y hooks como mecanismos de personalización avanzada del agente."
-excerpt: "Dependencias: Módulos 1-5 (CLAUDE.md + rules/ + skills + plugins dominados) Modalidad: 100% práctica con creación de comandos y hooks funcionales Actualizado: Marzo 2026 Al…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Slash commands y hooks como mecanismos de personalización avanzada del agente."
 ---
 
 # Módulo 6: Slash commands y hooks

@@ -1,18 +1,9 @@
 ---
-title: "Prework 03 — Node.js y npm"
-date: "2026-04-18"
-description: "Instalación y uso básico de Node.js y npm, requisito técnico de Claude Code."
-excerpt: "Tiempo estimado: 3-6 horas (desde cero) / 1 hora (repaso) Objetivo: Tener Node.js instalado, saber crear un proyecto con npm, ejecutar scripts y tests Requisito previo: Áreas 1-2…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Instalación y uso básico de Node.js y npm, requisito técnico de Claude Code."
 ---
 
 # Prework Área 3: Node.js y npm
 
-**Tiempo estimado:** 3-6 horas (desde cero) / 1 hora (repaso)
 **Objetivo:** Tener Node.js instalado, saber crear un proyecto con npm, ejecutar scripts y tests
 **Requisito previo:** Áreas 1-2 (Terminal + Git) completadas
 

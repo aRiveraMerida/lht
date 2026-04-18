@@ -1,18 +1,9 @@
 ---
-title: "Prework 04 — JavaScript básico"
-date: "2026-04-18"
-description: "Nivel mínimo de JavaScript necesario para seguir los ejercicios del curso."
-excerpt: "Tiempo estimado: 6-10 horas (desde cero) / 2 horas (repaso) Objetivo: Poder LEER y ENTENDER código JavaScript moderno que Claude genera Requisito previo: Áreas 1-3 completadas…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Nivel mínimo de JavaScript necesario para seguir los ejercicios del curso."
 ---
 
 # Prework Área 4: JavaScript básico
 
-**Tiempo estimado:** 6-10 horas (desde cero) / 2 horas (repaso)
 **Objetivo:** Poder LEER y ENTENDER código JavaScript moderno que Claude genera
 **Requisito previo:** Áreas 1-3 completadas (Terminal + Git + Node.js)
 

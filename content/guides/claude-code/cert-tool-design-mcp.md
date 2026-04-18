@@ -1,13 +1,5 @@
 ---
-title: "Certificación C2 — Tool Design y MCP"
-date: "2026-04-18"
-description: "Capítulo 2 de preparación: diseño de herramientas y MCP."
-excerpt: "Peso en el examen: ~20% Subtemas: d2.1 Tool Descriptions · d2.2 Structured Errors · d2.3 Tool Distribution · d2.4 MCP Config · d2.5 Built-in Tools Escenarios relacionados: #1…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Capítulo 2 de preparación: diseño de herramientas y MCP."
 ---
 
 # Certificación — Dominio 2: Tool Design & MCP

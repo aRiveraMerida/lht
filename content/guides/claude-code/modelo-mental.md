@@ -1,13 +1,5 @@
 ---
-title: "Módulo 1 — El modelo mental de Claude Code"
-date: "2026-04-18"
-description: "El modelo mental correcto para entender Claude Code como agente, no como chatbot."
-excerpt: "1. Explicar la arquitectura diferencial de Claude Code frente a Copilot, Cursor, Cline y otros asistentes de IA 2. Instalar, autenticar y diagnosticar Claude Code en tu máquina…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "El modelo mental correcto para entender Claude Code como agente, no como chatbot."
 ---
 
 # Módulo 1: El modelo mental de Claude Code

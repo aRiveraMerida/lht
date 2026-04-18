@@ -1,13 +1,5 @@
 ---
-title: "Certificación — Preparación Claude Certified Architect"
-date: "2026-04-18"
-description: "Bloque de preparación para el examen Claude Certified Architect."
-excerpt: "Objetivo: Prepararte para el examen de certificación usando lo que ya aprendiste en el curso + contenido complementario específico para el examen Formato: Mapeo dominio por…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Bloque de preparación para el examen Claude Certified Architect."
 ---
 
 # Guía de preparación: Claude Certified Architect

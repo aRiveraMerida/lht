@@ -1,13 +1,5 @@
 ---
-title: "Certificación C8 — Simulador de estrategia"
-date: "2026-04-18"
-description: "Capítulo 8: simulador de decisiones estratégicas del arquitecto."
-excerpt: "El examen presenta 4 opciones por pregunta. Casi siempre, 2-3 de las opciones son anti-patrones documentados. Si los reconoces, eliminas las opciones incorrectas ANTES de evaluar…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Capítulo 8: simulador de decisiones estratégicas del arquitecto."
 ---
 
 # Certificación — C8: Estrategia de eliminación +

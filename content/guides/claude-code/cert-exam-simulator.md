@@ -1,13 +1,5 @@
 ---
-title: "Certificación C7 — Simulador de examen"
-date: "2026-04-18"
-description: "Capítulo 7: simulador de examen con preguntas tipo."
-excerpt: "Formato: 50 preguntas multiple choice · 4 opciones · Score target: 720/1000 Distribución: D1 ~25% (13q) · D2 ~20% (10q) · D3 ~20% (10q) · D4 ~20% (10q) · D5 ~15% (7q) Tiempo…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Capítulo 7: simulador de examen con preguntas tipo."
 ---
 
 # Certificación — C7: Exam Simulator (50

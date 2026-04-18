@@ -1,18 +1,9 @@
 ---
-title: "Prework — Checklist general"
-date: "2026-04-18"
-description: "Verificación rápida de todas las áreas de prework con test ejecutable."
-excerpt: "Tiempo estimado: 2-4 horas (si ya tienes la base) / 1-2 semanas (si partes de cero en algún área) Objetivo: Verificar que tienes todo lo necesario antes de empezar el Módulo 1…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Verificación rápida de todas las áreas de prework con test ejecutable."
 ---
 
 # Prework: Conocimientos previos y preparación
 
-**Tiempo estimado:** 2-4 horas (si ya tienes la base) / 1-2 semanas (si partes de cero en algún área)
 **Objetivo:** Verificar que tienes todo lo necesario antes de empezar el Módulo 1
 
 ## ¿Para quién es este curso?
@@ -634,16 +625,3 @@ rm -rf /tmp/prework-final
 # I Estás 100% preparado para el Módulo 1
 ```
 
-## Tiempo estimado de preparación
-
-Tu situación Tiempo de prework Developer con experiencia en JS/Node/Git
-**0h** — verifica checklist y empieza M1
-Developer en otro lenguaje (Python, Java, Go)
-**4-8h** — familiarizarte con Node.js/npm
-Junior developer con algo de terminal y git
-**1-2 semanas** — reforzar git, JS, API REST
-Sin experiencia en terminal
-**3-4 semanas** — hacer cursos de terminal + git + JS
-primero
-**Recomendación:** Si el checklist obligatorio tiene más de 3 ítems sin marcar, invierte el tiempo en ponerte al día
-ANTES de empezar. El curso avanza rápido y asume que la base está sólida.

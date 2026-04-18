@@ -1,13 +1,5 @@
 ---
-title: "Módulo 5 — Skills, plugins y ecosistema extensible"
-date: "2026-04-18"
-description: "Skills y plugins de Claude Code: cómo extender al agente con capacidades específicas."
-excerpt: "Dependencias: Módulos 1-4 (CLAUDE.md + .claude/rules/ + settings.json dominados) Modalidad: 100% práctica con instalación, creación y composición Actualizado: Marzo 2026 Al…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Skills y plugins de Claude Code: cómo extender al agente con capacidades específicas."
 ---
 
 # Módulo 5: Skills, plugins y el ecosistema

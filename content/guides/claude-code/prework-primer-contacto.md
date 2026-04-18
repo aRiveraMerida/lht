@@ -1,20 +1,11 @@
 ---
-title: "Prework 09 — Primer contacto con el agente"
-date: "2026-04-18"
-description: "Primera sesión práctica con Claude Code antes de entrar en los módulos."
-excerpt: "Tiempo estimado: 1-2 horas Objetivo: Entender cómo dar instrucciones a un LLM, la diferencia entre Claude.ai y Claude Code, y completar tu primera sesión guiada Requisito previo:…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Primera sesión práctica con Claude Code antes de entrar en los módulos."
 ---
 
 # Prework Área 9: Hablar con un agente de
 
 # código
 
-**Tiempo estimado:** 1-2 horas
 **Objetivo:** Entender cómo dar instrucciones a un LLM, la diferencia entre Claude.ai y Claude Code, y completar tu
 primera sesión guiada
 **Requisito previo:** Área 8 (Claude Code instalado y claude doctor pasando)

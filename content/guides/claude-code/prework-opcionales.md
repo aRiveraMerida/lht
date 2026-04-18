@@ -1,18 +1,9 @@
 ---
-title: "Prework 10-11 — Python y SQL (opcionales)"
-date: "2026-04-18"
-description: "Áreas opcionales de Python y SQL para quien quiera profundizar antes del curso."
-excerpt: "Tiempo estimado: 1-2 horas Objetivo: Poder ejecutar scripts Python y leer código básico Obligatorio: No. Solo necesario para M9 (Agent SDK en Python) y M10 (overnight SDK) Módulo…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Áreas opcionales de Python y SQL para quien quiera profundizar antes del curso."
 ---
 
 # Prework Área 9: Python (opcional)
 
-**Tiempo estimado:** 1-2 horas
 **Objetivo:** Poder ejecutar scripts Python y leer código básico
 **Obligatorio:** No. Solo necesario para M9 (Agent SDK en Python) y M10 (overnight SDK)
 

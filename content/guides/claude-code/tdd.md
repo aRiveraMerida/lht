@@ -1,13 +1,5 @@
 ---
-title: "Módulo 3 — TDD con Claude Code"
-date: "2026-04-18"
-description: "Test-Driven Development aplicado al trabajo con agentes: auto-verificación como patrón central."
-excerpt: "Dependencias: Módulo 2 (workflow EXPLORE→PLAN→CODE→COMMIT + auto-verificación dominados) Modalidad: 100% práctica con ejercicios ejecutables Actualizado: Marzo 2026 Al finalizar…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Test-Driven Development aplicado al trabajo con agentes: auto-verificación como patrón central."
 ---
 
 # Módulo 3: TDD con Claude Code

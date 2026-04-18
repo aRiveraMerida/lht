@@ -1,13 +1,5 @@
 ---
-title: "Módulo 4 — Arquitectura de CLAUDE.md profesional"
-date: "2026-04-18"
-description: "Cómo diseñar un CLAUDE.md profesional que guíe al agente en proyectos reales."
-excerpt: "Dependencias: Módulos 1-3 (CLAUDE.md básico + settings.json + TDD dominados) Modalidad: 100% práctica con refactoring de proyectos reales Actualizado: Marzo 2026 Al finalizar este…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Cómo diseñar un CLAUDE.md profesional que guíe al agente en proyectos reales."
 ---
 
 # Módulo 4: Arquitectura de CLAUDE.md

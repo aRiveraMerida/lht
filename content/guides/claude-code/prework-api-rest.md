@@ -1,18 +1,9 @@
 ---
-title: "Prework 05 — API REST (conceptos)"
-date: "2026-04-18"
-description: "Conceptos de API REST necesarios para entender la arquitectura del agente."
-excerpt: "Tiempo estimado: 2-3 horas (desde cero) / 30 min (repaso) Objetivo: Entender HTTP methods, status codes, JSON, y poder leer/probar endpoints Requisito previo: Áreas 1-4…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Conceptos de API REST necesarios para entender la arquitectura del agente."
 ---
 
 # Prework Área 5: API REST (conceptos)
 
-**Tiempo estimado:** 2-3 horas (desde cero) / 30 min (repaso)
 **Objetivo:** Entender HTTP methods, status codes, JSON, y poder leer/probar endpoints
 **Requisito previo:** Áreas 1-4 completadas
 

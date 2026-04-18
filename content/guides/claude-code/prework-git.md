@@ -1,18 +1,9 @@
 ---
-title: "Prework 02 — Git"
-date: "2026-04-18"
-description: "Fundamentos de Git imprescindibles antes de empezar con Claude Code."
-excerpt: "Tiempo estimado: 4-8 horas (desde cero) / 1-2 horas (repaso) Objetivo: Dominar el flujo init→add→commit→branch→merge→push sin pensar Requisito previo: Área 1 (Terminal) completada…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Fundamentos de Git imprescindibles antes de empezar con Claude Code."
 ---
 
 # Prework Área 2: Git
 
-**Tiempo estimado:** 4-8 horas (desde cero) / 1-2 horas (repaso)
 **Objetivo:** Dominar el flujo init→add→commit→branch→merge→push sin pensar
 **Requisito previo:** Área 1 (Terminal) completada
 

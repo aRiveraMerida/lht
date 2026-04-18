@@ -1,13 +1,5 @@
 ---
-title: "Guía del alumno"
-date: "2026-04-18"
-description: "Cómo navegar el curso, ritmo recomendado y recursos de apoyo."
-excerpt: "Quién eres: Programas en JavaScript/Python/otro lenguaje. Usas git y terminal a diario. Quieres que Claude Code multiplique tu productividad. Tu ruta: Foco: TDD (M3), Ralph (M7),…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Cómo navegar el curso, ritmo recomendado y recursos de apoyo."
 ---
 
 # Guía del alumno: Cómo navegar el curso según

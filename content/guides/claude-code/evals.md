@@ -1,13 +1,5 @@
 ---
-title: "Módulo 11 — Evals"
-date: "2026-04-18"
-description: "Evals: cómo medir y mejorar objetivamente la calidad del trabajo del agente."
-excerpt: "Dependencias: Módulos 1-10 (especialmente M3 TDD, M7 Headless, M9 Agent SDK) Modalidad: 100% práctica con suite de evals funcionando Actualizado: Marzo 2026 Al finalizar este…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Evals: cómo medir y mejorar objetivamente la calidad del trabajo del agente."
 ---
 
 # Módulo 11: Sistema de evaluaciones (Evals)

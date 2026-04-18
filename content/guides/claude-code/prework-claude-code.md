@@ -1,20 +1,11 @@
 ---
-title: "Prework 08 — Instalación de Claude Code"
-date: "2026-04-18"
-description: "Guía paso a paso para instalar Claude Code y dejarlo listo para el módulo 1."
-excerpt: "Tiempo estimado: 15-30 minutos Objetivo: Claude Code instalado, autenticado, y claude doctor pasando todos los checks Requisito previo: Áreas 1-3 completadas (Terminal + Git +…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Guía paso a paso para instalar Claude Code y dejarlo listo para el módulo 1."
 ---
 
 # Prework Área 8: Claude Code (instalación y
 
 # verificación)
 
-**Tiempo estimado:** 15-30 minutos
 **Objetivo:** Claude Code instalado, autenticado, y claude doctor pasando todos los checks
 **Requisito previo:** Áreas 1-3 completadas (Terminal + Git + Node.js ≥18)
 

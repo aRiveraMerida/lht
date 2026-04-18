@@ -1,13 +1,5 @@
 ---
-title: "Certificación C3 — Configuración de Claude Code"
-date: "2026-04-18"
-description: "Capítulo 3 de preparación: configuración avanzada de Claude Code."
-excerpt: "Peso en el examen: ~20% Subtemas: d3.1 CLAUDE.md Hierarchy · d3.2 Commands & Skills · d3.3 Plan Mode & Iteration · d3.4 CI/CD & Batch Escenarios relacionados: #2 Code Generation…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Capítulo 3 de preparación: configuración avanzada de Claude Code."
 ---
 
 # Certificación — Dominio 3: Claude Code

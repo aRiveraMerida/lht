@@ -1,13 +1,5 @@
 ---
-title: "Módulo 9 — Subagentes"
-date: "2026-04-18"
-description: "Subagentes especializados: diseño, configuración y patrones de orquestación."
-excerpt: "Dependencias: Módulos 1-8 (especialmente M5 Skills, M7 Agent SDK preview, M8 Agent Teams) Modalidad: 100% práctica con arquitecturas multi-agente Actualizado: Marzo 2026 Al…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Subagentes especializados: diseño, configuración y patrones de orquestación."
 ---
 
 # Módulo 9: Subagentes y Agent SDK

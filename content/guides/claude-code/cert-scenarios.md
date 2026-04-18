@@ -1,13 +1,5 @@
 ---
-title: "Certificación C6 — Escenarios prácticos"
-date: "2026-04-18"
-description: "Capítulo 6 de preparación: escenarios prácticos de examen."
-excerpt: "Formato del examen: 4 de 6 escenarios seleccionados aleatoriamente Uso de este documento: Estudiar los 6 para estar preparado sin importar cuáles salgan Estructura por escenario:…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Capítulo 6 de preparación: escenarios prácticos de examen."
 ---
 
 # Certificación — C6: Los 6 Escenarios del

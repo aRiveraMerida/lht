@@ -1,18 +1,9 @@
 ---
-title: "Prework 01 — Terminal / CLI"
-date: "2026-04-18"
-description: "Ruta de estudio de terminal y línea de comandos como prerrequisito del curso."
-excerpt: "Tiempo estimado: 4-8 horas (desde cero) / 1-2 horas (repaso) Objetivo: Moverte por la terminal con soltura, sin buscar cada comando Plataformas: macOS (Terminal/iTerm2) · Linux…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Ruta de estudio de terminal y línea de comandos como prerrequisito del curso."
 ---
 
 # Prework Área 1: Terminal y línea de comandos
 
-**Tiempo estimado:** 4-8 horas (desde cero) / 1-2 horas (repaso)
 **Objetivo:** Moverte por la terminal con soltura, sin buscar cada comando
 **Plataformas:** macOS (Terminal/iTerm2) · Linux (cualquier terminal) · Windows (WSL2)
 

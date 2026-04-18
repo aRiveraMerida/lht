@@ -1,13 +1,5 @@
 ---
-title: "Proyectos capstone"
-date: "2026-04-18"
-description: "Los 5 proyectos capstone del curso con deployment real y evaluación completa."
-excerpt: "Posición en el curso: Después de M13 (cierre del curso) Objetivo: Construir 5 proyectos reales usando todo lo aprendido, cada uno desplegado en producción Formato: Guía paso a…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Los 5 proyectos capstone del curso con deployment real y evaluación completa."
 ---
 
 # Proyectos Capstone: De cero a despliegue
@@ -33,7 +25,6 @@ Fly.io + Vercel IIIII
 **Tipo:** Backend puro
 **Módulos:** M1 (modelo mental), M2 (workflow), M3 (TDD), M4 (CLAUDE.md), M5 (skills), M6 (hooks)
 **Deploy:** Railway
-**Tiempo estimado:** 8-12 horas
 **Stack:** Express + SQLite + JWT + Vitest
 
 ### Briefing

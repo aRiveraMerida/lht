@@ -1,13 +1,5 @@
 ---
-title: "Quick reference"
-date: "2026-04-18"
-description: "Referencia rápida con los comandos, patrones y configuraciones más usados."
-excerpt: "Imprime o ten abierto mientras trabajas. Los 20 comandos y conceptos que más usarás. Atajo Qué hace Módulo Shift+Tab Plan Mode (Claude planifica antes de ejecutar) M2 Shift+Tab ×2…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Referencia rápida con los comandos, patrones y configuraciones más usados."
 ---
 
 # Quick Reference: Claude Code en 1 página

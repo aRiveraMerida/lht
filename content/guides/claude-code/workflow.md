@@ -1,13 +1,5 @@
 ---
-title: "Módulo 2 — Workflow EXPLORE → PLAN → CODE → COMMIT"
-date: "2026-04-18"
-description: "El workflow profesional de cuatro fases para trabajar con Claude Code en proyectos reales."
-excerpt: "Dependencias: Módulo 1 (modelo mental + CLAUDE.md + settings.json configurados) Modalidad: 100% práctica con ejercicios ejecutables Actualizado: Marzo 2026 Al finalizar este…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "El workflow profesional de cuatro fases para trabajar con Claude Code en proyectos reales."
 ---
 
 # Módulo 2: El workflow EXPLORE → PLAN →

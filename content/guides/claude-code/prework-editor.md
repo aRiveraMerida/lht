@@ -1,18 +1,9 @@
 ---
-title: "Prework 07 — Editor de código"
-date: "2026-04-18"
-description: "Configuración del editor de código recomendado para trabajar con Claude Code."
-excerpt: "Tiempo estimado: 15-30 minutos Objetivo: Tener un editor funcional para leer y editar código que Claude genera Requisito previo: Terminal funcional (Área 1) Claude Code trabaja en…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Configuración del editor de código recomendado para trabajar con Claude Code."
 ---
 
 # Prework Área 7: Editor de código
 
-**Tiempo estimado:** 15-30 minutos
 **Objetivo:** Tener un editor funcional para leer y editar código que Claude genera
 **Requisito previo:** Terminal funcional (Área 1)
 

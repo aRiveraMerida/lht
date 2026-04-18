@@ -1,13 +1,5 @@
 ---
-title: "Módulo 10 — Harnesses"
-date: "2026-04-18"
-description: "Cómo construir harnesses que conviertan a Claude en un agente autónomo de calidad."
-excerpt: "Dependencias: Módulos 1-9 (especialmente M7 Ralph, M8 Multi-Claude, M9 Agent SDK) Modalidad: 100% práctica con agentes autónomos overnight Actualizado: Marzo 2026 Al finalizar…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Cómo construir harnesses que conviertan a Claude en un agente autónomo de calidad."
 ---
 
 # Módulo 10: Harnesses para agentes de larga

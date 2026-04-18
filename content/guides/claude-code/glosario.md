@@ -1,13 +1,5 @@
 ---
-title: "Glosario"
-date: "2026-04-18"
-description: "Glosario completo de términos técnicos usados en el curso."
-excerpt: "50+ términos organizados alfabéticamente. Referencia rápida para consultar durante cualquier módulo. Agent SDK — Librería Python/TypeScript de Anthropic para controlar Claude Code…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Glosario completo de términos técnicos usados en el curso."
 ---
 
 # Glosario: Términos técnicos del curso

@@ -1,13 +1,5 @@
 ---
-title: "Módulo 8 — Multi-Claude"
-date: "2026-04-18"
-description: "Coordinación de múltiples instancias de Claude trabajando en paralelo."
-excerpt: "Dependencias: Módulos 1-7 (especialmente M6 Hooks, M7 Ralph/Headless) Modalidad: 100% práctica con orquestación de múltiples agentes Actualizado: Marzo 2026 Al finalizar este…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Coordinación de múltiples instancias de Claude trabajando en paralelo."
 ---
 
 # Módulo 8: Multi-Claude workflows y Agent

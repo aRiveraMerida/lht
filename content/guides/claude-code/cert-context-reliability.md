@@ -1,13 +1,5 @@
 ---
-title: "Certificación C5 — Contexto y fiabilidad"
-date: "2026-04-18"
-description: "Capítulo 5 de preparación: gestión de contexto y fiabilidad del agente."
-excerpt: "Peso en el examen: ~15% Subtemas: d5.1 Context Optimization · d5.2 Escalation & Errors · d5.3 Context Degradation · d5.4 Human Review & Provenance Escenarios relacionados: #1…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Capítulo 5 de preparación: gestión de contexto y fiabilidad del agente."
 ---
 
 # Certificación — Dominio 5: Context

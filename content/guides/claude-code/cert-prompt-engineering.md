@@ -1,13 +1,5 @@
 ---
-title: "Certificación C4 — Prompt Engineering"
-date: "2026-04-18"
-description: "Capítulo 4 de preparación: prompt engineering para arquitectos."
-excerpt: "Peso en el examen: ~20% Subtemas: d4.1 Explicit Criteria · d4.2 Few-Shot Prompting · d4.3 tool_use Structured Output · d4.4 Validation-Retry & Multi-Pass Escenarios relacionados:…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Capítulo 4 de preparación: prompt engineering para arquitectos."
 ---
 
 # Certificación — Dominio 4: Prompt Engineering

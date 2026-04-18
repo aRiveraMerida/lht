@@ -1,18 +1,9 @@
 ---
-title: "Prework 06 — GitHub y GitHub CLI"
-date: "2026-04-18"
-description: "Uso básico de GitHub y de la CLI para los flujos de trabajo del curso."
-excerpt: "Tiempo estimado: 30-60 minutos Objetivo: Cuenta de GitHub activa, GitHub CLI instalado y autenticado, saber crear repos/issues/PRs desde terminal Requisito previo: Áreas 1-2…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Uso básico de GitHub y de la CLI para los flujos de trabajo del curso."
 ---
 
 # Prework Área 6: GitHub y GitHub CLI
 
-**Tiempo estimado:** 30-60 minutos
 **Objetivo:** Cuenta de GitHub activa, GitHub CLI instalado y autenticado, saber crear repos/issues/PRs desde terminal
 **Requisito previo:** Áreas 1-2 (Terminal + Git) completadas
 

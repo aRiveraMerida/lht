@@ -1,13 +1,5 @@
 ---
-title: "Módulo 12 — CI/CD con Claude Code"
-date: "2026-04-18"
-description: "Integración de Claude Code en pipelines de CI/CD para automatización real."
-excerpt: "Dependencias: Módulos 1-11 (todo el curso) Modalidad: 100% práctica con deployment en producción Actualizado: Marzo 2026 Al finalizar este módulo serás capaz de: 1. Usar…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Integración de Claude Code en pipelines de CI/CD para automatización real."
 ---
 
 # Módulo 12: Operacionalización y CI/CD

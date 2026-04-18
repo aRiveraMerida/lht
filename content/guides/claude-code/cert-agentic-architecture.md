@@ -1,13 +1,5 @@
 ---
-title: "Certificación C1 — Agentic Architecture"
-date: "2026-04-18"
-description: "Capítulo 1 de preparación: arquitectura agéntica."
-excerpt: "Peso en el examen: ~25% (el dominio más importante) Subtemas: d1.1 Agentic Loops · d1.2 Multi-Agent Orchestration · d1.3 Hooks & Enforcement · d1.4 Session Management Escenarios…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "Capítulo 1 de preparación: arquitectura agéntica."
 ---
 
 # Certificación — Dominio 1: Agentic

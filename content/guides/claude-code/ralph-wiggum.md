@@ -1,13 +1,5 @@
 ---
-title: "Módulo 7 — El patrón Ralph Wiggum"
-date: "2026-04-18"
-description: "El patrón Ralph Wiggum: iteración agéntica persistente para tareas complejas."
-excerpt: "Dependencias: Módulos 1-6 (especialmente M3 TDD, M6 Hooks) Modalidad: 100% práctica con tareas de larga duración reales Actualizado: Marzo 2026 Al finalizar este módulo serás…"
-category: "Sin Filtro"
-authors:
-  - alberto-rivera
-featured: true
-image: "/favicon.svg"
+excerpt: "El patrón Ralph Wiggum: iteración agéntica persistente para tareas complejas."
 ---
 
 # Módulo 7: Metodología Ralph Wiggum
