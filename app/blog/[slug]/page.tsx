@@ -10,7 +10,6 @@ import { getPostBySlug, getPostSlugs, getRelatedPosts } from '@/lib/posts';
 import { getAuthors } from '@/lib/authors';
 import { ProductCard } from '@/components/ProductCard';
 import { getPreviewVariant } from '@/lib/assets';
-import { getCategoryAccent } from '@/lib/palette';
 import 'highlight.js/styles/github-dark.css';
 
 interface PageProps {
@@ -109,8 +108,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           <div className="flex flex-wrap items-center gap-4 mb-8">
             <Link
               href={`/blog?category=${encodeURIComponent(post.category)}`}
-              className="fg-cat-tag hover:opacity-80 transition-opacity"
-              style={{ ['--tag-color' as string]: getCategoryAccent(post.category) }}
+              className="ed-kicker text-ink hover:text-link transition-colors"
             >
               {post.category}
             </Link>

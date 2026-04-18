@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { AssetPreview } from './AssetPreview'
 import type { PreviewVariant } from '@/lib/assets'
-import { getCategoryAccent } from '@/lib/palette'
 import { getAuthors } from '@/lib/authors'
 
 interface ProductCardProps {
@@ -54,12 +53,7 @@ export function ProductCard({
         <AssetPreview variant={variant} index={index} />
 
         <div className={`p-6 md:p-7 ${featured ? 'md:p-10' : ''}`}>
-          <span
-            className="fg-cat-tag"
-            style={{ ['--tag-color' as string]: getCategoryAccent(category) }}
-          >
-            {category}
-          </span>
+          <span className="ed-kicker text-ink">{category}</span>
 
           <h3 className={`mt-4 ${featured ? 'fg-section-heading max-w-3xl' : 'fg-feature-title'}`}>
             {title}

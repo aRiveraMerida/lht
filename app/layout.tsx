@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Playfair_Display, Lora } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -16,6 +16,21 @@ const jbmono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jbmono",
   display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
+
+const lora = Lora({
+  subsets: ["latin"],
+  variable: "--font-lora",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -127,7 +142,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="es" className={`${inter.variable} ${jbmono.variable} scroll-smooth`}>
+    <html lang="es" className={`${inter.variable} ${jbmono.variable} ${playfair.variable} ${lora.variable} scroll-smooth`}>
       <head>
         <script
           type="application/ld+json"
@@ -137,7 +152,7 @@ export default function RootLayout({
       <body className="bg-paper text-ink overflow-x-hidden flex min-h-screen flex-col antialiased">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-5 focus:py-3 focus:bg-ink focus:text-paper focus:rounded-full focus:fg-mono-label"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-5 focus:py-3 focus:bg-ink focus:text-paper focus:ed-ribbon-label"
         >
           Saltar al contenido principal
         </a>
