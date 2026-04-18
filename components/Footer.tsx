@@ -15,9 +15,9 @@ export const Footer: React.FC = () => {
               IA sin FOMO.
             </p>
             <p className="fg-body-light mt-4 max-w-sm text-white/70">
-              No tenemos todas las respuestas. Pero preferimos pensar despacio y acertar
-              que correr y tropezar con lo mismo que todos. Si eso te suena, ya eres
-              tortuga.
+              No tenemos todas las respuestas. Preferimos pensar despacio y acertar
+              que correr y tropezar con lo mismo que todos. Si eso te suena, este
+              también es tu sitio.
             </p>
           </div>
 
@@ -68,7 +68,7 @@ export const Footer: React.FC = () => {
 
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <p className="fg-mono-label text-white/50">
-            © 2026 LHT · Alberto Rivera · David Dix Hidalgo
+            © 2026 LHT · Equipo IA de ThePower Education
           </p>
           <p className="fg-mono-label text-white/50">
             Un archivo abierto sobre IA

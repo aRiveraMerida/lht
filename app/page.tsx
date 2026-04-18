@@ -6,26 +6,44 @@ import { ProductCard } from '@/components/ProductCard';
 import { getPreviewVariant } from '@/lib/assets';
 import { getAllPosts } from '@/lib/posts';
 import { categories } from '@/lib/palette';
+import { authors, getAuthorInitials } from '@/lib/authors';
+
+// Avatar accent cycles through hero gradient stops, in author insertion order.
+const avatarColors = ['#8B5CF6', '#00A3FF', '#00D26A', '#FF4DA6', '#FFE55C']
 
 export default function Home() {
   const posts = getAllPosts();
+  const residents = Object.values(authors);
+
+  const onlyOne = posts.length === 1;
+
+  const storiesTitle = onlyOne ? 'Para empezar.' : 'Lo más reciente.';
+  const storiesSubtitle = onlyOne
+    ? 'Lo primero que publicamos aquí. Cuenta qué queremos que pase en este sitio.'
+    : 'Estrategia, experimentos y reflexiones sobre IA escritas desde la práctica.';
+
+  const gridClass =
+    posts.length >= 3
+      ? 'grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'
+      : posts.length === 2
+        ? 'grid grid-cols-1 gap-8 md:grid-cols-2 max-w-4xl mx-auto'
+        : 'grid grid-cols-1 gap-8 max-w-3xl mx-auto';
 
   return (
     <div>
       {/* ─── HERO — signature vibrant gradient ─── */}
       <section className="on-dark fg-hero-gradient">
         <div className="fg-container py-24 md:py-32">
-          <div className="fg-mono-label-lg text-white/80">
-            Apertura
-          </div>
+          <div className="fg-mono-label-lg text-white/80">Apertura</div>
 
           <h1 className="fg-display mt-8 max-w-[16ch] text-white">
             la habitación tortuga [lht].
           </h1>
 
           <p className="fg-body-lg mt-8 max-w-xl text-white/85">
-            Dos profesionales de IA que paran a pensar. Probamos. Reflexionamos.
-            Y lanzamos laboratorios. Sin prisa. Sin FOMO. Con criterio.
+            Un espacio colectivo para pensar la IA con criterio. Probamos,
+            documentamos y conversamos sobre lo que está pasando de verdad.
+            Sin prisa. Sin FOMO. Sin ruido.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-3">
@@ -33,23 +51,25 @@ export default function Home() {
               Ver archivo
             </Link>
             <a href="#suscribete" className="fg-btn fg-btn-glass-light">
-              Unirme a la comunidad
+              Entrar al espacio
             </a>
           </div>
         </div>
       </section>
 
-      {/* ─── MISIÓN / ACTITUD ─── */}
+      {/* ─── MISIÓN + ACTITUD ─── */}
       <section className="hairline-b">
         <div className="fg-container py-24 md:py-32">
           <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-20">
             <div>
               <SectionLabel>Misión</SectionLabel>
-              <p className="fg-section-heading mt-8 max-w-xl">
-                Un sitio donde la IA no va a 200 por hora.
-              </p>
+              <h2 className="fg-section-heading mt-8 max-w-xl">
+                Un lugar donde la IA se piensa antes de venderse.
+              </h2>
               <p className="fg-body-lg mt-6 max-w-lg text-ink/65">
-                Probamos de verdad. Pensamos despacio. Compartimos sin filtro.
+                Aquí no hay newsletter diaria. Ni hot takes. Ni hilos virales. Hay
+                laboratorios abiertos, casos prácticos y preguntas honestas. Lo que
+                funciona, lo que no, y lo que todavía no sabemos.
               </p>
             </div>
 
@@ -63,16 +83,68 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ─── QUÉ PASA AQUÍ ─── */}
+      <section className="hairline-b">
+        <div className="fg-container py-24 md:py-28">
+          <SectionLabel>Qué pasa aquí</SectionLabel>
+          <h2 className="fg-section-heading mt-8 max-w-2xl">
+            Tres cosas. Ninguna urgente.
+          </h2>
+
+          <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-6">
+            <article className="fg-card p-7 hairline-t hairline-b">
+              <span
+                className="fg-cat-tag"
+                style={{ ['--tag-color' as string]: '#00D26A' }}
+              >
+                01 · Laboratorios
+              </span>
+              <h3 className="fg-feature-title mt-5">Experimentos reales con herramientas reales.</h3>
+              <p className="fg-body mt-3 text-ink/65">
+                Documentados con el proceso entero, no solo el resultado.
+              </p>
+            </article>
+
+            <article className="fg-card p-7 hairline-t hairline-b">
+              <span
+                className="fg-cat-tag"
+                style={{ ['--tag-color' as string]: '#00A3FF' }}
+              >
+                02 · Casos prácticos
+              </span>
+              <h3 className="fg-feature-title mt-5">Lo que funciona el lunes por la mañana.</h3>
+              <p className="fg-body mt-3 text-ink/65">
+                En organizaciones de verdad. Sin demo bonita.
+              </p>
+            </article>
+
+            <article className="fg-card p-7 hairline-t hairline-b">
+              <span
+                className="fg-cat-tag"
+                style={{ ['--tag-color' as string]: '#FFE55C' }}
+              >
+                03 · Reflexiones
+              </span>
+              <h3 className="fg-feature-title mt-5">Lo que pensamos en voz alta.</h3>
+              <p className="fg-body mt-3 text-ink/65">
+                Lo que todavía no sabemos. Lo que no nos atrevemos a decir en otros sitios.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       {/* ─── TEMAS ─── */}
       <section className="hairline-b">
-        <div className="fg-container py-14">
-          <div className="flex items-center justify-between gap-4">
+        <div className="fg-container py-24 md:py-28">
+          <div className="max-w-2xl">
             <SectionLabel>Temas</SectionLabel>
-            <span className="fg-mono-label text-ink/50 hidden md:block">
-              elige tu incomodidad
-            </span>
+            <h2 className="fg-section-heading mt-8">Por dónde empezar.</h2>
+            <p className="fg-body-lg mt-6 text-ink/65">
+              Categorías para navegar el archivo según lo que busques.
+            </p>
           </div>
-          <div className="mt-6 flex gap-1 overflow-x-auto pb-2 -mx-4 px-4 md:mx-0 md:px-0">
+          <div className="mt-10 flex gap-1 overflow-x-auto pb-2 -mx-4 px-4 md:mx-0 md:px-0">
             {categories.map((cat, i) => (
               <Link
                 key={cat}
@@ -86,102 +158,98 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── STORIES ─── */}
-      <section id="stories" className="hairline-b">
-        <div className="fg-container py-24 md:py-28">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <div>
-              <SectionLabel>Últimas publicaciones</SectionLabel>
-              <h2 className="fg-section-heading mt-6">
-                Lo más reciente.
-              </h2>
+      {/* ─── ÚLTIMAS PUBLICACIONES (adaptativo) ─── */}
+      {posts.length > 0 && (
+        <section id="stories" className="hairline-b">
+          <div className="fg-container py-24 md:py-28">
+            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <div>
+                <SectionLabel>Últimas publicaciones</SectionLabel>
+                <h2 className="fg-section-heading mt-6">{storiesTitle}</h2>
+              </div>
+              <p className="fg-body-lg max-w-sm text-ink/65">{storiesSubtitle}</p>
             </div>
-            <p className="fg-body-lg max-w-sm text-ink/65">
-              Estrategia, experimentos y reflexiones sobre IA escritas desde la práctica.
-            </p>
-          </div>
 
-          <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post, index) => (
-              <ProductCard
-                key={post.slug}
-                slug={post.slug}
-                category={post.category}
-                title={post.title}
-                date={post.date}
-                authorSlugs={post.authors}
-                excerpt={post.excerpt}
-                variant={getPreviewVariant(index)}
-                index={index}
-                featured={post.featured}
-              />
-            ))}
+            <div className={`mt-14 ${gridClass}`}>
+              {posts.map((post, index) => (
+                <ProductCard
+                  key={post.slug}
+                  slug={post.slug}
+                  category={post.category}
+                  title={post.title}
+                  date={post.date}
+                  authorSlugs={post.authors}
+                  excerpt={post.excerpt}
+                  variant={getPreviewVariant(index)}
+                  index={index}
+                  featured={onlyOne}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* ─── RESIDENTES ─── */}
+      {/* ─── QUIÉN ESCRIBE AQUÍ ─── */}
       <section id="residentes" className="hairline-b">
         <div className="fg-container py-24 md:py-28">
-          <SectionLabel>Los residentes</SectionLabel>
-          <div className="mt-10 grid grid-cols-1 gap-16 md:grid-cols-[1fr_1fr]">
-            <div>
-              <h2 className="fg-section-heading max-w-lg">
-                Dos profesionales. Una misma frustración.
-              </h2>
-              <p className="fg-body-lg mt-6 max-w-lg text-ink/65">
-                Demasiado ruido, demasiado FOMO, poca conversación honesta sobre lo que
-                está pasando. La Habitación Tortuga es nuestra forma de arreglarlo.
+          <SectionLabel>Quién escribe aquí</SectionLabel>
+
+          <h2 className="fg-section-heading mt-8 max-w-3xl">
+            Equipo IA de ThePower Education.
+          </h2>
+          <p className="fg-body-lg mt-6 max-w-2xl text-ink/65">
+            Este no es un blog corporativo. Es un espacio diferente: el mismo equipo
+            que se ve todos los días en el trabajo, pero sin la chaqueta del cliente
+            ni la prisa del trimestre.
+          </p>
+
+          <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2">
+            <div className="fg-card p-7 hairline-t hairline-b">
+              <div className="fg-mono-label text-ink/55">Lo que hacemos fuera</div>
+              <p className="fg-body-lg mt-4 text-ink/80">
+                +20.000 profesionales formados. +150 empresas acompañadas. Dirigimos
+                el programa B2B de IA y Tecnología de ThePower Education. Clientes
+                como KPMG, EY, Estrella Galicia o El Corte Inglés.
               </p>
             </div>
-
-            <div className="grid grid-cols-1 gap-6">
-              <article className="fg-card p-7 hairline-t hairline-b">
-                <div
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full text-white fg-mono-label"
-                  style={{ background: '#8B5CF6' }}
-                >
-                  AR
-                </div>
-                <h3 className="fg-feature-title mt-4">Alberto Rivera</h3>
-                <p className="fg-body mt-2 text-ink/65">
-                  Director de IA en ThePower. +150 empresas. +10.000 profesionales formados.
-                  Clientes como KPMG, EY, L&apos;Oréal o Estrella Galicia. Obsesión: que la
-                  IA se use de verdad.
-                </p>
-                <a
-                  href="https://www.linkedin.com/in/albertoriveramerida"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="fg-body mt-4 inline-block underline underline-offset-2"
-                >
-                  LinkedIn →
-                </a>
-              </article>
-
-              <article className="fg-card p-7 hairline-t hairline-b">
-                <div
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full text-white fg-mono-label"
-                  style={{ background: '#00A3FF' }}
-                >
-                  DD
-                </div>
-                <h3 className="fg-feature-title mt-4">David Dix Hidalgo</h3>
-                <p className="fg-body mt-2 text-ink/65">
-                  Especialista en IA en ThePower. Implementa antes de divulgar. Lleva
-                  herramientas al terreno real: workflows, automatizaciones, casos de uso
-                  que funcionan el lunes por la mañana.
-                </p>
-                <a
-                  href="https://www.linkedin.com/in/david-dix-hidalgo-986a8a32b"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="fg-body mt-4 inline-block underline underline-offset-2"
-                >
-                  LinkedIn →
-                </a>
-              </article>
+            <div className="fg-card p-7 hairline-t hairline-b">
+              <div className="fg-mono-label text-ink/55">Lo que pasa aquí</div>
+              <p className="fg-body-lg mt-4 text-ink/80">
+                Dudamos de todo lo que está pasando. Probamos antes de opinar.
+                Publicamos con nombre y apellidos.
+              </p>
             </div>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+            {residents.map((author, i) => (
+              <article key={author.slug} className="fg-card p-7 hairline-t hairline-b">
+                <div className="flex items-center gap-3">
+                  <div
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full text-white fg-mono-label"
+                    style={{ background: avatarColors[i % avatarColors.length] }}
+                    aria-hidden="true"
+                  >
+                    {getAuthorInitials(author)}
+                  </div>
+                  <div>
+                    <div className="fg-body fw-540">{author.name}</div>
+                    <div className="fg-mono-label text-ink/55 mt-1">
+                      {author.role} · {author.company}
+                    </div>
+                  </div>
+                </div>
+                <a
+                  href={author.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="fg-body mt-5 inline-block underline underline-offset-2"
+                >
+                  LinkedIn →
+                </a>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -190,23 +258,26 @@ export default function Home() {
       <section id="suscribete">
         <div className="fg-container py-24 md:py-28">
           <div className="max-w-2xl">
-            <SectionLabel>Newsletter</SectionLabel>
-            <h2 className="fg-section-heading mt-8">
-              Comunidad tortuga.
-            </h2>
+            <SectionLabel>Entrar al espacio</SectionLabel>
+            <h2 className="fg-section-heading mt-8">Newsletter tortuga.</h2>
             <p className="fg-body-lg mt-6 text-ink/65">
-              Una newsletter sin calendario fijo. Publicamos cada semana como mínimo,
-              pero solo cuando hay algo que merece tu tiempo. Sin spam. Sin FOMO.
-              Sin envíos vacíos.
+              Un correo cada semana como mucho. A veces menos. Solo cuando hay
+              algo que merece tu tiempo.
             </p>
             <ul className="fg-body-lg mt-6 space-y-2 text-ink/75">
-              <li>— Lo que hemos probado y aprendido</li>
-              <li>— Reflexiones que no caben en LinkedIn</li>
-              <li>— Aviso de nuevos laboratorios</li>
+              <li>— Lo que hemos probado y lo que nos ha salido mal</li>
+              <li>— Laboratorios nuevos antes de hacerse públicos</li>
+              <li>— Lecturas y conversaciones que nos están removiendo</li>
             </ul>
+            <p className="fg-body-lg mt-6 text-ink/65">
+              No hay plan de contenidos. Hay criterio.
+            </p>
             <div className="mt-10">
               <NewsletterForm />
             </div>
+            <p className="fg-body mt-6 text-ink/80 fw-450">
+              Respondes a cualquier correo y leemos. Esa es la parte &quot;comunidad&quot;.
+            </p>
           </div>
         </div>
       </section>
