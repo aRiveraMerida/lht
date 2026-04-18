@@ -9,6 +9,7 @@ import rehypeRaw from 'rehype-raw';
 import { getPostBySlug, getPostSlugs, getRelatedPosts } from '@/lib/posts';
 import { getAuthors } from '@/lib/authors';
 import { ProductCard } from '@/components/ProductCard';
+import { SectionRibbon } from '@/components/SectionLabel';
 import { getPreviewVariant } from '@/lib/assets';
 import 'highlight.js/styles/github-dark.css';
 
@@ -55,12 +56,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-const joinNames = (parts: string[]): string => {
-  if (parts.length <= 1) return parts.join('');
-  if (parts.length === 2) return parts.join(' y ');
-  return parts.slice(0, -1).join(' · ') + ' y ' + parts[parts.length - 1];
-};
-
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
@@ -88,80 +83,79 @@ export default async function BlogPostPage({ params }: PageProps) {
     inLanguage: 'es-ES',
   };
 
-  const byline = joinNames(authors.map((a) => a.name));
-
   return (
     <div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* Header */}
-      <section className="hairline-b">
-        <div className="fg-container py-16 md:py-20">
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 fg-mono-label text-ink/55 mb-10">
-            <Link href="/" className="hover:text-ink transition-colors">Inicio</Link>
+      <section className="ed-rule-b-soft">
+        <div className="ed-container py-14 md:py-20">
+          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 ed-meta text-muted mb-12">
+            <Link href="/" className="hover:text-link">Inicio</Link>
             <span aria-hidden="true">/</span>
-            <Link href="/blog" className="hover:text-ink transition-colors">Archivo</Link>
+            <Link href="/blog" className="hover:text-link">Archivo</Link>
             <span aria-hidden="true">/</span>
             <span className="text-ink">{post.title}</span>
           </nav>
 
-          <div className="flex flex-wrap items-center gap-4 mb-8">
-            <Link
-              href={`/blog?category=${encodeURIComponent(post.category)}`}
-              className="ed-kicker text-ink hover:text-link transition-colors"
-            >
-              {post.category}
-            </Link>
-            <span className="fg-mono-label text-ink/55">{post.readingTime}</span>
-            <time dateTime={post.date} className="fg-mono-label text-ink/55">
+          <Link
+            href={`/blog?category=${encodeURIComponent(post.category)}`}
+            className="ed-kicker-bold text-ink hover:text-link transition-colors"
+          >
+            {post.category}
+          </Link>
+
+          <h1 className="ed-display mt-5 max-w-[22ch]">{post.title}</h1>
+
+          <p className="ed-deck mt-8 max-w-2xl text-ink/80">{post.excerpt}</p>
+
+          <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 pt-6 border-t border-ink">
+            {authors.length > 0 && (
+              <p className="ed-meta text-ink">
+                Por{' '}
+                {authors.map((a, i) => (
+                  <span key={a.slug}>
+                    <a
+                      href={a.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ed-link text-ink"
+                    >
+                      {a.name}
+                    </a>
+                    {i < authors.length - 2 ? ' · ' : i === authors.length - 2 ? ' y ' : ''}
+                  </span>
+                ))}
+              </p>
+            )}
+            <time dateTime={post.date} className="ed-meta text-muted">
               {new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
             </time>
+            <span className="ed-meta text-muted">{post.readingTime}</span>
           </div>
-
-          <h1 className="fg-display max-w-[20ch]">{post.title}</h1>
-          <p className="fg-body-lg mt-8 max-w-2xl text-ink/65">{post.excerpt}</p>
-
-          {byline && (
-            <p className="fg-mono-label mt-10 text-ink/70">
-              Por{' '}
-              {authors.map((a, i) => (
-                <span key={a.slug}>
-                  <a href={a.linkedin} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2">
-                    {a.name}
-                  </a>
-                  {i < authors.length - 2 ? ' · ' : i === authors.length - 2 ? ' y ' : ''}
-                </span>
-              ))}
-            </p>
-          )}
         </div>
       </section>
 
       {/* Body */}
       <section>
-        <div className="fg-container py-16 md:py-24">
-          <article className="fg-reading">
+        <div className="ed-container py-14 md:py-20">
+          <article className="ed-reading">
             <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight, rehypeRaw]}>
               {post.content}
             </ReactMarkdown>
           </article>
 
           {/* Newsletter CTA */}
-          <div className="fg-reading mt-16">
-            <div className="rounded-lg bg-black/5 p-8">
-              <h3 className="fg-feature-title">¿Te ha resonado?</h3>
-              <p className="fg-body mt-2 text-ink/65">
-                Entra en la newsletter. Publicamos así, cada semana como mucho.
-              </p>
-              <div className="mt-6">
-                <Link href="/#suscribete" className="fg-btn fg-btn-primary">
-                  Apuntarme
-                </Link>
-              </div>
-            </div>
-
-            <div className="mt-10">
-              <Link href="/blog" className="fg-btn fg-btn-glass-dark">
+          <div className="ed-reading mt-16 pt-10 border-t border-ink">
+            <div className="ed-kicker-bold">¿Te ha resonado?</div>
+            <p className="ed-deck mt-4 text-ink/80">
+              Entra en la newsletter. Publicamos así, cada semana como mucho.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link href="/#suscribete" className="ed-btn ed-btn-invert">
+                Apuntarme
+              </Link>
+              <Link href="/blog" className="ed-btn">
                 <ArrowLeft size={14} aria-hidden="true" /> Ver todos los artículos
               </Link>
             </div>
@@ -171,10 +165,10 @@ export default async function BlogPostPage({ params }: PageProps) {
 
       {/* Sigue leyendo */}
       {related.length > 0 && (
-        <section className="hairline-t bg-black/[0.02]">
-          <div className="fg-container py-16 md:py-20">
-            <div className="fg-mono-label-lg mb-10">Sigue leyendo</div>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <section className="ed-rule-b-soft bg-[color:var(--color-hairline)]/30">
+          <div className="ed-container py-14 md:py-20">
+            <SectionRibbon>Sigue leyendo</SectionRibbon>
+            <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 md:gap-x-8">
               {related.map((rp, i) => (
                 <ProductCard
                   key={rp.slug}

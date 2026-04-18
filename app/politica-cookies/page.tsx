@@ -8,13 +8,13 @@ export const metadata: Metadata = {
 
 export default function PoliticaCookies() {
   return (
-    <div className="fg-container py-24 md:py-32">
+    <div className="ed-container py-20 md:py-28">
       <div className="max-w-2xl">
         <SectionLabel>Legal</SectionLabel>
-        <h1 className="fg-section-heading mt-6">Política de Cookies</h1>
-        <p className="fg-mono-label mt-4 text-ink/55">Última actualización: abril 2026</p>
+        <h1 className="ed-display mt-5">Política de Cookies</h1>
+        <p className="ed-meta mt-4 text-muted">Última actualización: abril 2026</p>
 
-        <div className="fg-reading mt-16 max-w-none">
+        <div className="ed-reading mt-14 max-w-none">
           <p>
             Este sitio no usa cookies de análisis, publicidad ni seguimiento. Solo
             cookies técnicas necesarias para su funcionamiento.

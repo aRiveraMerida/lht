@@ -22,16 +22,16 @@ export default function BajaPage() {
 
   if (status === 'success') {
     return (
-      <div className="fg-container py-24 md:py-32">
+      <div className="ed-container py-20 md:py-28">
         <div className="max-w-xl">
           <SectionLabel>Baja</SectionLabel>
-          <h1 className="fg-section-heading mt-6">Hecho.</h1>
-          <p className="fg-body-lg mt-6 text-ink/65">
+          <h1 className="ed-display mt-5">Hecho.</h1>
+          <p className="ed-deck mt-7 text-ink/80">
             Ya no recibirás más correos. El archivo sigue abierto si quieres volver sin
             compromiso.
           </p>
           <div className="mt-10">
-            <Link href="/blog" className="fg-btn fg-btn-primary">
+            <Link href="/blog" className="ed-btn ed-btn-invert">
               Ir al archivo
             </Link>
           </div>
@@ -41,20 +41,20 @@ export default function BajaPage() {
   }
 
   return (
-    <div className="fg-container py-24 md:py-32">
+    <div className="ed-container py-20 md:py-28">
       <div className="max-w-xl">
         <SectionLabel>Baja</SectionLabel>
-        <h1 className="fg-section-heading mt-6">Darte de baja.</h1>
-        <p className="fg-body-lg mt-6 text-ink/65">
+        <h1 className="ed-display mt-5">Darte de baja.</h1>
+        <p className="ed-deck mt-7 text-ink/80">
           Sin rencor. Si el contenido no te aporta, no tiene sentido que esté en tu
           bandeja.
         </p>
 
-        <form action={handleSubmit} className="mt-10 flex flex-col gap-3">
-          <label htmlFor="baja-email" className="fg-mono-label text-ink/70">
+        <form action={handleSubmit} className="mt-12 flex flex-col gap-3">
+          <label htmlFor="baja-email" className="ed-ribbon-label text-ink">
             Email con el que te suscribiste
           </label>
-          <div className="flex flex-col gap-2 sm:flex-row">
+          <div className="flex flex-col gap-0 sm:flex-row">
             <input
               id="baja-email"
               type="email"
@@ -62,19 +62,21 @@ export default function BajaPage() {
               required
               autoComplete="email"
               placeholder="tu@correo.com"
-              className="fg-input flex-1"
+              className="ed-input flex-1 sm:border-r-0"
             />
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="fg-btn fg-btn-primary disabled:opacity-60"
+              className="ed-btn ed-btn-invert disabled:opacity-60"
             >
               {status === 'loading' ? 'Procesando…' : 'Darme de baja'}
             </button>
           </div>
         </form>
         {status === 'error' && (
-          <p role="alert" className="fg-body mt-3 text-[#FF4DA6]">{message}</p>
+          <p role="alert" className="ed-body mt-3 text-[color:var(--color-error)]">
+            {message}
+          </p>
         )}
       </div>
     </div>

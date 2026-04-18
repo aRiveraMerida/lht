@@ -8,12 +8,12 @@ export const metadata: Metadata = {
 
 export default function AvisoLegal() {
   return (
-    <div className="fg-container py-24 md:py-32">
+    <div className="ed-container py-20 md:py-28">
       <div className="max-w-2xl">
         <SectionLabel>Legal</SectionLabel>
-        <h1 className="fg-section-heading mt-6">Aviso Legal</h1>
+        <h1 className="ed-display mt-5">Aviso Legal</h1>
 
-        <div className="fg-reading mt-16 max-w-none">
+        <div className="ed-reading mt-14 max-w-none">
           <p>En cumplimiento de la Ley 34/2002 (LSSI-CE):</p>
           <ul>
             <li><strong>Titular:</strong> Alberto Rivera Mérida</li>
