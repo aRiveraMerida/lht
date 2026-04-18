@@ -35,74 +35,96 @@ export default function ClaudeCodeIndex() {
           <div className="mt-12 flex flex-wrap gap-x-10 gap-y-3 pt-6 border-t border-ink">
             <span className="ed-meta text-ink">{course.stats.guides} guías</span>
             <span className="ed-meta text-muted">{course.stats.blocks} bloques</span>
-            <span className="ed-meta text-muted">{course.stats.lines} líneas</span>
             <span className="ed-meta text-muted">{course.stats.updated}</span>
           </div>
         </div>
       </section>
 
-      {/* Recommended progression */}
-      <section className="ed-rule-b-soft">
-        <div className="ed-container py-14 md:py-16">
-          <SectionLabel>Progresión recomendada</SectionLabel>
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-x-10 ed-body text-ink/85">
-            <p>
-              <span className="ed-kicker-bold block mb-1">Solo módulos</span>
-              6 semanas · 70h
-            </p>
-            <p>
-              <span className="ed-kicker-bold block mb-1">+ Proyectos mínimos</span>
-              10 semanas · 120h (P1 + P3 + P5)
-            </p>
-            <p>
-              <span className="ed-kicker-bold block mb-1">+ Certificación</span>
-              14 semanas · 200h
-            </p>
+      {/* Jump to block — sticky quick nav */}
+      <nav
+        aria-label="Saltar a bloque"
+        className="sticky top-[132px] bg-paper z-40 ed-rule-b"
+      >
+        <div className="ed-container">
+          <div className="flex items-center gap-x-8 gap-y-0 overflow-x-auto py-4 -mx-4 px-4 md:mx-0 md:px-0">
+            <span className="shrink-0 ed-ribbon-label text-muted hidden md:inline">
+              Bloques
+            </span>
+            {course.blocks.map((block) => (
+              <a
+                key={block.id}
+                href={`#${block.id}`}
+                className="shrink-0 ed-btn-label uppercase tracking-[0.3px] py-2 px-1 border-b-2 border-transparent text-muted hover:text-ink hover:border-ink transition-colors"
+              >
+                {block.kicker}
+              </a>
+            ))}
           </div>
         </div>
-      </section>
+      </nav>
 
       {/* Blocks */}
-      {course.blocks.map((block) => (
-        <section key={block.id} className="ed-rule-b-soft">
-          <div className="ed-container py-16 md:py-20">
-            <SectionRibbon>{block.kicker} · {block.title}</SectionRibbon>
+      {course.blocks.map((block, bi) => {
+        const prev = course.blocks[bi - 1]
+        const next = course.blocks[bi + 1]
+        return (
+          <section
+            key={block.id}
+            id={block.id}
+            className="ed-rule-b-soft scroll-mt-52"
+          >
+            <div className="ed-container py-16 md:py-20">
+              <SectionRibbon>{block.kicker} · {block.title}</SectionRibbon>
 
-            {block.description && (
-              <p className="ed-deck mt-8 max-w-2xl text-ink/80">{block.description}</p>
-            )}
-            {block.connection && (
-              <p className="ed-body mt-4 max-w-2xl text-muted italic">
-                Conexión: {block.connection}
-              </p>
-            )}
+              {block.description && (
+                <p className="ed-deck mt-8 max-w-2xl text-ink/80">{block.description}</p>
+              )}
+              {block.connection && (
+                <p className="ed-body mt-4 max-w-2xl text-muted italic">
+                  Conexión: {block.connection}
+                </p>
+              )}
 
-            <ol className="mt-12 border-t border-ink">
-              {block.guides.map((g) => (
-                <li key={g.slug} className="border-b border-[color:var(--color-hairline)]">
-                  <Link
-                    href={`/blog/claude-code/${g.slug}`}
-                    className="grid grid-cols-[auto_1fr_auto] md:grid-cols-[auto_1fr_auto_auto] items-baseline gap-x-6 gap-y-2 py-6 hover:bg-black/[0.02] px-1 transition-colors"
-                  >
-                    <span className="ed-kicker text-muted tabular-nums">
-                      {String(g.order).padStart(2, '0')}
-                    </span>
-                    <span className="font-[var(--font-display)] text-[1.25rem] md:text-[1.5rem] leading-[1.15] tracking-[-0.3px] text-ink group-hover:text-link">
-                      {g.title}
-                    </span>
-                    <span className="ed-meta text-muted hidden md:inline">
-                      {g.kicker}
-                    </span>
-                    <span className="ed-meta text-muted justify-self-end">
-                      {g.duration ?? (g.lines ? `${g.lines} líneas` : g.mandatory ? 'Obligatorio' : 'Opcional')}
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-      ))}
+              <ol className="mt-12 border-t border-ink">
+                {block.guides.map((g) => (
+                  <li key={g.slug} className="border-b border-[color:var(--color-hairline)]">
+                    <Link
+                      href={`/blog/claude-code/${g.slug}`}
+                      className="group grid grid-cols-[auto_1fr_auto] md:grid-cols-[auto_1fr_auto] items-baseline gap-x-6 gap-y-2 py-6 hover:bg-black/[0.02] px-1 transition-colors"
+                    >
+                      <span className="ed-kicker text-muted tabular-nums">
+                        {String(g.order).padStart(2, '0')}
+                      </span>
+                      <span className="font-[var(--font-display)] text-[1.25rem] md:text-[1.5rem] leading-[1.15] tracking-[-0.3px] text-ink group-hover:text-link transition-colors">
+                        {g.title}
+                      </span>
+                      <span className="ed-meta text-muted justify-self-end">
+                        {g.kicker}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ol>
+
+              {/* Block jump: prev/next block */}
+              {(prev || next) && (
+                <div className="mt-10 pt-6 border-t border-[color:var(--color-hairline)] grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {prev ? (
+                    <a href={`#${prev.id}`} className="ed-link-ui text-muted hover:text-link">
+                      ← Bloque anterior: {prev.kicker} · {prev.title}
+                    </a>
+                  ) : <div />}
+                  {next ? (
+                    <a href={`#${next.id}`} className="ed-link-ui text-muted hover:text-link md:text-right">
+                      Bloque siguiente: {next.kicker} · {next.title} →
+                    </a>
+                  ) : <div />}
+                </div>
+              )}
+            </div>
+          </section>
+        )
+      })}
     </div>
   )
 }

@@ -1,5 +1,6 @@
 export const categories = [
   'Todos',
+  'Curso',
   'Laboratorios',
   'Sin Filtro',
   'Adopción IA',
