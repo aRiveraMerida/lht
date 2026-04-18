@@ -323,6 +323,8 @@
     max-width: 680px;
     margin-inline: auto;
   }
+  /* Hide body h1 when the page header already renders the title */
+  .ed-reading > h1:first-child { display: none; }
   .ed-reading p {
     font-family: var(--font-body);
     font-size: 1.125rem;

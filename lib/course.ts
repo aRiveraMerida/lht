@@ -2,7 +2,6 @@ export type GuideKind = 'prework' | 'module' | 'capstone' | 'reference' | 'cert'
 
 export interface Guide {
   slug: string
-  pdf: string
   title: string
   kicker: string
   blockId: string
@@ -25,7 +24,6 @@ export interface Block {
 const prework: Guide[] = [
   {
     slug: 'prework-checklist',
-    pdf: '00_prework.pdf',
     title: 'Checklist general de prework',
     kicker: 'Prework · 00',
     blockId: 'prework',
@@ -35,7 +33,6 @@ const prework: Guide[] = [
   },
   {
     slug: 'prework-terminal',
-    pdf: 'prework_01_terminal.pdf',
     title: 'Terminal / CLI',
     kicker: 'Prework · 01',
     blockId: 'prework',
@@ -46,7 +43,6 @@ const prework: Guide[] = [
   },
   {
     slug: 'prework-git',
-    pdf: 'prework_02_git.pdf',
     title: 'Git',
     kicker: 'Prework · 02',
     blockId: 'prework',
@@ -57,7 +53,6 @@ const prework: Guide[] = [
   },
   {
     slug: 'prework-nodejs-npm',
-    pdf: 'prework_03_nodejs_npm.pdf',
     title: 'Node.js y npm',
     kicker: 'Prework · 03',
     blockId: 'prework',
@@ -68,7 +63,6 @@ const prework: Guide[] = [
   },
   {
     slug: 'prework-javascript',
-    pdf: 'prework_04_javascript.pdf',
     title: 'JavaScript básico',
     kicker: 'Prework · 04',
     blockId: 'prework',
@@ -79,7 +73,6 @@ const prework: Guide[] = [
   },
   {
     slug: 'prework-api-rest',
-    pdf: 'prework_05_api_rest.pdf',
     title: 'API REST (conceptos)',
     kicker: 'Prework · 05',
     blockId: 'prework',
@@ -90,7 +83,6 @@ const prework: Guide[] = [
   },
   {
     slug: 'prework-github-cli',
-    pdf: 'prework_06_github_cli.pdf',
     title: 'GitHub y GitHub CLI',
     kicker: 'Prework · 06',
     blockId: 'prework',
@@ -101,7 +93,6 @@ const prework: Guide[] = [
   },
   {
     slug: 'prework-editor',
-    pdf: 'prework_07_editor.pdf',
     title: 'Editor de código',
     kicker: 'Prework · 07',
     blockId: 'prework',
@@ -112,7 +103,6 @@ const prework: Guide[] = [
   },
   {
     slug: 'prework-claude-code',
-    pdf: 'prework_08_claude_code.pdf',
     title: 'Claude Code (instalación)',
     kicker: 'Prework · 08',
     blockId: 'prework',
@@ -123,7 +113,6 @@ const prework: Guide[] = [
   },
   {
     slug: 'prework-primer-contacto',
-    pdf: 'prework_09_primer_contacto.pdf',
     title: 'Primer contacto con el agente',
     kicker: 'Prework · 09',
     blockId: 'prework',
@@ -134,7 +123,6 @@ const prework: Guide[] = [
   },
   {
     slug: 'prework-opcionales',
-    pdf: 'prework_10_11_opcionales.pdf',
     title: 'Python + SQL (opcionales)',
     kicker: 'Prework · 10–11',
     blockId: 'prework',
@@ -148,7 +136,6 @@ const prework: Guide[] = [
 const bloqueI: Guide[] = [
   {
     slug: 'modelo-mental',
-    pdf: '1_modelo_mental_v2.pdf',
     title: 'Modelo mental y primera configuración',
     kicker: 'M1 · Fundamentos',
     blockId: 'fundamentos',
@@ -159,7 +146,6 @@ const bloqueI: Guide[] = [
   },
   {
     slug: 'workflow',
-    pdf: '2_workflow_v2.pdf',
     title: 'Workflow EXPLORE → PLAN → CODE → COMMIT',
     kicker: 'M2 · Fundamentos',
     blockId: 'fundamentos',
@@ -170,7 +156,6 @@ const bloqueI: Guide[] = [
   },
   {
     slug: 'tdd',
-    pdf: '3_tdd_v2.pdf',
     title: 'TDD con Claude Code',
     kicker: 'M3 · Fundamentos',
     blockId: 'fundamentos',
@@ -184,7 +169,6 @@ const bloqueI: Guide[] = [
 const bloqueII: Guide[] = [
   {
     slug: 'arquitectura',
-    pdf: '4_arquitectura_v2.pdf',
     title: 'Arquitectura de CLAUDE.md profesional',
     kicker: 'M4 · Configuración',
     blockId: 'configuracion',
@@ -195,7 +179,6 @@ const bloqueII: Guide[] = [
   },
   {
     slug: 'skills-plugins',
-    pdf: '5_skills_plugins_v2.pdf',
     title: 'Skills, plugins y ecosistema extensible',
     kicker: 'M5 · Configuración',
     blockId: 'configuracion',
@@ -206,7 +189,6 @@ const bloqueII: Guide[] = [
   },
   {
     slug: 'slash-commands-hooks',
-    pdf: '6_slash_commands_hooks_v2.pdf',
     title: 'Slash commands y hooks personalizados',
     kicker: 'M6 · Configuración',
     blockId: 'configuracion',
@@ -220,7 +202,6 @@ const bloqueII: Guide[] = [
 const bloqueIII: Guide[] = [
   {
     slug: 'ralph-wiggum',
-    pdf: '7_ralph_wiggum_v2.pdf',
     title: 'Metodología Ralph Wiggum',
     kicker: 'M7 · Agentes',
     blockId: 'agentes',
@@ -231,7 +212,6 @@ const bloqueIII: Guide[] = [
   },
   {
     slug: 'multi-claude',
-    pdf: '8_multi_claude_v2.pdf',
     title: 'Multi-Claude workflows y Agent Teams',
     kicker: 'M8 · Agentes',
     blockId: 'agentes',
@@ -242,7 +222,6 @@ const bloqueIII: Guide[] = [
   },
   {
     slug: 'subagentes',
-    pdf: '9_subagentes_v2.pdf',
     title: 'Subagentes y Agent SDK',
     kicker: 'M9 · Agentes',
     blockId: 'agentes',
@@ -256,7 +235,6 @@ const bloqueIII: Guide[] = [
 const bloqueIV: Guide[] = [
   {
     slug: 'harnesses',
-    pdf: '10_harnesses_v2.pdf',
     title: 'Harnesses de larga duración',
     kicker: 'M10 · Producción',
     blockId: 'produccion',
@@ -267,7 +245,6 @@ const bloqueIV: Guide[] = [
   },
   {
     slug: 'evals',
-    pdf: '11_evals_v2.pdf',
     title: 'Sistema de evaluaciones (Evals)',
     kicker: 'M11 · Producción',
     blockId: 'produccion',
@@ -278,7 +255,6 @@ const bloqueIV: Guide[] = [
   },
   {
     slug: 'cicd',
-    pdf: '12_cicd_v2.pdf',
     title: 'Operacionalización: RTK y CI/CD',
     kicker: 'M12 · Producción',
     blockId: 'produccion',
@@ -289,7 +265,6 @@ const bloqueIV: Guide[] = [
   },
   {
     slug: 'cicd-avanzado',
-    pdf: '13_cicd_avanzado_v2.pdf',
     title: 'CI/CD avanzado y producción',
     kicker: 'M13 · Producción',
     blockId: 'produccion',
@@ -303,7 +278,6 @@ const bloqueIV: Guide[] = [
 const capstone: Guide[] = [
   {
     slug: 'proyectos-capstone',
-    pdf: '14_proyectos_capstone.pdf',
     title: 'Proyectos capstone (P1–P5)',
     kicker: 'Capstone',
     blockId: 'capstone',
@@ -316,7 +290,6 @@ const capstone: Guide[] = [
 const complementarios: Guide[] = [
   {
     slug: 'glosario',
-    pdf: '15_glosario.pdf',
     title: 'Glosario',
     kicker: 'Referencia · 15',
     blockId: 'referencia',
@@ -325,7 +298,6 @@ const complementarios: Guide[] = [
   },
   {
     slug: 'guia-alumno',
-    pdf: '16_guia_alumno.pdf',
     title: 'Guía del alumno',
     kicker: 'Referencia · 16',
     blockId: 'referencia',
@@ -334,7 +306,6 @@ const complementarios: Guide[] = [
   },
   {
     slug: 'quick-reference',
-    pdf: '17_quick_reference.pdf',
     title: 'Quick reference',
     kicker: 'Referencia · 17',
     blockId: 'referencia',
@@ -346,7 +317,6 @@ const complementarios: Guide[] = [
 const certificacion: Guide[] = [
   {
     slug: 'cert-overview',
-    pdf: '18_cert_prep_architect.pdf',
     title: 'Preparación para Claude Certified Architect',
     kicker: 'Cert · 18',
     blockId: 'certificacion',
@@ -355,7 +325,6 @@ const certificacion: Guide[] = [
   },
   {
     slug: 'cert-agentic-architecture',
-    pdf: 'cert_C1_agentic_architecture.pdf',
     title: 'C1 · Agentic Architecture',
     kicker: 'Cert · D1',
     blockId: 'certificacion',
@@ -365,7 +334,6 @@ const certificacion: Guide[] = [
   },
   {
     slug: 'cert-tool-design-mcp',
-    pdf: 'cert_C2_tool_design_mcp.pdf',
     title: 'C2 · Tool Design & MCP',
     kicker: 'Cert · D2',
     blockId: 'certificacion',
@@ -375,7 +343,6 @@ const certificacion: Guide[] = [
   },
   {
     slug: 'cert-claude-code-config',
-    pdf: 'cert_C3_claude_code_config.pdf',
     title: 'C3 · Claude Code Config',
     kicker: 'Cert · D3',
     blockId: 'certificacion',
@@ -385,7 +352,6 @@ const certificacion: Guide[] = [
   },
   {
     slug: 'cert-prompt-engineering',
-    pdf: 'cert_C4_prompt_engineering.pdf',
     title: 'C4 · Prompt Engineering',
     kicker: 'Cert · D4',
     blockId: 'certificacion',
@@ -395,7 +361,6 @@ const certificacion: Guide[] = [
   },
   {
     slug: 'cert-context-reliability',
-    pdf: 'cert_C5_context_reliability.pdf',
     title: 'C5 · Context & Reliability',
     kicker: 'Cert · D5',
     blockId: 'certificacion',
@@ -405,7 +370,6 @@ const certificacion: Guide[] = [
   },
   {
     slug: 'cert-scenarios',
-    pdf: 'cert_C6_scenarios.pdf',
     title: 'C6 · Scenarios walkthroughs',
     kicker: 'Cert · D6',
     blockId: 'certificacion',
@@ -415,7 +379,6 @@ const certificacion: Guide[] = [
   },
   {
     slug: 'cert-exam-simulator',
-    pdf: 'cert_C7_exam_simulator.pdf',
     title: 'C7 · Simulacro 1 (50 preguntas)',
     kicker: 'Cert · Sim 1',
     blockId: 'certificacion',
@@ -425,7 +388,6 @@ const certificacion: Guide[] = [
   },
   {
     slug: 'cert-strategy-simulator',
-    pdf: 'cert_C8_strategy_simulator2.pdf',
     title: 'C8 · Estrategia + Simulacro 2',
     kicker: 'Cert · Sim 2',
     blockId: 'certificacion',
@@ -509,7 +471,6 @@ export const course = {
     'Un curso en español sobre Claude Code: prework, 13 módulos, 5 proyectos capstone y preparación para la certificación Claude Certified Architect.',
   stats: {
     lines: '~17.000',
-    files: 38,
     updated: 'Marzo 2026',
     blocks: blocks.length,
     guides: sequence.length,

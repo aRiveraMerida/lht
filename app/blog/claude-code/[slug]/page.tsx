@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowLeft, ArrowRight, Download } from 'lucide-react'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
@@ -58,7 +58,6 @@ export default async function GuidePage({ params }: PageProps) {
   const block = getBlockOf(slug)
   const { prev, next } = getAdjacent(slug)
   const content = getGuideContent(slug)
-  const pdfHref = `/guides/claude-code/${guide.pdf}`
 
   return (
     <div>
@@ -117,37 +116,12 @@ export default async function GuidePage({ params }: PageProps) {
                 {content.content}
               </ReactMarkdown>
             ) : (
-              <>
-                <p className="ed-deck text-ink/80">
-                  Contenido en preparación. Mientras tanto, la guía completa está
-                  disponible en PDF.
-                </p>
-                <p className="ed-body mt-6 text-muted">
-                  Si estás siguiendo el curso en orden, vuelve aquí cuando publiquemos
-                  la versión HTML. El contenido del PDF es la fuente canónica.
-                </p>
-              </>
+              <p className="ed-deck text-ink/80">
+                Contenido en preparación. Vuelve pronto o sigue con la siguiente guía
+                de la secuencia.
+              </p>
             )}
           </article>
-
-          {/* PDF download */}
-          <div className="ed-reading mt-14 pt-10 border-t border-ink">
-            <div className="ed-kicker-bold">Archivo original</div>
-            <p className="ed-body mt-3 text-ink/80">
-              PDF de la guía — útil si quieres imprimir, anotar o leer offline.
-            </p>
-            <div className="mt-5">
-              <a
-                href={pdfHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ed-btn ed-btn-invert"
-              >
-                <Download size={16} aria-hidden="true" />
-                Abrir PDF · {guide.pdf}
-              </a>
-            </div>
-          </div>
         </div>
       </section>
 
