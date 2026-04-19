@@ -25,6 +25,14 @@ export const authors: Record<string, Author> = {
     linkedin: 'https://www.linkedin.com/in/david-dix-hidalgo-986a8a32b',
     bio: 'Especialista en IA en ThePower Education. Implementa antes de divulgar.',
   },
+  'javier-carreira': {
+    slug: 'javier-carreira',
+    name: 'Javier Carreira',
+    role: 'AI Engineer',
+    company: 'ThePower Education',
+    linkedin: 'https://www.linkedin.com/in/javier-carreira-c/',
+    bio: 'AI Engineer en ThePower Education. Convierte tecnología en productos que las empresas adoptan.',
+  },
 }
 
 export function getAuthor(slug: string): Author | null {
