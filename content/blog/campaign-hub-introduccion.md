@@ -26,8 +26,6 @@ El sistema tiene **dos mitades que colaboran**:
 
 Entre las dos mitades hay un **pasaplatos**: un endpoint HTTP que sirve de buzón. El cerebro deja mensajes ahí, el taller los recoge, trabaja, y deja resultados.
 
----
-
 ## Analogía para entenderlo de golpe
 
 Imagina una **cocina de restaurante**:
@@ -44,8 +42,6 @@ Imagina una **cocina de restaurante**:
 
 Si entiendes esta analogía, entiendes el sistema entero.
 
----
-
 ## Caso ficticio que usaremos
 
 Para que sea concreto, vamos a acompañar toda el laboratorio con un mismo ejemplo inventado:
@@ -61,8 +57,6 @@ Para que sea concreto, vamos a acompañar toda el laboratorio con un mismo ejemp
 > El equipo es de 3 personas: Laura (marketing), Martín (diseño), Carmen (directora, aprueba todo).
 
 Cuando veas `Cervezas del Valle`, `Laura`, `Martín` o `Carmen` a lo largo del laboratorio, son ejemplos inventados para que todo se entienda.
-
----
 
 ## Qué hará el sistema en un día real
 
@@ -118,8 +112,6 @@ Trazamos un día en la vida de una campaña ficticia llamada **"Lanzamiento IPA 
 
 **Total de intervención humana**: 3 momentos (crear brief, aprobar brief, aprobar assets). El resto es automático.
 
----
-
 ## Qué NO vamos a construir
 
 Para que quede claro el alcance:
@@ -128,7 +120,6 @@ Para que quede claro el alcance:
 - **No construimos un diseñador visual**. Las imágenes "hero" que genera el ejemplo son simples (gradientes con texto). Si quieres imágenes de calidad real, tienes que conectar un modelo de imagen (DALL-E, Stable Diffusion, Imagen). Explicamos dónde enchufarlo.
 - **No construimos algo que funcione solo en el teléfono**. Esto es un backoffice. Los humanos que aprueban lo hacen desde el ordenador.
 
----
 
 ## Las 6 partes de este laboratorio
 
@@ -144,8 +135,6 @@ Para que quede claro el alcance:
 
 **Total**: unas 4 horas la primera vez. Luego replicar a un caso nuevo son 30-60 min.
 
----
-
 ## Prerrequisitos mínimos
 
 No hace falta ser desarrollador, pero sí estar cómodo con:
@@ -158,8 +147,6 @@ No hace falta ser desarrollador, pero sí estar cómodo con:
 - **Un terminal** donde ejecutar comandos (Mac, Linux, o Windows con WSL).
 
 Si algo de esto no lo tienes, la Parte 1 indica cómo conseguirlo.
-
----
 
 ## Cómo seguir el laboratorio
 

@@ -14,7 +14,6 @@ image: "/favicon.svg"
 
 *Un manual operativo para implantadores, directivos y responsables de adopción de IA*
 
----
 
 ## Cómo leer este post
 
@@ -24,7 +23,6 @@ Si acompañas a una organización en adopción de IA, este escenario no es un ex
 
 Este post cubre cinco bloques. No es una guía para abogados. Es un manual para gente que implanta, lidera o compra IA en organizaciones europeas.
 
----
 
 ## BLOQUE 1 — FUNDAMENTOS DE IA
 
@@ -82,7 +80,6 @@ Más denso aún: un implantador como los que trabajan con herramientas BI con co
 
 Esto no es una esquina de pizarra jurídica. Es una decisión de modelo de negocio. Un implantador que se asume deployer pasivo tiene obligaciones ligeras. Un implantador que asume el rol de proveedor de alto riesgo asume carga de conformidad, documentación técnica, supervisión post-mercado y responsabilidad ante incidentes. Los contratos con clientes y proveedores son el único lugar donde esto se decide.
 
----
 
 ## BLOQUE 2 — MARCO REGULATORIO AI ACT
 
@@ -212,7 +209,6 @@ Puntos de fricción y complementariedad:
 
 En España, la supervisión del AI Act corresponde a **AESIA** (Agencia Española de Supervisión de la Inteligencia Artificial), con sede en A Coruña, creada por Real Decreto en 2023. La supervisión del RGPD sigue correspondiendo a la **AEPD**. Una empresa puede ser investigada por ambas simultáneamente sobre el mismo sistema, con sanciones que se acumulan.
 
----
 
 ## BLOQUE 3 — RIESGOS, SESGOS Y SEGURIDAD
 
@@ -311,7 +307,6 @@ Cada prompt que sale de la red corporativa puede contener datos sensibles: clien
 
 **Las políticas internas de uso** deben distinguir qué tipo de información puede entrar en cada tipo de sistema. No es lo mismo pedir que resuma un email interno que pegar un contrato firmado con datos de terceros. La formación tiene que hacer esta distinción operativa, no teórica.
 
----
 
 ## BLOQUE 4 — USO RESPONSABLE Y EFECTIVO
 
@@ -381,7 +376,6 @@ La regla para adopción real: **la verificación exhaustiva solo se aplica donde
 
 Los antiejemplos son el material formativo más eficaz. Mucho más que las buenas prácticas abstractas.
 
----
 
 ## BLOQUE 5 — GOBERNANZA Y ADOPCIÓN RESPONSABLE
 
@@ -486,7 +480,6 @@ Si AESIA, un cliente o un empleado pregunta, tener disponible:
 
 La mayoría de empresas tiene partes de esto dispersas. El trabajo es consolidarlo y hacerlo recuperable.
 
----
 
 ## Cierre — tres acciones para el lunes
 
@@ -500,7 +493,6 @@ Si solo tienes tiempo para tres cosas esta semana, estas:
 
 El AI Act no es el final de la innovación. Es el marco que convierte la adopción en algo defensable ante tres audiencias que van a preguntar: la autoridad, el cliente corporativo y el empleado afectado. Las organizaciones que llegan a 2026 con este marco asumido no van a innovar menos. Van a innovar con la confianza de que lo que construyen se sostiene.
 
----
 
 ## Referencias principales
 

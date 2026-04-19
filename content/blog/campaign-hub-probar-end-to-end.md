@@ -26,8 +26,6 @@ Hasta ahora hemos montado las piezas. En esta parte las hacemos funcionar juntas
 - Tests negativos (provocar errores para ver si el sistema se recupera)
 - Qué hacer si algo no funciona
 
----
-
 ## 5.1 Ampliar el WebApp con upload real a Drive
 
 En la Parte 4 dejamos la subida a Drive "simulada". Ahora la hacemos real. Es solo añadir un endpoint al WebApp.
@@ -144,8 +142,6 @@ Respuesta esperada:
 
 Ve a Drive → `Campaigns/` → deberías ver `test.txt`. Si está ahí, el endpoint funciona. Bórralo.
 
----
-
 ## 5.2 Actualizar la skill para usar upload real
 
 Edita `.claude/skills/produce-campaign/generate_assets.ts`. Localiza la función `uploadToDrive` y reemplázala por esta versión real:
@@ -189,8 +185,6 @@ async function uploadToDrive(
 ```
 
 Guarda el archivo.
-
----
 
 ## 5.3 Test end-to-end completo
 
@@ -323,8 +317,6 @@ Resultado:
 
 **Enhorabuena**: has pasado una campaña entera por el sistema.
 
----
-
 ## 5.4 Tests negativos (provocar errores)
 
 Un sistema solo está listo si sabe fallar bien. Estos tests te ahorran dolores futuros.
@@ -374,8 +366,6 @@ En tu `.env` pon `WEBAPP_TOKEN=wrong_token` y ejecuta la skill.
 
 **Después**: restaura el token.
 
----
-
 ## 5.5 Troubleshooting común
 
 | Síntoma | Causa probable | Fix |
@@ -393,8 +383,6 @@ En tu `.env` pon `WEBAPP_TOKEN=wrong_token` y ejecuta la skill.
 | Publisher no ejecuta | Trigger horario no activo | Revisa en Apps Script → Triggers que `publisher` está listado |
 | Calendar event no aparece | Falta `go_live_date` o CALENDAR_ID erróneo | `CALENDAR_ID = 'primary'` es lo más común |
 
----
-
 ## 5.6 Revisar el consumo
 
 Después de pasar 5-10 campañas por el sistema, es buen momento de revisar coste:
@@ -404,8 +392,6 @@ Después de pasar 5-10 campañas por el sistema, es buen momento de revisar cost
 3. **Drive**: tu cuota normal de Workspace.
 
 **Orden de magnitud para 10 campañas/mes** con todo lo que produce el sistema actual: 1-3 euros de Anthropic. Si ves mucho más, revisa si hay bucles o fallos que están re-intentando.
-
----
 
 ## 5.7 Comprobación final
 

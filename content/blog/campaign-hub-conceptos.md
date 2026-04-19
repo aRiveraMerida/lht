@@ -17,7 +17,6 @@ image: "/favicon.svg"
 
 Antes de tocar nada, nos aseguramos de que sabemos qué significa cada palabra. Si alguno de estos conceptos ya lo tienes claro, salta al siguiente. Si aparece una palabra rara en las siguientes partes, vuelve aquí.
 
----
 
 ## 1.1 ¿Qué es un "agente"?
 
@@ -45,7 +44,6 @@ En nuestro sistema hay **4 agentes**, cada uno con un trabajo muy concreto:
 
 **Punto clave**: cada agente hace *una cosa*. No mezclamos. Si un agente hace 3 cosas, lo partimos en 3 agentes. Esto facilita depurar cuando algo falla.
 
----
 
 ## 1.2 ¿Qué es Apps Script?
 
@@ -68,7 +66,6 @@ Tu Spreadsheet "Campañas"
 
 **No temas el código**. En la Parte 3 te paso los archivos completos. Tú solo copias, pegas y ajustas 4 variables.
 
----
 
 ## 1.3 ¿Qué es un "trigger"?
 
@@ -92,7 +89,6 @@ Ejemplo:
 Lo usamos para el **Publisher**, que no reacciona a un edit sino que patrulla periódicamente:
 - Cada hora, el Publisher recorre las campañas en status "QA" y ve si están listas para publicar.
 
----
 
 ## 1.4 ¿Qué es una API y qué es una "API key"?
 
@@ -114,7 +110,6 @@ Para conseguir tu API key:
 
 **Atención**: la key se muestra **una sola vez**. Si la pierdes, tienes que crear una nueva.
 
----
 
 ## 1.5 ¿Qué es MCP?
 
@@ -124,7 +119,6 @@ Analogía: si Claude Code es un trabajador, MCP son los enchufes de la pared. Ca
 
 **En nuestro laboratorio, vamos a evitar MCPs complicados**. En lugar de conectar Claude Code directamente a Google Sheets con un MCP, vamos a usar un truco más simple (un "webhook", lo explico ya).
 
----
 
 ## 1.6 ¿Qué es un "webhook" / "endpoint HTTP"?
 
@@ -145,8 +139,6 @@ Claude Code usa esas URLs como quien manda mensajes. **No necesita conocer Googl
 
 Esto se llama **"WebApp" en Apps Script** y lo vamos a montar paso a paso en la Parte 3.
 
----
-
 ## 1.7 ¿Qué es Claude Code?
 
 **Claude Code** es la herramienta de Anthropic para usar Claude desde el terminal, con acceso a tu sistema de archivos y a herramientas externas.
@@ -163,8 +155,6 @@ Para nuestro sistema, Claude Code es **el cocinero**. Cuando recibe un pedido, �
 
 **Claude Code Routine** es una función que permite que Claude Code se ejecute solo cada X minutos, sin que tú le digas nada. Esto es lo que hace que el sistema funcione automáticamente.
 
----
-
 ## 1.8 ¿Qué es un "Service Account" de Google?
 
 Cuando tú entras en Google Sheets con tu navegador, te identificas con tu cuenta personal (`laura@cervezasdelvalle.com`, por ejemplo).
@@ -174,8 +164,6 @@ Cuando un programa (Claude Code, en nuestro caso) necesita entrar en Sheets o Dr
 **En este laboratorio NO usaremos Service Account** para simplificar. En lugar de eso, Claude Code habla con Apps Script vía WebApp (el webhook que explicamos arriba), y Apps Script habla con Sheets y Drive en nombre del humano que lo desplegó.
 
 **Menos piezas = menos cosas que se rompen.**
-
----
 
 ## 1.9 ¿Qué es una "skill" de Claude Code?
 
@@ -195,8 +183,6 @@ produce-campaign/
   generate_assets.ts  ← Código de apoyo (funciones auxiliares)
   templates/          ← Plantillas HTML para landing, social posts, etc.
 ```
-
----
 
 ## 1.10 Vocabulario visual del sistema completo
 
@@ -245,8 +231,6 @@ produce-campaign/
 ```
 
 Esto es TODO lo que hay que entender del sistema. Si memorizas este diagrama, sabes dónde vive cada cosa.
-
----
 
 ## 1.11 Resumen de la Parte 1
 

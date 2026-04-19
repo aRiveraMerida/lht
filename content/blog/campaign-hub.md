@@ -23,8 +23,6 @@ image: "/favicon.svg"
 
 **Caso ficticio** que usamos durante todo el laboratorio: "Cervezas del Valle", una cervecería artesanal inventada que lanza una IPA cada trimestre. Los nombres, emails y datos que aparecen son todos inventados.
 
----
-
 ## Las 6 partes
 
 | Parte | Archivo | Qué hace | Tiempo |
@@ -37,16 +35,12 @@ image: "/favicon.svg"
 | **5 · Probar end-to-end** | `05-probar-end-to-end.md` | Upload real a Drive, test completo con caso ficticio, tests negativos, troubleshooting | 30 min práctica |
 | **6 · Customizar para otro caso** | `06-customizar-casos.md` | Qué cambia y qué no. 5 ejemplos ficticios adaptados (SaaS, content creator, academia, consultora, freelance) | 30-60 min práctica |
 
----
-
 ## Orden recomendado de lectura
 
 1. **Lee la Parte 0 completa** antes de nada. Te da el mapa mental.
 2. **Lee la Parte 1** aunque algunos términos ya los conozcas. Asegúrate de que compartimos vocabulario.
 3. **Haz las Partes 2, 3, 4, 5 en orden estricto.** No saltes. Cada una depende de la anterior.
 4. **La Parte 6** la haces cuando tienes el sistema funcionando con el caso original y quieres adaptarlo.
-
----
 
 ## Prerrequisitos
 
@@ -56,16 +50,12 @@ image: "/favicon.svg"
 - Node.js 20+ instalado en tu máquina.
 - Terminal (Mac, Linux, o WSL en Windows).
 
----
-
 ## Cómo usar el laboratorio
 
 - **Imprimibles**: los archivos son Markdown plano. Puedes convertirlos a PDF fácilmente.
 - **Variables**: cuando veas `{MAYÚSCULAS_ENTRE_LLAVES}` es un placeholder que sustituyes por tu valor.
 - **Ejemplos ficticios**: cuando veas `Cervezas del Valle`, `Laura`, `Martín`, `IPA Primavera`, es inventado para ilustrar. Adáptalo a tu realidad.
 - **Checklists finales**: cada parte tiene una al final. Si no puedes marcar todas las casillas, no avances — vuelve atrás.
-
----
 
 ## Qué vas a tener al terminar
 
@@ -77,8 +67,6 @@ Un sistema que:
 - Revisa calidad automáticamente y marca issues.
 - Publica cuando todo está aprobado, notifica por Slack y crea eventos de Calendar.
 - Se puede adaptar a otros dominios en 30-60 min, reusando toda la infraestructura.
-
----
 
 ## Soporte / ajustes sobre la marcha
 

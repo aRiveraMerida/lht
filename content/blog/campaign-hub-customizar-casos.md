@@ -19,8 +19,6 @@ Tienes el sistema funcionando para Cervezas del Valle (o tu equivalente). Ahora:
 
 **Tiempo estimado**: 30-60 minutos por caso nuevo.
 
----
-
 ## 6.1 Lo que cambia y lo que no cambia
 
 Esta es la tabla mental más útil que te llevas:
@@ -39,8 +37,6 @@ Esta es la tabla mental más útil que te llevas:
 | Skill `SKILL.md` | **Cambia** (añadir/quitar tipos de asset) |
 
 Lo azul es lo que tocas. Lo demás se queda exactamente igual.
-
----
 
 ## 6.2 Proceso de adaptación (5 pasos)
 
@@ -84,13 +80,9 @@ Tras cambios en Apps Script → Deploy → Manage → New version.
 
 No presumas que funciona. Ejecuta un caso completo y verifica.
 
----
-
 ## 6.3 Cinco ejemplos ficticios de adaptación
 
 Los casos son inventados. Úsalos como patrón para tu caso real.
-
----
 
 ### Ejemplo 1 — "Product Launch Hub" para una startup SaaS
 
@@ -120,8 +112,6 @@ APROBADOR_HUMANO  = "Product Marketing Lead"
 - `generateChangelog`: formato markdown, sube como .md a Drive.
 
 **Generadores a quitar**: `generateSocialPost`, `generateHeroImage` (no los usan).
-
----
 
 ### Ejemplo 2 — "Content Publishing Hub" para creador personal
 
@@ -153,8 +143,6 @@ APROBADOR_HUMANO  = "El propio autor"
 - `generateNewsletterVersion`: coge el post y lo expande (+40% palabras), añade CTA a newsletter.
 - `generateTwitterThread`: trocea el contenido en 6-10 tweets.
 
----
-
 ### Ejemplo 3 — "Training Production Hub" para academia
 
 **Contexto ficticio**: academia "Núcleo Digital" produce cursos cortos. Cada módulo nuevo necesita: guion de video, slides, quiz, y paquete SCORM para subir al LMS.
@@ -185,8 +173,6 @@ APROBADOR_HUMANO  = "Coordinador Pedagógico"
 - `generateSlidesDeck`: genera HTML slides (reveal.js o similar) + captura cada slide como PNG.
 - `generateQuiz`: JSON con preguntas/respuestas, guarda como `.json`.
 - `generateSCORMPackage`: empaqueta todo en ZIP con manifest.xml estándar SCORM. Usa librería `scorm-again` o similar.
-
----
 
 ### Ejemplo 4 — "Client Proposal Hub" para consultora
 
@@ -225,8 +211,6 @@ APROBADOR_HUMANO  = "Managing Partner"
 
 **Notificaciones**: aquí Slack no tiene sentido si es confidencial. Reemplaza por email a un grupo interno específico.
 
----
-
 ### Ejemplo 5 — "Campaign Hub Minimalista" para freelance
 
 **Contexto ficticio**: Marta es freelance diseñadora. Para cada cliente pequeño quiere automatizar solo la parte repetitiva: tomar un brief y devolver 3 opciones de mock-up.
@@ -254,8 +238,6 @@ APROBADOR_HUMANO  = "Marta (la freelance)"
 
 **Flujo**: brief → 3 mockups → Marta revisa y elige uno → envía al cliente manualmente. El sistema no publica nada solo.
 
----
-
 ## 6.4 Tabla resumen comparativa
 
 | Caso | Tipos de asset | Usuario | Tono QA | Apto para… |
@@ -266,8 +248,6 @@ APROBADOR_HUMANO  = "Marta (la freelance)"
 | Training Production | script, slides, quiz, SCORM | academia/L&D | pedagógico | edtech, formación corporativa |
 | Client Proposal Hub | summary, approach, pricing, Gantt | consultora | corporativo/legal | servicios profesionales |
 | Freelance Mockup | 3 mockups | freelance | estilo personal | servicios visuales pequeños |
-
----
 
 ## 6.5 Patrón general de adaptación (resumen en 6 líneas)
 
@@ -285,8 +265,6 @@ Si te sales del patrón (cambias columnas del schema, añades más agentes, camb
 
 **Regla**: siempre que puedas, ajusta prompts y generadores. No cambies la infraestructura (agentes, schema, WebApp). La infraestructura es sagrada.
 
----
-
 ## 6.6 Checklist de caso nuevo
 
 Antes de dar por bueno un caso adaptado:
@@ -300,8 +278,6 @@ Antes de dar por bueno un caso adaptado:
 - [ ] Documenté qué cambié vs el sistema original (en un README).
 
 Cuando todos los checkboxes estén marcados, tu sistema está listo para ese caso.
-
----
 
 ## 6.7 Qué viene después
 
@@ -318,8 +294,6 @@ Cuando domines la adaptación, hay mejoras opcionales que no tocan el core pero 
 5. **Multi-tenant**: si quieres un único sistema que sirva a varios clientes, añade una columna `client_id` y filtra todo por ese valor. Cada cliente ve solo sus campañas.
 
 Todas estas son de segundo orden. Primero: **dominar el sistema base en un caso real tuyo**. Luego, si lo necesitas, ampliar.
-
----
 
 ## 6.8 Cierre del laboratorio
 

@@ -21,7 +21,6 @@ Ahora metemos el código que hace funcionar el cerebro del sistema. **Vas a copi
 
 **Regla de oro de esta parte**: haz los pasos en orden. No te adelantes. Cada archivo depende de los anteriores.
 
----
 
 ## 3.0 Mapa de lo que vamos a hacer
 
@@ -45,7 +44,6 @@ Ahora metemos el código que hace funcionar el cerebro del sistema. **Vas a copi
 6. Anotar la URL del WebApp y el token
 ```
 
----
 
 ## 3.1 Conseguir la API key de Anthropic
 
@@ -59,7 +57,6 @@ Si no la tienes ya:
 
 *Importante*: asegúrate de tener saldo en la cuenta (Billing → Add credits). Con 5-10 € vas de sobra para pruebas.
 
----
 
 ## 3.2 Abrir Apps Script
 
@@ -70,7 +67,6 @@ Si no la tienes ya:
 
 Verás que ya existe un archivo `Código.gs` (o `Code.gs`) con una función vacía. **Lo vamos a ignorar**. Iremos creando archivos nuevos uno a uno.
 
----
 
 ## 3.3 Guardar los secretos en Script Properties
 
@@ -89,7 +85,6 @@ Antes de escribir código, guardamos la API key donde toca:
    - Valor: tu webhook de Slack. *Si no tienes, déjalo en blanco o no crees la propiedad.*
 6. Clic en **Guardar propiedades del script**.
 
----
 
 ## 3.4 Crear los archivos de código
 
@@ -102,7 +97,6 @@ Ahora, el grueso del trabajo. Por cada archivo:
 
 **Haz los archivos en el orden que pongo**. No te saltes ninguno.
 
----
 
 ### Archivo 1 · `Config.gs`
 
@@ -169,7 +163,6 @@ const CONFIG = {
 
 **Sustituye ahora** las dos líneas con `PEGA_AQUI_...` por los IDs que anotaste en la Parte 2. Guarda.
 
----
 
 ### Archivo 2 · `Utils.gs`
 
@@ -274,7 +267,6 @@ function notifySlack(text) {
 }
 ```
 
----
 
 ### Archivo 3 · `ClaudeClient.gs`
 
@@ -334,7 +326,6 @@ function callClaudeJSON(prompt, options) {
 }
 ```
 
----
 
 ### Archivo 4 · `DriveManager.gs`
 
@@ -381,7 +372,6 @@ function readBriefFromUrl(briefDocUrl) {
 }
 ```
 
----
 
 ### Archivo 5 · `Prompts.gs`
 
@@ -462,7 +452,6 @@ Marca "Approved" si cumple todo. NUNCA uses "Rejected" (eso solo lo hace el huma
 }
 ```
 
----
 
 ### Archivo 6 · `BriefReviewer.gs` — Agente 1
 
@@ -526,7 +515,6 @@ function briefReviewer(campaignRowIndex) {
 }
 ```
 
----
 
 ### Archivo 7 · `Dispatcher.gs` — Agente 2
 
@@ -584,7 +572,6 @@ function dispatcher(campaignRowIndex) {
 }
 ```
 
----
 
 ### Archivo 8 · `QAReviewer.gs` — Agente 3
 
@@ -632,7 +619,6 @@ function qaReviewer(assetRowIndex) {
 }
 ```
 
----
 
 ### Archivo 9 · `Publisher.gs` — Agente 4
 
@@ -727,8 +713,6 @@ function publishCampaign(campaign, assets, rowIndex) {
   logAgent('Publisher', 'publish', { campaign_id: campaign.id }, 'ok');
 }
 ```
-
----
 
 ### Archivo 10 · `Triggers.gs` — Router de eventos
 
@@ -829,8 +813,6 @@ function qaEscalationCheck() {
   }
 }
 ```
-
----
 
 ### Archivo 11 · `WebApp.gs` — Endpoint para Claude Code
 
@@ -962,8 +944,6 @@ function createAsset(asset) {
 }
 ```
 
----
-
 ## 3.5 Instalar los triggers
 
 Ahora activamos todo.
@@ -983,7 +963,6 @@ Ahora activamos todo.
 - `publisher` → Time-driven → Hour timer
 - `qaEscalationCheck` → Time-driven → Hour timer (every 4 hours)
 
----
 
 ## 3.6 Desplegar el WebApp
 
@@ -1019,8 +998,6 @@ Deberías ver:
 Si ves `{"error":"unauthorized"}` → revisa el `WEBAPP_TOKEN` en Script Properties.
 
 Si ves un error de Google → el deploy no salió bien, repite el paso 6.
-
----
 
 ## 3.7 Comprobación antes de avanzar
 

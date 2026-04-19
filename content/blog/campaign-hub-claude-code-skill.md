@@ -21,8 +21,6 @@ Ahora montamos el **taller**: el lado de Claude Code que recoge trabajos del buz
 
 **Requisito previo**: haber completado la Parte 3 y tener anotados `WEBAPP_URL` y `WEBAPP_TOKEN`.
 
----
-
 ## 4.0 Lo que vamos a construir
 
 ```
@@ -41,8 +39,6 @@ Ahora montamos el **taller**: el lado de Claude Code que recoge trabajos del buz
 ├── tsconfig.json                       ← config TypeScript
 └── .env                                ← secretos (URL, token, API key)
 ```
-
----
 
 ## 4.1 Instalar Claude Code
 
@@ -77,8 +73,6 @@ claude login
 ```
 
 Abrirá una página web, te pedirá autorizar con tu cuenta Claude.ai Pro o Max.
-
----
 
 ## 4.2 Crear el proyecto local
 
@@ -157,8 +151,6 @@ mkdir -p .claude/skills/produce-campaign/templates
 
 Ahora crearemos los archivos uno a uno.
 
----
-
 ### Archivo 1 · `.claude/skills/produce-campaign/SKILL.md`
 
 Este archivo es **las instrucciones que Claude Code leerá** cuando active la skill.
@@ -230,8 +222,6 @@ Por cada asset generado, POST al WebApp:
 - `tsx .claude/skills/produce-campaign/generate_assets.ts --test` para probar generación sin tocar el WebApp.
 - `curl "{WEBAPP_URL}?action=ping&token={TOKEN}"` para verificar que el buzón responde.
 ```
-
----
 
 ### Archivo 2 · `.claude/skills/produce-campaign/generate_assets.ts`
 
@@ -586,8 +576,6 @@ if (require.main === module) {
 
 La **Parte 5** incluye la opción A ampliando el WebApp.
 
----
-
 ### Archivo 3 · `.claude/skills/produce-campaign/templates/landing.html`
 
 Plantilla simple de landing:
@@ -685,8 +673,6 @@ Plantilla cuadrada para post social:
 </html>
 ```
 
----
-
 ## 4.4 Probar la skill localmente (antes de automatizar)
 
 Antes de configurar la routine, ejecuta la skill **una vez a mano** para ver si funciona.
@@ -728,8 +714,6 @@ Si **falla**, revisa:
 - `WEBAPP_URL` en `.env` (debe terminar en `/exec`).
 - `WEBAPP_TOKEN` en `.env` (mismo que en Script Properties).
 - Salida de errores del terminal → suele indicar el problema exacto.
-
----
 
 ## 4.5 Configurar la routine (ejecución automática)
 
@@ -774,8 +758,6 @@ tail -f /tmp/campaign-hub.log
 ### Opción C — GitHub Action (sin máquina encendida, avanzado)
 
 Para producción seria, puedes montar un GitHub Action que se ejecute cada 5 minutos. Se sale del alcance de este laboratorio, pero la idea es la misma: ejecutar `tsx .claude/skills/produce-campaign/generate_assets.ts` cada X tiempo con los secretos inyectados.
-
----
 
 ## 4.6 Comprobación antes de avanzar
 

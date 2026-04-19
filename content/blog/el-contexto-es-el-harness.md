@@ -16,7 +16,6 @@ El 15 de abril de 2026 Anthropic publicó dos cosas a la vez: el comando `/usage
 
 No lo es. Las cinco acciones son **tres decisiones**, y la mayor parte del valor está en una sola de ellas. Esta guía reescribe el post de Thariq con los matices que aparecen cuando llevas meses usando Claude Code en cliente real, multi-proyecto, y con sesiones que duran días.
 
----
 
 ## Antes: tres conceptos, no dos
 
@@ -29,8 +28,6 @@ Las guías rápidas suelen explicar "context window" y "context rot". Suficiente
 **Compaction.** Cuando te acercas al límite, Claude resume la conversación en una descripción más corta y sigue en una ventana nueva. Esto pasa automáticamente si no haces nada. Y pasa en el peor momento posible: justo cuando el modelo está con el contexto más cargado y, por tanto, en su punto de menor capacidad para decidir qué conservar.
 
 El corolario importante: **autocompact es el modo de fallo por defecto**. Si no tomas decisiones activas sobre tu contexto, el sistema las toma por ti, tarde y mal.
-
----
 
 ## Cinco acciones son tres decisiones
 
@@ -59,8 +56,6 @@ La taxonomía está bien. Pero en realidad cada turno resuelve **tres preguntas*
 `/compact` es la excepción: interviene cuando la sesión pesa demasiado pero no puedes permitirte perder todo con un `/clear`. Pero Thariq es explícito en que `/clear` suele ser mejor que `/compact` cuando puedes permitírtelo, porque tú controlas qué se arrastra y el modelo no tiene que resumir en su peor momento.
 
 Leído así, la decisión no es "qué comando usar". La decisión es **qué parte del contexto actual merece seguir vivo en el siguiente turno**. El comando es consecuencia.
-
----
 
 ## Las cinco acciones, ahora sí
 
@@ -128,8 +123,6 @@ La regla oficial de Anthropic: **tarea nueva = sesión nueva**.
 
 **Conexión con multi-Claude:** los subagentes son el embrión de flujos paralelos reales. En el programa los tratamos como un módulo aparte porque la disciplina de diseñar el prompt del subagente —qué recibe, qué devuelve, qué NO debe arrastrar— es una habilidad propia. Un mal prompt de subagente devuelve el mismo ruido que tenía dentro, y entonces no has resuelto nada: solo has movido el problema un nivel.
 
----
-
 ## Lo que las guías de divulgación no te cuentan
 
 Cuatro piezas que los resúmenes en español están dejando fuera y que, en mi experiencia, son donde está el 30% del valor real:
@@ -142,8 +135,6 @@ Cuatro piezas que los resúmenes en español están dejando fuera y que, en mi e
 
 **4. CLAUDE.md como configuración permanente de compact.** Las instrucciones que dejas en CLAUDE.md sobreviven compact y clear. Todo lo que quieras que esté garantizado después de un compact (lista de archivos clave, comandos de test, restricciones del proyecto) escríbelo ahí una vez y olvídate.
 
----
-
 ## El principio que cierra todo
 
 Hay una frase en findskill.ai que clavó el punto mejor que el propio post oficial: **un contexto limpio le gana a un contexto largo, siempre**. El 1M no es una invitación a dumpearlo todo. Es un margen para no tener que decidir bajo presión.
@@ -154,7 +145,6 @@ Si conectas esto con el modelo mental de Claude Code como agente, no como chatbo
 
 Gestión de sesiones no es un tema operativo menor. Es **la disciplina fundamental** de trabajar con agentes. Si un equipo adopta Claude Code y no interioriza esto, va a rendir un 40% por debajo de su potencial sin poder señalar exactamente por qué.
 
----
 
 ## El hábito que señala a los pros
 

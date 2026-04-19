@@ -19,8 +19,6 @@ En esta parte **no tocamos código**. Solo creamos las carpetas, el Spreadsheet 
 
 **Tiempo estimado**: 30 minutos.
 
----
-
 ## 2.0 Cómo vamos a trabajar en esta parte
 
 Seguimos el caso ficticio de **Cervezas del Valle**. Todo lo que ves con `Cervezas del Valle` o `IPA de Primavera` o `Laura / Martín / Carmen` es inventado. Tú lo adaptas a tu realidad.
@@ -30,8 +28,6 @@ Seguimos el caso ficticio de **Cervezas del Valle**. Todo lo que ves con `Cervez
 2. Crear el documento Brand Guardrails
 3. Crear el Spreadsheet con 4 hojas
 4. Anotar 2 IDs importantes que luego usaremos
-
----
 
 ## 2.1 Crear la estructura de Drive
 
@@ -70,8 +66,6 @@ Esto es **muy importante**, lo necesitaremos en la Parte 3.
 4. **Anótalo en un sitio al que puedas volver.** Lo llamaremos `DRIVE_CAMPAIGNS_FOLDER_ID`.
 
 *Este ID es único para tu carpeta. El de arriba es ficticio.*
-
----
 
 ## 2.2 Crear el documento Brand Guardrails
 
@@ -140,8 +134,6 @@ Igual que con la carpeta:
    1xYz9AbC8dE7fG6hI5jK4lM3nO2pQ1rS
    ```
 3. **Anótalo**. Lo llamaremos `GUARDRAILS_DOC_ID`.
-
----
 
 ## 2.3 Crear el Spreadsheet
 
@@ -272,8 +264,6 @@ No hace falta validación aquí. Los agentes irán escribiendo líneas.
    ```
 3. **Anótalo**. Lo llamaremos `SPREADSHEET_ID`.
 
----
-
 ## 2.4 Resumen de lo anotado
 
 Deberías tener ya tres cosas apuntadas. Te dejo una plantilla que conviene guardar en un Doc o una nota segura:
@@ -303,8 +293,6 @@ WEBAPP_URL:
 ```
 
 Las tres últimas las rellenarás en la Parte 3. Guarda este documento en un sitio privado — idealmente un gestor de contraseñas.
-
----
 
 ## 2.5 Comprobación antes de avanzar
 
