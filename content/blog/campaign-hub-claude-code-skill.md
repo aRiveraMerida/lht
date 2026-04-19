@@ -773,7 +773,7 @@ tail -f /tmp/campaign-hub.log
 
 ### Opción C — GitHub Action (sin máquina encendida, avanzado)
 
-Para producción seria, puedes montar un GitHub Action que se ejecute cada 5 minutos. Se sale del alcance de esta guía, pero la idea es la misma: ejecutar `tsx .claude/skills/produce-campaign/generate_assets.ts` cada X tiempo con los secretos inyectados.
+Para producción seria, puedes montar un GitHub Action que se ejecute cada 5 minutos. Se sale del alcance de este laboratorio, pero la idea es la misma: ejecutar `tsx .claude/skills/produce-campaign/generate_assets.ts` cada X tiempo con los secretos inyectados.
 
 ---
 

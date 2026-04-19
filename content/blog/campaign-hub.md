@@ -1,8 +1,8 @@
 ---
 title: "Campaign Hub — Google + Claude Code"
 date: "2026-04-19"
-description: "Una guía práctica de 6 partes para montar un sistema que automatiza el ciclo completo de producción de campañas con Google Sheets + Apps Script + Claude Code. Caso ficticio, código copiable, ~4h la primera vez."
-excerpt: "Una guía práctica de 6 partes para montar un sistema que automatiza el ciclo completo de producción de campañas con Google Sheets + Apps Script + Claude Code. Caso ficticio, código copiable, ~4h la primera vez."
+description: "Un laboratorio práctica de 6 partes para montar un sistema que automatiza el ciclo completo de producción de campañas con Google Sheets + Apps Script + Claude Code. Caso ficticio, código copiable, ~4h la primera vez."
+excerpt: "Un laboratorio práctica de 6 partes para montar un sistema que automatiza el ciclo completo de producción de campañas con Google Sheets + Apps Script + Claude Code. Caso ficticio, código copiable, ~4h la primera vez."
 category: "Laboratorios"
 authors:
   - alberto-rivera
@@ -13,15 +13,15 @@ seriesTitle: "Campaign Hub · Google + Claude Code"
 image: "/favicon.svg"
 ---
 
-# Guía Campaign Hub — Google + Claude Code
+# Laboratorio Campaign Hub — Google + Claude Code
 
-**Qué es esto**: una guía práctica de 6 partes para montar, desde cero, un sistema que automatiza el ciclo completo de producción de campañas (o contenido, propuestas, módulos formativos...) usando Google Sheets + Google Drive + Apps Script + Claude Code.
+**Qué es esto**: un laboratorio práctica de 6 partes para montar, desde cero, un sistema que automatiza el ciclo completo de producción de campañas (o contenido, propuestas, módulos formativos...) usando Google Sheets + Google Drive + Apps Script + Claude Code.
 
 **Para quién**: alguien que entiende de tecnología sin ser desarrollador. No hace falta saber programar; hay que saber copiar, pegar y seguir instrucciones.
 
 **Tiempo total**: ~4 horas la primera vez. 30-60 min para adaptar a un nuevo caso después.
 
-**Caso ficticio** que usamos durante toda la guía: "Cervezas del Valle", una cervecería artesanal inventada que lanza una IPA cada trimestre. Los nombres, emails y datos que aparecen son todos inventados.
+**Caso ficticio** que usamos durante todo el laboratorio: "Cervezas del Valle", una cervecería artesanal inventada que lanza una IPA cada trimestre. Los nombres, emails y datos que aparecen son todos inventados.
 
 ---
 
@@ -58,7 +58,7 @@ image: "/favicon.svg"
 
 ---
 
-## Cómo usar la guía
+## Cómo usar el laboratorio
 
 - **Imprimibles**: los archivos son Markdown plano. Puedes convertirlos a PDF fácilmente.
 - **Variables**: cuando veas `{MAYÚSCULAS_ENTRE_LLAVES}` es un placeholder que sustituyes por tu valor.
@@ -82,7 +82,7 @@ Un sistema que:
 
 ## Soporte / ajustes sobre la marcha
 
-Si algo no queda claro mientras sigues la guía, vuelve a la parte correspondiente y relee el apartado específico. Si hay un concepto que no está explicado en la Parte 1, probablemente deba estarlo — es un aviso de que falta claridad y puede mejorarse.
+Si algo no queda claro mientras sigues el laboratorio, vuelve a la parte correspondiente y relee el apartado específico. Si hay un concepto que no está explicado en la Parte 1, probablemente deba estarlo — es un aviso de que falta claridad y puede mejorarse.
 
 **Ritmo recomendado**: no hagas las 4 horas de un tirón. Divide así:
 

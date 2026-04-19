@@ -321,7 +321,7 @@ Todas estas son de segundo orden. Primero: **dominar el sistema base en un caso 
 
 ---
 
-## 6.8 Cierre de la guía
+## 6.8 Cierre del laboratorio
 
 Has construido un sistema que:
 

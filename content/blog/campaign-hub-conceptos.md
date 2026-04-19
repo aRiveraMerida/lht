@@ -122,7 +122,7 @@ Para conseguir tu API key:
 
 Analogía: si Claude Code es un trabajador, MCP son los enchufes de la pared. Cada herramienta externa (Google Sheets, Google Drive, Playwright...) tiene un enchufe MCP. Conectas los enchufes que necesitas y Claude Code puede usarlos.
 
-**En nuestra guía, vamos a evitar MCPs complicados**. En lugar de conectar Claude Code directamente a Google Sheets con un MCP, vamos a usar un truco más simple (un "webhook", lo explico ya).
+**En nuestro laboratorio, vamos a evitar MCPs complicados**. En lugar de conectar Claude Code directamente a Google Sheets con un MCP, vamos a usar un truco más simple (un "webhook", lo explico ya).
 
 ---
 
@@ -171,7 +171,7 @@ Cuando tú entras en Google Sheets con tu navegador, te identificas con tu cuent
 
 Cuando un programa (Claude Code, en nuestro caso) necesita entrar en Sheets o Drive sin que haya un humano haciendo login, usamos un **Service Account**: es como una "cuenta de empleado robot". Tiene su propio email (algo tipo `campaign-bot@mi-proyecto.iam.gserviceaccount.com`) y su propia forma de identificarse (un archivo JSON).
 
-**En esta guía NO usaremos Service Account** para simplificar. En lugar de eso, Claude Code habla con Apps Script vía WebApp (el webhook que explicamos arriba), y Apps Script habla con Sheets y Drive en nombre del humano que lo desplegó.
+**En este laboratorio NO usaremos Service Account** para simplificar. En lugar de eso, Claude Code habla con Apps Script vía WebApp (el webhook que explicamos arriba), y Apps Script habla con Sheets y Drive en nombre del humano que lo desplegó.
 
 **Menos piezas = menos cosas que se rompen.**
 

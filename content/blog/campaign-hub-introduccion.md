@@ -1,8 +1,8 @@
 ---
 title: "Campaign Hub · Introducción"
 date: "2026-04-19"
-description: "Qué vamos a construir, la analogía de la cocina profesional y el caso ficticio \"Cervezas del Valle\" que usaremos durante toda la guía."
-excerpt: "Qué vamos a construir, la analogía de la cocina profesional y el caso ficticio \"Cervezas del Valle\" que usaremos durante toda la guía."
+description: "Qué vamos a construir, la analogía de la cocina profesional y el caso ficticio \"Cervezas del Valle\" que usaremos durante todo el laboratorio."
+excerpt: "Qué vamos a construir, la analogía de la cocina profesional y el caso ficticio \"Cervezas del Valle\" que usaremos durante todo el laboratorio."
 category: "Laboratorios"
 authors:
   - alberto-rivera
@@ -48,7 +48,7 @@ Si entiendes esta analogía, entiendes el sistema entero.
 
 ## Caso ficticio que usaremos
 
-Para que sea concreto, vamos a acompañar toda la guía con un mismo ejemplo inventado:
+Para que sea concreto, vamos a acompañar toda el laboratorio con un mismo ejemplo inventado:
 
 > **Empresa**: "Cervezas del Valle" (ficticia).
 > Sector: cervecería artesanal.
@@ -60,7 +60,7 @@ Para que sea concreto, vamos a acompañar toda la guía con un mismo ejemplo inv
 >
 > El equipo es de 3 personas: Laura (marketing), Martín (diseño), Carmen (directora, aprueba todo).
 
-Cuando veas `Cervezas del Valle`, `Laura`, `Martín` o `Carmen` a lo largo de la guía, son ejemplos inventados para que todo se entienda.
+Cuando veas `Cervezas del Valle`, `Laura`, `Martín` o `Carmen` a lo largo del laboratorio, son ejemplos inventados para que todo se entienda.
 
 ---
 
@@ -130,7 +130,7 @@ Para que quede claro el alcance:
 
 ---
 
-## Las 6 partes de esta guía
+## Las 6 partes de este laboratorio
 
 | Parte | Qué hacemos | Tiempo estimado |
 |---|---|---|
@@ -150,7 +150,7 @@ Para que quede claro el alcance:
 
 No hace falta ser desarrollador, pero sí estar cómodo con:
 
-- **Copiar/pegar código** sin entenderlo al 100% (la guía explica qué hace cada bloque).
+- **Copiar/pegar código** sin entenderlo al 100% (el laboratorio explica qué hace cada bloque).
 - **Seguir instrucciones paso a paso** sin saltar.
 - **Google Workspace** con permisos para crear Spreadsheets, Apps Script y Service Accounts. Si tu cuenta es personal (@gmail.com) vale. Si es de empresa, necesitas que el admin no bloquee Apps Script.
 - **Una cuenta de Claude.ai Pro o Max** (para usar Claude Code con Routines).
@@ -161,7 +161,7 @@ Si algo de esto no lo tienes, la Parte 1 indica cómo conseguirlo.
 
 ---
 
-## Cómo seguir la guía
+## Cómo seguir el laboratorio
 
 **Regla importante**: haz las Partes 0, 1 y 2 aunque te parezcan lentas. La Parte 3 asume que ya tienes montado lo de la 2. Si te saltas, vas a perder más tiempo del que ahorras.
 
