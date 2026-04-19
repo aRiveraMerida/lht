@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeRaw from 'rehype-raw'
-import { sequence, getGuide, getAdjacent, getBlockOf } from '@/lib/course'
+import { sequence, blocks, getGuide, getAdjacent, getBlockOf } from '@/lib/course'
 import { getGuideContent } from '@/lib/guides'
 import { SectionLabel } from '@/components/SectionLabel'
 import 'highlight.js/styles/github-dark.css'
@@ -111,37 +111,57 @@ export default async function GuidePage({ params }: PageProps) {
       </section>
 
       {/* Within-block quick nav */}
-      {block && block.guides.length > 1 && (
+      {block && (
         <nav
-          aria-label={`Guías del bloque ${block.title}`}
+          aria-label="Navegación del programa"
           className="sticky top-[89px] bg-paper z-30 ed-rule-b"
         >
           <div className="ed-container">
-            <div className="flex items-center gap-x-6 gap-y-0 overflow-x-auto py-3 -mx-4 px-4 md:mx-0 md:px-0">
-              <span className="shrink-0 ed-ribbon-label text-muted hidden md:inline">
-                {block.kicker}
-              </span>
-              {block.guides.map((g) => {
-                const active = g.slug === slug
+            {/* Block selector row */}
+            <div className="flex items-center gap-x-1 overflow-x-auto pt-3 pb-1 -mx-4 px-4 md:mx-0 md:px-0 border-b border-ink/10">
+              {blocks.map((b) => {
+                const activeBlock = b.id === block.id
                 return (
                   <Link
-                    key={g.slug}
-                    href={`/blog/claude-code/${g.slug}`}
-                    aria-current={active ? 'page' : undefined}
-                    className={`shrink-0 ed-meta py-2 px-1 border-b-2 transition-colors ${
-                      active
-                        ? 'text-ink border-ink'
-                        : 'text-muted border-transparent hover:text-ink'
+                    key={b.id}
+                    href={`/blog/claude-code/${b.guides[0].slug}`}
+                    aria-current={activeBlock ? 'true' : undefined}
+                    className={`shrink-0 ed-ribbon-label py-1.5 px-3 rounded-sm transition-colors ${
+                      activeBlock
+                        ? 'bg-ink text-paper'
+                        : 'text-muted hover:text-ink hover:bg-ink/5'
                     }`}
                   >
-                    <span className="tabular-nums mr-2">
-                      {String(g.order).padStart(2, '0')}
-                    </span>
-                    {g.title}
+                    {b.kicker}
                   </Link>
                 )
               })}
             </div>
+            {/* Lesson selector row */}
+            {block.guides.length > 1 && (
+              <div className="flex items-center gap-x-6 gap-y-0 overflow-x-auto py-3 -mx-4 px-4 md:mx-0 md:px-0">
+                {block.guides.map((g) => {
+                  const active = g.slug === slug
+                  return (
+                    <Link
+                      key={g.slug}
+                      href={`/blog/claude-code/${g.slug}`}
+                      aria-current={active ? 'page' : undefined}
+                      className={`shrink-0 ed-meta py-2 px-1 border-b-2 transition-colors ${
+                        active
+                          ? 'text-ink border-ink'
+                          : 'text-muted border-transparent hover:text-ink'
+                      }`}
+                    >
+                      <span className="tabular-nums mr-2">
+                        {String(g.order).padStart(2, '0')}
+                      </span>
+                      {g.title}
+                    </Link>
+                  )
+                })}
+              </div>
+            )}
           </div>
         </nav>
       )}
