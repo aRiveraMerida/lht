@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeRaw from 'rehype-raw';
-import { getPostBySlug, getPostSlugs, getRelatedPosts } from '@/lib/posts';
+import { getPostBySlug, getPostSlugs, getRelatedPosts, getSeriesContext } from '@/lib/posts';
 import { getAuthors } from '@/lib/authors';
 import { ProductCard } from '@/components/ProductCard';
 import { SectionRibbon } from '@/components/SectionLabel';
@@ -62,7 +62,9 @@ export default async function BlogPostPage({ params }: PageProps) {
   if (!post) notFound();
 
   const authors = getAuthors(post.authors);
-  const related = getRelatedPosts(slug, post.category, 3);
+  const series = getSeriesContext(post);
+  // If the post belongs to a series, prefer series siblings over generic related posts.
+  const related = series ? [] : getRelatedPosts(slug, post.category, 3);
 
   const url = `https://lahabitaciontortuga.com/blog/${slug}`;
   const imageUrl = post.image.startsWith('http') ? post.image : `https://lahabitaciontortuga.com${post.image}`;
@@ -98,12 +100,22 @@ export default async function BlogPostPage({ params }: PageProps) {
             <span className="text-ink">{post.title}</span>
           </nav>
 
-          <Link
-            href={`/blog?category=${encodeURIComponent(post.category)}`}
-            className="ed-kicker-bold text-ink hover:text-link transition-colors"
-          >
-            {post.category}
-          </Link>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <Link
+              href={`/blog?category=${encodeURIComponent(post.category)}`}
+              className="ed-kicker-bold text-ink hover:text-link transition-colors"
+            >
+              {post.category}
+            </Link>
+            {series && (
+              <>
+                <span aria-hidden="true" className="ed-kicker text-ink/30">·</span>
+                <span className="ed-kicker text-muted">
+                  {series.title} · Parte {String(series.order + 1).padStart(2, '0')} de {String(series.total).padStart(2, '0')}
+                </span>
+              </>
+            )}
+          </div>
 
           <h1 className="ed-display mt-5 max-w-[22ch]">{post.title}</h1>
 
@@ -136,6 +148,42 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Within-series quick nav */}
+      {series && series.posts.length > 1 && (
+        <nav
+          aria-label={`Guías de la serie ${series.title}`}
+          className="sticky top-[89px] bg-paper z-30 ed-rule-b"
+        >
+          <div className="ed-container">
+            <div className="flex items-center gap-x-6 gap-y-0 overflow-x-auto py-3 -mx-4 px-4 md:mx-0 md:px-0">
+              <span className="shrink-0 ed-ribbon-label text-muted hidden md:inline">
+                {series.title}
+              </span>
+              {series.posts.map((p, i) => {
+                const active = p.slug === slug
+                return (
+                  <Link
+                    key={p.slug}
+                    href={`/blog/${p.slug}`}
+                    aria-current={active ? 'page' : undefined}
+                    className={`shrink-0 ed-meta py-2 px-1 border-b-2 transition-colors ${
+                      active
+                        ? 'text-ink border-ink'
+                        : 'text-muted border-transparent hover:text-ink'
+                    }`}
+                  >
+                    <span className="tabular-nums mr-2">
+                      {String(i).padStart(2, '0')}
+                    </span>
+                    {p.title.replace(/^Campaign Hub\s*·\s*/, '')}
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
+        </nav>
+      )}
+
       {/* Body */}
       <section>
         <div className="ed-container py-14 md:py-20">
@@ -163,8 +211,45 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Sigue leyendo */}
-      {related.length > 0 && (
+      {/* Series prev/next */}
+      {series && (series.prev || series.next) && (
+        <section className="ed-rule-t border-t border-ink bg-[color:var(--color-hairline)]/30">
+          <div className="ed-container py-12 md:py-16">
+            <div className="ed-ribbon-label text-muted mb-8">
+              {series.title}
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {series.prev ? (
+                <Link href={`/blog/${series.prev.slug}`} className="group block">
+                  <div className="ed-meta text-muted mb-3 flex items-center gap-2">
+                    <ArrowLeft size={14} aria-hidden="true" /> Parte anterior
+                  </div>
+                  <div className="font-[var(--font-display)] text-[1.5rem] leading-[1.18] tracking-[-0.3px] group-hover:text-link transition-colors">
+                    {series.prev.title}
+                  </div>
+                </Link>
+              ) : <div />}
+
+              {series.next ? (
+                <Link
+                  href={`/blog/${series.next.slug}`}
+                  className="group block md:text-right md:border-l md:border-ink/15 md:pl-10"
+                >
+                  <div className="ed-meta text-muted mb-3 flex items-center gap-2 md:justify-end">
+                    Parte siguiente <ArrowRight size={14} aria-hidden="true" />
+                  </div>
+                  <div className="font-[var(--font-display)] text-[1.5rem] leading-[1.18] tracking-[-0.3px] group-hover:text-link transition-colors">
+                    {series.next.title}
+                  </div>
+                </Link>
+              ) : <div />}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Sigue leyendo (sólo si no está en serie) */}
+      {!series && related.length > 0 && (
         <section className="ed-rule-b-soft bg-[color:var(--color-hairline)]/30">
           <div className="ed-container py-14 md:py-20">
             <SectionRibbon>Sigue leyendo</SectionRibbon>

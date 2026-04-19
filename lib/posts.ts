@@ -14,90 +14,102 @@ export interface PostData {
   category: string;
   image: string;
   featured?: boolean;
+  series?: string;
+  seriesOrder?: number;
+  seriesTitle?: string;
   content: string;
   readingTime?: string;
 }
 
+export interface SeriesContext {
+  id: string;
+  title: string;
+  order: number;
+  total: number;
+  prev: PostData | null;
+  next: PostData | null;
+  posts: PostData[];
+}
+
 function parseAuthors(data: Record<string, unknown>): string[] {
-  // New schema: authors as string[] of author slugs.
   if (Array.isArray(data.authors)) {
     return data.authors.filter((a): a is string => typeof a === 'string')
   }
   return []
 }
 
-export function getAllPosts(): PostData[] {
-  if (!fs.existsSync(postsDirectory)) {
-    return [];
+function toPostData(slug: string, data: Record<string, unknown>, content: string): PostData {
+  const words = content.split(/\s+/).filter(Boolean).length
+  const readingTime = Math.max(1, Math.ceil(words / 200))
+  return {
+    slug,
+    title: (data.title as string) ?? '',
+    date: (data.date as string) ?? '',
+    description: (data.description as string) || (data.excerpt as string) || '',
+    excerpt: (data.excerpt as string) ?? '',
+    authors: parseAuthors(data),
+    category: (data.category as string) ?? '',
+    image: (data.image as string) || '/favicon.svg',
+    featured: Boolean(data.featured),
+    series: typeof data.series === 'string' ? data.series : undefined,
+    seriesOrder: typeof data.seriesOrder === 'number' ? data.seriesOrder : undefined,
+    seriesTitle: typeof data.seriesTitle === 'string' ? data.seriesTitle : undefined,
+    content,
+    readingTime: `${readingTime} min`,
   }
+}
 
-  const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames
-    .filter((fileName) => fileName.endsWith('.md'))
-    .map((fileName) => {
-      const slug = fileName.replace(/\.md$/, '');
-      const fullPath = path.join(postsDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, 'utf8');
-      const { data, content } = matter(fileContents);
-
-      const words = content.split(/\s+/).length;
-      const readingTime = Math.ceil(words / 200);
-
-      return {
-        slug,
-        title: data.title,
-        date: data.date,
-        description: data.description || data.excerpt,
-        excerpt: data.excerpt,
-        authors: parseAuthors(data),
-        category: data.category,
-        image: data.image || '/favicon.svg',
-        featured: Boolean(data.featured),
-        content,
-        readingTime: `${readingTime} min`,
-      } as PostData;
-    });
-
-  return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+export function getAllPosts(): PostData[] {
+  if (!fs.existsSync(postsDirectory)) return []
+  const fileNames = fs.readdirSync(postsDirectory)
+  const all = fileNames
+    .filter((f) => f.endsWith('.md'))
+    .map((f) => {
+      const slug = f.replace(/\.md$/, '')
+      const raw = fs.readFileSync(path.join(postsDirectory, f), 'utf8')
+      const { data, content } = matter(raw)
+      return toPostData(slug, data, content)
+    })
+  return all.sort((a, b) => (a.date < b.date ? 1 : -1))
 }
 
 export function getPostBySlug(slug: string): PostData | null {
   try {
-    const fullPath = path.join(postsDirectory, `${slug}.md`);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const { data, content } = matter(fileContents);
-
-    const words = content.split(/\s+/).length;
-    const readingTime = Math.ceil(words / 200);
-
-    return {
-      slug,
-      title: data.title,
-      date: data.date,
-      description: data.description || data.excerpt,
-      excerpt: data.excerpt,
-      authors: parseAuthors(data),
-      category: data.category,
-      image: data.image || '/favicon.svg',
-      featured: Boolean(data.featured),
-      content,
-      readingTime: `${readingTime} min`,
-    };
+    const raw = fs.readFileSync(path.join(postsDirectory, `${slug}.md`), 'utf8')
+    const { data, content } = matter(raw)
+    return toPostData(slug, data, content)
   } catch {
-    return null;
+    return null
   }
 }
 
 export function getPostSlugs(): string[] {
-  if (!fs.existsSync(postsDirectory)) {
-    return [];
-  }
-  const fileNames = fs.readdirSync(postsDirectory);
-  return fileNames.filter((fileName) => fileName.endsWith('.md')).map((fileName) => fileName.replace(/\.md$/, ''));
+  if (!fs.existsSync(postsDirectory)) return []
+  return fs.readdirSync(postsDirectory)
+    .filter((f) => f.endsWith('.md'))
+    .map((f) => f.replace(/\.md$/, ''))
 }
 
 export function getRelatedPosts(currentSlug: string, category: string, limit = 3): PostData[] {
   return getAllPosts()
     .filter((p) => p.slug !== currentSlug && p.category === category)
-    .slice(0, limit);
+    .slice(0, limit)
+}
+
+export function getSeriesContext(post: PostData): SeriesContext | null {
+  if (!post.series) return null
+  const all = getAllPosts()
+    .filter((p) => p.series === post.series)
+    .sort((a, b) => (a.seriesOrder ?? 0) - (b.seriesOrder ?? 0))
+  const idx = all.findIndex((p) => p.slug === post.slug)
+  if (idx === -1) return null
+  return {
+    id: post.series,
+    title: post.seriesTitle ?? post.series,
+    order: idx,
+    total: all.length,
+    prev: idx > 0 ? all[idx - 1] : null,
+    next: idx < all.length - 1 ? all[idx + 1] : null,
+    posts: all,
+  }
 }
