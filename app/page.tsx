@@ -42,10 +42,10 @@ export default function Home() {
 
           <div className="mt-10 flex flex-wrap gap-4">
             <Link href="/blog" className="ed-btn ed-btn-invert">
-              Ver archivo
+              Ver lecturas
             </Link>
             <Link href="#suscribete" className="ed-btn">
-              Entrar al espacio
+              Entrar en la comunidad
             </Link>
           </div>
         </div>
@@ -98,12 +98,13 @@ export default function Home() {
             </article>
 
             <article className="md:border-l md:border-ink pl-0 md:pl-6">
-              <div className="ed-kicker-bold">02 · Casos prácticos</div>
+              <div className="ed-kicker-bold">02 · Programas</div>
               <h3 className="font-[var(--font-display)] text-[1.5rem] leading-[1.18] tracking-[-0.3px] mt-4">
-                Lo que funciona el lunes por la mañana.
+                Para exprimir una herramienta o licencia.
               </h3>
               <p className="ed-body mt-3 text-ink/75">
-                En organizaciones de verdad. Sin demo bonita.
+                Recorridos completos por Claude Code, Copilot y los stacks que toque —
+                para usarlos bien, no para sacarles la primera demo.
               </p>
             </article>
 
@@ -212,19 +213,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── NEWSLETTER ─── */}
+      {/* ─── COMUNIDAD ─── */}
       <section id="suscribete">
         <div className="ed-container py-20 md:py-24">
           <div className="max-w-2xl">
-            <SectionLabel>Entrar al espacio</SectionLabel>
-            <h2 className="ed-display mt-5">Newsletter tortuga.</h2>
+            <SectionLabel>Comunidad</SectionLabel>
+            <h2 className="ed-display mt-5">La comunidad tortuga.</h2>
             <p className="ed-deck mt-7 text-ink/80">
-              Un correo cada semana como mucho. A veces menos. Solo cuando hay
-              algo que merece tu tiempo.
+              Entras y te avisamos cuando hay algo que merece tu tiempo.
+              Sin calendario fijo. Sin FOMO. Sin envíos vacíos.
             </p>
             <ul className="ed-body mt-6 space-y-2 text-ink/85">
-              <li>— Lo que hemos probado y lo que nos ha salido mal</li>
-              <li>— Laboratorios nuevos antes de hacerse públicos</li>
+              <li>— Aviso de nuevos programas antes de hacerse públicos</li>
+              <li>— Laboratorios y lo que nos ha salido mal</li>
               <li>— Lecturas y conversaciones que nos están removiendo</li>
             </ul>
             <p className="ed-body mt-6 text-ink/75">

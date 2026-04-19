@@ -95,7 +95,7 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
       {/* Header */}
       <section className="ed-rule-b-soft">
         <div className="ed-container py-16 md:py-20">
-          <SectionLabel>Archivo</SectionLabel>
+          <SectionLabel>Lecturas</SectionLabel>
           <h1 className="ed-display-xl mt-6 max-w-[14ch]">
             Todo lo publicado.
           </h1>
@@ -160,8 +160,8 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
               <p className="ed-deck mt-6 text-ink/80">
                 Publicamos cuando hay algo que probar, no antes.
                 {hasAnyPosts && filterIsActive
-                  ? ' Prueba otra categoría o vuelve al archivo completo.'
-                  : ' Vuelve o apúntate a la newsletter si quieres que te avisemos.'}
+                  ? ' Prueba otra categoría o vuelve a todas las lecturas.'
+                  : ' Vuelve o entra en la comunidad para que te avisemos.'}
               </p>
               <div className="mt-8 flex gap-3 flex-wrap">
                 {filterIsActive && (
@@ -169,11 +169,11 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
                     onClick={() => { setActiveCategory('Todos'); setSearchQuery('') }}
                     className="ed-btn ed-btn-invert"
                   >
-                    Ir al archivo completo
+                    Ver todas las lecturas
                   </button>
                 )}
                 <Link href="/#suscribete" className="ed-btn">
-                  Apuntarme a la newsletter
+                  Entrar en la comunidad
                 </Link>
               </div>
             </div>

@@ -36,8 +36,8 @@ export const Footer: React.FC = () => {
             <div className="ed-ribbon-label text-paper/60">Navegación</div>
             <div className="mt-5 flex flex-col gap-3">
               <Link href="/" className="ed-link-ui text-paper hover:text-link">Inicio</Link>
-              <Link href="/blog" className="ed-link-ui text-paper hover:text-link">Archivo</Link>
-              <Link href="/#suscribete" className="ed-link-ui text-paper hover:text-link">Suscribirse</Link>
+              <Link href="/blog" className="ed-link-ui text-paper hover:text-link">Lecturas</Link>
+              <Link href="/#suscribete" className="ed-link-ui text-paper hover:text-link">Comunidad</Link>
               <Link href="/baja" className="ed-link-ui text-paper hover:text-link">Darse de baja</Link>
             </div>
           </div>

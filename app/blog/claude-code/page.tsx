@@ -19,7 +19,7 @@ export default function ClaudeCodeIndex() {
           <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 ed-meta text-muted mb-12">
             <Link href="/" className="hover:text-link">Inicio</Link>
             <span aria-hidden="true">/</span>
-            <Link href="/blog" className="hover:text-link">Archivo</Link>
+            <Link href="/blog" className="hover:text-link">Lecturas</Link>
             <span aria-hidden="true">/</span>
             <span className="text-ink">Claude Code</span>
           </nav>

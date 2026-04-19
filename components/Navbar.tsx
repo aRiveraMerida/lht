@@ -15,57 +15,63 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      {/* Utility bar — black strip */}
-      <div className="on-dark bg-ink text-paper">
-        <div className="ed-container flex items-center justify-between py-2">
-          <div className="ed-meta text-paper/90">La Habitación Tortuga [LHT]</div>
-          <div className="hidden md:flex items-center gap-6">
-            <Link href="/blog" className="ed-meta text-paper/80 hover:text-paper">Archivo</Link>
-            <Link href="/#suscribete" className="ed-meta text-paper/80 hover:text-paper">Newsletter</Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Main nav — paper white */}
-      <header className="sticky top-0 z-50 bg-paper ed-rule-b">
-        <div className="ed-container flex items-center justify-between py-5">
-          <Link href="/" className="flex items-center gap-3">
-            <TurtleLogo className="h-8 w-8 text-ink" />
-            <span className="ed-display text-[22px] md:text-[26px] leading-none">
+      <header className="on-dark sticky top-0 z-50 bg-ink text-paper">
+        <div className="ed-container flex items-center justify-between py-4 md:py-5">
+          <Link href="/" className="flex items-center gap-3 group">
+            <TurtleLogo className="h-8 w-8 text-paper" />
+            <span className="ed-display text-[20px] md:text-[24px] leading-none">
               La Habitación Tortuga
             </span>
           </Link>
 
           <div className="hidden items-center gap-8 md:flex">
-            <Link href="/blog" className="ed-btn-label hover:text-link transition-colors">
-              Archivo
+            <Link
+              href="/blog"
+              className="ed-btn-label text-paper/80 hover:text-paper transition-colors"
+            >
+              Lecturas
             </Link>
-            <Link href="/#suscribete" className="ed-btn">
-              Suscribirse
+            <Link
+              href="/#suscribete"
+              className="ed-btn-label text-paper/80 hover:text-paper transition-colors"
+            >
+              Comunidad
             </Link>
           </div>
 
           <button
             onClick={() => setOpen(!open)}
-            className="ed-btn-icon md:hidden"
+            className="md:hidden inline-flex items-center justify-center w-10 h-10 text-paper hover:text-paper/70 transition-colors"
             aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={open}
           >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </header>
 
       {open && (
-        <nav className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 bg-paper">
-          <Link href="/" onClick={() => setOpen(false)} className="ed-display">Inicio</Link>
-          <Link href="/blog" onClick={() => setOpen(false)} className="ed-display">Archivo</Link>
+        <nav className="on-dark fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 bg-ink text-paper">
+          <Link
+            href="/"
+            onClick={() => setOpen(false)}
+            className="ed-display text-paper"
+          >
+            Inicio
+          </Link>
+          <Link
+            href="/blog"
+            onClick={() => setOpen(false)}
+            className="ed-display text-paper"
+          >
+            Lecturas
+          </Link>
           <Link
             href="/#suscribete"
             onClick={() => setOpen(false)}
-            className="ed-btn"
+            className="ed-display text-paper"
           >
-            Suscribirse
+            Comunidad
           </Link>
         </nav>
       )}
