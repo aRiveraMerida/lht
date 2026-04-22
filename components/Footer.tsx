@@ -71,6 +71,14 @@ export const Footer: React.FC = () => {
                 David Dix Hidalgo
               </a>
               <a
+                href="https://www.linkedin.com/in/javier-carreira-c/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ed-link-ui text-paper hover:text-link"
+              >
+                Javier Carreira
+              </a>
+              <a
                 href="mailto:hola@lahabitaciontortuga.com"
                 className="ed-link-ui text-paper hover:text-link break-all"
               >
