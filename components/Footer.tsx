@@ -8,23 +8,14 @@ export const Footer: React.FC = () => {
           © 2026 La Habitación Tortuga
         </div>
         <div className="ed-meta opacity-65">
-          Un laboratorio de{' '}
+          Un laboratorio del equipo de{' '}
           <a
-            href="https://www.linkedin.com/in/albertoriveramerida"
+            href="https://www.thepower.education"
             target="_blank"
             rel="noopener noreferrer"
             className="ed-link"
           >
-            Alberto Rivera
-          </a>
-          {' '}&amp;{' '}
-          <a
-            href="https://www.linkedin.com/in/david-dix-hidalgo-986a8a32b"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ed-link"
-          >
-            David Dix
+            The Power
           </a>
         </div>
         <div

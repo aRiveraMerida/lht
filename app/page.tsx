@@ -83,9 +83,9 @@ export default function Home() {
             <strong style={{ fontWeight: 500, display: 'block', marginBottom: 4, opacity: 0.6 }}>
               Quién
             </strong>
-            Alberto Rivera
+            El equipo de IA
             <br />
-            &amp; David Dix
+            de ThePower
           </div>
           <div style={{ lineHeight: 1.55, textAlign: 'right' }}>
             <strong style={{ fontWeight: 500, display: 'block', marginBottom: 4, opacity: 0.6 }}>
