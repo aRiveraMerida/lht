@@ -78,6 +78,7 @@
   html {
     scroll-behavior: smooth;
     background: var(--color-paper);
+    overflow-x: clip;
   }
 
   body {
@@ -89,7 +90,9 @@
     letter-spacing: 0.01em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
+    overflow-x: clip;
+    width: 100%;
+    max-width: 100%;
   }
 
   img, svg, video { display: block; max-width: 100%; }
@@ -118,7 +121,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  right: 0;
   height: 2px;
   background: var(--color-don-red);
   z-index: 99;

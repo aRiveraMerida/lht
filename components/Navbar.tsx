@@ -21,7 +21,7 @@ export const Navbar: React.FC = () => {
   return (
     <>
       <header
-        className="fixed top-0 left-0 w-screen z-[101]"
+        className="fixed top-0 left-0 right-0 z-[101]"
         style={{
           padding: '22px 28px',
           mixBlendMode: 'difference',
