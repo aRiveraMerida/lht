@@ -39,7 +39,7 @@ Si algo de eso te sirve, perfecto — hay otros sitios que lo hacen muy bien. Aq
 
 ## Cómo funciona esto
 
-Solo escribe el equipo IA de ThePower Education. Va por oleadas: a veces uno del equipo, a veces varios, a veces nadie durante unas semanas. Sin calendario fijo.
+Solo escribe el equipo de IA de The Power Education. Va por oleadas: a veces uno del equipo, a veces varios, a veces nadie durante unas semanas. Sin calendario fijo.
 
 ¿Tienes algo probado, con contexto real, con las dudas delante? Escríbenos a [hola@lahabitaciontortuga.com](mailto:hola@lahabitaciontortuga.com). Leemos todo. Si encaja con lo que queremos que pase aquí, te proponemos formato. Si no, te lo decimos sin rodeos y te contamos por qué.
 

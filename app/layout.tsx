@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     default: "La Habitación Tortuga — La IA, despacio.",
     template: "%s — La Habitación Tortuga",
   },
-  description: "Laboratorio de IA sin prisas. Probamos antes de opinar. Sin humo, sin FOMO. Un sitio del equipo IA de ThePower Education.",
+  description: "Laboratorio de IA sin prisas. Probamos antes de opinar. Sin humo, sin FOMO. Un sitio del equipo de IA de The Power Education.",
   keywords: [
     "la habitacion tortuga",
     "lht",
@@ -103,7 +103,7 @@ export default function RootLayout({
     name: 'La Habitación Tortuga',
     alternateName: 'LHT',
     url: 'https://lahabitaciontortuga.com',
-    description: 'Laboratorio de IA sin prisas. Probamos antes de opinar. Un sitio del equipo IA de ThePower Education.',
+    description: 'Laboratorio de IA sin prisas. Probamos antes de opinar. Un sitio del equipo de IA de The Power Education.',
     inLanguage: 'es-ES',
     author: {
       '@type': 'Organization',

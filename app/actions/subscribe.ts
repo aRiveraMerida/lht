@@ -50,7 +50,7 @@ Tres cosas antes de empezar:
 
 Despacio, con foco, con criterio.
 
-— Equipo IA de ThePower Education
+— Equipo de IA de The Power Education
 La Habitación Tortuga · lahabitaciontortuga.com`,
     }).catch((err) => {
       console.error('Welcome email failed:', err)

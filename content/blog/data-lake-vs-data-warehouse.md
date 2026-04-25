@@ -10,7 +10,7 @@ featured: false
 image: "/favicon.svg"
 ---
 
-En ThePower tenemos datos por todos lados. MongoDB, hojas de cálculo, exportaciones de herramientas, registros de operaciones... Llevan tiempo ahí, acumulándose. Y hace poco alguien decidió que había que organizarlos. Sin inventario previo. Sin estrategia. Directamente a mover cosas.
+En The Power tenemos datos por todos lados. MongoDB, hojas de cálculo, exportaciones de herramientas, registros de operaciones... Llevan tiempo ahí, acumulándose. Y hace poco alguien decidió que había que organizarlos. Sin inventario previo. Sin estrategia. Directamente a mover cosas.
 
 Ya sabemos cómo acaba eso.
 

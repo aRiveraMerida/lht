@@ -207,7 +207,7 @@ export default function Home() {
         <SectionHeader idx="Residentes" tag="Quién escribe aquí" />
 
         <h2 className="ed-display mt-12 max-w-4xl">
-          Solo escribe el equipo de ThePower.
+          Solo escribe el equipo de The Power.
         </h2>
         <p className="ed-deck mt-7 max-w-2xl opacity-80">
           Esto no es un blog corporativo. Es un sitio diferente: el mismo equipo
@@ -223,7 +223,7 @@ export default function Home() {
             <div className="ed-kicker-bold">Lo que hacemos fuera</div>
             <p className="ed-deck mt-4 opacity-80">
               +20.000 profesionales formados. +150 empresas acompañadas. Dirigimos
-              el programa B2B de IA y Tecnología de ThePower Education. Clientes
+              el programa B2B de IA y Tecnología de The Power Education. Clientes
               como KPMG, EY, Estrella Galicia o El Corte Inglés.
             </p>
           </div>
