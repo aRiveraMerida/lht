@@ -323,7 +323,29 @@ export default function Home() {
               className="hover-act"
             >
               <span className="brkt">[</span>
-              <span>LinkedIn</span>
+              <span>Alberto Rivera</span>
+              <span className="brkt">]</span>
+              <span className="underliner" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/david-dix-hidalgo-986a8a32b"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover-act"
+            >
+              <span className="brkt">[</span>
+              <span>David Dix</span>
+              <span className="brkt">]</span>
+              <span className="underliner" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/javier-carreira-c/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover-act"
+            >
+              <span className="brkt">[</span>
+              <span>Javier Carreira</span>
               <span className="brkt">]</span>
               <span className="underliner" />
             </a>
