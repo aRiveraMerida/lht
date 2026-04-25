@@ -9,7 +9,7 @@ import rehypeRaw from 'rehype-raw';
 import { getPostBySlug, getPostSlugs, getRelatedPosts, getSeriesContext } from '@/lib/posts';
 import { getAuthors } from '@/lib/authors';
 import { ProductCard } from '@/components/ProductCard';
-import { SectionRibbon } from '@/components/SectionLabel';
+import { SectionHeader } from '@/components/SectionLabel';
 import { getPreviewVariant } from '@/lib/assets';
 import 'highlight.js/styles/github-dark.css';
 
@@ -24,7 +24,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
-  if (!post) return { title: 'Post no encontrado' };
+  if (!post) return { title: 'Laboratorio no encontrado' };
 
   const url = `https://lahabitaciontortuga.com/blog/${slug}`;
   const imageUrl = post.image.startsWith('http') ? post.image : `https://lahabitaciontortuga.com${post.image}`;
@@ -63,7 +63,6 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const authors = getAuthors(post.authors);
   const series = getSeriesContext(post);
-  // If the post belongs to a series, prefer series siblings over generic related posts.
   const related = series ? [] : getRelatedPosts(slug, post.category, 3);
 
   const url = `https://lahabitaciontortuga.com/blog/${slug}`;
@@ -90,61 +89,67 @@ export default async function BlogPostPage({ params }: PageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* Header */}
-      <section className="ed-rule-b-soft">
-        <div className="ed-container py-14 md:py-20">
-          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 ed-meta text-muted mb-12">
-            <Link href="/" className="hover:text-link">Inicio</Link>
-            <span aria-hidden="true">/</span>
-            <Link href="/blog" className="hover:text-link">Lecturas</Link>
-            <span aria-hidden="true">/</span>
-            <span className="text-ink">{post.title}</span>
-          </nav>
+      <section className="ed-container" style={{ paddingTop: 130, paddingBottom: 60 }}>
+        <nav
+          aria-label="Breadcrumb"
+          className="flex flex-wrap items-center gap-2 ed-meta opacity-60 mb-12"
+        >
+          <Link href="/" className="hover:text-[color:var(--color-don-red)] transition-colors">Inicio</Link>
+          <span aria-hidden="true">/</span>
+          <Link href="/blog" className="hover:text-[color:var(--color-don-red)] transition-colors">Archivo</Link>
+          <span aria-hidden="true">/</span>
+          <span style={{ opacity: 0.85 }}>{post.title}</span>
+        </nav>
 
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-            <Link
-              href={`/blog?category=${encodeURIComponent(post.category)}`}
-              className="ed-kicker-bold text-ink hover:text-link transition-colors"
-            >
-              {post.category}
-            </Link>
-            {series && (
-              <>
-                <span aria-hidden="true" className="ed-kicker text-ink/30">·</span>
-                <span className="ed-kicker text-muted">
-                  {series.title} · Parte {String(series.order + 1).padStart(2, '0')} de {String(series.total).padStart(2, '0')}
+        <SectionHeader idx="Laboratorio" tag={post.category} />
+
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-10">
+          <Link
+            href={`/blog?category=${encodeURIComponent(post.category)}`}
+            className="ed-kicker-bold hover:text-[color:var(--color-don-red)] transition-colors"
+          >
+            <span style={{ color: 'var(--color-don-red)' }}>●</span> {post.category}
+          </Link>
+          {series && (
+            <>
+              <span aria-hidden="true" className="ed-kicker opacity-30">·</span>
+              <span className="ed-kicker">
+                {series.title} · Parte {String(series.order + 1).padStart(2, '0')} de {String(series.total).padStart(2, '0')}
+              </span>
+            </>
+          )}
+        </div>
+
+        <h1 className="ed-display mt-5 max-w-[22ch]">{post.title}</h1>
+
+        <p className="ed-deck mt-8 max-w-2xl opacity-80">{post.excerpt}</p>
+
+        <div
+          className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 pt-6"
+          style={{ borderTop: '1px solid rgba(246,246,246,0.18)' }}
+        >
+          {authors.length > 0 && (
+            <p className="ed-meta">
+              Por{' '}
+              {authors.map((a, i) => (
+                <span key={a.slug}>
+                  <a
+                    href={a.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ed-link"
+                  >
+                    {a.name}
+                  </a>
+                  {i < authors.length - 2 ? ' · ' : i === authors.length - 2 ? ' y ' : ''}
                 </span>
-              </>
-            )}
-          </div>
-
-          <h1 className="ed-display mt-5 max-w-[22ch]">{post.title}</h1>
-
-          <p className="ed-deck mt-8 max-w-2xl text-ink/80">{post.excerpt}</p>
-
-          <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 pt-6 border-t border-ink">
-            {authors.length > 0 && (
-              <p className="ed-meta text-ink">
-                Por{' '}
-                {authors.map((a, i) => (
-                  <span key={a.slug}>
-                    <a
-                      href={a.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="ed-link text-ink"
-                    >
-                      {a.name}
-                    </a>
-                    {i < authors.length - 2 ? ' · ' : i === authors.length - 2 ? ' y ' : ''}
-                  </span>
-                ))}
-              </p>
-            )}
-            <time dateTime={post.date} className="ed-meta text-muted">
-              {new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
-            </time>
-            <span className="ed-meta text-muted">{post.readingTime}</span>
-          </div>
+              ))}
+            </p>
+          )}
+          <time dateTime={post.date} className="ed-meta opacity-60">
+            {new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+          <span className="ed-meta opacity-60">{post.readingTime}</span>
         </div>
       </section>
 
@@ -152,11 +157,16 @@ export default async function BlogPostPage({ params }: PageProps) {
       {series && series.posts.length > 1 && (
         <nav
           aria-label={`Guías de la serie ${series.title}`}
-          className="sticky top-[89px] bg-paper z-30 ed-rule-b"
+          className="sticky top-[80px] z-30 backdrop-blur"
+          style={{
+            background: 'rgba(0,0,0,0.85)',
+            borderTop: '1px solid rgba(246,246,246,0.14)',
+            borderBottom: '1px solid rgba(246,246,246,0.14)',
+          }}
         >
           <div className="ed-container">
-            <div className="flex items-center gap-x-6 gap-y-0 overflow-x-auto py-3 -mx-4 px-4 md:mx-0 md:px-0">
-              <span className="shrink-0 ed-ribbon-label text-muted hidden md:inline">
+            <div className="flex items-center gap-x-6 overflow-x-auto py-3">
+              <span className="shrink-0 ed-ribbon-label opacity-60 hidden md:inline">
                 {series.title}
               </span>
               {series.posts.map((p, i) => {
@@ -168,8 +178,8 @@ export default async function BlogPostPage({ params }: PageProps) {
                     aria-current={active ? 'page' : undefined}
                     className={`shrink-0 ed-meta py-2 px-1 border-b-2 transition-colors ${
                       active
-                        ? 'text-ink border-ink'
-                        : 'text-muted border-transparent hover:text-ink'
+                        ? 'text-ink border-[color:var(--color-don-red)]'
+                        : 'opacity-60 border-transparent hover:opacity-100'
                     }`}
                   >
                     <span className="tabular-nums mr-2">
@@ -185,89 +195,92 @@ export default async function BlogPostPage({ params }: PageProps) {
       )}
 
       {/* Body */}
-      <section>
-        <div className="ed-container py-14 md:py-20">
-          <article className="ed-reading">
-            <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight, rehypeRaw]}>
-              {post.content}
-            </ReactMarkdown>
-          </article>
+      <section className="ed-container py-14 md:py-20">
+        <article className="ed-reading">
+          <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight, rehypeRaw]}>
+            {post.content}
+          </ReactMarkdown>
+        </article>
 
-          {/* Newsletter CTA */}
-          <div className="ed-reading mt-16 pt-10 border-t border-ink">
-            <div className="ed-kicker-bold">¿Te ha resonado?</div>
-            <p className="ed-deck mt-4 text-ink/80">
-              Entra en la newsletter. Publicamos así, cada semana como mucho.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link href="/#suscribete" className="ed-btn ed-btn-invert">
-                Apuntarme
-              </Link>
-              <Link href="/blog" className="ed-btn">
-                <ArrowLeft size={14} aria-hidden="true" /> Ver todos los artículos
-              </Link>
-            </div>
+        {/* Newsletter CTA */}
+        <div
+          className="ed-reading mt-16 pt-10"
+          style={{ borderTop: '1px solid rgba(246,246,246,0.18)' }}
+        >
+          <div className="ed-kicker-bold">¿Te ha resonado?</div>
+          <p className="ed-deck mt-4 opacity-80">
+            Apúntate al newsletter. Avisamos cuando hay otro laboratorio. Sin prisas.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link href="/#newsletter" className="ed-btn ed-btn-invert">
+              Apuntarme
+            </Link>
+            <Link href="/blog" className="ed-btn">
+              <ArrowLeft size={14} aria-hidden="true" /> Ver el archivo
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Series prev/next */}
       {series && (series.prev || series.next) && (
-        <section className="ed-rule-t border-t border-ink bg-[color:var(--color-hairline)]/30">
-          <div className="ed-container py-12 md:py-16">
-            <div className="ed-ribbon-label text-muted mb-8">
-              {series.title}
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              {series.prev ? (
-                <Link href={`/blog/${series.prev.slug}`} className="group block">
-                  <div className="ed-meta text-muted mb-3 flex items-center gap-2">
-                    <ArrowLeft size={14} aria-hidden="true" /> Parte anterior
-                  </div>
-                  <div className="font-[var(--font-display)] text-[1.5rem] leading-[1.18] tracking-[-0.3px] group-hover:text-link transition-colors">
-                    {series.prev.title}
-                  </div>
-                </Link>
-              ) : <div />}
+        <section
+          className="ed-container py-12 md:py-16"
+          style={{ borderTop: '1px solid rgba(246,246,246,0.18)' }}
+        >
+          <div className="ed-ribbon-label opacity-60 mb-8">
+            {series.title}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {series.prev ? (
+              <Link href={`/blog/${series.prev.slug}`} className="group block">
+                <div className="ed-meta opacity-60 mb-3 flex items-center gap-2">
+                  <ArrowLeft size={14} aria-hidden="true" /> Parte anterior
+                </div>
+                <div className="ed-ui-heading group-hover:text-[color:var(--color-don-red)] transition-colors">
+                  {series.prev.title}
+                </div>
+              </Link>
+            ) : <div />}
 
-              {series.next ? (
-                <Link
-                  href={`/blog/${series.next.slug}`}
-                  className="group block md:text-right md:border-l md:border-ink/15 md:pl-10"
-                >
-                  <div className="ed-meta text-muted mb-3 flex items-center gap-2 md:justify-end">
-                    Parte siguiente <ArrowRight size={14} aria-hidden="true" />
-                  </div>
-                  <div className="font-[var(--font-display)] text-[1.5rem] leading-[1.18] tracking-[-0.3px] group-hover:text-link transition-colors">
-                    {series.next.title}
-                  </div>
-                </Link>
-              ) : <div />}
-            </div>
+            {series.next ? (
+              <Link
+                href={`/blog/${series.next.slug}`}
+                className="group block md:text-right md:border-l md:border-[color:var(--color-hairline)] md:pl-10"
+              >
+                <div className="ed-meta opacity-60 mb-3 flex items-center gap-2 md:justify-end">
+                  Parte siguiente <ArrowRight size={14} aria-hidden="true" />
+                </div>
+                <div className="ed-ui-heading group-hover:text-[color:var(--color-don-red)] transition-colors">
+                  {series.next.title}
+                </div>
+              </Link>
+            ) : <div />}
           </div>
         </section>
       )}
 
-      {/* Sigue leyendo (sólo si no está en serie) */}
+      {/* Sigue leyendo */}
       {!series && related.length > 0 && (
-        <section className="ed-rule-b-soft bg-[color:var(--color-hairline)]/30">
-          <div className="ed-container py-14 md:py-20">
-            <SectionRibbon>Sigue leyendo</SectionRibbon>
-            <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 md:gap-x-8">
-              {related.map((rp, i) => (
-                <ProductCard
-                  key={rp.slug}
-                  slug={rp.slug}
-                  category={rp.category}
-                  title={rp.title}
-                  date={rp.date}
-                  authorSlugs={rp.authors}
-                  excerpt={rp.excerpt}
-                  variant={getPreviewVariant(i)}
-                  index={i}
-                />
-              ))}
-            </div>
+        <section
+          className="ed-container py-14 md:py-20"
+          style={{ borderTop: '1px solid rgba(246,246,246,0.18)' }}
+        >
+          <SectionHeader idx="Sigue leyendo" tag="Más laboratorios de esta categoría" />
+          <div className="lab-list mt-12">
+            {related.map((rp, i) => (
+              <ProductCard
+                key={rp.slug}
+                slug={rp.slug}
+                category={rp.category}
+                title={rp.title}
+                date={rp.date}
+                authorSlugs={rp.authors}
+                excerpt={rp.excerpt}
+                variant={getPreviewVariant(i)}
+                index={i}
+              />
+            ))}
           </div>
         </section>
       )}

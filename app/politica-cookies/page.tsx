@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { SectionLabel } from '@/components/SectionLabel';
+import { SectionHeader } from '@/components/SectionLabel';
 
 export const metadata: Metadata = {
   title: 'Política de Cookies',
@@ -8,11 +8,11 @@ export const metadata: Metadata = {
 
 export default function PoliticaCookies() {
   return (
-    <div className="ed-container py-20 md:py-28">
+    <div className="ed-container" style={{ paddingTop: 130, paddingBottom: 100 }}>
       <div className="max-w-2xl">
-        <SectionLabel>Legal</SectionLabel>
-        <h1 className="ed-display mt-5">Política de Cookies</h1>
-        <p className="ed-meta mt-4 text-muted">Última actualización: abril 2026</p>
+        <SectionHeader idx="Legal" tag="Política de cookies" />
+        <h1 className="ed-display mt-12">Política de Cookies</h1>
+        <p className="ed-meta mt-4 opacity-60">Última actualización: abril 2026</p>
 
         <div className="ed-reading mt-14 max-w-none">
           <p>

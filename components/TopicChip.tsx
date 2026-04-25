@@ -11,10 +11,10 @@ export function TopicChip({
     <button
       type="button"
       onClick={onClick}
-      className={`ed-btn-label uppercase tracking-[0.3px] py-2 px-1 transition-colors ${
+      className={`ed-btn-label py-2 px-1 transition-colors border-b-2 ${
         active
-          ? 'text-ink border-b-2 border-ink'
-          : 'text-muted border-b-2 border-transparent hover:text-ink'
+          ? 'text-ink border-[color:var(--color-don-red)]'
+          : 'text-[color:var(--color-muted)] border-transparent hover:text-ink'
       }`}
     >
       {children}

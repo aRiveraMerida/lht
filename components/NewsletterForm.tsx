@@ -39,10 +39,12 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
 
   if (status === 'success') {
     return (
-      <div className="on-dark bg-ink text-paper p-6 md:p-8">
-        <p className="ed-ribbon-label text-paper/60 mb-3">Confirmación enviada</p>
+      <div className="border border-[color:var(--color-don-red)] p-6 md:p-8">
+        <p className="ed-ribbon-label text-[color:var(--color-don-red)] mb-3">
+          Confirmación enviada
+        </p>
         <p className="ed-display-mid">Te hemos enviado un correo. Confírmalo.</p>
-        <p className="ed-body mt-3 text-paper/75">
+        <p className="ed-body mt-3 opacity-75">
           Revisa también spam — a veces los proveedores piensan que somos sospechosos
           por no mandar basura.
         </p>
@@ -53,7 +55,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
   return (
     <div>
       <form action={handleSubmit} className="flex flex-col gap-3">
-        <label htmlFor={inputId} className="ed-ribbon-label text-ink">
+        <label htmlFor={inputId} className="ed-ribbon-label">
           Email
         </label>
         <div className="flex flex-col gap-0 sm:flex-row">
@@ -91,13 +93,13 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
         </p>
       )}
 
-      <p className="ed-link-ui mt-4 text-muted">
+      <p className="ed-link-ui mt-4 opacity-60">
         Puedes{' '}
-        <Link href="/baja" className="ed-link text-muted">
+        <Link href="/baja" className="ed-link">
           darte de baja
         </Link>{' '}
-        en cualquier momento.{' '}
-        <Link href="/politica-privacidad" className="ed-link text-muted">
+        cuando quieras.{' '}
+        <Link href="/politica-privacidad" className="ed-link">
           Política de privacidad
         </Link>.
       </p>

@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { unsubscribe } from '@/app/actions/unsubscribe'
 import Link from 'next/link'
-import { SectionLabel } from '@/components/SectionLabel'
+import { SectionHeader } from '@/components/SectionLabel'
 
 export default function BajaPage() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
@@ -22,13 +22,13 @@ export default function BajaPage() {
 
   if (status === 'success') {
     return (
-      <div className="ed-container py-20 md:py-28">
+      <div className="ed-container" style={{ paddingTop: 130, paddingBottom: 100 }}>
         <div className="max-w-xl">
-          <SectionLabel>Baja</SectionLabel>
-          <h1 className="ed-display mt-5">Hecho.</h1>
-          <p className="ed-deck mt-7 text-ink/80">
-            Ya no recibirás más correos. El archivo sigue abierto si quieres volver sin
-            compromiso.
+          <SectionHeader idx="Baja" tag="Hecho · sin rencor" />
+          <h1 className="ed-display mt-12">Hecho.</h1>
+          <p className="ed-deck mt-7 opacity-80">
+            Ya no recibirás más correos. El archivo sigue abierto si quieres volver
+            sin compromiso.
           </p>
           <div className="mt-10">
             <Link href="/blog" className="ed-btn ed-btn-invert">
@@ -41,17 +41,17 @@ export default function BajaPage() {
   }
 
   return (
-    <div className="ed-container py-20 md:py-28">
+    <div className="ed-container" style={{ paddingTop: 130, paddingBottom: 100 }}>
       <div className="max-w-xl">
-        <SectionLabel>Baja</SectionLabel>
-        <h1 className="ed-display mt-5">Darte de baja.</h1>
-        <p className="ed-deck mt-7 text-ink/80">
+        <SectionHeader idx="Baja" tag="Sin rencor" />
+        <h1 className="ed-display mt-12">Darte de baja.</h1>
+        <p className="ed-deck mt-7 opacity-80">
           Sin rencor. Si el contenido no te aporta, no tiene sentido que esté en tu
           bandeja.
         </p>
 
         <form action={handleSubmit} className="mt-12 flex flex-col gap-3">
-          <label htmlFor="baja-email" className="ed-ribbon-label text-ink">
+          <label htmlFor="baja-email" className="ed-ribbon-label">
             Email con el que te suscribiste
           </label>
           <div className="flex flex-col gap-0 sm:flex-row">

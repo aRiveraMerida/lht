@@ -8,7 +8,7 @@ import rehypeHighlight from 'rehype-highlight'
 import rehypeRaw from 'rehype-raw'
 import { sequence, blocks, getGuide, getAdjacent, getBlockOf } from '@/lib/course'
 import { getGuideContent } from '@/lib/guides'
-import { SectionLabel } from '@/components/SectionLabel'
+import { SectionHeader } from '@/components/SectionLabel'
 import 'highlight.js/styles/github-dark.css'
 
 interface PageProps {
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const content = getGuideContent(slug)
   const description =
     content?.excerpt ??
-    `${guide.kicker} — ${guide.title}. Parte del Programa de Claude Code en La Habitación Tortuga.`
+    `${guide.kicker} — ${guide.title}. Parte del laboratorio largo de Claude Code en La Habitación Tortuga.`
 
   return {
     title: guide.title,
@@ -65,48 +65,51 @@ export default async function GuidePage({ params }: PageProps) {
   return (
     <div>
       {/* Header */}
-      <section className="ed-rule-b-soft">
-        <div className="ed-container py-12 md:py-16">
-          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 ed-meta text-muted mb-10">
-            <Link href="/" className="hover:text-link">Inicio</Link>
-            <span aria-hidden="true">/</span>
-            <Link href="/blog" className="hover:text-link">Lecturas</Link>
-            <span aria-hidden="true">/</span>
-            <Link href="/blog/claude-code" className="hover:text-link">Claude Code</Link>
-            {block && (
-              <>
-                <span aria-hidden="true">/</span>
-                <Link
-                  href={`/blog/claude-code#${block.id}`}
-                  className="hover:text-link"
-                >
-                  {block.title}
-                </Link>
-              </>
-            )}
-          </nav>
-
-          <div className="ed-kicker-bold text-ink">{guide.kicker}</div>
-
-          <h1 className="ed-display mt-5 max-w-[22ch]">{guide.title}</h1>
-
-          {/* Minimal metadata row */}
-          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 pt-5 border-t border-ink">
-            <span className="ed-meta text-ink">
-              Guía {String(guide.order).padStart(2, '0')} / {sequence.length}
-            </span>
-            {block && (
+      <section className="ed-container" style={{ paddingTop: 130, paddingBottom: 50 }}>
+        <nav
+          aria-label="Breadcrumb"
+          className="flex flex-wrap items-center gap-2 ed-meta opacity-60 mb-10"
+        >
+          <Link href="/" className="hover:text-[color:var(--color-don-red)] transition-colors">Inicio</Link>
+          <span aria-hidden="true">/</span>
+          <Link href="/blog" className="hover:text-[color:var(--color-don-red)] transition-colors">Archivo</Link>
+          <span aria-hidden="true">/</span>
+          <Link href="/blog/claude-code" className="hover:text-[color:var(--color-don-red)] transition-colors">Claude Code</Link>
+          {block && (
+            <>
+              <span aria-hidden="true">/</span>
               <Link
                 href={`/blog/claude-code#${block.id}`}
-                className="ed-meta text-muted hover:text-link"
+                className="hover:text-[color:var(--color-don-red)] transition-colors"
               >
-                {block.kicker} · {block.title}
+                {block.title}
               </Link>
-            )}
-            {content && (
-              <span className="ed-meta text-muted">{content.readingTime} lectura</span>
-            )}
-          </div>
+            </>
+          )}
+        </nav>
+
+        <SectionHeader
+          idx={`Guía ${String(guide.order).padStart(2, '0')} / ${sequence.length}`}
+          tag={guide.kicker}
+        />
+
+        <h1 className="ed-display mt-10 max-w-[22ch]">{guide.title}</h1>
+
+        <div
+          className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 pt-5"
+          style={{ borderTop: '1px solid rgba(246,246,246,0.18)' }}
+        >
+          {block && (
+            <Link
+              href={`/blog/claude-code#${block.id}`}
+              className="ed-meta opacity-75 hover:opacity-100 hover:text-[color:var(--color-don-red)] transition-colors"
+            >
+              {block.kicker} · {block.title}
+            </Link>
+          )}
+          {content && (
+            <span className="ed-meta opacity-60">{content.readingTime} lectura</span>
+          )}
         </div>
       </section>
 
@@ -114,11 +117,19 @@ export default async function GuidePage({ params }: PageProps) {
       {block && (
         <nav
           aria-label="Navegación del programa"
-          className="sticky top-[89px] bg-paper z-30 ed-rule-b"
+          className="sticky top-[80px] z-30 backdrop-blur"
+          style={{
+            background: 'rgba(0,0,0,0.85)',
+            borderTop: '1px solid rgba(246,246,246,0.14)',
+            borderBottom: '1px solid rgba(246,246,246,0.14)',
+          }}
         >
           <div className="ed-container">
             {/* Block selector row */}
-            <div className="flex items-center gap-x-1 overflow-x-auto pt-3 pb-1 -mx-4 px-4 md:mx-0 md:px-0 border-b border-ink/10">
+            <div
+              className="flex items-center gap-x-1 overflow-x-auto pt-3 pb-1"
+              style={{ borderBottom: '1px solid rgba(246,246,246,0.1)' }}
+            >
               {blocks.map((b) => {
                 const activeBlock = b.id === block.id
                 return (
@@ -126,11 +137,16 @@ export default async function GuidePage({ params }: PageProps) {
                     key={b.id}
                     href={`/blog/claude-code/${b.guides[0].slug}`}
                     aria-current={activeBlock ? 'true' : undefined}
-                    className={`shrink-0 ed-ribbon-label py-1.5 px-3 rounded-sm transition-colors ${
+                    className={`shrink-0 ed-ribbon-label py-1.5 px-3 transition-colors ${
                       activeBlock
-                        ? 'bg-ink text-paper'
-                        : 'text-muted hover:text-ink hover:bg-ink/5'
+                        ? 'text-ink'
+                        : 'opacity-60 hover:opacity-100'
                     }`}
+                    style={
+                      activeBlock
+                        ? { background: 'var(--color-don-red)' }
+                        : undefined
+                    }
                   >
                     {b.kicker}
                   </Link>
@@ -139,7 +155,10 @@ export default async function GuidePage({ params }: PageProps) {
             </div>
             {/* Lesson selector row */}
             {block.guides.length > 1 && (
-              <div className="flex items-center gap-x-6 gap-y-0 overflow-x-auto py-3 -mx-4 px-4 md:mx-0 md:px-0">
+              <div className="flex items-center gap-x-6 overflow-x-auto py-3">
+                <span className="shrink-0 ed-ribbon-label opacity-60 hidden md:inline">
+                  {block.kicker}
+                </span>
                 {block.guides.map((g) => {
                   const active = g.slug === slug
                   return (
@@ -149,8 +168,8 @@ export default async function GuidePage({ params }: PageProps) {
                       aria-current={active ? 'page' : undefined}
                       className={`shrink-0 ed-meta py-2 px-1 border-b-2 transition-colors ${
                         active
-                          ? 'text-ink border-ink'
-                          : 'text-muted border-transparent hover:text-ink'
+                          ? 'text-ink border-[color:var(--color-don-red)]'
+                          : 'opacity-60 border-transparent hover:opacity-100'
                       }`}
                     >
                       <span className="tabular-nums mr-2">
@@ -167,121 +186,128 @@ export default async function GuidePage({ params }: PageProps) {
       )}
 
       {/* Body */}
-      <section>
-        <div className="ed-container py-12 md:py-16">
-          <article className="ed-reading">
-            {content ? (
-              <ReactMarkdown
-                remarkPlugins={[remarkGfm]}
-                rehypePlugins={[rehypeHighlight, rehypeRaw]}
-              >
-                {content.content}
-              </ReactMarkdown>
-            ) : (
-              <p className="ed-deck text-ink/80">
-                Contenido en preparación. Vuelve pronto o sigue con la siguiente guía
-                de la secuencia.
-              </p>
-            )}
-          </article>
-        </div>
+      <section className="ed-container py-12 md:py-16">
+        <article className="ed-reading">
+          {content ? (
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeHighlight, rehypeRaw]}
+            >
+              {content.content}
+            </ReactMarkdown>
+          ) : (
+            <p className="ed-deck opacity-80">
+              Contenido en preparación. Vuelve pronto o sigue con la siguiente guía
+              de la secuencia.
+            </p>
+          )}
+        </article>
       </section>
 
-      {/* End-of-block banner when crossing */}
+      {/* End-of-block banner */}
       {nextCrossesBlock && next && block && (
-        <section className="on-dark bg-ink text-paper">
-          <div className="ed-container py-10 md:py-12">
-            <div className="grid grid-cols-1 md:grid-cols-[auto_1fr_auto] items-baseline gap-x-8 gap-y-4">
-              <div className="ed-ribbon-label text-paper/60 uppercase">
-                Fin del {block.kicker}
-              </div>
-              <div>
-                <div className="ed-meta text-paper/80 mb-1">
-                  Empieza el siguiente bloque
-                </div>
-                <div className="font-[var(--font-display)] text-[1.5rem] md:text-[1.875rem] leading-[1.15] tracking-[-0.3px] text-paper">
-                  {next.kicker.split(' · ').slice(-1)[0] === block.title
-                    ? next.title
-                    : next.kicker}
-                </div>
-              </div>
-              <Link
-                href={`/blog/claude-code/${next.slug}`}
-                className="ed-btn ed-btn-on-dark self-center"
-              >
-                Ir <ArrowRight size={16} aria-hidden="true" />
-              </Link>
+        <section
+          className="ed-container py-10 md:py-12"
+          style={{
+            borderTop: '1px solid rgba(246,246,246,0.18)',
+            borderBottom: '1px solid rgba(246,246,246,0.18)',
+            background: 'rgba(193, 16, 18, 0.08)',
+          }}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-[auto_1fr_auto] items-baseline gap-x-8 gap-y-4">
+            <div className="ed-ribbon-label" style={{ color: 'var(--color-don-red)' }}>
+              Fin del {block.kicker}
             </div>
+            <div>
+              <div className="ed-meta opacity-80 mb-1">
+                Empieza el siguiente bloque
+              </div>
+              <div className="ed-ui-heading">
+                {next.kicker.split(' · ').slice(-1)[0] === block.title
+                  ? next.title
+                  : next.kicker}
+              </div>
+            </div>
+            <Link
+              href={`/blog/claude-code/${next.slug}`}
+              className="ed-btn ed-btn-invert self-center"
+            >
+              Ir <ArrowRight size={16} aria-hidden="true" />
+            </Link>
           </div>
         </section>
       )}
 
-      {/* Prev / Next (global sequence) */}
-      <section className="ed-rule-t border-t border-ink bg-[color:var(--color-hairline)]/30">
-        <div className="ed-container py-12 md:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {prev ? (
-              <Link href={`/blog/claude-code/${prev.slug}`} className="group block">
-                <div className="ed-meta text-muted mb-3 flex items-center gap-2">
-                  <ArrowLeft size={14} aria-hidden="true" /> Anterior
-                  {prevCrossesBlock && (
-                    <span className="text-ink">· Bloque anterior</span>
-                  )}
-                </div>
-                <div className="ed-kicker-bold text-ink group-hover:text-link">
-                  {prev.kicker}
-                </div>
-                <div className="font-[var(--font-display)] text-[1.5rem] leading-[1.18] tracking-[-0.3px] mt-3 group-hover:text-link">
-                  {prev.title}
-                </div>
-              </Link>
-            ) : (
-              <div />
-            )}
-
-            {next ? (
-              <Link
-                href={`/blog/claude-code/${next.slug}`}
-                className="group block md:text-right md:border-l md:border-ink/15 md:pl-10"
-              >
-                <div className="ed-meta text-muted mb-3 flex items-center gap-2 md:justify-end">
-                  {nextCrossesBlock && (
-                    <span className="text-ink">Bloque siguiente ·</span>
-                  )}
-                  Siguiente <ArrowRight size={14} aria-hidden="true" />
-                </div>
-                <div className="ed-kicker-bold text-ink group-hover:text-link">
-                  {next.kicker}
-                </div>
-                <div className="font-[var(--font-display)] text-[1.5rem] leading-[1.18] tracking-[-0.3px] mt-3 group-hover:text-link">
-                  {next.title}
-                </div>
-              </Link>
-            ) : (
-              <div className="md:text-right">
-                <SectionLabel>Fin del programa</SectionLabel>
-                <p className="ed-body mt-3 text-ink/80">
-                  Has llegado al final de la secuencia. Vuelve al{' '}
-                  <Link href="/blog/claude-code" className="ed-link">
-                    índice del programa
-                  </Link>
-                  {' '}o al{' '}
-                  <Link href="/blog" className="ed-link">
-                    archivo completo
-                  </Link>.
-                </p>
+      {/* Prev / Next */}
+      <section
+        className="ed-container py-12 md:py-16"
+        style={{ borderTop: '1px solid rgba(246,246,246,0.18)' }}
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {prev ? (
+            <Link href={`/blog/claude-code/${prev.slug}`} className="group block">
+              <div className="ed-meta opacity-60 mb-3 flex items-center gap-2">
+                <ArrowLeft size={14} aria-hidden="true" /> Anterior
+                {prevCrossesBlock && (
+                  <span style={{ color: 'var(--color-don-red)' }}>· Bloque anterior</span>
+                )}
               </div>
-            )}
-          </div>
+              <div className="ed-kicker-bold group-hover:text-[color:var(--color-don-red)] transition-colors">
+                {prev.kicker}
+              </div>
+              <div className="ed-ui-heading mt-3 group-hover:text-[color:var(--color-don-red)] transition-colors">
+                {prev.title}
+              </div>
+            </Link>
+          ) : (
+            <div />
+          )}
 
-          <div className="mt-12 border-t border-ink/15 pt-8 flex flex-wrap gap-4">
-            <Link href="/blog/claude-code" className="ed-btn">
-              Ver programa completo
+          {next ? (
+            <Link
+              href={`/blog/claude-code/${next.slug}`}
+              className="group block md:text-right md:border-l md:border-[color:var(--color-hairline)] md:pl-10"
+            >
+              <div className="ed-meta opacity-60 mb-3 flex items-center gap-2 md:justify-end">
+                {nextCrossesBlock && (
+                  <span style={{ color: 'var(--color-don-red)' }}>Bloque siguiente ·</span>
+                )}
+                Siguiente <ArrowRight size={14} aria-hidden="true" />
+              </div>
+              <div className="ed-kicker-bold group-hover:text-[color:var(--color-don-red)] transition-colors">
+                {next.kicker}
+              </div>
+              <div className="ed-ui-heading mt-3 group-hover:text-[color:var(--color-don-red)] transition-colors">
+                {next.title}
+              </div>
             </Link>
-            <Link href="/blog" className="ed-btn">
-              <ArrowLeft size={14} aria-hidden="true" /> Archivo
-            </Link>
-          </div>
+          ) : (
+            <div className="md:text-right">
+              <div className="ed-kicker-bold">Fin del laboratorio largo</div>
+              <p className="ed-body mt-3 opacity-80">
+                Has llegado al final de la secuencia. Vuelve al{' '}
+                <Link href="/blog/claude-code" className="ed-link">
+                  índice del programa
+                </Link>
+                {' '}o al{' '}
+                <Link href="/blog" className="ed-link">
+                  archivo completo
+                </Link>.
+              </p>
+            </div>
+          )}
+        </div>
+
+        <div
+          className="mt-12 pt-8 flex flex-wrap gap-4"
+          style={{ borderTop: '1px solid rgba(246,246,246,0.14)' }}
+        >
+          <Link href="/blog/claude-code" className="ed-btn">
+            Ver programa completo
+          </Link>
+          <Link href="/blog" className="ed-btn">
+            <ArrowLeft size={14} aria-hidden="true" /> Archivo
+          </Link>
         </div>
       </section>
     </div>

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { SectionLabel } from '@/components/SectionLabel'
+import { SectionHeader } from '@/components/SectionLabel'
 
 export const metadata: Metadata = {
   title: 'Ya estás dentro',
@@ -10,18 +10,21 @@ export const metadata: Metadata = {
 
 export default function SuscripcionConfirmada() {
   return (
-    <div className="ed-container py-20 md:py-28">
+    <div className="ed-container" style={{ paddingTop: 130, paddingBottom: 100 }}>
       <div className="max-w-xl">
-        <SectionLabel>Dentro</SectionLabel>
-        <h1 className="ed-display mt-5">Ya eres parte del espacio.</h1>
-        <p className="ed-deck mt-7 text-ink/80">
+        <SectionHeader idx="Dentro" tag="Confirmación recibida" />
+        <h1 className="ed-display mt-12">Ya eres parte del laboratorio.</h1>
+        <p className="ed-deck mt-7 opacity-80">
           Te acabamos de enviar un correo. Si no lo ves, revisa spam — a veces los
           proveedores piensan que somos sospechosos por no mandar basura.
         </p>
 
-        <div className="mt-12 border-t border-ink pt-6">
-          <div className="ed-ribbon-label text-ink">Qué esperar</div>
-          <ul className="ed-body mt-4 space-y-2 text-ink/85">
+        <div
+          className="mt-12 pt-6"
+          style={{ borderTop: '1px solid rgba(246,246,246,0.18)' }}
+        >
+          <div className="ed-ribbon-label">Qué esperar</div>
+          <ul className="ed-body mt-4 space-y-2 opacity-85">
             <li>— Un correo esta semana o la que viene</li>
             <li>— Nunca más de uno por semana</li>
             <li>— Puedes responder siempre. Lo leemos.</li>

@@ -1,16 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Playfair_Display, Lora } from "next/font/google";
+import { JetBrains_Mono, Saira_Extra_Condensed, Sofia_Sans_Extra_Condensed } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-  axes: ["opsz"],
-});
 
 const jbmono = JetBrains_Mono({
   subsets: ["latin"],
@@ -18,37 +11,37 @@ const jbmono = JetBrains_Mono({
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+const saira = Saira_Extra_Condensed({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-saira",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["100", "300", "500", "700", "800", "900"],
 });
 
-const lora = Lora({
+const sofia = Sofia_Sans_Extra_Condensed({
   subsets: ["latin"],
-  variable: "--font-lora",
+  variable: "--font-sofia",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "700", "800"],
   style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://lahabitaciontortuga.com'),
   title: {
-    default: "La Habitación Tortuga — IA sin FOMO. Criterio sobre ruido.",
+    default: "La Habitación Tortuga — La IA, despacio.",
     template: "%s — La Habitación Tortuga",
   },
-  description: "Espacio colectivo del equipo IA de ThePower Education. Laboratorios, casos prácticos y reflexiones honestas sobre inteligencia artificial. Despacio, con foco, con criterio.",
+  description: "Laboratorio de IA sin prisas. Probamos antes de opinar. Sin humo, sin FOMO. Un sitio del equipo IA de ThePower Education.",
   keywords: [
     "la habitacion tortuga",
     "lht",
     "laboratorio IA",
-    "estrategia IA",
+    "IA sin prisas",
+    "IA sin FOMO",
     "adopción inteligencia artificial",
-    "automatizaciones IA",
-    "inteligencia artificial",
-    "IA empresas",
+    "probar antes de opinar",
+    "claude code",
     "alberto rivera",
     "david dix hidalgo",
   ],
@@ -78,8 +71,8 @@ export const metadata: Metadata = {
     locale: "es_ES",
     url: "https://lahabitaciontortuga.com",
     siteName: "La Habitación Tortuga",
-    title: "La Habitación Tortuga — IA sin FOMO. Criterio sobre ruido.",
-    description: "Espacio colectivo del equipo IA de ThePower Education. Laboratorios, casos prácticos y reflexiones honestas sobre IA.",
+    title: "La Habitación Tortuga — La IA, despacio.",
+    description: "Laboratorio de IA sin prisas. Probamos antes de opinar. Sin humo, sin FOMO.",
     images: [
       {
         url: '/favicon.svg',
@@ -93,8 +86,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@aRiveraMerida",
     creator: "@aRiveraMerida",
-    title: "La Habitación Tortuga — IA sin FOMO.",
-    description: "Espacio colectivo del equipo IA de ThePower Education. Despacio, con foco, con criterio.",
+    title: "La Habitación Tortuga — La IA, despacio.",
+    description: "Laboratorio de IA sin prisas. Probamos antes de opinar.",
     images: ['/favicon.svg'],
   },
   alternates: {
@@ -113,7 +106,7 @@ export default function RootLayout({
     name: 'La Habitación Tortuga',
     alternateName: 'LHT',
     url: 'https://lahabitaciontortuga.com',
-    description: 'Espacio colectivo del equipo IA de ThePower Education. Laboratorios, casos prácticos y reflexiones honestas sobre inteligencia artificial.',
+    description: 'Laboratorio de IA sin prisas. Probamos antes de opinar. Un sitio del equipo IA de ThePower Education.',
     inLanguage: 'es-ES',
     author: [
       {
@@ -142,7 +135,10 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="es" className={`${inter.variable} ${jbmono.variable} ${playfair.variable} ${lora.variable} scroll-smooth`}>
+    <html
+      lang="es"
+      className={`${jbmono.variable} ${saira.variable} ${sofia.variable} scroll-smooth`}
+    >
       <head>
         <script
           type="application/ld+json"
@@ -152,10 +148,16 @@ export default function RootLayout({
       <body className="bg-paper text-ink overflow-x-hidden flex min-h-screen flex-col antialiased">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-5 focus:py-3 focus:bg-ink focus:text-paper focus:ed-ribbon-label"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:px-5 focus:py-3 focus:bg-ink focus:text-paper focus:ed-ribbon-label"
         >
           Saltar al contenido principal
         </a>
+
+        {/* Global overlays */}
+        <div className="lht-red-strip" aria-hidden="true" />
+        <div className="lht-grid-lines" aria-hidden="true" />
+        <div className="lht-noise" aria-hidden="true" />
+
         <Navbar />
         <main id="main-content" className="flex-1">{children}</main>
         <Footer />

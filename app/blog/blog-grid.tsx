@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Search, X } from 'lucide-react'
-import { SectionLabel, SectionRibbon } from '@/components/SectionLabel'
+import { SectionHeader } from '@/components/SectionLabel'
 import { TopicChip } from '@/components/TopicChip'
 import { ProductCard } from '@/components/ProductCard'
 import type { PreviewVariant } from '@/lib/assets'
@@ -22,41 +22,31 @@ interface PostMeta {
   featured?: boolean
 }
 
-// Inline tile that shows the program as a first-class item in the grid,
-// visually consistent with ProductCard but with an inverted cover.
-function ProgramTile() {
+// Inline tile that shows the program as a featured archive item.
+function ProgramRow() {
   return (
-    <article className="ed-tile">
-      <Link href="/blog/claude-code" className="group block">
-        <div className="on-dark aspect-[16/9] bg-ink text-paper relative overflow-hidden">
-          <div className="absolute top-5 left-5 ed-kicker text-paper/70">
-            LHT · Programa
-          </div>
-          <div
-            aria-hidden="true"
-            className="absolute -bottom-2 right-4 font-[var(--font-display)] text-[clamp(6rem,14vw,10rem)] leading-none text-paper/15 select-none"
-          >
-            {course.stats.guides}
-          </div>
-          <div className="absolute bottom-5 left-5 ed-ribbon-label text-paper">
-            {course.stats.guides} guías · {course.stats.blocks} bloques
-          </div>
-        </div>
-
-        <div className="pt-5">
-          <span className="ed-kicker text-ink">Programas</span>
-          <h3 className="ed-tile-headline font-[var(--font-display)] text-[1.5rem] leading-[1.18] tracking-[-0.3px] mt-3 text-ink group-hover:text-link transition-colors">
-            {course.title}
-          </h3>
-          <p className="ed-body mt-3 text-ink/80">
-            {course.summary}
-          </p>
-          <p className="ed-meta mt-5 text-muted">
-            Prework · 4 bloques · Capstone
-          </p>
-        </div>
-      </Link>
-    </article>
+    <Link
+      href="/blog/claude-code"
+      className="lab-item group block"
+      style={{ borderTop: '1px solid rgba(246,246,246,0.14)' }}
+    >
+      <div
+        className="lab-num"
+        style={{ color: 'var(--color-don-red)', opacity: 1 }}
+      >
+        Programa
+      </div>
+      <div className="lab-body">
+        <h3 className="lab-title">{course.title}</h3>
+        <p className="lab-desc">{course.summary}</p>
+      </div>
+      <div className="lab-tag">
+        <span className="lab-dot">●</span> Laboratorio largo
+      </div>
+      <div className="lab-read">
+        {course.stats.guides} guías · Leer
+      </div>
+    </Link>
   )
 }
 
@@ -73,69 +63,76 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
     return matchesCategory && matchesSearch
   })
 
-  // Program tile shows in 'Todos' and 'Programas', ignoring search text
-  const showProgramTile =
+  // Program row shows in 'Todos' and 'Programas', ignoring search text
+  const showProgramRow =
     searchQuery === '' &&
     (activeCategory === 'Todos' || activeCategory === 'Programas')
 
   const hasAnyPosts = posts.length > 0
   const filterIsActive = activeCategory !== 'Todos' || searchQuery !== ''
 
-  const totalTiles = filtered.length + (showProgramTile ? 1 : 0)
-
-  const gridClass =
-    totalTiles >= 3
-      ? 'grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3 md:gap-x-8'
-      : totalTiles === 2
-        ? 'grid grid-cols-1 gap-10 md:grid-cols-2 max-w-5xl mx-auto md:gap-x-8'
-        : 'grid grid-cols-1 gap-10 max-w-4xl mx-auto'
+  const totalRows = filtered.length + (showProgramRow ? 1 : 0)
+  const totalPosts = posts.length
 
   return (
     <div>
       {/* Header */}
-      <section className="ed-rule-b-soft">
-        <div className="ed-container py-16 md:py-20">
-          <SectionLabel>Lecturas</SectionLabel>
-          <h1 className="ed-display-xl mt-6 max-w-[14ch]">
-            Todo lo publicado.
-          </h1>
-          <p className="ed-deck mt-8 max-w-2xl text-ink/80">
-            Sin orden cronológico obligatorio. Busca por categoría, o deja que algo te
-            llame la atención.
-          </p>
+      <section className="ed-container" style={{ paddingTop: 130 }}>
+        <SectionHeader
+          idx="Archivo"
+          tag="Todos los laboratorios · cronológico"
+        />
 
-          <div className="mt-10 max-w-xl">
-            <label htmlFor="blog-search" className="ed-ribbon-label text-ink block mb-3">
-              Buscar
-            </label>
-            <div className="flex items-center gap-3 border-2 border-ink px-4 py-3">
-              <Search className="h-4 w-4 shrink-0 text-ink" aria-hidden="true" />
-              <input
-                id="blog-search"
-                type="text"
-                placeholder="Buscar por título…"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-transparent ed-body text-ink outline-none placeholder:text-muted"
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery('')}
-                  className="shrink-0 text-muted hover:text-link transition-colors"
-                  aria-label="Limpiar búsqueda"
-                >
-                  <X className="h-4 w-4" />
-                </button>
-              )}
-            </div>
+        <h1 className="ed-display-xl mt-10 max-w-[14ch]">
+          Todo lo publicado.
+        </h1>
+        <p className="ed-deck mt-8 max-w-2xl opacity-80">
+          Sin orden cronológico obligatorio. Busca por categoría, o deja que algo
+          te llame la atención.
+        </p>
+
+        <div className="mt-10 max-w-xl">
+          <label htmlFor="blog-search" className="ed-ribbon-label block mb-3">
+            Buscar
+          </label>
+          <div
+            className="flex items-center gap-3 px-4 py-3"
+            style={{ border: '1px solid var(--color-ink)' }}
+          >
+            <Search className="h-4 w-4 shrink-0" aria-hidden="true" />
+            <input
+              id="blog-search"
+              type="text"
+              placeholder="Buscar por título…"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full bg-transparent ed-body outline-none placeholder:text-[color:var(--color-muted)]"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery('')}
+                className="shrink-0 transition-colors hover:text-[color:var(--color-don-red)]"
+                aria-label="Limpiar búsqueda"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
           </div>
         </div>
       </section>
 
-      {/* Topics (horizontal rule of filters) */}
-      <section className="sticky top-[89px] bg-paper z-30 ed-rule-b">
+      {/* Category filters */}
+      <section
+        className="sticky top-[80px] z-30 backdrop-blur"
+        style={{
+          background: 'rgba(0,0,0,0.85)',
+          borderTop: '1px solid rgba(246,246,246,0.14)',
+          borderBottom: '1px solid rgba(246,246,246,0.14)',
+          marginTop: 60,
+        }}
+      >
         <div className="ed-container">
-          <div className="flex gap-x-8 gap-y-0 overflow-x-auto py-4 -mx-4 px-4 md:mx-0 md:px-0">
+          <div className="flex gap-x-8 gap-y-0 overflow-x-auto py-4">
             {categories.map((cat) => (
               <div key={cat} className="shrink-0">
                 <TopicChip
@@ -150,58 +147,57 @@ export function BlogGrid({ posts, categories }: { posts: PostMeta[]; categories:
         </div>
       </section>
 
-      {/* Grid */}
-      <section>
-        <div className="ed-container py-16 md:py-20">
-          {totalTiles === 0 ? (
-            <div className="mx-auto max-w-xl py-16 md:py-24">
-              <SectionLabel>Sin resultados</SectionLabel>
-              <h2 className="ed-display mt-5">Aquí todavía no hay nada.</h2>
-              <p className="ed-deck mt-6 text-ink/80">
-                Publicamos cuando hay algo que probar, no antes.
-                {hasAnyPosts && filterIsActive
-                  ? ' Prueba otra categoría o vuelve a todas las lecturas.'
-                  : ' Vuelve o entra en la comunidad para que te avisemos.'}
-              </p>
-              <div className="mt-8 flex gap-3 flex-wrap">
-                {filterIsActive && (
-                  <button
-                    onClick={() => { setActiveCategory('Todos'); setSearchQuery('') }}
-                    className="ed-btn ed-btn-invert"
-                  >
-                    Ver todas las lecturas
-                  </button>
-                )}
-                <Link href="/#suscribete" className="ed-btn">
-                  Entrar en la comunidad
-                </Link>
-              </div>
+      {/* List */}
+      <section className="ed-container py-16 md:py-20">
+        {totalRows === 0 ? (
+          <div className="mx-auto max-w-xl py-16 md:py-24">
+            <SectionHeader idx="Sin resultados" tag="Aquí todavía no hay nada" />
+            <h2 className="ed-display mt-12">Aquí todavía no hay nada.</h2>
+            <p className="ed-deck mt-6 opacity-80">
+              Publicamos cuando hay algo que probar, no antes.
+              {hasAnyPosts && filterIsActive
+                ? ' Prueba otra categoría o vuelve a todo el archivo.'
+                : ' Vuelve o entra al newsletter para que te avisemos.'}
+            </p>
+            <div className="mt-8 flex gap-3 flex-wrap">
+              {filterIsActive && (
+                <button
+                  type="button"
+                  onClick={() => { setActiveCategory('Todos'); setSearchQuery('') }}
+                  className="ed-btn ed-btn-invert"
+                >
+                  Ver todo el archivo
+                </button>
+              )}
+              <Link href="/#newsletter" className="ed-btn">
+                Apuntarme al newsletter
+              </Link>
             </div>
-          ) : (
-            <>
-              <SectionRibbon>
-                {totalTiles} {totalTiles === 1 ? 'Publicación' : 'Publicaciones'}
-              </SectionRibbon>
-              <div className={`mt-12 ${gridClass}`}>
-                {showProgramTile && <ProgramTile />}
-                {filtered.map((post, i) => (
-                  <ProductCard
-                    key={post.slug}
-                    slug={post.slug}
-                    category={post.category}
-                    title={post.title}
-                    date={post.date}
-                    authorSlugs={post.authorSlugs}
-                    excerpt={post.excerpt}
-                    variant={post.variant}
-                    index={i}
-                    featured={totalTiles === 1 && post.featured}
-                  />
-                ))}
-              </div>
-            </>
-          )}
-        </div>
+          </div>
+        ) : (
+          <>
+            <div className="ed-meta opacity-60 mb-8">
+              {totalRows} {totalRows === 1 ? 'laboratorio' : 'laboratorios'}
+            </div>
+            <div className="lab-list">
+              {showProgramRow && <ProgramRow />}
+              {filtered.map((post, i) => (
+                <ProductCard
+                  key={post.slug}
+                  slug={post.slug}
+                  category={post.category}
+                  title={post.title}
+                  date={post.date}
+                  authorSlugs={post.authorSlugs}
+                  excerpt={post.excerpt}
+                  variant={post.variant}
+                  index={post.index}
+                  totalCount={totalPosts}
+                />
+              ))}
+            </div>
+          </>
+        )}
       </section>
     </div>
   )

@@ -7,7 +7,7 @@ import { BlogGrid } from './blog-grid';
 
 export const metadata: Metadata = {
   title: 'Archivo',
-  description: 'Todo lo publicado sobre IA desde la práctica. Laboratorios, casos prácticos, estrategia y preguntas honestas.',
+  description: 'Todo lo publicado en La Habitación Tortuga. Laboratorios cortos, laboratorios largos y reflexiones honestas sobre IA. Sin prisas, sin FOMO.',
 };
 
 export default function BlogPage() {

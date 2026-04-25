@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { AssetPreview } from './AssetPreview'
 import type { PreviewVariant } from '@/lib/assets'
 import { getAuthors } from '@/lib/authors'
 
@@ -13,14 +12,25 @@ interface ProductCardProps {
   date: string
   authorSlugs: string[]
   excerpt: string
-  variant: PreviewVariant
+  variant?: PreviewVariant
   index: number
   featured?: boolean
+  totalCount?: number
 }
 
-// Renders an editorial story tile (was a card in the previous system).
-// No shadow, no rounded corners, no colored covers. Hairline rule at the
-// bottom separates it from the next tile.
+const MONTH_SHORT_ES = [
+  'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun',
+  'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic',
+]
+
+function formatDateLabel(date: string) {
+  const d = new Date(date)
+  if (Number.isNaN(d.getTime())) return ''
+  return `${MONTH_SHORT_ES[d.getMonth()]} ${d.getFullYear()}`
+}
+
+// Renders an archive list item — one row in the lab-list.
+// `index` controls the LAB number; pass `totalCount` to count from total down.
 export function ProductCard({
   slug,
   category,
@@ -28,59 +38,40 @@ export function ProductCard({
   date,
   authorSlugs,
   excerpt,
-  variant,
   index,
-  featured = false,
+  totalCount,
 }: ProductCardProps) {
-  const authors = getAuthors(authorSlugs)
-  const authorLabel =
-    authors.length === 0
-      ? ''
-      : authors.length === 1
-        ? authors[0].name.toUpperCase()
-        : `${authors[0].name.toUpperCase()} Y ${authors.length - 1} MÁS`
+  void getAuthors(authorSlugs)
 
-  const dateLabel = new Date(date)
-    .toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' })
-    .toUpperCase()
+  // Numbering: most recent = highest LAB number.
+  const labNumber =
+    typeof totalCount === 'number'
+      ? String(totalCount - index).padStart(2, '0')
+      : String(index + 1).padStart(2, '0')
+
+  const dateLabel = formatDateLabel(date)
 
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 12 }}
+    <motion.div
+      initial={{ opacity: 0, y: 8 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.3, delay: index * 0.04 }}
-      className={`ed-tile ${featured ? 'md:col-span-2 xl:col-span-3' : ''}`}
+      transition={{ duration: 0.3, delay: Math.min(index, 8) * 0.03 }}
     >
-      <Link href={`/blog/${slug}`} className="group block">
-        <AssetPreview variant={variant} index={index} />
-
-        <div className="pt-5">
-          <span className="ed-kicker text-ink">{category}</span>
-
-          <h3
-            className={`ed-tile-headline mt-3 ${
-              featured
-                ? 'ed-display max-w-3xl'
-                : 'font-[var(--font-display)] text-[1.5rem] leading-[1.18] tracking-[-0.3px]'
-            }`}
-          >
-            {title}
-          </h3>
-
-          <p
-            className={`mt-3 text-ink/80 ${
-              featured ? 'ed-deck max-w-2xl' : 'ed-body'
-            }`}
-          >
-            {excerpt}
-          </p>
-
-          <p className="ed-meta mt-5 text-muted">
-            {dateLabel}{authorLabel ? ` · ${authorLabel}` : ''}
-          </p>
+      <Link href={`/blog/${slug}`} className="lab-item group block">
+        <div className="lab-num">LAB {labNumber}</div>
+        <div className="lab-body">
+          <h3 className="lab-title">{title}</h3>
+          {excerpt && <p className="lab-desc">{excerpt}</p>}
+        </div>
+        <div className="lab-tag">
+          <span className="lab-dot">●</span> {category}
+        </div>
+        <div className="lab-read">
+          {dateLabel}
+          {dateLabel ? ' · ' : ''}Leer
         </div>
       </Link>
-    </motion.article>
+    </motion.div>
   )
 }

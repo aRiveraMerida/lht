@@ -3,7 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
-import { TurtleLogo } from './TurtleLogo';
+
+const NAV_LINKS = [
+  { href: '/blog', label: 'Archivo' },
+  { href: '/#newsletter', label: 'Newsletter' },
+  { href: '/#contacto', label: 'Contacto' },
+];
 
 export const Navbar: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -15,35 +20,63 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      <header className="on-dark sticky top-0 z-50 bg-ink text-paper">
-        <div className="ed-container flex items-center justify-between py-4 md:py-5">
-          <Link href="/" className="flex items-center gap-3 group">
-            <TurtleLogo className="h-8 w-8 text-paper" />
-            <span className="ed-display text-[20px] md:text-[24px] leading-none">
+      <header
+        className="fixed top-0 left-0 w-screen z-[101]"
+        style={{
+          padding: '22px 28px',
+          mixBlendMode: 'difference',
+          pointerEvents: 'none',
+        }}
+      >
+        <div
+          className="flex items-start justify-between"
+          style={{ pointerEvents: 'all' }}
+        >
+          <Link href="/" className="block leading-none">
+            <span
+              className="block uppercase font-[var(--font-display)]"
+              style={{
+                fontWeight: 900,
+                fontSize: 'clamp(20px, 1.9vw, 30px)',
+                lineHeight: 0.9,
+                letterSpacing: '0.01em',
+              }}
+            >
               La Habitación Tortuga
+            </span>
+            <span
+              className="block font-[var(--font-body)]"
+              style={{
+                fontSize: 'max(9px, 0.6vw)',
+                letterSpacing: '0.2em',
+                opacity: 0.65,
+                fontWeight: 400,
+                marginTop: 4,
+                textTransform: 'uppercase',
+              }}
+            >
+              Laboratorio de IA · Sin prisas
             </span>
           </Link>
 
-          <div className="hidden items-center gap-8 md:flex">
-            <Link
-              href="/blog"
-              className="ed-btn-label text-paper/80 hover:text-paper transition-colors"
-            >
-              Lecturas
-            </Link>
-            <Link
-              href="/#suscribete"
-              className="ed-btn-label text-paper/80 hover:text-paper transition-colors"
-            >
-              Comunidad
-            </Link>
+          <div className="hidden md:flex items-end" style={{ gap: 6 }}>
+            {NAV_LINKS.map((link) => (
+              <Link key={link.href} href={link.href} className="hover-act">
+                <span className="brkt">[</span>
+                <span>{link.label}</span>
+                <span className="brkt">]</span>
+                <span className="underliner" />
+              </Link>
+            ))}
           </div>
 
           <button
+            type="button"
             onClick={() => setOpen(!open)}
-            className="md:hidden inline-flex items-center justify-center w-10 h-10 text-paper hover:text-paper/70 transition-colors"
+            className="md:hidden inline-flex items-center justify-center w-10 h-10 text-ink"
             aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={open}
+            style={{ pointerEvents: 'all' }}
           >
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -51,28 +84,35 @@ export const Navbar: React.FC = () => {
       </header>
 
       {open && (
-        <nav className="on-dark fixed inset-0 z-40 flex flex-col items-center justify-center gap-10 bg-ink text-paper">
+        <nav
+          className="fixed inset-0 z-[150] flex flex-col items-center justify-center gap-8 bg-paper text-ink"
+          aria-label="Menú principal"
+        >
+          <button
+            type="button"
+            onClick={() => setOpen(false)}
+            className="absolute top-5 right-5 inline-flex items-center justify-center w-10 h-10 text-ink"
+            aria-label="Cerrar menú"
+          >
+            <X className="h-6 w-6" />
+          </button>
           <Link
             href="/"
             onClick={() => setOpen(false)}
-            className="ed-display text-paper"
+            className="ed-display"
           >
             Inicio
           </Link>
-          <Link
-            href="/blog"
-            onClick={() => setOpen(false)}
-            className="ed-display text-paper"
-          >
-            Lecturas
-          </Link>
-          <Link
-            href="/#suscribete"
-            onClick={() => setOpen(false)}
-            className="ed-display text-paper"
-          >
-            Comunidad
-          </Link>
+          {NAV_LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setOpen(false)}
+              className="ed-display"
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
       )}
     </>
