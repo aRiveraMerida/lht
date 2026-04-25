@@ -4,15 +4,13 @@ Un archivo editorial sobre inteligencia artificial, estrategia y trabajo real.
 
 ## Qué es esto
 
-La Habitación Tortuga es un espacio donde dos profesionales comparten lo que aprenden trabajando con inteligencia artificial en el mundo real. Sin prisas, sin humo. Solo lo que hemos probado, lo que funciona y lo que todavía estamos aprendiendo.
+La Habitación Tortuga es un espacio donde el equipo de IA de The Power Education comparte lo que aprende trabajando con inteligencia artificial en el mundo real. Sin prisas, sin humo. Solo lo que hemos probado, lo que funciona y lo que todavía estamos aprendiendo.
 
 No somos teóricos. Escribimos desde la práctica: las decisiones difíciles, los errores útiles y los atajos que funcionan de verdad.
 
 ## Quiénes somos
 
-**Alberto Rivera** — Ayuda a empresas a adoptar IA con criterio. +150 organizaciones, +10.000 profesionales formados. Escribe sobre las decisiones que importan y los errores que enseñan.
-
-**David Dix Hidalgo** — Especialista en automatizaciones, chatbots y agentes IA. Desarrolla soluciones adaptadas a cada cliente para potenciar recursos y optimizar procesos.
+**Equipo de IA de The Power Education** — Dirigimos el programa B2B de IA y Tecnología de The Power Education. +150 organizaciones acompañadas, +20.000 profesionales formados.
 
 ## Stack
 

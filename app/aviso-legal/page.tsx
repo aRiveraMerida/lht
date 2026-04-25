@@ -16,8 +16,7 @@ export default function AvisoLegal() {
         <div className="ed-reading mt-14 max-w-none">
           <p>En cumplimiento de la Ley 34/2002 (LSSI-CE):</p>
           <ul>
-            <li><strong>Titular:</strong> Alberto Rivera Mérida</li>
-            <li><strong>Domicilio:</strong> C/ Costa Rica</li>
+            <li><strong>Titular:</strong> The Power Education</li>
             <li><strong>Email:</strong> hola@lahabitaciontortuga.com</li>
           </ul>
           <p>

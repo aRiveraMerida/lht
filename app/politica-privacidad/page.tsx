@@ -16,7 +16,7 @@ export default function PoliticaPrivacidad() {
 
         <div className="ed-reading mt-14 max-w-none">
           <h2>1. Responsable</h2>
-          <p>Alberto Rivera Mérida — hola@lahabitaciontortuga.com</p>
+          <p>The Power Education — hola@lahabitaciontortuga.com</p>
 
           <h2>2. Datos recogidos</h2>
           <p>Dirección de email.</p>

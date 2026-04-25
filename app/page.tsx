@@ -316,17 +316,6 @@ export default function Home() {
               <span className="brkt">]</span>
               <span className="underliner" />
             </a>
-            <a
-              href="https://www.linkedin.com/in/albertoriveramerida"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover-act"
-            >
-              <span className="brkt">[</span>
-              <span>LinkedIn</span>
-              <span className="brkt">]</span>
-              <span className="underliner" />
-            </a>
           </div>
         </div>
       </section>

@@ -42,14 +42,13 @@ export const metadata: Metadata = {
     "adopción inteligencia artificial",
     "probar antes de opinar",
     "claude code",
-    "alberto rivera",
-    "david dix hidalgo",
+    "the power education",
+    "equipo IA the power",
   ],
   authors: [
-    { name: "Alberto Rivera" },
-    { name: "David Dix Hidalgo" },
+    { name: "Equipo de IA de The Power Education" },
   ],
-  creator: "Alberto Rivera",
+  creator: "Equipo de IA de The Power Education",
   publisher: "La Habitación Tortuga",
   robots: {
     index: true,
@@ -84,8 +83,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@aRiveraMerida",
-    creator: "@aRiveraMerida",
     title: "La Habitación Tortuga — La IA, despacio.",
     description: "Laboratorio de IA sin prisas. Probamos antes de opinar.",
     images: ['/favicon.svg'],
@@ -108,18 +105,10 @@ export default function RootLayout({
     url: 'https://lahabitaciontortuga.com',
     description: 'Laboratorio de IA sin prisas. Probamos antes de opinar. Un sitio del equipo IA de ThePower Education.',
     inLanguage: 'es-ES',
-    author: [
-      {
-        '@type': 'Person',
-        name: 'Alberto Rivera',
-        url: 'https://www.linkedin.com/in/albertoriveramerida',
-      },
-      {
-        '@type': 'Person',
-        name: 'David Dix Hidalgo',
-        url: 'https://www.linkedin.com/in/david-dix-hidalgo-986a8a32b',
-      },
-    ],
+    author: {
+      '@type': 'Organization',
+      name: 'Equipo de IA de The Power Education',
+    },
     publisher: {
       '@type': 'Organization',
       name: 'La Habitación Tortuga',
@@ -128,10 +117,6 @@ export default function RootLayout({
         url: 'https://lahabitaciontortuga.com/favicon.svg',
       },
     },
-    sameAs: [
-      'https://www.linkedin.com/in/albertoriveramerida',
-      'https://www.linkedin.com/in/david-dix-hidalgo-986a8a32b',
-    ],
   };
 
   return (
