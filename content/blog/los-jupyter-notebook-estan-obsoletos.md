@@ -3,7 +3,6 @@ title: "Los Jupyter Notebook están obsoletos"
 date: "2026-05-03"
 description: "El notebook fue útil cuando experimentar era lento y costoso. Ya no lo es."
 excerpt: "El notebook fue útil cuando experimentar era lento y costoso. Ya no lo es."
-category: "Sin Filtro"
 authors:
   - javier-carreira
 featured: false

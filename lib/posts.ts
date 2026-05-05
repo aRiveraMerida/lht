@@ -11,24 +11,10 @@ export interface PostData {
   description: string;
   excerpt: string;
   authors: string[];
-  category: string;
   image: string;
   featured?: boolean;
-  series?: string;
-  seriesOrder?: number;
-  seriesTitle?: string;
   content: string;
   readingTime?: string;
-}
-
-export interface SeriesContext {
-  id: string;
-  title: string;
-  order: number;
-  total: number;
-  prev: PostData | null;
-  next: PostData | null;
-  posts: PostData[];
 }
 
 function parseAuthors(data: Record<string, unknown>): string[] {
@@ -48,12 +34,8 @@ function toPostData(slug: string, data: Record<string, unknown>, content: string
     description: (data.description as string) || (data.excerpt as string) || '',
     excerpt: (data.excerpt as string) ?? '',
     authors: parseAuthors(data),
-    category: (data.category as string) ?? '',
     image: (data.image as string) || '/favicon.svg',
     featured: Boolean(data.featured),
-    series: typeof data.series === 'string' ? data.series : undefined,
-    seriesOrder: typeof data.seriesOrder === 'number' ? data.seriesOrder : undefined,
-    seriesTitle: typeof data.seriesTitle === 'string' ? data.seriesTitle : undefined,
     content,
     readingTime: `${readingTime} min`,
   }
@@ -90,26 +72,9 @@ export function getPostSlugs(): string[] {
     .map((f) => f.replace(/\.md$/, ''))
 }
 
-export function getRelatedPosts(currentSlug: string, category: string, limit = 3): PostData[] {
+export function getRelatedPosts(currentSlug: string, limit = 3): PostData[] {
   return getAllPosts()
-    .filter((p) => p.slug !== currentSlug && p.category === category)
+    .filter((p) => p.slug !== currentSlug)
     .slice(0, limit)
 }
 
-export function getSeriesContext(post: PostData): SeriesContext | null {
-  if (!post.series) return null
-  const all = getAllPosts()
-    .filter((p) => p.series === post.series)
-    .sort((a, b) => (a.seriesOrder ?? 0) - (b.seriesOrder ?? 0))
-  const idx = all.findIndex((p) => p.slug === post.slug)
-  if (idx === -1) return null
-  return {
-    id: post.series,
-    title: post.seriesTitle ?? post.series,
-    order: idx,
-    total: all.length,
-    prev: idx > 0 ? all[idx - 1] : null,
-    next: idx < all.length - 1 ? all[idx + 1] : null,
-    posts: all,
-  }
-}

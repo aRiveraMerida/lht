@@ -3,7 +3,6 @@ title: "Data Lake vs Data Warehouse: ¿dónde meto todos estos datos?"
 date: "2026-04-23"
 description: "Tenemos datos en MongoDB, hojas de cálculo y exportaciones de herramientas por todos lados. Estamos empezando a organizarlos bien. Esto es lo que hemos aprendido hasta ahora sobre Data Lake, Data Warehouse, y el error que ya cometimos."
 excerpt: "Tenemos datos en MongoDB, hojas de cálculo y exportaciones de herramientas por todos lados. Estamos empezando a organizarlos bien. Esto es lo que hemos aprendido hasta ahora."
-category: "Sin Filtro"
 authors:
   - javier-carreira
 featured: false

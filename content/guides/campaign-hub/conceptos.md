@@ -3,14 +3,8 @@ title: "Campaign Hub · Conceptos y vocabulario"
 date: "2026-04-19"
 description: "Agente, trigger, API key, MCP, webhook, skill. El vocabulario mínimo para entender lo que viene, explicado sin asumir conocimiento previo."
 excerpt: "Agente, trigger, API key, MCP, webhook, skill. El vocabulario mínimo para entender lo que viene, explicado sin asumir conocimiento previo."
-category: "Laboratorios"
 authors:
   - alberto-rivera
-featured: false
-series: "campaign-hub"
-seriesOrder: 2
-seriesTitle: "Campaign Hub · Google + Claude Code"
-image: "/favicon.svg"
 ---
 
 # Parte 1 · Conceptos y vocabulario

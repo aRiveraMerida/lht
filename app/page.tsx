@@ -128,37 +128,28 @@ export default function Home() {
 
       {/* ─── QUÉ PASA AQUÍ ─── */}
       <section className="ed-container py-20 md:py-24">
-        <SectionHeader idx="Qué pasa aquí" tag="Tres cosas. Ninguna urgente." />
+        <SectionHeader idx="Qué pasa aquí" tag="Dos cosas. Ninguna urgente." />
 
-        <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-x-8">
+        <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-x-12">
           <article className="md:border-l md:border-[color:var(--color-hairline)] md:pl-6 first:md:border-l-0 first:md:pl-0">
-            <div className="ed-kicker-bold">01 · Laboratorios</div>
+            <div className="ed-kicker-bold">01 · Artículos</div>
             <h3 className="ed-ui-heading mt-4">
-              Experimentos reales con herramientas reales.
+              Una pieza, una idea.
             </h3>
             <p className="ed-body mt-3 opacity-75">
-              Documentados con el proceso entero, no solo el resultado.
+              Notas de campo, casos sueltos y reflexiones honestas. Con el proceso entero,
+              no solo el resultado.
             </p>
           </article>
 
           <article className="md:border-l md:border-[color:var(--color-hairline)] md:pl-6">
-            <div className="ed-kicker-bold">02 · Laboratorios largos</div>
+            <div className="ed-kicker-bold">02 · Laboratorios</div>
             <h3 className="ed-ui-heading mt-4">
-              Para exprimir una herramienta entera.
+              Una herramienta entera, capítulo a capítulo.
             </h3>
             <p className="ed-body mt-3 opacity-75">
-              Recorridos completos por Claude Code, Copilot y los stacks que toque —
-              para usarlos bien, no para sacarles la primera demo.
-            </p>
-          </article>
-
-          <article className="md:border-l md:border-[color:var(--color-hairline)] md:pl-6">
-            <div className="ed-kicker-bold">03 · Reflexiones</div>
-            <h3 className="ed-ui-heading mt-4">
-              Lo que pensamos en voz alta.
-            </h3>
-            <p className="ed-body mt-3 opacity-75">
-              Lo que todavía no sabemos. Lo que no nos atrevemos a decir en otros sitios.
+              Experimentos completos por Claude Code, Campaign Hub y los stacks que toque.
+              Para usarlos bien, no para sacarles la primera demo.
             </p>
           </article>
         </div>
@@ -169,7 +160,7 @@ export default function Home() {
         <section id="archivo" className="ed-container py-20 md:py-24">
           <SectionHeader
             idx="Archivo"
-            tag="Últimos laboratorios · cronológico"
+            tag="Últimos artículos · cronológico"
           />
 
           <div className="lab-list mt-10">
@@ -177,7 +168,6 @@ export default function Home() {
               <ProductCard
                 key={post.slug}
                 slug={post.slug}
-                category={post.category}
                 title={post.title}
                 date={post.date}
                 authorSlugs={post.authors}
@@ -251,7 +241,7 @@ export default function Home() {
               Sin calendario fijo. Sin FOMO. Sin envíos vacíos.
             </p>
             <ul className="ed-body mt-6 space-y-2 opacity-85">
-              <li>— Aviso de nuevos laboratorios largos antes de hacerse públicos</li>
+              <li>— Aviso de nuevos laboratorios antes de hacerse públicos</li>
               <li>— Experimentos y lo que nos ha salido mal</li>
               <li>— Lecturas y conversaciones que nos están removiendo</li>
             </ul>

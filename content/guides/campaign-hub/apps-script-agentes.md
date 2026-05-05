@@ -3,14 +3,8 @@ title: "Campaign Hub · Los 4 agentes en Apps Script"
 date: "2026-04-19"
 description: "El cerebro del sistema: 10 archivos de Apps Script con una sola responsabilidad cada uno. Copiar, pegar y entender por qué cada pieza hace lo que hace."
 excerpt: "El cerebro del sistema: 10 archivos de Apps Script con una sola responsabilidad cada uno. Copiar, pegar y entender por qué cada pieza hace lo que hace."
-category: "Laboratorios"
 authors:
   - alberto-rivera
-featured: false
-series: "campaign-hub"
-seriesOrder: 4
-seriesTitle: "Campaign Hub · Google + Claude Code"
-image: "/favicon.svg"
 ---
 
 # Parte 3 · Los 4 agentes en Apps Script

@@ -1,13 +1,12 @@
 import { Suspense } from 'react';
 import { Metadata } from 'next';
 import { getAllPosts } from '@/lib/posts';
-import { categories } from '@/lib/palette';
 import { getPreviewVariant } from '@/lib/assets';
 import { BlogGrid } from './blog-grid';
 
 export const metadata: Metadata = {
   title: 'Archivo',
-  description: 'Todo lo publicado en La Habitación Tortuga. Laboratorios cortos, laboratorios largos y reflexiones honestas sobre IA. Sin prisas, sin FOMO.',
+  description: 'Todo lo publicado en La Habitación Tortuga. Artículos y laboratorios sobre IA. Sin prisas, sin FOMO.',
 };
 
 export default function BlogPage() {
@@ -15,7 +14,6 @@ export default function BlogPage() {
 
   const postsWithMeta = posts.map((post, index) => ({
     slug: post.slug,
-    category: post.category,
     title: post.title,
     date: post.date,
     authorSlugs: post.authors,
@@ -27,7 +25,7 @@ export default function BlogPage() {
 
   return (
     <Suspense>
-      <BlogGrid posts={postsWithMeta} categories={[...categories]} />
+      <BlogGrid posts={postsWithMeta} />
     </Suspense>
   );
 }

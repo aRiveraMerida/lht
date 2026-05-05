@@ -3,7 +3,6 @@ title: "El AI Act no es un tema legal"
 date: "2026-04-19"
 description: "Un manual operativo sobre el AI Act para implantadores, directivos y responsables de adopción de IA. Prácticas prohibidas, alto riesgo, GPAI, OWASP LLM Top 10, gobernanza, evidencias y qué hacer antes del 2 de agosto de 2026."
 excerpt: "A menos de cuatro meses del 2 de agosto de 2026, el AI Act pasa a ser plenamente aplicable. Un manual operativo para implantadores, directivos y responsables de adopción de IA — no para abogados."
-category: "Adopción IA"
 authors:
   - alberto-rivera
 featured: false

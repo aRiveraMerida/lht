@@ -3,14 +3,8 @@ title: "Campaign Hub · Preparar Google"
 date: "2026-04-19"
 description: "Sin código todavía. Carpetas en Drive, Spreadsheet con validaciones y el documento de marca Brand Guardrails."
 excerpt: "Sin código todavía. Carpetas en Drive, Spreadsheet con validaciones y el documento de marca Brand Guardrails."
-category: "Laboratorios"
 authors:
   - alberto-rivera
-featured: false
-series: "campaign-hub"
-seriesOrder: 3
-seriesTitle: "Campaign Hub · Google + Claude Code"
-image: "/favicon.svg"
 ---
 
 # Parte 2 · Preparar Google

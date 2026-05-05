@@ -7,7 +7,6 @@ import { getAuthors } from '@/lib/authors'
 
 interface ProductCardProps {
   slug: string
-  category: string
   title: string
   date: string
   authorSlugs: string[]
@@ -33,7 +32,6 @@ function formatDateLabel(date: string) {
 // `index` controls the LAB number; pass `totalCount` to count from total down.
 export function ProductCard({
   slug,
-  category,
   title,
   date,
   authorSlugs,
@@ -59,13 +57,13 @@ export function ProductCard({
       transition={{ duration: 0.3, delay: Math.min(index, 8) * 0.03 }}
     >
       <Link href={`/blog/${slug}`} className="lab-item group block">
-        <div className="lab-num">LAB {labNumber}</div>
+        <div className="lab-num">ART {labNumber}</div>
         <div className="lab-body">
           <h3 className="lab-title">{title}</h3>
           {excerpt && <p className="lab-desc">{excerpt}</p>}
         </div>
         <div className="lab-tag">
-          <span className="lab-dot">●</span> {category}
+          <span className="lab-dot">●</span> Artículo
         </div>
         <div className="lab-read">
           {dateLabel}
