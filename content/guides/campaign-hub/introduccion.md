@@ -3,14 +3,8 @@ title: "Campaign Hub · Introducción"
 date: "2026-04-19"
 description: "Qué vamos a construir, la analogía de la cocina profesional y el caso ficticio \"Cervezas del Valle\" que usaremos durante todo el laboratorio."
 excerpt: "Qué vamos a construir, la analogía de la cocina profesional y el caso ficticio \"Cervezas del Valle\" que usaremos durante todo el laboratorio."
-category: "Laboratorios"
 authors:
   - alberto-rivera
-featured: false
-series: "campaign-hub"
-seriesOrder: 1
-seriesTitle: "Campaign Hub · Google + Claude Code"
-image: "/favicon.svg"
 ---
 
 # Parte 0 · Introducción

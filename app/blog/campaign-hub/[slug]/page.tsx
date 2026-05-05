@@ -4,7 +4,7 @@ import { getGuideContent } from '@/lib/guides'
 import { LabGuide } from '@/components/LabGuide'
 import 'highlight.js/styles/github-dark.css'
 
-const lab = labs['claude-code']
+const lab = labs['campaign-hub']
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const content = getGuideContent(lab.slug, slug)
   const description =
     content?.excerpt ??
-    `${guide.kicker} — ${guide.title}. Parte del laboratorio de Claude Code en La Habitación Tortuga.`
+    `${guide.kicker} — ${guide.title}. Parte del laboratorio Campaign Hub en La Habitación Tortuga.`
 
   return {
     title: guide.title,
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 }
 
-export default async function GuidePage({ params }: PageProps) {
+export default async function CampaignHubGuidePage({ params }: PageProps) {
   const { slug } = await params
-  return <LabGuide lab={lab} slug={slug} breadcrumbLabel="Claude Code" />
+  return <LabGuide lab={lab} slug={slug} breadcrumbLabel="Campaign Hub" />
 }

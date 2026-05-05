@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-const guidesRoot = path.join(process.cwd(), 'content/guides/claude-code')
+const guidesRoot = path.join(process.cwd(), 'content/guides')
 
 export interface GuideContent {
   slug: string
@@ -11,8 +11,8 @@ export interface GuideContent {
   readingTime: string
 }
 
-export function getGuideContent(slug: string): GuideContent | null {
-  const filePath = path.join(guidesRoot, `${slug}.md`)
+export function getGuideContent(labSlug: string, slug: string): GuideContent | null {
+  const filePath = path.join(guidesRoot, labSlug, `${slug}.md`)
   if (!fs.existsSync(filePath)) return null
 
   const raw = fs.readFileSync(filePath, 'utf8')
@@ -28,6 +28,6 @@ export function getGuideContent(slug: string): GuideContent | null {
   }
 }
 
-export function hasGuideContent(slug: string): boolean {
-  return fs.existsSync(path.join(guidesRoot, `${slug}.md`))
+export function hasGuideContent(labSlug: string, slug: string): boolean {
+  return fs.existsSync(path.join(guidesRoot, labSlug, `${slug}.md`))
 }

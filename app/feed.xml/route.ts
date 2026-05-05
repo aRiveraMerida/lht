@@ -16,7 +16,6 @@ export async function GET() {
       <description><![CDATA[${post.excerpt}]]></description>
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>
       <author>${authorNames}</author>
-      <category>${post.category}</category>
     </item>`;
     })
     .join('');

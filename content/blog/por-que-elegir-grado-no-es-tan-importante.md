@@ -3,7 +3,6 @@ title: "Por qué elegir grado no es tan importante"
 date: "2026-04-24"
 description: "Hay una trampa en la pregunta '¿qué salidas tiene esa carrera?'. Y casi nadie la señala cuando tienes 17 años."
 excerpt: "Hay una trampa en la pregunta '¿qué salidas tiene esa carrera?'. Y casi nadie la señala cuando tienes 17 años."
-category: "Sin Filtro"
 authors:
   - javier-carreira
 featured: false

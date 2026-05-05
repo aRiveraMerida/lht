@@ -3,14 +3,8 @@ title: "Campaign Hub · Claude Code y la skill"
 date: "2026-04-19"
 description: "El taller de producción: Claude Code recoge trabajos del buzón, los produce y los deja en Drive. Skill, routine y webhook configurados."
 excerpt: "El taller de producción: Claude Code recoge trabajos del buzón, los produce y los deja en Drive. Skill, routine y webhook configurados."
-category: "Laboratorios"
 authors:
   - alberto-rivera
-featured: false
-series: "campaign-hub"
-seriesOrder: 5
-seriesTitle: "Campaign Hub · Google + Claude Code"
-image: "/favicon.svg"
 ---
 
 # Parte 4 · Claude Code y la skill de producción

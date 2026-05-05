@@ -3,14 +3,8 @@ title: "Campaign Hub · Customizar a otros casos"
 date: "2026-04-19"
 description: "Qué cambia y qué no cuando adaptas el sistema a otro dominio. 5 ejemplos ficticios (SaaS, content creator, academia, consultora, freelance) listos para copiar."
 excerpt: "Qué cambia y qué no cuando adaptas el sistema a otro dominio. 5 ejemplos ficticios (SaaS, content creator, academia, consultora, freelance) listos para copiar."
-category: "Laboratorios"
 authors:
   - alberto-rivera
-featured: false
-series: "campaign-hub"
-seriesOrder: 7
-seriesTitle: "Campaign Hub · Google + Claude Code"
-image: "/favicon.svg"
 ---
 
 # Parte 6 · Customizar para otro caso

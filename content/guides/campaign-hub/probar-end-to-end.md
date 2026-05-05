@@ -3,14 +3,8 @@ title: "Campaign Hub · Probar end-to-end"
 date: "2026-04-19"
 description: "Las piezas funcionando juntas. Test completo con el caso ficticio, tests negativos intencionados y troubleshooting de los fallos habituales."
 excerpt: "Las piezas funcionando juntas. Test completo con el caso ficticio, tests negativos intencionados y troubleshooting de los fallos habituales."
-category: "Laboratorios"
 authors:
   - alberto-rivera
-featured: false
-series: "campaign-hub"
-seriesOrder: 6
-seriesTitle: "Campaign Hub · Google + Claude Code"
-image: "/favicon.svg"
 ---
 
 # Parte 5 · Probar el sistema end-to-end
