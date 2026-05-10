@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { SectionHeader } from '@/components/SectionLabel';
-import { NewsletterForm } from '@/components/NewsletterForm';
 import { ProductCard } from '@/components/ProductCard';
 import { getPreviewVariant } from '@/lib/assets';
 import { getAllPosts } from '@/lib/posts';
@@ -75,7 +74,7 @@ export default function Home() {
             <strong style={{ fontWeight: 500, display: 'block', marginBottom: 4, opacity: 0.6 }}>
               Qué es
             </strong>
-            Un newsletter y un laboratorio
+            Un laboratorio
             <br />
             de experimentos con IA.
           </div>
@@ -107,7 +106,7 @@ export default function Home() {
               Un sitio donde la IA se piensa antes de venderse.
             </h2>
             <p className="ed-deck mt-7 max-w-xl opacity-80">
-              Aquí no hay newsletter diaria. Ni hot takes. Ni hilos virales.
+              Aquí no hay hot takes. Ni hilos virales.
               Hay laboratorios abiertos, casos prácticos y preguntas honestas.
               Lo que funciona, lo que no, y lo que todavía no sabemos.
             </p>
@@ -227,38 +226,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── NEWSLETTER ─── */}
-      <section id="newsletter" className="ed-container py-20 md:py-24">
-        <SectionHeader idx="Newsletter" tag="Sin prisas. Sin envíos vacíos." />
-
-        <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-12 md:gap-20 mt-12">
-          <div>
-            <h2 className="ed-display">
-              Apúntate<span style={{ color: 'var(--color-don-red)' }}>.</span>
-            </h2>
-            <p className="ed-deck mt-7 opacity-80">
-              Entras y te avisamos cuando hay algo que merece tu tiempo.
-              Sin calendario fijo. Sin FOMO. Sin envíos vacíos.
-            </p>
-            <ul className="ed-body mt-6 space-y-2 opacity-85">
-              <li>— Aviso de nuevos laboratorios antes de hacerse públicos</li>
-              <li>— Experimentos y lo que nos ha salido mal</li>
-              <li>— Lecturas y conversaciones que nos están removiendo</li>
-            </ul>
-            <p className="ed-body mt-6 opacity-75">
-              No hay plan de contenidos. Hay criterio.
-            </p>
-          </div>
-
-          <div className="md:pt-3">
-            <NewsletterForm />
-            <p className="ed-body mt-6 opacity-70">
-              Respondes a cualquier correo y leemos. Esa es la parte de comunidad.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* ─── CONTACTO ─── */}
       <section id="contacto" className="ed-container py-20 md:py-24">
         <SectionHeader idx="Contacto" tag="Respondemos con calma" />
@@ -300,12 +267,6 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-wrap gap-2">
-            <a href="#newsletter" className="hover-act">
-              <span className="brkt">[</span>
-              <span>Newsletter</span>
-              <span className="brkt">]</span>
-              <span className="underliner" />
-            </a>
             <a
               href="https://www.linkedin.com/in/albertoriveramerida"
               target="_blank"

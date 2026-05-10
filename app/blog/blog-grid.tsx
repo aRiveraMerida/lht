@@ -134,7 +134,7 @@ export function BlogGrid({ posts }: { posts: PostMeta[] }) {
               Publicamos cuando hay algo que probar, no antes.
               {hasAnyPosts && filterIsActive
                 ? ' Prueba con otro término o vuelve a todo el archivo.'
-                : ' Vuelve o entra al newsletter para que te avisemos.'}
+                : ' Vuelve cuando quieras.'}
             </p>
             <div className="mt-8 flex gap-3 flex-wrap">
               {filterIsActive && (
@@ -146,8 +146,8 @@ export function BlogGrid({ posts }: { posts: PostMeta[] }) {
                   Ver todo el archivo
                 </button>
               )}
-              <Link href="/#newsletter" className="ed-btn">
-                Apuntarme al newsletter
+              <Link href="/#contacto" className="ed-btn">
+                Escribirnos
               </Link>
             </div>
           </div>

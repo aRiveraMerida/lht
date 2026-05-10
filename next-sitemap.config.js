@@ -14,5 +14,5 @@ module.exports = {
       { userAgent: 'LinkedInBot', allow: '/' },
     ],
   },
-  exclude: ['/api/*', '/baja', '/suscripcion-confirmada'],
+  exclude: ['/api/*'],
 }

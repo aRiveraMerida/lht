@@ -19,7 +19,6 @@ No somos teóricos. Escribimos desde la práctica: las decisiones difíciles, lo
 - **Framework**: Next.js 16 (App Router, React 19, TypeScript)
 - **Estilos**: Tailwind CSS 4
 - **Blog**: Markdown con gray-matter + react-markdown
-- **Newsletter**: Resend (suscripción y baja)
 - **Media**: Vercel Blob
 - **Analytics**: Vercel Analytics
 - **Deploy**: Vercel
@@ -33,21 +32,15 @@ app/
     page.tsx            # Archivo (búsqueda + filtro por categoría)
     blog-grid.tsx       # Grid client con filtrado
     [slug]/page.tsx     # Post individual
-  baja/page.tsx         # Darse de baja
   aviso-legal/          # Páginas legales
-  politica-privacidad/
   politica-cookies/
   feed.xml/route.ts     # RSS feed
   api/upload/route.ts   # Upload de media (protegido)
-  actions/
-    subscribe.ts        # Server action: suscripción
-    unsubscribe.ts      # Server action: baja
 components/
   Navbar.tsx            # Header sticky
   Footer.tsx            # Footer con links legales
   ProductCard.tsx       # Card de artículo con preview
   AssetPreview.tsx      # Previews visuales (cover, window, shell)
-  NewsletterForm.tsx    # Formulario de suscripción
   TopicChip.tsx         # Filtro de categorías
   SectionLabel.tsx      # Labels de sección
   TurtleLogo.tsx        # Logo SVG
@@ -70,8 +63,6 @@ npm run dev
 Crear `.env.local` en la raíz:
 
 ```bash
-RESEND_API_KEY=           # Desde Vercel Marketplace (Resend)
-RESEND_AUDIENCE_ID=       # Resend > Audiences > Newsletter LHT > ID
 UPLOAD_SECRET=            # Generar: node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 ```
 
@@ -103,7 +94,6 @@ Autores disponibles: definidos en `lib/authors.ts` (slugs: `alberto-rivera`, `da
 ## Seguridad
 
 - Upload API protegida por `UPLOAD_SECRET` + validación de tipo (imágenes/PDF) y tamaño (10MB)
-- Validación de email por regex en suscripción y baja
 - Security headers: X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy
 - `.env.local` en `.gitignore`
 

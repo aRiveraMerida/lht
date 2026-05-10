@@ -42,6 +42,6 @@ Solo escribe el equipo IA de ThePower Education. Va por oleadas: a veces uno del
 
 ¿Tienes algo probado, con contexto real, con las dudas delante? Escríbenos a [hola@lahabitaciontortuga.com](mailto:hola@lahabitaciontortuga.com). Leemos todo. Si encaja con lo que queremos que pase aquí, te proponemos formato. Si no, te lo decimos sin rodeos y te contamos por qué.
 
-La newsletter es el canal principal. Lo que publicamos acaba ahí. Respondes a cualquier correo y te leemos — esa es la parte conversación.
+El archivo es el canal principal. Si quieres respondernos, escríbenos a hola@lahabitaciontortuga.com — leemos todo. Esa es la parte conversación.
 
 No hay mucho más. Despacio, con foco, con criterio.
