@@ -143,20 +143,17 @@ export default async function BlogPostPage({ params }: PageProps) {
           </ReactMarkdown>
         </article>
 
-        {/* Newsletter CTA */}
+        {/* Volver al archivo */}
         <div
           className="ed-reading mt-16 pt-10"
           style={{ borderTop: '1px solid rgba(246,246,246,0.18)' }}
         >
           <div className="ed-kicker-bold">¿Te ha resonado?</div>
           <p className="ed-deck mt-4 opacity-80">
-            Apúntate al newsletter. Avisamos cuando hay otro artículo. Sin prisas.
+            Escríbenos a hola@lahabitaciontortuga.com. Leemos todo, sin prisas.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link href="/#newsletter" className="ed-btn ed-btn-invert">
-              Apuntarme
-            </Link>
-            <Link href="/blog" className="ed-btn">
+            <Link href="/blog" className="ed-btn ed-btn-invert">
               <ArrowLeft size={14} aria-hidden="true" /> Ver el archivo
             </Link>
           </div>

@@ -21,8 +21,8 @@ export default function AvisoLegal() {
             <li><strong>Email:</strong> hola@lahabitaciontortuga.com</li>
           </ul>
           <p>
-            <strong>Actividad:</strong> Laboratorio y newsletter sobre inteligencia
-            artificial y adopción tecnológica en organizaciones.
+            <strong>Actividad:</strong> Laboratorio sobre inteligencia artificial
+            y adopción tecnológica en organizaciones.
           </p>
           <h2>Propiedad Intelectual</h2>
           <p>

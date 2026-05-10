@@ -23,9 +23,7 @@ export const Footer: React.FC = () => {
           style={{ opacity: 0.6 }}
         >
           <Link href="/aviso-legal" className="hover:text-link transition-colors">Aviso legal</Link>
-          <Link href="/politica-privacidad" className="hover:text-link transition-colors">Privacidad</Link>
           <Link href="/politica-cookies" className="hover:text-link transition-colors">Cookies</Link>
-          <Link href="/baja" className="hover:text-link transition-colors">Baja</Link>
         </div>
       </div>
     </footer>
