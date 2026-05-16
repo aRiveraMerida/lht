@@ -35,15 +35,7 @@ Para que eso funcione bien, los datos tienen que llegar ya **limpios, transforma
 
 El resultado es una herramienta perfecta para analistas de negocio y dashboards. Herramientas como **BigQuery**, **Snowflake** o **Amazon Redshift** son los referentes del sector.
 
-**Sus puntos fuertes:**
-- Consultas muy rápidas
-- Datos fiables y consistentes
-- Fácil de usar para perfiles no técnicos
-
-**Sus limitaciones:**
-- No acepta bien datos no estructurados (imágenes, logs, JSON anidado...)
-- Requiere un trabajo previo de modelado y transformación
-- Cambiar el esquema cuando ya hay datos cargados puede ser costoso
+A favor: las consultas son rápidas, los datos son fiables y consistentes, y un perfil no técnico puede usarlo sin pelearse con la herramienta. En contra: no acepta bien datos no estructurados (imágenes, logs, JSON anidado), exige trabajo previo de modelado y transformación, y cambiar el esquema cuando ya hay datos cargados puede ser caro.
 
 ## Data Lake: para datos que aún no sabes cómo usar
 
@@ -55,15 +47,7 @@ Esto lo hace ideal para equipos de ciencia de datos y machine learning, donde la
 
 Tecnologías habituales: **Amazon S3**, **Azure Data Lake Storage**, **Google Cloud Storage**.
 
-**Sus puntos fuertes:**
-- Almacenamiento barato para grandes volúmenes
-- Acepta cualquier formato y estructura
-- Ideal para exploración y modelos de ML
-
-**Sus limitaciones:**
-- Sin disciplina, se convierte en un "Data Swamp" (pantano de datos): nadie sabe qué hay ni cómo usarlo
-- Las consultas son más lentas sin optimización
-- Requiere perfiles técnicos para sacarle partido
+A favor: el almacenamiento es barato para grandes volúmenes, acepta cualquier formato y estructura, y es el destino natural de la exploración y los modelos de ML. En contra: sin disciplina se convierte en un *Data Swamp*, un pantano donde nadie sabe qué hay ni cómo usarlo. Las consultas son más lentas sin optimización y necesitas perfiles técnicos para sacarle partido.
 
 ## El error que ya cometimos: saltarse el lago
 
@@ -81,7 +65,7 @@ El orden correcto es respetar el flujo natural: primero el lago, luego el almac�
 
 ## La arquitectura moderna: Lakehouse
 
-Hoy en día, la mayoría de empresas con cierta madurez de datos no eligen entre uno u otro. Usan los dos, en una arquitectura que se conoce como **Lakehouse**:
+La mayoría de empresas con cierta madurez de datos no eligen entre uno u otro. Usan los dos, en una arquitectura que se conoce como **Lakehouse**:
 
 ```
 Fuentes de datos (MongoDB, APIs, logs, etc.)
@@ -95,7 +79,7 @@ Fuentes de datos (MongoDB, APIs, logs, etc.)
    BI y Reportes           → Dashboards, decisiones
 ```
 
-Plataformas como **Databricks** o **dbt** viven en esa capa intermedia de transformación, siendo el pegamento entre el lago y el almacén.
+Plataformas como **Databricks** o **dbt** viven en esa capa intermedia de transformación. Son el pegamento entre el lago y el almacén.
 
 En el ecosistema de Google Cloud, por ejemplo, el lago sería **Google Cloud Storage** y el almacén sería **BigQuery**. En AWS, **S3** y **Redshift**. En Azure, **ADLS** y **Synapse**.
 
@@ -114,7 +98,7 @@ Antes de cualquier migración, asegúrate de tener una copia en crudo de tus dat
 
 Nosotros todavía estamos respondiendo estas preguntas. Hay decisiones que no están tomadas. Hay fuentes de datos que no sabemos bien cómo encajan. Pero al menos ahora sabemos qué preguntas hacer antes de mover nada.
 
-## Conclusión
+## El orden importa más que la herramienta
 
 La diferencia entre Data Lake y Data Warehouse no es solo técnica: es una diferencia de filosofía. El warehouse asume que sabes lo que quieres. El lago asume que aún estás descubriendo lo que tienes.
 
