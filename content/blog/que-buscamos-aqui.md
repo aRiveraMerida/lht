@@ -28,7 +28,7 @@ Si buscas velocidad, ve a otro sitio — hay muchos y son buenos. Si buscas crit
 
 **Dudas, no sermones.** Lo que todavía no tienes claro. La pregunta que no te atreves a hacer delante de stakeholders. La tecnología que usas a diario y no terminas de entender. Aquí decirlo no te quita autoridad — te la da.
 
-**Criterio, no velocidad.** No publicamos por cumplir. Una semana puede pasar sin correo. Si no hay algo probado y pensado, mejor callarse.
+**Criterio, no velocidad.** No publicamos por cumplir. Una semana puede pasar sin publicación nueva. Si no hay algo probado y pensado, mejor callarse.
 
 ## Qué no vas a encontrar aquí
 
