@@ -9,11 +9,11 @@ featured: false
 image: "/favicon.svg"
 ---
 
-Veo a mucha gente joven rayándose con qué carrera elegir como si fuera una decisión irreversible. Lo entiendo, porque el discurso alrededor de la universidad lo vende así: elige bien, porque esto define tu futuro.
+Trabajo con gente que ha estudiado ADE, teleco, física, matemáticas, antropología y ciencias políticas. Alguno ni pisó la universidad. Todos hacen lo mismo: trabajan con IA, resuelven problemas reales, aportan algo útil.
+
+Por eso me cuesta ver a tanta gente joven rayándose con qué carrera elegir como si fuera una decisión irreversible. Lo entiendo: el discurso alrededor de la universidad lo vende así — elige bien, porque esto define tu futuro.
 
 La realidad es otra.
-
-Trabajo con personas en posiciones parecidas que han estudiado ADE, teleco, física, matemáticas, antropología y ciencias políticas. Alguno que ni ha pisado la universidad. Todos trabajando con IA, todos resolviendo problemas reales, todos con algo útil que aportar.
 
 ## La pregunta mal formulada
 
