@@ -9,9 +9,9 @@ featured: false
 image: "/favicon.svg"
 ---
 
-Llevo tiempo pensando en esto y creo que ya es momento de decirlo sin rodeos: el Jupyter
-Notebook, tal como lo usamos hoy, está quedándose obsoleto. No desaparecerá de un día para
-otro, pero su papel en el trabajo real de data science es cada vez más marginal.
+El Jupyter Notebook, tal como lo usamos hoy, se está quedando obsoleto. No va a
+desaparecer de un día para otro, pero su papel en el trabajo real de data science es cada
+vez más marginal.
 
 ## Por qué funcionaron tan bien
 
