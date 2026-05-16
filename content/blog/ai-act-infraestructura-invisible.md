@@ -423,7 +423,7 @@ Uno de los patrones más frecuentes de fracaso en adopción: **elegir herramient
 
 Los programas que empiezan con "vamos a adoptar Copilot" suelen terminar en piloto eterno. Los que empiezan con "el proceso de atención al empleado tarda demasiado y genera 2.000 tickets/mes redundantes" suelen llegar a adopción real — con o sin Copilot.
 
-### El cambio de paradigma que no se nombra
+### El cambio mental que casi nadie hace explícito
 
 Adoptar IA generativa no es adoptar una herramienta más. Es cambiar tres cosas en la forma de trabajar:
 
