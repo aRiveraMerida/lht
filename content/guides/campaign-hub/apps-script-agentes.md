@@ -1,15 +1,15 @@
 ---
 title: "Campaign Hub · Los 4 agentes en Apps Script"
 date: "2026-04-19"
-description: "El cerebro del sistema: 10 archivos de Apps Script con una sola responsabilidad cada uno. Copiar, pegar y entender por qué cada pieza hace lo que hace."
-excerpt: "El cerebro del sistema: 10 archivos de Apps Script con una sola responsabilidad cada uno. Copiar, pegar y entender por qué cada pieza hace lo que hace."
+description: "El cerebro del sistema: 11 archivos de Apps Script con una sola responsabilidad cada uno. Copiar, pegar y entender por qué cada pieza hace lo que hace."
+excerpt: "El cerebro del sistema: 11 archivos de Apps Script con una sola responsabilidad cada uno. Copiar, pegar y entender por qué cada pieza hace lo que hace."
 authors:
   - alberto-rivera
 ---
 
 # Parte 3 · Los 4 agentes en Apps Script
 
-Ahora metemos el código que hace funcionar el cerebro del sistema. **Vas a copiar y pegar 10 archivos**. Es mucho código, pero la estructura es clarísima y cada archivo tiene una sola responsabilidad.
+Ahora metemos el código que hace funcionar el cerebro del sistema. **Vas a copiar y pegar 11 archivos**. Es mucho código, pero la estructura es clarísima y cada archivo tiene una sola responsabilidad.
 
 **Tiempo estimado**: 45 minutos, sin prisas.
 
@@ -21,7 +21,7 @@ Ahora metemos el código que hace funcionar el cerebro del sistema. **Vas a copi
 ```
 1. Abrir Apps Script desde el Spreadsheet
 2. Guardar secretos (API key, etc.) en Script Properties
-3. Copiar los 10 archivos de código:
+3. Copiar los 11 archivos de código:
    ├── Config.gs            ← Variables centrales
    ├── Utils.gs             ← Funciones auxiliares
    ├── ClaudeClient.gs      ← Hablar con la API de Claude
