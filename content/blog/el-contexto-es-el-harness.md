@@ -20,7 +20,7 @@ No lo es. Las cinco acciones son **tres decisiones**, y la mayor parte del valor
 
 Las guías rápidas suelen explicar "context window" y "context rot". Suficiente para un tuit, insuficiente para trabajar. Los conceptos que necesitas dominar son tres, y hay que entenderlos como sistema:
 
-**Context window.** Todo lo que el modelo puede ver en el turno actual: system prompt, la conversación entera, cada tool call con su output, cada archivo leído (también los que abrió él mismo con `Read`, no solo los que tú referenciaste). Claude Code tiene 1M de tokens desde marzo de 2026 para Opus 4.6 (planes Max, Team y Enterprise). Sin cargo extra: 1M se factura al mismo precio por token que 10k.
+**Context window.** Todo lo que el modelo puede ver en el turno actual: system prompt, la conversación entera, cada tool call con su output, cada archivo leído (también los que abrió él mismo con `Read`, no solo los que tú referenciaste). Claude Code tiene 1M de tokens desde el 13 de marzo de 2026 para Opus 4.6 (planes Max, Team y Enterprise por defecto; Pro y Sonnet 4.6 con opt-in). Sin cargo extra: 1M se factura al mismo precio por token que 10k.
 
 **Context rot.** La degradación de rendimiento cuando el contexto crece. La atención se reparte entre más tokens, y el contenido antiguo empieza a competir por ella con lo que realmente importa ahora. Anthropic no publica una cifra exacta de dónde empieza a notarse, pero en la práctica el deterioro aparece mucho antes de llegar al límite. El 1M no es permiso para llenarlo; es un margen de seguridad.
 
