@@ -545,7 +545,7 @@ Decisiones de diseño requieren humano Feature nueva compleja
 
 **HITL**
 
-Approach necesita validación Cambio de paradigma (OOP→FP)
+Approach necesita validación Cambio entre paradigmas (OOP→FP)
 
 **HITL**
 
@@ -897,7 +897,7 @@ Migra un proyecto real de una configuración a otra usando Ralph con checkpoints
 
 **Opción A:** Express → Fastify (cambio de framework)
 **Opción B:** JavaScript → TypeScript (cambio de lenguaje)
-**Opción C:** REST → GraphQL (cambio de paradigma)
+**Opción C:** REST → GraphQL (modelo de API distinto)
 
 ### Proceso
 
