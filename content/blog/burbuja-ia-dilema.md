@@ -55,7 +55,7 @@ Si las empresas renuevan y amplían, la demanda es real y sostiene todo el gasto
 
 Lo fácil o caro que resulta pedir dinero prestado no tiene nada que ver con la IA en sí. Pero es el indicador del que menos se habla y, paradójicamente, el que puede amplificarlo todo.
 
-Cuando el crédito es barato y abundante, el dinero busca rentabilidad y se va a activos de riesgo: acciones tecnológicas, startups. Cuando se encarece o escasea, ese dinero se retira hacia lo seguro. La IA puede tener una corrección ordenada y digerible por sí sola. Pero si esa corrección coincide con un endurecimiento del crédito —una recesión, una subida de tipos, una crisis externa— el apetito por riesgo se hunde de forma generalizada, y los activos que más han subido son los primeros de los que sale el dinero a toda prisa.
+Cuando el crédito es barato y abundante, el dinero busca rentabilidad y se va a activos de riesgo: acciones tecnológicas, startups. Cuando se encarece o escasea, ese dinero se retira hacia lo seguro. La IA puede tener una corrección ordenada y digerible por sí sola. Pero si esa corrección coincide con un endurecimiento del crédito (una recesión, una subida de tipos, una crisis externa) el apetito por riesgo se hunde de forma generalizada, y los activos que más han subido son los primeros de los que sale el dinero a toda prisa.
 
 Conviene recordar que, en la puntocom, fueron precisamente las subidas de tipos de la Reserva Federal las que ayudaron a pinchar la euforia. El crédito es la diferencia entre soltar el aire de un globo despacio y que el globo reviente.
 
