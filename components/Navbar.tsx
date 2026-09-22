@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
+import { ThemeToggle } from './ThemeToggle';
 
 const NAV_LINKS = [
   { href: '/blog', label: 'Archivo' },
@@ -67,7 +68,11 @@ export const Navbar: React.FC = () => {
                 <span className="underliner" />
               </Link>
             ))}
+            <ThemeToggle />
           </div>
+
+          <div className="md:hidden flex items-center">
+            <ThemeToggle />
 
           <button
             type="button"
@@ -79,6 +84,7 @@ export const Navbar: React.FC = () => {
           >
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
+          </div>
         </div>
       </header>
 
