@@ -114,7 +114,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           <Markdown>{post.content}</Markdown>
         </article>
 
-        <aside className="card mb-12">
+        <aside className="card card--clay mb-12">
           <span className="eyebrow">¿Te ha resonado?</span>
           <p className="card-desc">
             Escríbenos a{' '}

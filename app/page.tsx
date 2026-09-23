@@ -49,6 +49,8 @@ export default function Home() {
           {labList.map((lab) => (
             <Card
               key={lab.slug}
+              tone="clay"
+              eyebrow="Laboratorio"
               href={lab.urlBase}
               aside={<LabStatus lab={lab.slug} total={lab.sequence.length} />}
               title={lab.title}

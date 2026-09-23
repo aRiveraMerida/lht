@@ -58,8 +58,13 @@ Escape limpia, estado vacío en tarjeta.
 David conserva la firma de `que-buscamos-aqui.md`.
 
 **Eliminados por huérfanos:** `components/AssetPreview.tsx`, `components/TopicChip.tsx`,
-`lib/assets.ts`. `framer-motion` ya no se importa en ningún sitio, pero sigue en
-`package.json`.
+`lib/assets.ts` y la dependencia `framer-motion`.
+
+**Tono de apoyo · arcilla** (extensión del sitio, no está en `tokens.css`). El sistema
+es monocromo en musgo y el sitio quedaba plano. La arcilla (OKLCH, tono ~50–70) marca lo
+que es de la casa: tarjetas de laboratorio, citas, numeración de capítulos, etiquetas y
+selección de texto. La acción (enlaces, botón principal, activo, foco, progreso) sigue
+siendo del musgo. Pasa AA en los dos temas.
 
 ## Qué falta
 
@@ -70,7 +75,8 @@ David conserva la firma de `que-buscamos-aqui.md`.
 - [ ] **Contenido de guías:** varias guías de laboratorio tienen listas y tablas aplanadas en
       párrafos (`• a • b • c`, p. ej. `prework-terminal`, `prework-git`). Es del markdown.
 - [ ] **Siete tamaños de letra por página**, el sistema pide cinco. Revisar si sobra un nivel.
-- [ ] Quitar `framer-motion` de `package.json` si nadie lo va a usar.
+- [ ] **Validar la arcilla con Alberto** y, si se queda, portarla a `tokens.css` del
+      design system para que deje de ser una extensión del sitio.
 
 ## Antes de cerrar esto
 
