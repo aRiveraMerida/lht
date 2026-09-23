@@ -9,12 +9,12 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
-  const posts = getAllPosts().map((post, index) => ({
+  const posts = getAllPosts().map((post) => ({
     slug: post.slug,
     title: post.title,
     date: post.date,
     excerpt: post.excerpt,
-    index,
+    readingTime: post.readingTime,
   }));
 
   return (

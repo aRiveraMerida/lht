@@ -36,68 +36,72 @@ export function LabGuide({ lab, slug, breadcrumbLabel }: Props) {
 
   return (
     <div className="page-width">
-      <PageHeader
-        crumbs={crumbs}
-        eyebrow={`Capítulo ${String(guide.order).padStart(2, '0')} de ${lab.sequence.length} · ${guide.kicker}`}
-        title={guide.title}
-        meta={content && <span>{content.readingTime} de lectura</span>}
-      />
+      <div className="read-col">
+        <PageHeader
+          crumbs={crumbs}
+          eyebrow={`Capítulo ${String(guide.order).padStart(2, '0')} de ${lab.sequence.length} · ${guide.kicker}`}
+          title={guide.title}
+          meta={content && <span>{content.readingTime} de lectura</span>}
+        />
+      </div>
 
       {/* Where you are in the lab: blocks, then the lessons of this block */}
       {block && (
         <nav aria-label="Navegación del laboratorio" className="subnav">
-          {multiBlock && (
-            <div className="tabs">
-              {lab.blocks.map((b) => (
-                <Link
-                  key={b.id}
-                  href={`${lab.urlBase}/${b.guides[0].slug}`}
-                  aria-current={b.id === block.id ? 'true' : undefined}
-                  className="tab"
-                >
-                  {b.kicker}
-                </Link>
-              ))}
-            </div>
-          )}
-          {block.guides.length > 1 && (
-            <div className="tabs tabs--sm">
-              {block.guides.map((g) => (
-                <Link
-                  key={g.slug}
-                  href={`${lab.urlBase}/${g.slug}`}
-                  aria-current={g.slug === slug ? 'page' : undefined}
-                  className="tab"
-                >
-                  <span className="tab-num">{String(g.order).padStart(2, '0')}</span>
-                  {g.title}
-                  <SeenMark lab={lab.slug} slug={g.slug} />
-                </Link>
-              ))}
-            </div>
-          )}
+          <div className="read-col">
+            {multiBlock && (
+              <div className="tabs">
+                {lab.blocks.map((b) => (
+                  <Link
+                    key={b.id}
+                    href={`${lab.urlBase}/${b.guides[0].slug}`}
+                    aria-current={b.id === block.id ? 'true' : undefined}
+                    className="tab"
+                  >
+                    {b.kicker}
+                  </Link>
+                ))}
+              </div>
+            )}
+            {block.guides.length > 1 && (
+              <div className="tabs tabs--sm">
+                {block.guides.map((g) => (
+                  <Link
+                    key={g.slug}
+                    href={`${lab.urlBase}/${g.slug}`}
+                    aria-current={g.slug === slug ? 'page' : undefined}
+                    className="tab"
+                  >
+                    <span className="tab-num">{String(g.order).padStart(2, '0')}</span>
+                    {g.title}
+                    <SeenMark lab={lab.slug} slug={g.slug} />
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
         </nav>
       )}
 
-      <article className="py-12">
-        {content ? (
-          <Markdown>{content.content}</Markdown>
-        ) : (
-          <p className="lead text-muted">
-            Contenido en preparación. Vuelve pronto o sigue con el siguiente capítulo
-            de la secuencia.
-          </p>
-        )}
-      </article>
+      <div className="read-col">
+        <article className="py-10">
+          {content ? (
+            <Markdown>{content.content}</Markdown>
+          ) : (
+            <p className="text-ink-2">
+              Contenido en preparación. Vuelve pronto o sigue con el siguiente capítulo
+              de la secuencia.
+            </p>
+          )}
+        </article>
 
-      <div className="max-w-[var(--measure)]">
         <ChapterProgress lab={lab.slug} slug={slug} />
       </div>
 
       {/* Prev / Next */}
-      <section className="section border-t border-rule mt-12" aria-label="Seguir">
-        <div className="section-head">
-          <h2>Seguir</h2>
+      <section className="read-col block mt-12" aria-labelledby="seguir">
+        <div className="block-head">
+          <h2 id="seguir">Seguir</h2>
           <p>{nextCrossesBlock && block ? `Fin del ${block.kicker}` : 'En orden, sin prisa'}</p>
         </div>
         <div>

@@ -29,6 +29,15 @@ el CSS del specimen portado sin reinventar: `.btn` (primary · secondary · ghos
 (cabecera, migas, subnavegación, filas de lección, alerta `note`). La capa antigua `ed-*` y los
 alias de color heredados ya no existen. Cero `rgba()` y cero `opacity` para atenuar.
 
+**Maquetación editorial, no de catálogo.** La gramática de página del specimen (secciones a dos
+columnas con título fijo, todo en tarjetas) leía como documentación, no como blog. Se mantiene el
+sistema y cambia la maquetación: portada con los artículos primero en lista tipográfica
+(`PostList`: fecha, título, entradilla, regla), laboratorios en tarjetas debajo y «Sobre la
+habitación» al final; artículos y capítulos en una columna centrada (`.read-col`) con el cuerpo en
+**Fraunces de texto a 20px** (`.article-body`). Esto último es una extensión consciente del
+sistema, que reserva Fraunces para titulares. El índice de laboratorio conserva el `.section` a dos
+columnas porque ahí es un curso.
+
 **Componentes React** en `components/tortuga/`: `Button`, `Card`, `Badge`, `Progress`, `Alert`.
 `PageHeader` (el masthead) y `SectionHeader` montan la estructura de página. `Markdown` renderiza
 posts y capítulos.

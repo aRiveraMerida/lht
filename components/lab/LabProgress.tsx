@@ -111,3 +111,10 @@ export function ChapterProgress({ lab, slug }: { lab: string; slug: string }) {
     </div>
   )
 }
+
+/** Progress bar inside a lab's card, only once the reader has started it. */
+export function LabCardProgress({ lab, total }: { lab: string; total: number }) {
+  const { seen } = useLabProgress(lab)
+  if (seen.length === 0) return null
+  return <Progress value={seen.length} max={total} label={`${seen.length} de ${total} capítulos vistos`} />
+}

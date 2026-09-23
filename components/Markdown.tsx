@@ -14,10 +14,10 @@ const components: Components = {
   },
 }
 
-/** Long-form content: posts and lab chapters. */
+/** Long-form content: posts and lab chapters, set for reading. */
 export function Markdown({ children }: { children: string }) {
   return (
-    <div className="lesson-body">
+    <div className="lesson-body article-body">
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkAlerts]}
         rehypePlugins={[rehypeHighlight, rehypeRaw]}

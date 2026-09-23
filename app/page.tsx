@@ -1,24 +1,20 @@
-import { SectionHeader } from '@/components/SectionLabel';
-import { ProductCard } from '@/components/ProductCard';
 import { PageHeader } from '@/components/PageHeader';
+import { PostList } from '@/components/PostList';
 import { Button, Card } from '@/components/tortuga';
+import { LabCardProgress, LabStatus } from '@/components/lab/LabProgress';
 import { getAllPosts } from '@/lib/posts';
-
-const FACTS = [
-  { label: 'Qué es', lines: ['Un laboratorio', 'de experimentos con IA.'] },
-  { label: 'Quién', lines: ['El equipo de IA', 'de ThePower'] },
-  { label: 'Dónde', lines: ['lahabitaciontortuga.com', 'est. 2024'] },
-];
+import { labList } from '@/lib/labs';
 
 const RESIDENTS = [
   { name: 'Alberto Rivera', href: 'https://www.linkedin.com/in/albertoriveramerida' },
   { name: 'Javier Carreira', href: 'https://www.linkedin.com/in/javier-carreira-c/' },
 ];
 
+const LATEST = 6;
+
 export default function Home() {
   const posts = getAllPosts();
-  const recent = posts.slice(0, 5);
-  const totalCount = posts.length;
+  const latest = posts.slice(0, LATEST);
 
   return (
     <div className="page-width">
@@ -27,144 +23,89 @@ export default function Home() {
         deck={
           <>
             Un laboratorio para probar IA <strong>con las manos</strong>, sin humo y sin FOMO.
-            <br />
             Una habitación donde se piensa antes de opinar.
           </>
         }
-      >
-        <dl className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-          {FACTS.map((fact) => (
-            <div key={fact.label}>
-              <dt className="eyebrow mb-1">{fact.label}</dt>
-              <dd className="type-sm">
-                <span className="text-ink">{fact.lines[0]}</span>
-                <br />
-                {fact.lines[1]}
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </PageHeader>
+      />
 
-      {/* ─── MISIÓN + ACTITUD ─── */}
-      <section className="section">
-        <SectionHeader idx="Manifiesto" tag="Por qué este sitio existe" />
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
-          <div>
-            <p className="type-xl">Un sitio donde la IA se piensa antes de venderse.</p>
-            <p className="mt-4 text-muted">
-              Aquí no hay hot takes. Ni hilos virales.
-              Hay laboratorios abiertos, casos prácticos y preguntas honestas.
-              Lo que funciona, lo que no, y lo que todavía no sabemos.
-            </p>
-          </div>
-
-          <div className="lg:border-l lg:border-rule lg:pl-12">
-            <div className="eyebrow">Actitud</div>
-            <p className="type-xl mt-3">
-              Despacio.
-              <br />
-              Con foco.
-              <br />
-              Con criterio.
-            </p>
-          </div>
-        </div>
+      {/* ─── ARTÍCULOS ─── */}
+      <section id="archivo" className="pt-4 pb-12" aria-labelledby="articulos">
+        <h2 id="articulos" className="sr-only">Artículos</h2>
+        <PostList posts={latest} wide />
+        {posts.length > latest.length && (
+          <Button href="/blog" className="mt-8">
+            Ver los {posts.length} artículos
+          </Button>
+        )}
       </section>
 
-      {/* ─── QUÉ PASA AQUÍ ─── */}
-      <section className="section">
-        <SectionHeader idx="Qué pasa aquí" tag="Dos cosas. Ninguna urgente." />
+      {/* ─── LABORATORIOS ─── */}
+      <section className="block" aria-labelledby="laboratorios">
+        <div className="block-head">
+          <h2 id="laboratorios">Laboratorios</h2>
+          <p>Una herramienta entera, capítulo a capítulo.</p>
+        </div>
         <div className="grid">
-          <Card
-            eyebrow="01 · Artículos"
-            title="Una pieza, una idea."
-            desc="Notas de campo, casos sueltos y reflexiones honestas. Con el proceso entero, no solo el resultado."
-          />
-          <Card
-            eyebrow="02 · Laboratorios"
-            title="Una herramienta entera, capítulo a capítulo."
-            desc="Experimentos completos por Claude Code, Campaign Hub y los stacks que toque. Para usarlos bien, no para sacarles la primera demo."
-          />
+          {labList.map((lab) => (
+            <Card
+              key={lab.slug}
+              href={lab.urlBase}
+              aside={<LabStatus lab={lab.slug} total={lab.sequence.length} />}
+              title={lab.title}
+              desc={lab.summary}
+              meta={`${lab.stats.guides} capítulos`}
+            >
+              <LabCardProgress lab={lab.slug} total={lab.sequence.length} />
+            </Card>
+          ))}
         </div>
       </section>
 
-      {/* ─── ARCHIVO RECIENTE ─── */}
-      {recent.length > 0 && (
-        <section id="archivo" className="section">
-          <SectionHeader idx="Archivo" tag="Últimos artículos · cronológico" />
+      {/* ─── SOBRE LA HABITACIÓN ─── */}
+      <section id="residentes" className="block" aria-labelledby="sobre">
+        <div className="block-head">
+          <h2 id="sobre">Sobre la habitación</h2>
+          <p>Despacio. Con foco. Con criterio.</p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
           <div>
-            <div className="stack">
-              {recent.map((post, index) => (
-                <ProductCard
-                  key={post.slug}
-                  slug={post.slug}
-                  title={post.title}
-                  date={post.date}
-                  excerpt={post.excerpt}
-                  index={index}
-                  totalCount={totalCount}
-                />
+            <h3>Un sitio donde la IA se piensa antes de venderse.</h3>
+            <p className="mt-3 text-ink-2">
+              Aquí no hay hot takes. Ni hilos virales. Hay laboratorios abiertos, casos
+              prácticos y preguntas honestas. Lo que funciona, lo que no, y lo que todavía
+              no sabemos.
+            </p>
+          </div>
+
+          <div>
+            <h3>Solo escribe el equipo de ThePower.</h3>
+            <p className="mt-3 text-ink-2">
+              Esto no es un blog corporativo. Es un sitio diferente: el mismo equipo que se ve
+              todos los días en el trabajo, pero sin la chaqueta del cliente ni la prisa del trimestre.
+            </p>
+            <p className="type-sm mt-3">
+              +20.000 profesionales formados. +150 empresas acompañadas. Dirigimos el programa
+              B2B de IA y Tecnología de ThePower Education. Clientes como KPMG, EY, Estrella
+              Galicia o El Corte Inglés.
+            </p>
+          </div>
+
+          <div id="contacto">
+            <h3>Escríbenos.</h3>
+            <p className="mt-3">
+              <a href="mailto:hola@lahabitaciontortuga.com" className="link">
+                hola@lahabitaciontortuga.com
+              </a>
+            </p>
+            <p className="type-sm mt-1">Sin prisas. Leemos todo.</p>
+            <div className="mt-3 flex flex-wrap gap-x-4">
+              {RESIDENTS.map((person) => (
+                <Button key={person.name} variant="ghost" href={person.href} external>
+                  {person.name}
+                </Button>
               ))}
             </div>
-
-            {posts.length > recent.length && (
-              <Button href="/blog" className="mt-6">
-                Ver archivo completo
-              </Button>
-            )}
-          </div>
-        </section>
-      )}
-
-      {/* ─── QUIÉN ESCRIBE AQUÍ ─── */}
-      <section id="residentes" className="section">
-        <SectionHeader idx="Residentes" tag="Quién escribe aquí" />
-        <div>
-          <p className="type-xl">Solo escribe el equipo de ThePower.</p>
-          <p className="mt-4 text-muted">
-            Esto no es un blog corporativo. Es un sitio diferente: el mismo equipo
-            que se ve todos los días en el trabajo, pero sin la chaqueta del cliente
-            ni la prisa del trimestre.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
-            <div>
-              <div className="eyebrow">Lo que hacemos fuera</div>
-              <p className="type-sm mt-2">
-                +20.000 profesionales formados. +150 empresas acompañadas. Dirigimos
-                el programa B2B de IA y Tecnología de ThePower Education. Clientes
-                como KPMG, EY, Estrella Galicia o El Corte Inglés.
-              </p>
-            </div>
-            <div>
-              <div className="eyebrow">Lo que pasa aquí</div>
-              <p className="type-sm mt-2">
-                Dudamos de todo lo que está pasando. Probamos antes de opinar.
-                Publicamos con criterio, no con prisa.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── CONTACTO ─── */}
-      <section id="contacto" className="section">
-        <SectionHeader idx="Contacto" tag="Respondemos con calma" />
-        <div>
-          <p className="type-xl">Escríbenos.</p>
-          <p className="mt-4">
-            <a href="mailto:hola@lahabitaciontortuga.com" className="link font-semibold">
-              hola@lahabitaciontortuga.com
-            </a>
-          </p>
-          <p className="type-sm mt-1">Sin prisas. Leemos todo.</p>
-          <div className="mt-4 flex flex-wrap gap-x-4">
-            {RESIDENTS.map((person) => (
-              <Button key={person.name} variant="ghost" href={person.href} external>
-                {person.name}
-              </Button>
-            ))}
           </div>
         </div>
       </section>

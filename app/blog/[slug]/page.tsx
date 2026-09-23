@@ -3,10 +3,9 @@ import { notFound } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import { Markdown } from '@/components/Markdown';
 import { Button } from '@/components/tortuga';
-import { getAllPosts, getPostBySlug, getPostSlugs, getRelatedPosts } from '@/lib/posts';
+import { getPostBySlug, getPostSlugs, getRelatedPosts } from '@/lib/posts';
 import { getAuthors } from '@/lib/authors';
-import { ProductCard } from '@/components/ProductCard';
-import { SectionHeader } from '@/components/SectionLabel';
+import { PostList } from '@/components/PostList';
 import { PageHeader } from '@/components/PageHeader';
 
 interface PageProps {
@@ -59,7 +58,6 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const authors = getAuthors(post.authors);
   const related = getRelatedPosts(slug, 3);
-  const archive = getAllPosts().map((p) => p.slug);
 
   const url = `https://lahabitaciontortuga.com/blog/${slug}`;
   const imageUrl = post.image.startsWith('http') ? post.image : `https://lahabitaciontortuga.com${post.image}`;
@@ -84,70 +82,61 @@ export default async function BlogPostPage({ params }: PageProps) {
     <div className="page-width">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <PageHeader
-        crumbs={[{ href: '/', label: 'Inicio' }, { href: '/blog', label: 'Archivo' }, { label: post.title }]}
-        eyebrow="Artículo"
-        title={post.title}
-        deck={post.excerpt}
-        meta={
-          <>
-            {authors.length > 0 && (
-              <span>
-                Por{' '}
-                {authors.map((a, i) => (
-                  <span key={a.slug}>
-                    <a href={a.linkedin} target="_blank" rel="noopener noreferrer" className="link">
-                      {a.name}
-                    </a>
-                    {i < authors.length - 2 ? ' · ' : i === authors.length - 2 ? ' y ' : ''}
-                  </span>
-                ))}
-              </span>
-            )}
-            <time dateTime={post.date}>
-              {new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
-            </time>
-            {post.readingTime && <span>{post.readingTime}</span>}
-          </>
-        }
-      />
+      <div className="read-col">
+        <PageHeader
+          crumbs={[{ href: '/', label: 'Inicio' }, { href: '/blog', label: 'Archivo' }, { label: post.title }]}
+          title={post.title}
+          deck={post.excerpt}
+          meta={
+            <>
+              {authors.length > 0 && (
+                <span>
+                  Por{' '}
+                  {authors.map((a, i) => (
+                    <span key={a.slug}>
+                      <a href={a.linkedin} target="_blank" rel="noopener noreferrer" className="link">
+                        {a.name}
+                      </a>
+                      {i < authors.length - 2 ? ' · ' : i === authors.length - 2 ? ' y ' : ''}
+                    </span>
+                  ))}
+                </span>
+              )}
+              <time dateTime={post.date}>
+                {new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+              {post.readingTime && <span>{post.readingTime} de lectura</span>}
+            </>
+          }
+        />
 
-      <article className="py-12">
-        <Markdown>{post.content}</Markdown>
-      </article>
+        <article className="py-10">
+          <Markdown>{post.content}</Markdown>
+        </article>
 
-      <aside className="card max-w-[var(--measure)] mb-12">
-        <span className="eyebrow">¿Te ha resonado?</span>
-        <p className="card-desc">
-          Escríbenos a{' '}
-          <a href="mailto:hola@lahabitaciontortuga.com" className="link">
-            hola@lahabitaciontortuga.com
-          </a>
-          . Leemos todo, sin prisas.
-        </p>
-        <Button href="/blog">
-          <ArrowLeft aria-hidden="true" /> Ver el archivo
-        </Button>
-      </aside>
+        <aside className="card mb-12">
+          <span className="eyebrow">¿Te ha resonado?</span>
+          <p className="card-desc">
+            Escríbenos a{' '}
+            <a href="mailto:hola@lahabitaciontortuga.com" className="link">
+              hola@lahabitaciontortuga.com
+            </a>
+            . Leemos todo, sin prisas.
+          </p>
+          <Button href="/blog">
+            <ArrowLeft aria-hidden="true" /> Ver el archivo
+          </Button>
+        </aside>
 
-      {related.length > 0 && (
-        <section className="section border-t border-rule">
-          <SectionHeader idx="Sigue leyendo" tag="Más artículos" />
-          <div className="stack">
-            {related.map((rp) => (
-              <ProductCard
-                key={rp.slug}
-                slug={rp.slug}
-                title={rp.title}
-                date={rp.date}
-                excerpt={rp.excerpt}
-                index={archive.indexOf(rp.slug)}
-                totalCount={archive.length}
-              />
-            ))}
-          </div>
-        </section>
-      )}
+        {related.length > 0 && (
+          <section className="block" aria-labelledby="sigue-leyendo">
+            <div className="block-head">
+              <h2 id="sigue-leyendo">Sigue leyendo</h2>
+            </div>
+            <PostList posts={related} />
+          </section>
+        )}
+      </div>
     </div>
   );
 }

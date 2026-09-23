@@ -2,27 +2,18 @@
 
 import { useId, useState } from 'react'
 import { Search, X } from 'lucide-react'
-import { SectionHeader } from '@/components/SectionLabel'
 import { PageHeader } from '@/components/PageHeader'
-import { ProductCard } from '@/components/ProductCard'
+import { PostList, type PostSummary } from '@/components/PostList'
 import { Button, Card } from '@/components/tortuga'
-import { LabStatus } from '@/components/lab/LabProgress'
+import { LabCardProgress, LabStatus } from '@/components/lab/LabProgress'
 import { labList } from '@/lib/labs'
-
-interface PostMeta {
-  slug: string
-  title: string
-  date: string
-  excerpt: string
-  index: number
-}
 
 function countLabel(shown: number, total: number, filtering: boolean) {
   const noun = total === 1 ? 'artículo' : 'artículos'
   return filtering ? `${shown} de ${total} ${noun}` : `${total} ${noun}`
 }
 
-export function BlogGrid({ posts }: { posts: PostMeta[] }) {
+export function BlogGrid({ posts }: { posts: PostSummary[] }) {
   const [query, setQuery] = useState('')
   const helpId = useId()
 
@@ -30,13 +21,11 @@ export function BlogGrid({ posts }: { posts: PostMeta[] }) {
   const filtered = filtering
     ? posts.filter((post) => post.title.toLowerCase().includes(query.trim().toLowerCase()))
     : posts
-  const total = posts.length
 
   return (
     <div className="page-width">
       <PageHeader
         crumbs={[{ href: '/', label: 'Inicio' }, { label: 'Archivo' }]}
-        eyebrow="Artículos y laboratorios"
         title="Todo lo publicado."
         deck="Sin orden cronológico obligatorio. Busca por título, o deja que algo te llame la atención."
       >
@@ -63,65 +52,58 @@ export function BlogGrid({ posts }: { posts: PostMeta[] }) {
             )}
           </div>
           <p id={helpId} className="field-help" aria-live="polite">
-            {countLabel(filtered.length, total, filtering)}
+            {countLabel(filtered.length, posts.length, filtering)}
           </p>
         </div>
       </PageHeader>
 
-      {/* Laboratorios */}
-      {!filtering && labList.length > 0 && (
-        <section className="section">
-          <SectionHeader
-            idx="Laboratorios"
-            tag={`${labList.length} ${labList.length === 1 ? 'recorrido completo' : 'recorridos completos'}`}
-          />
-          <div className="stack">
-            {labList.map((lab) => (
-              <Card
-                key={lab.slug}
-                href={lab.urlBase}
-                eyebrow="Laboratorio"
-                aside={<LabStatus lab={lab.slug} total={lab.sequence.length} />}
-                title={lab.title}
-                desc={lab.summary}
-                meta={`${lab.stats.guides} ${lab.stats.guides === 1 ? 'capítulo' : 'capítulos'}`}
-              />
-            ))}
-          </div>
-        </section>
-      )}
-
       {/* Artículos */}
-      <section className="section">
-        <SectionHeader idx="Artículos" tag="Del más reciente al primero" />
+      <section className="pt-4 pb-12" aria-labelledby="articulos">
+        <h2 id="articulos" className="sr-only">Artículos</h2>
         {filtered.length === 0 ? (
-          <Card
-            title="Aquí todavía no hay nada."
-            desc="Publicamos cuando hay algo que probar, no antes. Prueba con otro término o vuelve a todo el archivo."
-          >
-            <div className="flex flex-wrap gap-3">
+          <div className="py-12 max-w-[var(--measure)]">
+            <h3>Aquí todavía no hay nada.</h3>
+            <p className="mt-3 text-ink-2">
+              Publicamos cuando hay algo que probar, no antes. Prueba con otro término o
+              vuelve a todo el archivo.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
               <Button variant="primary" onClick={() => setQuery('')}>
                 Ver todo el archivo
               </Button>
               <Button href="/#contacto">Escribirnos</Button>
             </div>
-          </Card>
-        ) : (
-          <div className="stack">
-            {filtered.map((post) => (
-              <ProductCard
-                key={post.slug}
-                slug={post.slug}
-                title={post.title}
-                date={post.date}
-                excerpt={post.excerpt}
-                index={post.index}
-                totalCount={total}
-              />
-            ))}
           </div>
+        ) : (
+          <PostList posts={filtered} wide />
         )}
       </section>
+
+      {/* Laboratorios */}
+      {!filtering && labList.length > 0 && (
+        <section className="block" aria-labelledby="laboratorios">
+          <div className="block-head">
+            <h2 id="laboratorios">Laboratorios</h2>
+            <p>
+              {labList.length} {labList.length === 1 ? 'recorrido completo' : 'recorridos completos'}
+            </p>
+          </div>
+          <div className="grid">
+            {labList.map((lab) => (
+              <Card
+                key={lab.slug}
+                href={lab.urlBase}
+                aside={<LabStatus lab={lab.slug} total={lab.sequence.length} />}
+                title={lab.title}
+                desc={lab.summary}
+                meta={`${lab.stats.guides} ${lab.stats.guides === 1 ? 'capítulo' : 'capítulos'}`}
+              >
+                <LabCardProgress lab={lab.slug} total={lab.sequence.length} />
+              </Card>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   )
 }
