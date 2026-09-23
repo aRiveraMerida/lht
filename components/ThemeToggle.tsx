@@ -1,15 +1,13 @@
 'use client';
 
-import React, { useId, useSyncExternalStore } from 'react';
+import React, { useSyncExternalStore } from 'react';
 import { Monitor, Sun, Moon } from 'lucide-react';
 
 type Theme = 'system' | 'light' | 'dark';
 
-const OPTIONS: { value: Theme; label: string; Icon: typeof Sun }[] = [
-  { value: 'light', label: 'Claro', Icon: Sun },
-  { value: 'system', label: 'Sistema', Icon: Monitor },
-  { value: 'dark', label: 'Oscuro', Icon: Moon },
-];
+const NEXT: Record<Theme, Theme> = { system: 'light', light: 'dark', dark: 'system' };
+const LABEL: Record<Theme, string> = { system: 'sistema', light: 'claro', dark: 'oscuro' };
+const ICON = { system: Monitor, light: Sun, dark: Moon };
 
 const listeners = new Set<() => void>();
 
@@ -28,18 +26,19 @@ function readTheme(): Theme {
 }
 
 /**
- * Three real radios, as in the Tortuga specimen. Three states on purpose:
+ * One button that cycles system → light → dark. Three states on purpose:
  * the token layer distinguishes "no preference" (follow the OS) from an
- * explicit choice, and collapsing that into a two-way switch would strand
- * anyone whose OS flips at sunset.
+ * explicit choice, and a two-way switch would strand anyone whose OS flips
+ * at sunset.
  */
 export const ThemeToggle: React.FC = () => {
   // The server cannot know the stored choice, so it renders "system" and the
   // client corrects it on hydration.
   const theme = useSyncExternalStore(subscribe, readTheme, () => 'system' as Theme);
-  const name = useId();
+  const next = NEXT[theme];
+  const Icon = ICON[theme];
 
-  const apply = (next: Theme) => {
+  const apply = () => {
     const root = document.documentElement;
     try {
       if (next === 'system') {
@@ -56,21 +55,14 @@ export const ThemeToggle: React.FC = () => {
   };
 
   return (
-    <fieldset className="theme-switch">
-      <legend className="sr-only">Tema</legend>
-      {OPTIONS.map(({ value, label, Icon }) => (
-        <label key={value} title={label}>
-          <input
-            type="radio"
-            name={name}
-            value={value}
-            checked={theme === value}
-            onChange={() => apply(value)}
-          />
-          <Icon className="h-4 w-4" aria-hidden="true" />
-          <span className="sr-only">{label}</span>
-        </label>
-      ))}
-    </fieldset>
+    <button
+      type="button"
+      onClick={apply}
+      className="btn-icon"
+      aria-label={`Tema: ${LABEL[theme]}. Cambiar a ${LABEL[next]}.`}
+      title={`Tema: ${LABEL[theme]}`}
+    >
+      <Icon className="h-[18px] w-[18px]" aria-hidden="true" />
+    </button>
   );
 };
