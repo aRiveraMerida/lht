@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
@@ -14,10 +14,33 @@ const NAV_LINKS = [
 export const Navbar: React.FC = () => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const menuRef = useRef<HTMLElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
+  // While the menu is open it is the whole page: lock scroll, move focus in,
+  // keep Tab inside, close on Escape, and hand focus back to the toggle.
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    if (!open) return;
+    const toggle = toggleRef.current;
+    const menu = menuRef.current;
+    document.body.style.overflow = 'hidden';
+    menu?.querySelector<HTMLElement>('a, button')?.focus();
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { setOpen(false); return; }
+      if (e.key !== 'Tab' || !menu) return;
+      const focusable = menu.querySelectorAll<HTMLElement>('a, button');
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', onKeyDown);
+      toggle?.focus();
+    };
   }, [open]);
 
   // Only real routes get an active state; an anchor on the home page does not.
@@ -50,6 +73,7 @@ export const Navbar: React.FC = () => {
           </nav>
 
           <button
+            ref={toggleRef}
             type="button"
             onClick={() => setOpen(!open)}
             className="md:hidden btn-icon"
@@ -63,6 +87,7 @@ export const Navbar: React.FC = () => {
 
       {open && (
         <nav
+          ref={menuRef}
           className="fixed inset-0 z-[150] flex flex-col bg-paper text-ink"
           aria-label="Menú principal"
         >

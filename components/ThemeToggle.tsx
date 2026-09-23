@@ -41,7 +41,6 @@ export const ThemeToggle: React.FC = () => {
   // corrects it on hydration.
   const theme = useSyncExternalStore(subscribe, readTheme, () => 'light' as Theme);
   const next: Theme = theme === 'dark' ? 'light' : 'dark';
-  const Icon = theme === 'dark' ? Moon : Sun;
 
   const toggle = () => {
     document.documentElement.setAttribute('data-theme', next);
@@ -61,7 +60,9 @@ export const ThemeToggle: React.FC = () => {
       aria-label={`Tema ${LABEL[theme]}. Cambiar a ${LABEL[next]}.`}
       title={`Cambiar a tema ${LABEL[next]}`}
     >
-      <Icon className="h-[18px] w-[18px]" aria-hidden="true" />
+      {/* CSS picks the icon, so it is right before hydration too */}
+      <Sun className="theme-icon-light h-[18px] w-[18px]" aria-hidden="true" />
+      <Moon className="theme-icon-dark h-[18px] w-[18px]" aria-hidden="true" />
     </button>
   );
 };

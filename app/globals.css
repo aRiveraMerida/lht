@@ -76,13 +76,6 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-
-  --animate-reveal-up: reveal-up 400ms cubic-bezier(0.16, 1, 0.3, 1) both;
-  @keyframes reveal-up {
-    from { opacity: 0; transform: translateY(12px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
 }
 
 /* =================================================================
@@ -191,6 +184,27 @@
   }
 }
 
+/* The tab strips' edge fade (see .tabs): registered so the keyframes can
+   interpolate the lengths rather than flip between them. */
+@property --fade-start { syntax: "<length>"; inherits: false; initial-value: 0px; }
+@property --fade-end { syntax: "<length>"; inherits: false; initial-value: 0px; }
+@keyframes tabs-fade {
+  0%   { --fade-start: 0px;         --fade-end: var(--fade); }
+  8%   { --fade-start: var(--fade); }
+  92%  { --fade-end: var(--fade); }
+  100% { --fade-start: var(--fade); --fade-end: 0px; }
+}
+
+/* The theme toggle shows the theme on screen. CSS picks the icon, with the
+   same selectors as the tokens, so it is right before hydration. */
+.theme-icon-dark { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-icon-light { display: none; }
+  :root:not([data-theme="light"]) .theme-icon-dark { display: block; }
+}
+:root[data-theme="dark"] .theme-icon-light { display: none; }
+:root[data-theme="dark"] .theme-icon-dark { display: block; }
+
 
 /* =================================================================
    BASE — as in the Tortuga specimen
@@ -199,8 +213,10 @@
   *, *::before, *::after { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { overflow-x: clip; }
 
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
   html {
-    scroll-behavior: smooth;
     scroll-padding-top: calc(var(--header-height) + var(--space-4));
     background: var(--color-paper);
     -webkit-text-size-adjust: 100%;
@@ -347,7 +363,7 @@
 
   /* site: breadcrumb */
   .breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); font-size: var(--text-sm); color: var(--color-muted); margin-bottom: var(--space-8); }
-  .breadcrumb a { transition: color var(--dur-base) var(--ease-out); }
+  .breadcrumb a { padding-block: var(--space-1); transition: color var(--dur-base) var(--ease-out); } /* 24px+ target */
   @media (hover: hover) { .breadcrumb a:hover { color: var(--color-ink); } }
   .breadcrumb [aria-current="page"] { color: var(--color-ink); }
 
@@ -500,6 +516,18 @@
      The specimen's tabs are buttons with role="tab". Here they navigate
      between pages, so they are links with aria-current — same look. */
   .tabs { display: flex; gap: var(--space-2); border-bottom: var(--rule-width) solid var(--color-rule-2); overflow-x: auto; scrollbar-width: none; }
+
+  /* site: with the scrollbar hidden, a strip wider than its box fades at the
+     edge that still has tabs behind it. The scroll timeline is inactive when
+     nothing overflows, so a strip that fits keeps hard edges. */
+  @supports (animation-timeline: scroll()) {
+    .tabs {
+      --fade: 2.5rem;
+      mask-image: linear-gradient(to right, transparent, #000 var(--fade-start), #000 calc(100% - var(--fade-end)), transparent);
+      animation: tabs-fade linear both;
+      animation-timeline: scroll(self inline);
+    }
+  }
   .tab {
     appearance: none; background: none; border: 0; border-bottom: 2px solid transparent; margin-bottom: -1px;
     display: inline-flex; align-items: center; gap: var(--space-2); flex: none;

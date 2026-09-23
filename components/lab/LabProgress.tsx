@@ -54,6 +54,7 @@ export function LabResume({ lab, urlBase, sequence }: { lab: string; urlBase: st
   return (
     <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
       <Progress
+        name="Progreso del laboratorio"
         value={seenCount}
         max={sequence.length}
         label={`${seenCount} de ${sequence.length} capítulos vistos`}
@@ -116,5 +117,5 @@ export function ChapterProgress({ lab, slug }: { lab: string; slug: string }) {
 export function LabCardProgress({ lab, total }: { lab: string; total: number }) {
   const { seen } = useLabProgress(lab)
   if (seen.length === 0) return null
-  return <Progress value={seen.length} max={total} label={`${seen.length} de ${total} capítulos vistos`} />
+  return <Progress name="Progreso del laboratorio" value={seen.length} max={total} label={`${seen.length} de ${total} capítulos vistos`} />
 }

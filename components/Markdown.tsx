@@ -4,6 +4,7 @@ import rehypeHighlight from 'rehype-highlight'
 import rehypeRaw from 'rehype-raw'
 import { Alert, type AlertTone } from '@/components/tortuga'
 import { remarkAlerts } from '@/lib/remark-alerts'
+import { remarkHeadings } from '@/lib/remark-headings'
 
 const components: Components = {
   aside({ node, children, ...props }) {
@@ -12,6 +13,11 @@ const components: Components = {
     if (tone) return <Alert tone={tone}>{children}</Alert>
     return <aside {...props}>{children}</aside>
   },
+  // Code blocks scroll sideways, so keyboard users need to reach them.
+  pre({ node, ...props }) {
+    void node
+    return <pre tabIndex={0} {...props} />
+  },
 }
 
 /** Long-form content: posts and lab chapters, set for reading. */
@@ -19,7 +25,7 @@ export function Markdown({ children }: { children: string }) {
   return (
     <div className="lesson-body article-body">
       <ReactMarkdown
-        remarkPlugins={[remarkGfm, remarkAlerts]}
+        remarkPlugins={[remarkGfm, remarkHeadings, remarkAlerts]}
         rehypePlugins={[rehypeHighlight, rehypeRaw]}
         components={components}
       >

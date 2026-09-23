@@ -137,7 +137,7 @@ export default function RootLayout({
     <html
       lang="es"
       suppressHydrationWarning
-      className={`${fraunces.variable} ${karla.variable} ${plexMono.variable} scroll-smooth`}
+      className={`${fraunces.variable} ${karla.variable} ${plexMono.variable}`}
     >
       <head>
         {/* Applies the stored theme before first paint. Without this the

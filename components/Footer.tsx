@@ -17,8 +17,8 @@ export const Footer: React.FC = () => {
           </a>
         </div>
         <div className="flex flex-wrap gap-x-5 gap-y-2">
-          <Link href="/aviso-legal" className="hover:text-ink transition-colors">Aviso legal</Link>
-          <Link href="/politica-cookies" className="hover:text-ink transition-colors">Cookies</Link>
+          <Link href="/aviso-legal" className="inline-block py-1 hover:text-ink transition-colors">Aviso legal</Link>
+          <Link href="/politica-cookies" className="inline-block py-1 hover:text-ink transition-colors">Cookies</Link>
         </div>
       </div>
     </footer>
