@@ -1,7 +1,6 @@
 import { Suspense } from 'react';
 import { Metadata } from 'next';
 import { getAllPosts } from '@/lib/posts';
-import { getPreviewVariant } from '@/lib/assets';
 import { BlogGrid } from './blog-grid';
 
 export const metadata: Metadata = {
@@ -10,22 +9,17 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
-  const posts = getAllPosts();
-
-  const postsWithMeta = posts.map((post, index) => ({
+  const posts = getAllPosts().map((post) => ({
     slug: post.slug,
     title: post.title,
     date: post.date,
-    authorSlugs: post.authors,
     excerpt: post.excerpt,
-    variant: getPreviewVariant(index),
-    index,
-    featured: Boolean(post.featured),
+    readingTime: post.readingTime,
   }));
 
   return (
     <Suspense>
-      <BlogGrid posts={postsWithMeta} />
+      <BlogGrid posts={posts} />
     </Suspense>
   );
 }

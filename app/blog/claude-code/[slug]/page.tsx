@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { labs, getLabGuide } from '@/lib/labs'
 import { getGuideContent } from '@/lib/guides'
 import { LabGuide } from '@/components/LabGuide'
-import 'highlight.js/styles/github-dark.css'
 
 const lab = labs['claude-code']
 

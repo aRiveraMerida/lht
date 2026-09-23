@@ -1,17 +1,12 @@
-import Link from 'next/link';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import rehypeHighlight from 'rehype-highlight';
-import rehypeRaw from 'rehype-raw';
+import { Markdown } from '@/components/Markdown';
+import { Button } from '@/components/tortuga';
 import { getPostBySlug, getPostSlugs, getRelatedPosts } from '@/lib/posts';
 import { getAuthors } from '@/lib/authors';
-import { ProductCard } from '@/components/ProductCard';
-import { SectionHeader } from '@/components/SectionLabel';
-import { getPreviewVariant } from '@/lib/assets';
-import 'highlight.js/styles/github-dark.css';
+import { PostList } from '@/components/PostList';
+import { PageHeader } from '@/components/PageHeader';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -84,105 +79,64 @@ export default async function BlogPostPage({ params }: PageProps) {
   };
 
   return (
-    <div>
+    <div className="page-width">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      {/* Header */}
-      <section className="ed-container" style={{ paddingTop: 130, paddingBottom: 60 }}>
-        <nav
-          aria-label="Breadcrumb"
-          className="flex flex-wrap items-center gap-2 ed-meta opacity-60 mb-12"
-        >
-          <Link href="/" className="hover:text-[color:var(--color-don-red)] transition-colors">Inicio</Link>
-          <span aria-hidden="true">/</span>
-          <Link href="/blog" className="hover:text-[color:var(--color-don-red)] transition-colors">Archivo</Link>
-          <span aria-hidden="true">/</span>
-          <span style={{ opacity: 0.85 }}>{post.title}</span>
-        </nav>
-
-        <SectionHeader idx="Artículo" tag={post.readingTime ?? ''} />
-
-        <h1 className="ed-display mt-10 max-w-[22ch]">{post.title}</h1>
-
-        <p className="ed-deck mt-8 max-w-2xl opacity-80">{post.excerpt}</p>
-
-        <div
-          className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 pt-6"
-          style={{ borderTop: '1px solid rgba(246,246,246,0.18)' }}
-        >
-          {authors.length > 0 && (
-            <p className="ed-meta">
-              Por{' '}
-              {authors.map((a, i) => (
-                <span key={a.slug}>
-                  <a
-                    href={a.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="ed-link"
-                  >
-                    {a.name}
-                  </a>
-                  {i < authors.length - 2 ? ' · ' : i === authors.length - 2 ? ' y ' : ''}
+      <div className="read-col">
+        <PageHeader
+          crumbs={[{ href: '/', label: 'Inicio' }, { href: '/blog', label: 'Archivo' }, { label: post.title }]}
+          title={post.title}
+          deck={post.excerpt}
+          meta={
+            <>
+              {authors.length > 0 && (
+                <span>
+                  Por{' '}
+                  {authors.map((a, i) => (
+                    <span key={a.slug}>
+                      <a href={a.linkedin} target="_blank" rel="noopener noreferrer" className="link">
+                        {a.name}
+                      </a>
+                      {i < authors.length - 2 ? ' · ' : i === authors.length - 2 ? ' y ' : ''}
+                    </span>
+                  ))}
                 </span>
-              ))}
-            </p>
-          )}
-          <time dateTime={post.date} className="ed-meta opacity-60">
-            {new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
-          </time>
-          <span className="ed-meta opacity-60">{post.readingTime}</span>
-        </div>
-      </section>
+              )}
+              <time dateTime={post.date}>
+                {new Date(post.date).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+              {post.readingTime && <span>{post.readingTime} de lectura</span>}
+            </>
+          }
+        />
 
-      {/* Body */}
-      <section className="ed-container py-14 md:py-20">
-        <article className="ed-reading">
-          <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight, rehypeRaw]}>
-            {post.content}
-          </ReactMarkdown>
+        <article className="py-10">
+          <Markdown>{post.content}</Markdown>
         </article>
 
-        {/* Volver al archivo */}
-        <div
-          className="ed-reading mt-16 pt-10"
-          style={{ borderTop: '1px solid rgba(246,246,246,0.18)' }}
-        >
-          <div className="ed-kicker-bold">¿Te ha resonado?</div>
-          <p className="ed-deck mt-4 opacity-80">
-            Escríbenos a hola@lahabitaciontortuga.com. Leemos todo, sin prisas.
+        <aside className="card card--clay mb-12">
+          <span className="eyebrow">¿Te ha resonado?</span>
+          <p className="card-desc">
+            Escríbenos a{' '}
+            <a href="mailto:hola@lahabitaciontortuga.com" className="link">
+              hola@lahabitaciontortuga.com
+            </a>
+            . Leemos todo, sin prisas.
           </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Link href="/blog" className="ed-btn ed-btn-invert">
-              <ArrowLeft size={14} aria-hidden="true" /> Ver el archivo
-            </Link>
-          </div>
-        </div>
-      </section>
+          <Button href="/blog">
+            <ArrowLeft aria-hidden="true" /> Ver el archivo
+          </Button>
+        </aside>
 
-      {/* Sigue leyendo */}
-      {related.length > 0 && (
-        <section
-          className="ed-container py-14 md:py-20"
-          style={{ borderTop: '1px solid rgba(246,246,246,0.18)' }}
-        >
-          <SectionHeader idx="Sigue leyendo" tag="Más artículos" />
-          <div className="lab-list mt-12">
-            {related.map((rp, i) => (
-              <ProductCard
-                key={rp.slug}
-                slug={rp.slug}
-                title={rp.title}
-                date={rp.date}
-                authorSlugs={rp.authors}
-                excerpt={rp.excerpt}
-                variant={getPreviewVariant(i)}
-                index={i}
-              />
-            ))}
-          </div>
-        </section>
-      )}
+        {related.length > 0 && (
+          <section className="block" aria-labelledby="sigue-leyendo">
+            <div className="block-head">
+              <h2 id="sigue-leyendo">Sigue leyendo</h2>
+            </div>
+            <PostList posts={related} />
+          </section>
+        )}
+      </div>
     </div>
   );
 }

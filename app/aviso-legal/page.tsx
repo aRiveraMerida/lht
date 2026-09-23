@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { SectionHeader } from '@/components/SectionLabel';
+import { PageHeader } from '@/components/PageHeader';
 
 export const metadata: Metadata = {
   title: 'Aviso Legal',
@@ -8,12 +8,10 @@ export const metadata: Metadata = {
 
 export default function AvisoLegal() {
   return (
-    <div className="ed-container" style={{ paddingTop: 130, paddingBottom: 100 }}>
-      <div className="max-w-2xl">
-        <SectionHeader idx="Legal" tag="Aviso legal" />
-        <h1 className="ed-display mt-12">Aviso Legal</h1>
-
-        <div className="ed-reading mt-14 max-w-none">
+    <div className="page-width pb-16">
+      <PageHeader eyebrow="Legal" title="Aviso legal" />
+      <div className="mt-10">
+        <div className="lesson-body">
           <p>En cumplimiento de la Ley 34/2002 (LSSI-CE):</p>
           <ul>
             <li><strong>Titular:</strong> Alberto Rivera Mérida</li>

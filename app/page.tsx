@@ -1,305 +1,113 @@
-import Link from 'next/link';
-import { SectionHeader } from '@/components/SectionLabel';
-import { ProductCard } from '@/components/ProductCard';
-import { getPreviewVariant } from '@/lib/assets';
+import { PageHeader } from '@/components/PageHeader';
+import { PostList } from '@/components/PostList';
+import { Button, Card } from '@/components/tortuga';
+import { LabCardProgress, LabStatus } from '@/components/lab/LabProgress';
 import { getAllPosts } from '@/lib/posts';
+import { labList } from '@/lib/labs';
+
+const RESIDENTS = [
+  { name: 'Alberto Rivera', href: 'https://www.linkedin.com/in/albertoriveramerida' },
+  { name: 'Javier Carreira', href: 'https://www.linkedin.com/in/javier-carreira-c/' },
+];
+
+const LATEST = 6;
 
 export default function Home() {
   const posts = getAllPosts();
-  const recent = posts.slice(0, 5);
-  const totalCount = posts.length;
+  const latest = posts.slice(0, LATEST);
 
   return (
-    <div>
-      {/* ─── HERO ─── */}
-      <section
-        className="ed-container flex flex-col justify-between"
-        style={{
-          minHeight: '100dvh',
-          paddingTop: 110,
-          paddingBottom: 28,
-        }}
-      >
-        <div />
-
-        <div className="flex flex-col gap-5 flex-1 justify-center">
-          <h1
-            className="ed-display-xl"
-            style={{ fontSize: '13vw', mixBlendMode: 'difference' }}
-          >
-            La IA,
-            <br />
-            <span className="ed-stroke">despacio</span>
-            <span className="ed-caret" />
-          </h1>
-
-          <p
-            className="font-[var(--font-body)] mt-3"
-            style={{
-              fontSize: 'clamp(13px, 1vw, 16px)',
-              lineHeight: 1.6,
-              maxWidth: '46ch',
-              opacity: 0.85,
-              letterSpacing: '0.02em',
-              mixBlendMode: 'difference',
-            }}
-          >
-            Un laboratorio para probar IA{' '}
-            <strong
-              style={{
-                fontWeight: 500,
-                borderBottom: '1px solid rgba(246,246,246,0.4)',
-                paddingBottom: 1,
-              }}
-            >
-              con las manos
-            </strong>
-            , sin humo y sin FOMO.
-            <br />
+    <div className="page-width">
+      <PageHeader
+        title="La IA, despacio"
+        deck={
+          <>
+            Un laboratorio para probar IA <strong>con las manos</strong>, sin humo y sin FOMO.
             Una habitación donde se piensa antes de opinar.
-          </p>
-        </div>
+          </>
+        }
+      />
 
-        <div
-          className="flex flex-wrap justify-between items-end gap-4 pt-5 ed-rule"
-          style={{
-            fontFamily: 'var(--font-body)',
-            fontSize: 'max(11px, 0.75vw)',
-            letterSpacing: '0.06em',
-            textTransform: 'uppercase',
-            mixBlendMode: 'difference',
-          }}
-        >
-          <div style={{ lineHeight: 1.55 }}>
-            <strong style={{ fontWeight: 500, display: 'block', marginBottom: 4, opacity: 0.6 }}>
-              Qué es
-            </strong>
-            Un laboratorio
-            <br />
-            de experimentos con IA.
-          </div>
-          <div style={{ lineHeight: 1.55 }}>
-            <strong style={{ fontWeight: 500, display: 'block', marginBottom: 4, opacity: 0.6 }}>
-              Quién
-            </strong>
-            El equipo de IA
-            <br />
-            de ThePower
-          </div>
-          <div style={{ lineHeight: 1.55, textAlign: 'right' }}>
-            <strong style={{ fontWeight: 500, display: 'block', marginBottom: 4, opacity: 0.6 }}>
-              Dónde
-            </strong>
-            lahabitaciontortuga.com
-            <br />
-            <span style={{ opacity: 0.55 }}>est. 2024</span>
-          </div>
+      {/* ─── ARTÍCULOS ─── */}
+      <section id="archivo" className="pt-4 pb-12" aria-labelledby="articulos">
+        <h2 id="articulos" className="sr-only">Artículos</h2>
+        <PostList posts={latest} wide />
+        {posts.length > latest.length && (
+          <Button href="/blog" className="mt-8">
+            Ver los {posts.length} artículos
+          </Button>
+        )}
+      </section>
+
+      {/* ─── LABORATORIOS ─── */}
+      <section className="block" aria-labelledby="laboratorios">
+        <div className="block-head">
+          <h2 id="laboratorios">Laboratorios</h2>
+          <p>Una herramienta entera, capítulo a capítulo.</p>
+        </div>
+        <div className="grid">
+          {labList.map((lab) => (
+            <Card
+              key={lab.slug}
+              tone="clay"
+              eyebrow="Laboratorio"
+              href={lab.urlBase}
+              aside={<LabStatus lab={lab.slug} total={lab.sequence.length} />}
+              title={lab.title}
+              desc={lab.summary}
+              meta={`${lab.stats.guides} capítulos`}
+            >
+              <LabCardProgress lab={lab.slug} total={lab.sequence.length} />
+            </Card>
+          ))}
         </div>
       </section>
 
-      {/* ─── MISIÓN + ACTITUD ─── */}
-      <section className="ed-container py-20 md:py-24">
-        <SectionHeader idx="Manifiesto" tag="Por qué este sitio existe" />
-        <div className="grid grid-cols-1 gap-14 md:grid-cols-[1.5fr_1fr] md:gap-20 mt-12">
+      {/* ─── SOBRE LA HABITACIÓN ─── */}
+      <section id="residentes" className="block" aria-labelledby="sobre">
+        <div className="block-head">
+          <h2 id="sobre">Sobre la habitación</h2>
+          <p>Despacio. Con foco. Con criterio.</p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
           <div>
-            <h2 className="ed-display max-w-2xl">
-              Un sitio donde la IA se piensa antes de venderse.
-            </h2>
-            <p className="ed-deck mt-7 max-w-xl opacity-80">
-              Aquí no hay hot takes. Ni hilos virales.
-              Hay laboratorios abiertos, casos prácticos y preguntas honestas.
-              Lo que funciona, lo que no, y lo que todavía no sabemos.
+            <h3>Un sitio donde la IA se piensa antes de venderse.</h3>
+            <p className="mt-3 text-ink-2">
+              Aquí no hay hot takes. Ni hilos virales. Hay laboratorios abiertos, casos
+              prácticos y preguntas honestas. Lo que funciona, lo que no, y lo que todavía
+              no sabemos.
             </p>
           </div>
 
-          <div className="md:border-l md:border-[color:var(--color-hairline)] md:pl-12">
-            <div className="ed-kicker-bold">Actitud</div>
-            <div className="ed-display mt-5">
-              Despacio.
-              <br />
-              Con foco.
-              <br />
-              Con criterio.
+          <div>
+            <h3>Solo escribe el equipo de ThePower.</h3>
+            <p className="mt-3 text-ink-2">
+              Esto no es un blog corporativo. Es un sitio diferente: el mismo equipo que se ve
+              todos los días en el trabajo, pero sin la chaqueta del cliente ni la prisa del trimestre.
+            </p>
+            <p className="type-sm mt-3">
+              +20.000 profesionales formados. +150 empresas acompañadas. Dirigimos el programa
+              B2B de IA y Tecnología de ThePower Education. Clientes como KPMG, EY, Estrella
+              Galicia o El Corte Inglés.
+            </p>
+          </div>
+
+          <div id="contacto">
+            <h3>Escríbenos.</h3>
+            <p className="mt-3">
+              <a href="mailto:hola@lahabitaciontortuga.com" className="link">
+                hola@lahabitaciontortuga.com
+              </a>
+            </p>
+            <p className="type-sm mt-1">Sin prisas. Leemos todo.</p>
+            <div className="mt-3 flex flex-wrap gap-x-4">
+              {RESIDENTS.map((person) => (
+                <Button key={person.name} variant="ghost" href={person.href} external>
+                  {person.name}
+                </Button>
+              ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── QUÉ PASA AQUÍ ─── */}
-      <section className="ed-container py-20 md:py-24">
-        <SectionHeader idx="Qué pasa aquí" tag="Dos cosas. Ninguna urgente." />
-
-        <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-x-12">
-          <article className="md:border-l md:border-[color:var(--color-hairline)] md:pl-6 first:md:border-l-0 first:md:pl-0">
-            <div className="ed-kicker-bold">01 · Artículos</div>
-            <h3 className="ed-ui-heading mt-4">
-              Una pieza, una idea.
-            </h3>
-            <p className="ed-body mt-3 opacity-75">
-              Notas de campo, casos sueltos y reflexiones honestas. Con el proceso entero,
-              no solo el resultado.
-            </p>
-          </article>
-
-          <article className="md:border-l md:border-[color:var(--color-hairline)] md:pl-6">
-            <div className="ed-kicker-bold">02 · Laboratorios</div>
-            <h3 className="ed-ui-heading mt-4">
-              Una herramienta entera, capítulo a capítulo.
-            </h3>
-            <p className="ed-body mt-3 opacity-75">
-              Experimentos completos por Claude Code, Campaign Hub y los stacks que toque.
-              Para usarlos bien, no para sacarles la primera demo.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      {/* ─── ARCHIVO RECIENTE ─── */}
-      {recent.length > 0 && (
-        <section id="archivo" className="ed-container py-20 md:py-24">
-          <SectionHeader
-            idx="Archivo"
-            tag="Últimos artículos · cronológico"
-          />
-
-          <div className="lab-list mt-10">
-            {recent.map((post, index) => (
-              <ProductCard
-                key={post.slug}
-                slug={post.slug}
-                title={post.title}
-                date={post.date}
-                authorSlugs={post.authors}
-                excerpt={post.excerpt}
-                variant={getPreviewVariant(index)}
-                index={index}
-                totalCount={totalCount}
-              />
-            ))}
-          </div>
-
-          {posts.length > recent.length && (
-            <div className="mt-10 flex">
-              <Link href="/blog" className="hover-act">
-                <span className="brkt">[</span>
-                <span>Ver archivo completo</span>
-                <span className="brkt">]</span>
-                <span className="underliner" />
-              </Link>
-            </div>
-          )}
-        </section>
-      )}
-
-      {/* ─── QUIÉN ESCRIBE AQUÍ ─── */}
-      <section id="residentes" className="ed-container py-20 md:py-24">
-        <SectionHeader idx="Residentes" tag="Quién escribe aquí" />
-
-        <h2 className="ed-display mt-12 max-w-4xl">
-          Solo escribe el equipo de ThePower.
-        </h2>
-        <p className="ed-deck mt-7 max-w-2xl opacity-80">
-          Esto no es un blog corporativo. Es un sitio diferente: el mismo equipo
-          que se ve todos los días en el trabajo, pero sin la chaqueta del cliente
-          ni la prisa del trimestre.
-        </p>
-
-        <div
-          className="mt-14 grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-x-16 pt-10"
-          style={{ borderTop: '1px solid rgba(246,246,246,0.18)' }}
-        >
-          <div>
-            <div className="ed-kicker-bold">Lo que hacemos fuera</div>
-            <p className="ed-deck mt-4 opacity-80">
-              +20.000 profesionales formados. +150 empresas acompañadas. Dirigimos
-              el programa B2B de IA y Tecnología de ThePower Education. Clientes
-              como KPMG, EY, Estrella Galicia o El Corte Inglés.
-            </p>
-          </div>
-          <div>
-            <div className="ed-kicker-bold">Lo que pasa aquí</div>
-            <p className="ed-deck mt-4 opacity-80">
-              Dudamos de todo lo que está pasando. Probamos antes de opinar.
-              Publicamos con criterio, no con prisa.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── CONTACTO ─── */}
-      <section id="contacto" className="ed-container py-20 md:py-24">
-        <SectionHeader idx="Contacto" tag="Respondemos con calma" />
-
-        <h2 className="ed-display mt-12">
-          Escríbenos<span style={{ color: 'var(--color-don-red)' }}>.</span>
-        </h2>
-
-        <div
-          className="mt-10 pt-5 flex flex-wrap items-end justify-between gap-7"
-          style={{ borderTop: '1px solid rgba(246,246,246,0.18)' }}
-        >
-          <div>
-            <a
-              href="mailto:hola@lahabitaciontortuga.com"
-              className="font-[var(--font-display)] block"
-              style={{
-                fontWeight: 700,
-                fontStretch: 'condensed',
-                fontSize: 'clamp(26px, 3vw, 48px)',
-                lineHeight: 0.9,
-                letterSpacing: '-0.005em',
-                textTransform: 'lowercase',
-              }}
-            >
-              hola@lahabitaciontortuga.com
-            </a>
-            <div
-              className="mt-2"
-              style={{
-                opacity: 0.6,
-                textTransform: 'none',
-                letterSpacing: '0.04em',
-                fontFamily: 'var(--font-body)',
-                fontSize: 13,
-              }}
-            >
-              Sin prisas. Leemos todo.
-            </div>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <a
-              href="https://www.linkedin.com/in/albertoriveramerida"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover-act"
-            >
-              <span className="brkt">[</span>
-              <span>Alberto Rivera</span>
-              <span className="brkt">]</span>
-              <span className="underliner" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/david-dix-hidalgo-986a8a32b"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover-act"
-            >
-              <span className="brkt">[</span>
-              <span>David Dix</span>
-              <span className="brkt">]</span>
-              <span className="underliner" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/javier-carreira-c/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover-act"
-            >
-              <span className="brkt">[</span>
-              <span>Javier Carreira</span>
-              <span className="brkt">]</span>
-              <span className="underliner" />
-            </a>
           </div>
         </div>
       </section>
