@@ -5,9 +5,10 @@ Router) + React 19 + TypeScript + Tailwind 4, desplegado en Vercel.
 
 ## Lo primero que hay que saber
 
-**Este repo no es de Javi.** El remoto es `aRiveraMerida/lht` — es de **Alberto Rivera**, y
-los autores declarados del sitio son **Alberto Rivera y David Dix Hidalgo** (ver
-`app/layout.tsx`, metadata y JSON-LD). Javi contribuye, no es propietario.
+**Este repo no es de Javi.** El remoto es `aRiveraMerida/lht` — es de **Alberto Rivera**. Los
+autores del sitio son **Alberto Rivera y Javi (Javier Carreira)** (ver `app/layout.tsx`,
+metadata y JSON-LD). David Dix Hidalgo ya no figura como autor del sitio; conserva la firma
+del post que coescribió (`que-buscamos-aqui.md`). Javi es autor, pero el repo es de Alberto.
 
 Consecuencias prácticas:
 
@@ -15,7 +16,7 @@ Consecuencias prácticas:
   persona.
 - La rama principal es **`master`**, no `main`. No renombrarla.
 - Un cambio de diseño, de tono o de identidad no es una decisión técnica aquí: afecta a la
-  marca de Alberto y David, y al equipo de IA de ThePower Education, que es de quien el sitio
+  marca de Alberto y Javi, y al equipo de IA de ThePower Education, que es de quien el sitio
   dice ser. Proponer, no ejecutar.
 
 ## Al arrancar cualquier tarea
@@ -26,12 +27,9 @@ Consecuencias prácticas:
 
 ## Convenciones del repo
 
-- **Commits en español**, verbo en presente, tercera persona: `añade post: …`,
-  `edita: …`, `elimina …`, `restructura …`, `unifica …`, `retira …`. Ocasionalmente un
-  prefijo `fix:`. **No** se usa Conventional Commits de forma sistemática.
-  > Esto contradice la preferencia global de Javi (commits en inglés, Conventional Commits).
-  > Manda la del repo: es de Alberto y son 37 commits suyos con ese estilo. Si Javi decide lo
-  > contrario, que se actualice esta línea.
+- **Commits en inglés, Conventional Commits** (`feat:`, `fix:`, `docs:`, `refactor:`…), cortos.
+  Decisión de Javi (23-sep-2026). El historial anterior de Alberto está en español (`añade post:
+  …`, `edita: …`); no se reescribe.
 - **Contenido en español.** El sitio y los posts son en español.
 - **npm, no pnpm.** Hay `package-lock.json`. No mezclar gestores.
 - Código, nombres de variables y comentarios **en inglés**.

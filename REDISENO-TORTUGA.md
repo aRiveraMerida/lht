@@ -1,7 +1,7 @@
 # Rediseño Tortuga — estado
 
 **Rama:** `rediseno-tortuga` (desde `master`). **Última actualización:** 23-sep-2026.
-**Sin commit y sin push.** Los cambios están en el árbol de trabajo.
+**Sin push.** El port de tokens está en commit; la adopción de la gramática Tortuga (ver abajo) está en el árbol de trabajo.
 
 ## Qué se está haciendo y por qué
 
@@ -17,52 +17,54 @@ no rellena un hueco.
 
 ## Qué ha entrado ya
 
-**Capa de tokens reescrita** en `app/globals.css`. Los valores viven en `:root` y se
-sobreescriben por modo; `@theme inline` solo los referencia. Ese rodeo es lo que permite
-cambiar de tema en caliente: si los valores vivieran dentro de `@theme`, Tailwind los
-hornearía en las utilidades y el conmutador no tendría nada que mover.
+**Tokens** en `app/globals.css`, portados de `tokens.css` tal cual, claro y oscuro. Los
+valores viven en `:root` y se sobreescriben por modo; `@theme inline` solo los referencia.
+Ese rodeo es lo que permite cambiar de tema en caliente: si los valores vivieran dentro de
+`@theme`, Tailwind los hornearía en las utilidades y el conmutador no tendría nada que mover.
 
-**Alias heredados.** `--color-don-red`, `--color-link`, `--color-hairline`,
-`--color-black`, `--color-light`, `--color-muted-strong`, `--color-unselected` y
-`--color-disabled` apuntan ahora a tokens de Tortuga. Así los **46 usos** del rojo
-cambiaron a musgo sin tocar un solo componente. Son andamio, no destino: se retiran a
-medida que se revise cada uso.
+**Los componentes del specimen, con sus nombres.** La capa de componentes de `globals.css` es
+el CSS del specimen portado sin reinventar: `.btn` (primary · secondary · ghost, 8 estados),
+`.card`, `.badge`, `.progress`, `.alert`, `.field`/`.input`, `.tabs`, `.masthead`, `.section`,
+`.type-*`, `.eyebrow`, `.lesson-body`. Lo que añade el sitio va marcado como `site` en el CSS
+(cabecera, migas, subnavegación, filas de lección, alerta `note`). La capa antigua `ed-*` y los
+alias de color heredados ya no existen. Cero `rgba()` y cero `opacity` para atenuar.
 
-**Tipografía.** Saira Extra Condensed + Sofia + JetBrains Mono → **Fraunces + Karla + IBM
-Plex Mono**, por `next/font` con los ejes ópticos de Fraunces (`SOFT`, `WONK`, `opsz`).
+**Componentes React** en `components/tortuga/`: `Button`, `Card`, `Badge`, `Progress`, `Alert`.
+`PageHeader` (el masthead) y `SectionHeader` montan la estructura de página. `Markdown` renderiza
+posts y capítulos.
 
-**Tamaños grandes rebajados.** `--font-size-display-xl` de `12rem` a `6rem`, y hero y
-section en proporción. Saira Extra Condensed cabía a 12rem en una línea; Fraunces, de
-ancho normal, no.
+**Laboratorios como curso.** Progreso por lector en su navegador (`lib/progress.ts`, clave
+`lht-progress-v1`), sin cuenta ni servidor: el capítulo abierto queda «En curso», el lector lo
+marca como «Visto» al final, el índice muestra la barra de progreso y «Continuar» como único
+botón relleno, y el archivo marca el laboratorio «En curso» o «Completado». «Vista» vive en la
+capa 30 (es historia); «En curso» en la 10.
 
-**Conmutador de tema** — `components/ThemeToggle.tsx`, en el Navbar. Tres estados
-(sistema / claro / oscuro) porque la capa de tokens distingue «sin preferencia» de una
-elección explícita. En `app/layout.tsx` hay un script que aplica el tema guardado antes
-del primer pintado, para que la página no parpadee.
+**Alertas en markdown.** `> [!NOTE]`, `[!IMPORTANT]`, `[!TIP]`, `[!WARNING]`, `[!CAUTION]`
+se renderizan como alerta Tortuga (`lib/remark-alerts.ts`). Ningún contenido las usa todavía.
 
-**Grano enganchado al tema.** `.lht-noise` lee `--t-noise-opacity` y `--t-noise-blend`:
-grano claro sobre papel claro solo ensucia, así que en claro casi no se ve y multiplica en
-vez de sumar.
+**Buscador** como campo Tortuga: etiqueta, recuento en vivo como ayuda («3 de 10 artículos»),
+Escape limpia, estado vacío en tarjeta.
+
+**Autores del sitio:** Alberto Rivera y Javier Carreira (metadata, JSON-LD, residentes).
+David conserva la firma de `que-buscamos-aqui.md`.
+
+**Eliminados por huérfanos:** `components/AssetPreview.tsx`, `components/TopicChip.tsx`,
+`lib/assets.ts`. `framer-motion` ya no se importa en ningún sitio, pero sigue en
+`package.json`.
 
 ## Qué falta
 
-- [ ] **Mirarlo con ojos.** No hay ninguna captura fiable todavía — ver la trampa de Chrome
-      en [`CLAUDE.md`](CLAUDE.md). Lo verificado hasta ahora es que el CSS compilado emite
-      la cascada correcta (`:root` claro · `@media dark :root:not([data-theme=light])` ·
-      `[data-theme=dark]`), no que la página se vea bien.
-- [ ] **Los 46 usos de acento son demasiados.** El presupuesto 60·30·10 dice que el musgo
-      solo señala. Hay que decidir uno a uno cuáles son acento y cuáles estructura. No se
-      puede hacer con un reemplazo masivo.
-- [ ] **`mixBlendMode: difference` en el Navbar** dará colores raros en claro.
-- [ ] **Revisar los tamaños grandes con la página delante.** Están rebajados a ojo.
-- [ ] **Contraste:** Tortuga viene verificado, pero los componentes propios de esta web
-      (`.brkt`, `.underliner`, `.ed-*`, tarjetas) no se han medido sobre los tonos nuevos.
-- [ ] **Decidir qué se hace con la marca.** El `TurtleLogo.tsx` actual y el favicon siguen
-      siendo los viejos. La exploración de logotipo está fuera de repo, en el escritorio de
-      Javi (`lht-logotipo.html`).
+- [ ] **Que lo vea Alberto.** Cambia el aspecto de un sitio publicado que es suyo, y Tortuga
+      sigue «pendiente de Alberto» en `lht-retos/.../decisiones/design-system/DECISION.md`.
+- [ ] **Marca:** `TurtleLogo.tsx` y el favicon siguen siendo los viejos. La exploración de
+      logotipo está fuera de repo (`lht-logotipo.html`, escritorio de Javi).
+- [ ] **Contenido de guías:** varias guías de laboratorio tienen listas y tablas aplanadas en
+      párrafos (`• a • b • c`, p. ej. `prework-terminal`, `prework-git`). Es del markdown.
+- [ ] **Siete tamaños de letra por página**, el sistema pide cinco. Revisar si sobra un nivel.
+- [ ] Quitar `framer-motion` de `package.json` si nadie lo va a usar.
 
 ## Antes de cerrar esto
 
 No es un merge normal: cambia el aspecto de un sitio publicado que **no es nuestro**.
-Tiene que verlo Alberto, y probablemente David. Lo natural es abrir PR y dejar que el
+Tiene que verlo Alberto. Lo natural es abrir PR y dejar que el
 preview de Vercel hable, en vez de describirlo por escrito.
