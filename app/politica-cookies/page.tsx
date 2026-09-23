@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { SectionHeader } from '@/components/SectionLabel';
+import { PageHeader } from '@/components/PageHeader';
 
 export const metadata: Metadata = {
   title: 'Política de Cookies',
@@ -8,13 +8,10 @@ export const metadata: Metadata = {
 
 export default function PoliticaCookies() {
   return (
-    <div className="ed-container" style={{ paddingTop: 130, paddingBottom: 100 }}>
-      <div className="max-w-2xl">
-        <SectionHeader idx="Legal" tag="Política de cookies" />
-        <h1 className="ed-display mt-12">Política de Cookies</h1>
-        <p className="ed-meta mt-4 opacity-60">Última actualización: abril 2026</p>
-
-        <div className="ed-reading mt-14 max-w-none">
+    <div className="page-width pb-16">
+      <PageHeader eyebrow="Legal" title="Política de cookies" meta={<span>Última actualización: abril 2026</span>} />
+      <div className="mt-10">
+        <div className="lesson-body">
           <p>
             Este sitio no usa cookies de análisis, publicidad ni seguimiento. Solo
             cookies técnicas necesarias para su funcionamiento.

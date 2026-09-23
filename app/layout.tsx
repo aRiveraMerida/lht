@@ -42,11 +42,11 @@ export const metadata: Metadata = {
     "probar antes de opinar",
     "claude code",
     "alberto rivera",
-    "david dix hidalgo",
+    "javier carreira",
   ],
   authors: [
     { name: "Alberto Rivera" },
-    { name: "David Dix Hidalgo" },
+    { name: "Javier Carreira" },
   ],
   creator: "Alberto Rivera",
   publisher: "La Habitación Tortuga",
@@ -115,8 +115,8 @@ export default function RootLayout({
       },
       {
         '@type': 'Person',
-        name: 'David Dix Hidalgo',
-        url: 'https://www.linkedin.com/in/david-dix-hidalgo-986a8a32b',
+        name: 'Javier Carreira',
+        url: 'https://www.linkedin.com/in/javier-carreira-c/',
       },
     ],
     publisher: {
@@ -129,7 +129,7 @@ export default function RootLayout({
     },
     sameAs: [
       'https://www.linkedin.com/in/albertoriveramerida',
-      'https://www.linkedin.com/in/david-dix-hidalgo-986a8a32b',
+      'https://www.linkedin.com/in/javier-carreira-c/',
     ],
   };
 
@@ -155,18 +155,13 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-paper text-ink overflow-x-hidden flex min-h-screen flex-col antialiased">
+      <body className="bg-paper text-ink overflow-x-clip flex min-h-screen flex-col antialiased">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:px-5 focus:py-3 focus:bg-ink focus:text-paper focus:ed-ribbon-label"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:px-5 focus:py-3 focus:bg-ink focus:text-paper focus:rounded-full"
         >
           Saltar al contenido principal
         </a>
-
-        {/* Global overlays */}
-        <div className="lht-red-strip" aria-hidden="true" />
-        <div className="lht-grid-lines" aria-hidden="true" />
-        <div className="lht-noise" aria-hidden="true" />
 
         <Navbar />
         <main id="main-content" className="flex-1">{children}</main>
