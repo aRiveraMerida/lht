@@ -120,6 +120,18 @@
   --t-clay-soft:    oklch(92.5% 0.024 70);
   --t-clay-rule:    oklch(78%   0.045 62);
 
+  /* Código · paleta de editor (site). Un tono por papel de la sintaxis. */
+  --t-code-bg:      oklch(97.8% 0.008 118);
+  --t-code-head:    oklch(93.5% 0.014 120);
+  --t-code-fg:      oklch(26%   0.03  139);
+  --t-code-rule:    oklch(80%   0.025 128);
+  --t-code-dim:     oklch(47%   0.03  135);
+  --t-code-kw:      oklch(48%   0.13  35);
+  --t-code-str:     oklch(46%   0.11  145);
+  --t-code-num:     oklch(47%   0.13  300);
+  --t-code-fn:      oklch(46%   0.1   240);
+  --t-code-attr:    oklch(48%   0.1   75);
+
   --opsz-display: 144;
   --opsz-heading: 72;
   --opsz-title:   24;
@@ -170,6 +182,16 @@
     --t-clay-2:       oklch(81% 0.07  58);
     --t-clay-soft:    oklch(24% 0.03  50);
     --t-clay-rule:    oklch(40% 0.05  50);
+    --t-code-bg:      oklch(20% 0.016 140);
+    --t-code-head:    oklch(24% 0.018 140);
+    --t-code-fg:      oklch(92% 0.012 120);
+    --t-code-rule:    oklch(34% 0.02  140);
+    --t-code-dim:     oklch(68% 0.025 135);
+    --t-code-kw:      oklch(76% 0.12  45);
+    --t-code-str:     oklch(80% 0.11  140);
+    --t-code-num:     oklch(78% 0.1   300);
+    --t-code-fn:      oklch(78% 0.09  235);
+    --t-code-attr:    oklch(84% 0.1   85);
   }
 }
 
@@ -197,6 +219,16 @@
   --t-clay-2:       oklch(81% 0.07  58);
   --t-clay-soft:    oklch(24% 0.03  50);
   --t-clay-rule:    oklch(40% 0.05  50);
+  --t-code-bg:      oklch(20% 0.016 140);
+  --t-code-head:    oklch(24% 0.018 140);
+  --t-code-fg:      oklch(92% 0.012 120);
+  --t-code-rule:    oklch(34% 0.02  140);
+  --t-code-dim:     oklch(68% 0.025 135);
+  --t-code-kw:      oklch(76% 0.12  45);
+  --t-code-str:     oklch(80% 0.11  140);
+  --t-code-num:     oklch(78% 0.1   300);
+  --t-code-fn:      oklch(78% 0.09  235);
+  --t-code-attr:    oklch(84% 0.1   85);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -677,12 +709,53 @@
     font-family: var(--font-display); font-size: var(--text-lg); line-height: 1; color: var(--color-clay);
   }
 
-  /* Syntax — 30: it is structure. Maps highlight.js onto .code's kw/cm. */
-  .lesson-body .hljs { color: var(--color-ink); background: transparent; }
-  .lesson-body :is(.hljs-keyword, .hljs-built_in, .hljs-selector-tag, .hljs-title, .hljs-section, .hljs-name, .hljs-attr, .hljs-type) { color: var(--color-ink-2); font-weight: 500; }
-  .lesson-body :is(.hljs-comment, .hljs-quote, .hljs-meta) { color: var(--color-muted); }
-  .lesson-body .hljs-addition { background: var(--color-success-soft); }
-  .lesson-body .hljs-deletion { background: var(--color-error-soft); }
+  /* ---- Code blocks (site) ------------------------------------------------
+     An editor inside the page: its own small palette (--code-*), so the
+     block can be light or dark independently of the site theme. Syntax is
+     read like in an editor, one hue per role, every one >= 4.5:1. */
+  .code-block {
+    --code-bg: var(--t-code-bg); --code-fg: var(--t-code-fg); --code-head: var(--t-code-head);
+    --code-rule: var(--t-code-rule); --code-dim: var(--t-code-dim);
+    --code-kw: var(--t-code-kw); --code-str: var(--t-code-str); --code-num: var(--t-code-num);
+    --code-fn: var(--t-code-fn); --code-attr: var(--t-code-attr);
+    margin-inline: 0; border: var(--rule-width) solid var(--code-rule); border-radius: var(--radius-sm);
+    background: var(--code-bg); color: var(--code-fg); overflow: hidden;
+    font-family: var(--font-body);
+  }
+  .code-block-head {
+    display: flex; align-items: center; justify-content: space-between; gap: var(--space-3);
+    min-height: 2.25rem; padding-inline: var(--space-4) var(--space-1);
+    background: var(--code-head); border-bottom: var(--rule-width) solid var(--code-rule);
+  }
+  .code-block-lang { font-size: var(--text-xs); font-weight: 600; letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--code-dim); }
+  .code-block-copy {
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    min-height: 2rem; padding-inline: var(--space-3); border: 0; border-radius: var(--radius-sm);
+    background: transparent; color: var(--code-dim); font-size: var(--text-xs); font-weight: 600; cursor: pointer;
+    transition: color var(--dur-base) var(--ease-out), background-color var(--dur-base) var(--ease-out);
+  }
+  .code-block-copy svg { width: 0.95rem; height: 0.95rem; }
+  @media (hover: hover) { .code-block-copy:hover { color: var(--code-fg); background: var(--code-bg); } }
+  .code-block-copy:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }
+  .lesson-body .code-block pre {
+    margin: 0; padding: var(--space-4) var(--space-5); border: 0; border-radius: 0;
+    background: transparent; color: var(--code-fg);
+    font-family: var(--font-mono); font-size: 0.8125rem; line-height: 1.65; overflow-x: auto; tab-size: 2;
+  }
+  .article-body .code-block pre { font-size: 0.8125rem; }
+  .code-block pre:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }
+
+  .code-block .hljs { color: var(--code-fg); background: transparent; }
+  .code-block :is(.hljs-keyword, .hljs-selector-tag, .hljs-literal, .hljs-doctag) { color: var(--code-kw); }
+  .code-block :is(.hljs-string, .hljs-regexp, .hljs-template-tag, .hljs-addition) { color: var(--code-str); }
+  .code-block :is(.hljs-number, .hljs-symbol, .hljs-bullet, .hljs-link) { color: var(--code-num); }
+  .code-block :is(.hljs-title, .hljs-title.function_, .hljs-built_in, .hljs-section, .hljs-name) { color: var(--code-fn); }
+  .code-block :is(.hljs-attr, .hljs-attribute, .hljs-variable, .hljs-template-variable, .hljs-type, .hljs-params, .hljs-property) { color: var(--code-attr); }
+  .code-block :is(.hljs-comment, .hljs-quote) { color: var(--code-dim); font-style: italic; }
+  .code-block .hljs-meta { color: var(--code-dim); }
+  .code-block .hljs-deletion { color: var(--t-error); }
+  .code-block :is(.hljs-strong) { font-weight: 600; }
+  .code-block :is(.hljs-emphasis) { font-style: italic; }
 }
 
 /* =================================================================
