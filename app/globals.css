@@ -834,7 +834,9 @@
 
   /* engineering grid + two soft glows, behind everything, home only */
   /* z-index 0 + sections at 1: at -1 the body background would paint over it */
-  .home-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+  /* Starts under the header and clips there: on an overscroll bounce the gap
+     above the header shows the page canvas, which is the header's own paper. */
+  .home-bg { position: fixed; inset: var(--header-height) 0 0; overflow: hidden; z-index: 0; pointer-events: none; }
   .home > section { position: relative; z-index: 1; }
   .home-bg::before {
     content: ''; position: absolute; inset: 0;
