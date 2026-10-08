@@ -92,19 +92,23 @@
 :root {
   color-scheme: light;
 
-  --t-paper:        oklch(95.5% 0.016 118);
-  --t-ink:          oklch(26%   0.03  139);
-  --t-paper-2:      oklch(92%   0.018 120);
-  --t-paper-3:      oklch(88.5% 0.02  122);
-  --t-rule:         oklch(66%   0.03  130);
-  --t-rule-2:       oklch(60%   0.035 132);
-  --t-neutral:      oklch(52%   0.035 135);
-  --t-muted:        oklch(43%   0.04  135);
-  --t-ink-2:        oklch(36%   0.035 137);
-  --t-accent:       oklch(49%   0.082 135);
-  --t-accent-2:     oklch(41%   0.08  135);
-  --t-accent-soft:  oklch(91%   0.04  132);
-  --t-focus:        oklch(41%   0.08  135);
+  /* Paleta «Papel blanco» (8-oct-2026, laboratorio /marca/estilos/paleta):
+     papel casi blanco y acentos con más croma, mismos tonos. Contraste de
+     cada pareja de uso comprobado (AA texto, 3:1 bordes de control). */
+
+  --t-paper:        oklch(98.6% 0.006 105);
+  --t-ink:          oklch(22% 0.03 145);
+  --t-paper-2:      oklch(96.2% 0.012 110);
+  --t-paper-3:      oklch(93% 0.016 112);
+  --t-rule:         oklch(86% 0.016 118);
+  --t-rule-2:       oklch(62% 0.025 128);
+  --t-neutral:      oklch(50% 0.03 140);
+  --t-muted:        oklch(42% 0.03 140);
+  --t-ink-2:        oklch(33% 0.03 142);
+  --t-accent:       oklch(48% 0.12 136);
+  --t-accent-2:     oklch(41% 0.11 136);
+  --t-accent-soft:  oklch(93.5% 0.045 136);
+  --t-focus:        oklch(41% 0.11 136);
   --t-success:      var(--t-accent-2);
   --t-error:        oklch(50%   0.14  32);
   --t-error-soft:   oklch(92%   0.03  32);
@@ -115,16 +119,16 @@
      lo que es de la casa (laboratorios, citas, numeración, etiquetas) y
      nunca la acción, que sigue siendo del musgo. Tono 50, lejos del
      error (32) y del aviso (80) en croma y uso. */
-  --t-clay:         oklch(58%   0.1   50);
-  --t-clay-2:       oklch(46%   0.09  48);
-  --t-clay-soft:    oklch(92.5% 0.024 70);
-  --t-clay-rule:    oklch(78%   0.045 62);
+  --t-clay:         oklch(56% 0.14 45);
+  --t-clay-2:       oklch(50% 0.15 42);
+  --t-clay-soft:    oklch(95.5% 0.025 62);
+  --t-clay-rule:    oklch(84% 0.06 55);
 
   /* Código · paleta de editor (site). Un tono por papel de la sintaxis. */
-  --t-code-bg:      oklch(97.8% 0.008 118);
-  --t-code-head:    oklch(93.5% 0.014 120);
-  --t-code-fg:      oklch(26%   0.03  139);
-  --t-code-rule:    oklch(80%   0.025 128);
+  --t-code-bg:      oklch(100% 0 0);
+  --t-code-head:    oklch(96% 0.01 110);
+  --t-code-fg:      oklch(22% 0.03 145);
+  --t-code-rule:    oklch(88% 0.015 120);
   --t-code-dim:     oklch(47%   0.03  135);
   --t-code-kw:      oklch(48%   0.13  35);
   --t-code-str:     oklch(46%   0.11  145);
@@ -160,32 +164,32 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --t-paper:        oklch(17% 0.012 135);
-    --t-ink:          oklch(94% 0.012 120);
-    --t-paper-2:      oklch(21% 0.014 135);
-    --t-paper-3:      oklch(25% 0.016 135);
-    --t-rule:         oklch(44% 0.03  135);
-    --t-rule-2:       oklch(53% 0.03  135);
-    --t-neutral:      oklch(66% 0.03  135);
-    --t-muted:        oklch(74% 0.03  135);
-    --t-ink-2:        oklch(86% 0.02  130);
-    --t-accent:       oklch(72% 0.09  135);
-    --t-accent-2:     oklch(78% 0.09  135);
-    --t-accent-soft:  oklch(28% 0.05  135);
-    --t-focus:        oklch(78% 0.10  135);
+    --t-paper:        oklch(16% 0.012 140);
+    --t-ink:          oklch(96% 0.008 110);
+    --t-paper-2:      oklch(20% 0.014 140);
+    --t-paper-3:      oklch(24.5% 0.016 140);
+    --t-rule:         oklch(34% 0.02 140);
+    --t-rule-2:       oklch(52% 0.028 138);
+    --t-neutral:      oklch(68% 0.025 135);
+    --t-muted:        oklch(78% 0.022 132);
+    --t-ink-2:        oklch(88% 0.014 125);
+    --t-accent:       oklch(76% 0.13 136);
+    --t-accent-2:     oklch(82% 0.12 136);
+    --t-accent-soft:  oklch(28% 0.06 136);
+    --t-focus:        oklch(82% 0.13 136);
     --t-success:      var(--t-accent);
     --t-error:        oklch(76% 0.13  32);
     --t-error-soft:   oklch(25% 0.05  32);
     --t-warning:      oklch(80% 0.12  85);
     --t-warning-soft: oklch(25% 0.05  85);
-    --t-clay:         oklch(70% 0.09  52);
-    --t-clay-2:       oklch(81% 0.07  58);
-    --t-clay-soft:    oklch(24% 0.03  50);
-    --t-clay-rule:    oklch(40% 0.05  50);
-    --t-code-bg:      oklch(20% 0.016 140);
-    --t-code-head:    oklch(24% 0.018 140);
+    --t-clay:         oklch(72% 0.13 48);
+    --t-clay-2:       oklch(80% 0.1 55);
+    --t-clay-soft:    oklch(23% 0.035 50);
+    --t-clay-rule:    oklch(40% 0.06 50);
+    --t-code-bg:      oklch(19% 0.014 140);
+    --t-code-head:    oklch(23% 0.016 140);
     --t-code-fg:      oklch(92% 0.012 120);
-    --t-code-rule:    oklch(34% 0.02  140);
+    --t-code-rule:    oklch(32% 0.02 140);
     --t-code-dim:     oklch(68% 0.025 135);
     --t-code-kw:      oklch(76% 0.12  45);
     --t-code-str:     oklch(80% 0.11  140);
@@ -197,32 +201,32 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --t-paper:        oklch(17% 0.012 135);
-  --t-ink:          oklch(94% 0.012 120);
-  --t-paper-2:      oklch(21% 0.014 135);
-  --t-paper-3:      oklch(25% 0.016 135);
-  --t-rule:         oklch(44% 0.03  135);
-  --t-rule-2:       oklch(53% 0.03  135);
-  --t-neutral:      oklch(66% 0.03  135);
-  --t-muted:        oklch(74% 0.03  135);
-  --t-ink-2:        oklch(86% 0.02  130);
-  --t-accent:       oklch(72% 0.09  135);
-  --t-accent-2:     oklch(78% 0.09  135);
-  --t-accent-soft:  oklch(28% 0.05  135);
-  --t-focus:        oklch(78% 0.10  135);
+  --t-paper:        oklch(16% 0.012 140);
+  --t-ink:          oklch(96% 0.008 110);
+  --t-paper-2:      oklch(20% 0.014 140);
+  --t-paper-3:      oklch(24.5% 0.016 140);
+  --t-rule:         oklch(34% 0.02 140);
+  --t-rule-2:       oklch(52% 0.028 138);
+  --t-neutral:      oklch(68% 0.025 135);
+  --t-muted:        oklch(78% 0.022 132);
+  --t-ink-2:        oklch(88% 0.014 125);
+  --t-accent:       oklch(76% 0.13 136);
+  --t-accent-2:     oklch(82% 0.12 136);
+  --t-accent-soft:  oklch(28% 0.06 136);
+  --t-focus:        oklch(82% 0.13 136);
   --t-success:      var(--t-accent);
   --t-error:        oklch(76% 0.13  32);
   --t-error-soft:   oklch(25% 0.05  32);
   --t-warning:      oklch(80% 0.12  85);
   --t-warning-soft: oklch(25% 0.05  85);
-  --t-clay:         oklch(70% 0.09  52);
-  --t-clay-2:       oklch(81% 0.07  58);
-  --t-clay-soft:    oklch(24% 0.03  50);
-  --t-clay-rule:    oklch(40% 0.05  50);
-  --t-code-bg:      oklch(20% 0.016 140);
-  --t-code-head:    oklch(24% 0.018 140);
+  --t-clay:         oklch(72% 0.13 48);
+  --t-clay-2:       oklch(80% 0.1 55);
+  --t-clay-soft:    oklch(23% 0.035 50);
+  --t-clay-rule:    oklch(40% 0.06 50);
+  --t-code-bg:      oklch(19% 0.014 140);
+  --t-code-head:    oklch(23% 0.016 140);
   --t-code-fg:      oklch(92% 0.012 120);
-  --t-code-rule:    oklch(34% 0.02  140);
+  --t-code-rule:    oklch(32% 0.02 140);
   --t-code-dim:     oklch(68% 0.025 135);
   --t-code-kw:      oklch(76% 0.12  45);
   --t-code-str:     oklch(80% 0.11  140);
