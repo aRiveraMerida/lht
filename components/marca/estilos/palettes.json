@@ -1,0 +1,494 @@
+[
+ {
+  "id": "actual",
+  "name": "Actual",
+  "note": "Lo que hay hoy en Mezcla: tokens de Tortuga tal cual.",
+  "swatches": {
+   "light": {
+    "bg": "#eff2e6",
+    "surface": "#f6f8f1",
+    "surface2": "#e3e7d9",
+    "ink": "#1d281a",
+    "muted": "#46553f",
+    "faint": "#606e5a",
+    "line": "#c7cdbe",
+    "line2": "#9ea995",
+    "signal": "#4c6b3a",
+    "second": "#804728",
+    "third": "#804728",
+    "seam": "#1d281a",
+    "onseam": "#eff2e6",
+    "tag": "#804728"
+   },
+   "dark": {
+    "bg": "#0d110b",
+    "surface": "#161a13",
+    "surface2": "#1e231c",
+    "ink": "#eaece4",
+    "muted": "#b2bbaa",
+    "faint": "#84917e",
+    "line": "#2e352b",
+    "line2": "#475141",
+    "signal": "#96c07f",
+    "second": "#da9b6a",
+    "third": "#e1ab7b",
+    "seam": "#eaede0",
+    "onseam": "#111810",
+    "tag": "#da9b6a"
+   }
+  },
+  "contrast": {
+   "light": {
+    "ink/bg": [
+     13.6,
+     7
+    ],
+    "muted/bg": [
+     7.0,
+     4.5
+    ],
+    "faint/bg": [
+     4.8,
+     4.5
+    ],
+    "signal/bg": [
+     5.3,
+     4.5
+    ],
+    "tag/bg": [
+     6.5,
+     4.5
+    ],
+    "second/bg": [
+     6.5,
+     4.5
+    ],
+    "ink/surface": [
+     14.4,
+     7
+    ],
+    "muted/surface2": [
+     6.3,
+     4.5
+    ],
+    "onseam/seam": [
+     13.6,
+     7
+    ]
+   },
+   "dark": {
+    "ink/bg": [
+     16.0,
+     7
+    ],
+    "muted/bg": [
+     9.6,
+     4.5
+    ],
+    "faint/bg": [
+     5.7,
+     4.5
+    ],
+    "signal/bg": [
+     9.2,
+     4.5
+    ],
+    "tag/bg": [
+     8.1,
+     4.5
+    ],
+    "second/bg": [
+     8.1,
+     4.5
+    ],
+    "ink/surface": [
+     14.9,
+     7
+    ],
+    "muted/surface2": [
+     8.0,
+     4.5
+    ],
+    "onseam/seam": [
+     15.2,
+     7
+    ]
+   }
+  }
+ },
+ {
+  "id": "papel",
+  "name": "Papel blanco",
+  "note": "Los mismos papeles, más claros y con más vida: fondo casi blanco, musgo y arcilla con el doble de croma.",
+  "swatches": {
+   "light": {
+    "bg": "#fbfbf6",
+    "surface": "#ffffff",
+    "surface2": "#f3f3ea",
+    "ink": "#121e12",
+    "muted": "#455142",
+    "faint": "#5a6857",
+    "line": "#dfe1d8",
+    "line2": "#bbc0b2",
+    "signal": "#3c6c1f",
+    "second": "#ac430e",
+    "third": "#f4d29b",
+    "seam": "#121e12",
+    "onseam": "#fbfbf6",
+    "tag": "#a63d02"
+   },
+   "dark": {
+    "bg": "#0b0f0a",
+    "surface": "#131812",
+    "surface2": "#1c221b",
+    "ink": "#f2f2ec",
+    "muted": "#b9c0b3",
+    "faint": "#929c8d",
+    "line": "#293028",
+    "line2": "#414b3e",
+    "signal": "#94ce78",
+    "second": "#f28c5c",
+    "third": "#4e3914",
+    "seam": "#f2f3ea",
+    "onseam": "#0c140c",
+    "tag": "#f28c5c"
+   }
+  },
+  "contrast": {
+   "light": {
+    "ink/bg": [
+     16.5,
+     7
+    ],
+    "muted/bg": [
+     8.0,
+     4.5
+    ],
+    "faint/bg": [
+     5.7,
+     4.5
+    ],
+    "signal/bg": [
+     6.0,
+     4.5
+    ],
+    "tag/bg": [
+     6.2,
+     4.5
+    ],
+    "second/bg": [
+     5.7,
+     4.5
+    ],
+    "ink/surface": [
+     17.2,
+     7
+    ],
+    "muted/surface2": [
+     7.5,
+     4.5
+    ],
+    "onseam/seam": [
+     16.5,
+     7
+    ],
+    "ink/third": [
+     11.9,
+     4.5
+    ]
+   },
+   "dark": {
+    "ink/bg": [
+     17.3,
+     7
+    ],
+    "muted/bg": [
+     10.4,
+     4.5
+    ],
+    "faint/bg": [
+     6.8,
+     4.5
+    ],
+    "signal/bg": [
+     10.4,
+     4.5
+    ],
+    "tag/bg": [
+     8.0,
+     4.5
+    ],
+    "second/bg": [
+     8.0,
+     4.5
+    ],
+    "ink/surface": [
+     16.1,
+     7
+    ],
+    "muted/surface2": [
+     8.7,
+     4.5
+    ],
+    "onseam/seam": [
+     16.7,
+     7
+    ],
+    "ink/third": [
+     9.7,
+     4.5
+    ]
+   }
+  }
+ },
+ {
+  "id": "huerto",
+  "name": "Huerto",
+  "note": "Tres tintas con papel: musgo señala, teja es la casa, azafrán resalta. El objeto iluminado pasa a verde bosque.",
+  "swatches": {
+   "light": {
+    "bg": "#fcfcf9",
+    "surface": "#ffffff",
+    "surface2": "#f6f5ed",
+    "ink": "#101c12",
+    "muted": "#455145",
+    "faint": "#5b675b",
+    "line": "#e1e2da",
+    "line2": "#b9c0b3",
+    "signal": "#37711e",
+    "second": "#b8431a",
+    "third": "#f5cb70",
+    "seam": "#1e4420",
+    "onseam": "#fbfaf3",
+    "tag": "#b83b07"
+   },
+   "dark": {
+    "bg": "#080e09",
+    "surface": "#101711",
+    "surface2": "#19221b",
+    "ink": "#f4f4ef",
+    "muted": "#b7c1b5",
+    "faint": "#8f9d8f",
+    "line": "#242e26",
+    "line2": "#3b493d",
+    "signal": "#94ce78",
+    "second": "#f48a61",
+    "third": "#5d4304",
+    "seam": "#bfdca9",
+    "onseam": "#071307",
+    "tag": "#f8875a"
+   }
+  },
+  "contrast": {
+   "light": {
+    "ink/bg": [
+     17.1,
+     7
+    ],
+    "muted/bg": [
+     8.1,
+     4.5
+    ],
+    "faint/bg": [
+     5.8,
+     4.5
+    ],
+    "signal/bg": [
+     5.8,
+     4.5
+    ],
+    "tag/bg": [
+     5.6,
+     4.5
+    ],
+    "second/bg": [
+     5.3,
+     4.5
+    ],
+    "ink/surface": [
+     17.6,
+     7
+    ],
+    "muted/surface2": [
+     7.6,
+     4.5
+    ],
+    "onseam/seam": [
+     10.5,
+     7
+    ],
+    "ink/third": [
+     11.4,
+     4.5
+    ]
+   },
+   "dark": {
+    "ink/bg": [
+     17.6,
+     7
+    ],
+    "muted/bg": [
+     10.5,
+     4.5
+    ],
+    "faint/bg": [
+     6.8,
+     4.5
+    ],
+    "signal/bg": [
+     10.5,
+     4.5
+    ],
+    "tag/bg": [
+     8.0,
+     4.5
+    ],
+    "second/bg": [
+     8.0,
+     4.5
+    ],
+    "ink/surface": [
+     16.5,
+     7
+    ],
+    "muted/surface2": [
+     8.8,
+     4.5
+    ],
+    "onseam/seam": [
+     12.7,
+     7
+    ],
+    "ink/third": [
+     8.4,
+     4.5
+    ]
+   }
+  }
+ },
+ {
+  "id": "teja",
+  "name": "Teja",
+  "note": "Papel blanco y la teja como señal; el musgo baja a tono de la casa. Rompe la regla de Tortuga (el musgo señala): es una prueba, no una propuesta.",
+  "swatches": {
+   "light": {
+    "bg": "#fdfcf9",
+    "surface": "#ffffff",
+    "surface2": "#f7f3ee",
+    "ink": "#101911",
+    "muted": "#475046",
+    "faint": "#5d665b",
+    "line": "#e3e1db",
+    "line2": "#c0beb4",
+    "signal": "#b83b07",
+    "second": "#29612d",
+    "third": "#f6d9b2",
+    "seam": "#101911",
+    "onseam": "#fdfcf9",
+    "tag": "#29612d"
+   },
+   "dark": {
+    "bg": "#090d0a",
+    "surface": "#111612",
+    "surface2": "#1b211c",
+    "ink": "#f5f3f0",
+    "muted": "#bcbfb5",
+    "faint": "#949b8e",
+    "line": "#262e27",
+    "line2": "#3d493f",
+    "signal": "#f8875a",
+    "second": "#97d083",
+    "third": "#4d391e",
+    "seam": "#f5f1ec",
+    "onseam": "#09120b",
+    "tag": "#97d083"
+   }
+  },
+  "contrast": {
+   "light": {
+    "ink/bg": [
+     17.5,
+     7
+    ],
+    "muted/bg": [
+     8.1,
+     4.5
+    ],
+    "faint/bg": [
+     5.8,
+     4.5
+    ],
+    "signal/bg": [
+     5.6,
+     4.5
+    ],
+    "tag/bg": [
+     7.2,
+     4.5
+    ],
+    "second/bg": [
+     7.2,
+     4.5
+    ],
+    "ink/surface": [
+     18.0,
+     7
+    ],
+    "muted/surface2": [
+     7.6,
+     4.5
+    ],
+    "onseam/seam": [
+     17.5,
+     7
+    ],
+    "ink/third": [
+     13.3,
+     4.5
+    ]
+   },
+   "dark": {
+    "ink/bg": [
+     17.6,
+     7
+    ],
+    "muted/bg": [
+     10.5,
+     4.5
+    ],
+    "faint/bg": [
+     6.8,
+     4.5
+    ],
+    "signal/bg": [
+     8.0,
+     4.5
+    ],
+    "tag/bg": [
+     10.9,
+     4.5
+    ],
+    "second/bg": [
+     10.9,
+     4.5
+    ],
+    "ink/surface": [
+     16.5,
+     7
+    ],
+    "muted/surface2": [
+     8.8,
+     4.5
+    ],
+    "onseam/seam": [
+     17.0,
+     7
+    ],
+    "ink/third": [
+     9.9,
+     4.5
+    ]
+   }
+  }
+ }
+]
