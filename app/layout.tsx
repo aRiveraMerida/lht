@@ -7,6 +7,8 @@ import { Analytics } from "@vercel/analytics/react";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
+  // Real italics: the home headline sets its key word in Fraunces italic.
+  style: ["normal", "italic"],
   variable: "--font-fraunces",
   display: "swap",
   axes: ["SOFT", "WONK", "opsz"],
