@@ -406,7 +406,8 @@
   .block-head p { font-size: var(--text-sm); color: var(--color-muted); }
 
   /* One reading column, centred, for the article and its header alike. */
-  .read-col { width: 100%; max-width: 42rem; margin-inline: auto; }
+  /* 48rem ≈ 75 characters a line in the 20px Fraunces body (42rem gave ~65). */
+  .read-col { width: 100%; max-width: 48rem; margin-inline: auto; }
 
   /* Post list — date, title, a line of excerpt, a hairline. No boxes. */
   .post-list > li { border-bottom: var(--rule-width) solid var(--color-rule); }
@@ -691,6 +692,8 @@
     line-height: 1.7;
     color: var(--color-ink);
   }
+  /* The column sets the measure here, not 65ch (which would cap it below 48rem). */
+  .article-body, .article-body p { max-width: none; }
   .article-body > * + * { margin-top: 1.1em; }
   .article-body h2 { font-size: var(--text-xl); font-weight: 500; margin-top: 2em; }
   /* A short clay rule opens each section. */
