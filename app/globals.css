@@ -787,6 +787,35 @@
   }
 }
 
+/* ─── site: brand lab (/marca) ───────────────────────────────────────────── */
+@layer components {
+  .marca-nav {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-2) var(--space-6);
+    padding-block: var(--space-3); border-bottom: var(--rule-width) solid var(--color-rule);
+    font-size: var(--text-sm);
+  }
+  .marca-nav-title { font-size: var(--text-xs); font-weight: 600; letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--color-clay-2); }
+  .marca-nav ul { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-5); list-style: none; padding: 0; margin: 0; }
+  .marca-nav a { color: var(--color-muted); text-decoration: none; padding-block: var(--space-1); border-bottom: 2px solid transparent; }
+  .marca-nav a:hover { color: var(--color-ink); }
+  .marca-nav a[aria-current="page"] { color: var(--color-ink); border-bottom-color: var(--color-accent); }
+
+  /* Motion rule: slow, once, then stillness. Everything here is off under reduced motion. */
+  @keyframes mk-draw { to { stroke-dashoffset: 0; } }
+  @keyframes mk-dot { from { opacity: 0; transform: translateX(-10px); } 55% { opacity: 1; } to { opacity: 1; transform: none; } }
+  @keyframes mk-walk { from { transform: translateX(-6px); } to { transform: translateX(6px); } }
+  @keyframes mk-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.18); } }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .mk-arrive g path { stroke-dasharray: 200; stroke-dashoffset: 200; animation: mk-draw 1400ms var(--ease-out) forwards; }
+    .mk-arrive circle { opacity: 0; transform-box: fill-box; animation: mk-dot 1800ms var(--ease-out) 700ms forwards; }
+    .mk-walk circle { transform-box: fill-box; animation: mk-walk 3200ms var(--ease-in-out) infinite alternate; }
+    .mk-breathe circle { transform-box: fill-box; transform-origin: center; animation: mk-breathe 5000ms var(--ease-in-out) infinite; }
+    .mk-hover circle { transform-box: fill-box; transition: transform 700ms var(--ease-out); }
+    .mk-hover:hover circle, .mk-hover:focus-visible circle { transform: translateX(5px); }
+  }
+}
+
 /* ─── site: home ──────────────────────────────────────────────────────────
    The home page as a short presentation in four chapters (from the brand
    lab's "Mezcla" prototype, /marca/estilos). The site header stays as is.

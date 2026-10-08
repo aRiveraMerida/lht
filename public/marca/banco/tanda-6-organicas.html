@@ -1,0 +1,73 @@
+<!doctype html><meta charset="utf-8"><title>Tanda 6 · tortugas orgánicas</title><style>
+body{margin:0;padding:20px;background:#eff2e6;color:#1d281a;font:12px ui-monospace,monospace}
+h1{font:600 14px ui-monospace,monospace;margin:0 0 6px} p{margin:0 0 16px;max-width:80ch}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.c{background:#eff2e6;border:1px solid #9aa58c;border-radius:10px;padding:10px}
+.row{display:flex;align-items:center;gap:14px;margin-top:8px}
+.ink{background:#0e120d;border-radius:6px;padding:6px 10px}
+svg{display:block}
+</style>
+<h1>Tanda 6 · tortugas orgánicas, construidas con círculos</h1>
+<p>Siluetas sólidas, huecos finos entre piezas y el ojo o la cabeza como único acento. Cada forma sale de arcos de circunferencia.</p>
+<div class="grid" id="g"></div>
+<script>
+let uid=0;const rad=a=>a*Math.PI/180;
+const f=n=>+n.toFixed(2);
+// vesica (lens) between tips P,Q with arc radius R
+const ves=(px,py,qx,qy,R)=>`M${f(px)} ${f(py)}A${R} ${R} 0 0 1 ${f(qx)} ${f(qy)}A${R} ${R} 0 0 1 ${f(px)} ${f(py)}Z`;
+// leaf with different bulge each side
+const leaf=(px,py,qx,qy,R1,R2)=>`M${f(px)} ${f(py)}A${R1} ${R1} 0 0 1 ${f(qx)} ${f(qy)}A${R2} ${R2} 0 0 1 ${f(px)} ${f(py)}Z`;
+function masked(shape,cuts){const id='m'+(++uid);return {defs:`<mask id="${id}" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48"><rect width="48" height="48" fill="#000"/>${shape.replace('<PATH','<path fill="#fff"').replace('<ELL','<ellipse fill="#fff"')}${cuts}</mask>`,id}}
+const cut=(d,w=1.3)=>`<path d="${d}" fill="none" stroke="#000" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"/>`;
+const T={};
+// ── T1 cenital con escudos irregulares (ref 5)
+T.T1=(o)=>{
+  const cx=24,cy=29.5,rx=11,ry=12.5; const pent=[0,1,2,3,4].map(i=>[cx+6.3*Math.cos(rad(-90+72*i)),cy-1+6.3*Math.sin(rad(-90+72*i))]);
+  let cuts=cut('M'+pent.map(p=>p.map(f).join(' ')).join('L')+'Z');
+  pent.forEach(p=>{const dx=p[0]-cx,dy=p[1]-(cy-1),l=Math.hypot(dx,dy);cuts+=cut(`M${f(p[0])} ${f(p[1])}L${f(p[0]+dx/l*14)} ${f(p[1]+dy/l*14)}`)});
+  const m=masked(`<ELL cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}"/>`,cuts);
+  const kc=[cx,cy-1], key='M'+pent.map(p=>[kc[0]+(p[0]-kc[0])*0.78,kc[1]+(p[1]-kc[1])*0.78].map(f).join(' ')).join('L')+'Z';
+  const head=ves(24,2.6,24,15.4,9.5), fl=[[12.4,22,2.8,13.2,10],[35.6,22,45.2,13.2,10],[14,37.6,7,44.6,8.5],[34,37.6,41,44.6,8.5]].map(a=>ves(a[0],a[1],a[2],a[3],a[4]));
+  return `<defs>${m.defs}</defs><rect width="48" height="48" fill="currentColor" mask="url(#${m.id})"/><path d="${key}" fill="${o.keyAcc?'var(--ac)':'currentColor'}"/><path d="${head}" fill="${o.keyAcc?'currentColor':'var(--ac)'}"/>${fl.map(d=>`<path d="${d}" fill="currentColor"/>`).join('')}`};
+// ── T2 cenital con espiral lenta (ref 6)
+T.T2=()=>{
+  const cx=24,cy=29.5,R=12.6; let sp='';const pts=[];for(let t=0;t<=3.1*Math.PI*2/1;t+=0.15){const r=0.5+t*0.34;if(r>6.4)break;pts.push([cx+r*Math.cos(t-1.2),cy+r*Math.sin(t-1.2)])}
+  sp='M'+pts.map(p=>p.map(f).join(' ')).join('L');
+  let cuts=`<circle cx="${cx}" cy="${cy}" r="8.5" fill="none" stroke="#000" stroke-width="1.4"/>`+cut(sp,1.5);
+  for(let a=0;a<360;a+=45){const t=rad(a+22.5);cuts+=cut(`M${f(cx+8.5*Math.cos(t))} ${f(cy+8.5*Math.sin(t))}L${f(cx+14*Math.cos(t))} ${f(cy+14*Math.sin(t))}`)}
+  const m=masked(`<ELL cx="${cx}" cy="${cy}" rx="${R}" ry="${R}"/>`,cuts);
+  const head=ves(24,2.4,24,15.8,9.5), fl=[[12.6,22.2,3.4,14,10],[35.4,22.2,44.6,14,10],[14.4,38.4,7.6,45,8.5],[33.6,38.4,40.4,45,8.5]].map(a=>ves(a[0],a[1],a[2],a[3],a[4]));
+  return `<defs>${m.defs}</defs><rect width="48" height="48" fill="currentColor" mask="url(#${m.id})"/><path d="${head}" fill="var(--ac)"/>${fl.map(d=>`<path d="${d}" fill="currentColor"/>`).join('')}`};
+// ── T3 lateral sólida con ojo (ref 1)
+T.T3=()=>{
+  const shell='M16 27.6C15.4 19 21.6 12.2 29.6 12.2C36.6 12.2 41.6 18.6 42.6 26C42.8 27.2 42.2 27.9 41.2 28.1C35 29.8 24.2 30.4 16 27.6Z';
+  const neck='M4.4 14.6A5.6 5.6 0 0 1 15.2 12.6C15.6 18 16 23 17.6 29L13 32.4C8.6 27 5.2 21 4.4 14.6Z';
+  const belly='M17.2 30.6C24 33.2 34 33.4 41.6 30.2L41.4 34C34 35.6 24 35.2 18.6 33.2Z';
+  const legs='M12.4 38.6L14 36.8L17 31.6L22.6 33.2L20.6 38.6ZM30.6 38.6L28.6 34.4L33.2 34.6L36.8 38.6ZM41 31.4C43.4 32 45.4 33.6 46.8 36.2L43.6 36.8C42.6 35.4 41.6 34.6 40.2 34.2Z';
+  const eye='<circle cx="8.9" cy="12.4" r="1.5" fill="var(--ac)"/>';
+  return `<defs><mask id="e${++uid}" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48"><rect width="48" height="48" fill="#fff"/><circle cx="8.9" cy="12.4" r="1.9" fill="#000"/></mask></defs><g mask="url(#e${uid})"><path d="${shell} ${neck} ${belly} ${legs}" fill="currentColor"/></g>${eye}`};
+// ── T4 lateral con escudos orgánicos (ref 3)
+T.T4=()=>{
+  const shell='M16 27.6C15.4 19 21.6 12.2 29.6 12.2C36.6 12.2 41.6 18.6 42.6 26C42.8 27.2 42.2 27.9 41.2 28.1C35 29.8 24.2 30.4 16 27.6Z';
+  const cuts=cut('M19 26C19.6 20 23.6 15.6 29.6 15.6C34.4 15.6 38.2 19.6 39.2 25',1.3)+cut('M24.4 15.8C23.2 19.4 23.4 23.2 24.6 26.6')+cut('M32.2 15.8C32.4 19.6 33.6 23 35.2 26')+cut('M19.6 21.6C22.2 22 25 22.4 27 21.4C30 20.2 32.6 19.8 34.2 19.4',1.2);
+  const m=masked(`<PATH d="${shell}"/>`,cuts);
+  const neck='M4.4 14.6A5.6 5.6 0 0 1 15.2 12.6C15.6 18 16 23 17.6 29L13 32.4C8.6 27 5.2 21 4.4 14.6Z';
+  const belly='M17.2 30.6C24 33.2 34 33.4 41.6 30.2L41.4 34C34 35.6 24 35.2 18.6 33.2Z';
+  const legs='M12.4 38.6L14 36.8L17 31.6L22.6 33.2L20.6 38.6ZM30.6 38.6L28.6 34.4L33.2 34.6L36.8 38.6ZM41 31.4C43.4 32 45.4 33.6 46.8 36.2L43.6 36.8C42.6 35.4 41.6 34.6 40.2 34.2Z';
+  const key='M24.9 16.6C24.1 19.6 24.3 22.6 25.2 25.4L31.6 25C31.6 21.6 31.5 19.2 31.6 16.9C29 16.2 26.8 16.2 24.9 16.6Z';
+  return `<defs>${m.defs}<mask id="e${++uid}" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48"><rect width="48" height="48" fill="#fff"/><circle cx="8.9" cy="12.4" r="1.7" fill="#000"/></mask></defs><rect width="48" height="48" fill="currentColor" mask="url(#${m.id})"/><g mask="url(#e${uid})"><path d="${neck} ${belly} ${legs}" fill="currentColor"/></g><path d="${key}" fill="var(--ac)"/>`};
+// ── T5 gesto de una pieza (ref 11)
+T.T5=()=>{
+  const body='M3 34C7 22.5 18.5 14.2 34.2 13.4L36 13.6C29.4 19.6 18.4 28.6 3 34Z';
+  const head='M37.6 15.4C41 14.2 44.6 15.8 45.2 19.6C45.6 22 44.8 23.6 43.2 24.6C39.2 27 34 31 29 38.4C28.4 34.6 30.6 29.6 32.6 26.4C34.6 23.2 35.6 19 37.6 15.4Z';
+  const fin='M9.8 35.2C16 34.4 22.6 34.8 26.8 38.4C21.2 38.4 14.4 38 9.8 35.2Z';
+  return `<defs><mask id="e${++uid}" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48"><rect width="48" height="48" fill="#fff"/><circle cx="41.6" cy="19.2" r="1.6" fill="#000"/></mask></defs><g mask="url(#e${uid})"><path d="${body} ${head} ${fin}" fill="currentColor"/></g><circle cx="41.6" cy="19.2" r="1.3" fill="var(--ac)"/>`};
+const V={T1:T.T1({keyAcc:true}),T1b:T.T1({keyAcc:false}),T2:T.T2(),T3:T.T3(),T4:T.T4(),T5:T.T5()};
+const g=document.getElementById('g');
+const mk=(inner,size,fg,ac)=>`<svg width="${size}" height="${size}" viewBox="0 0 48 48" style="color:${fg};--ac:${ac}">${inner}</svg>`;
+for(const [k,inner] of Object.entries(V)){
+ const el=document.createElement('div');el.className='c';
+ const A=s=>mk(inner,s,'#1d281a','#4c6b3a'),B=s=>mk(inner,s,'#eaece4','#8cb278');
+ el.innerHTML=`<b>${k}</b><div class="row">${A(210)}<div><div class="row" style="margin:0">${A(64)}${A(32)}${A(24)}${A(16)}</div><div class="row ink">${B(64)}${B(24)}${B(16)}</div></div></div>`;
+ g.appendChild(el)}
+</script>

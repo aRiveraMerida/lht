@@ -1,7 +1,7 @@
 # Rediseño Tortuga — estado
 
-**Rama:** `rediseno-tortuga` (desde `master`). **Última actualización:** 23-sep-2026.
-**Sin push.** El port de tokens está en commit; la adopción de la gramática Tortuga (ver abajo) está en el árbol de trabajo.
+**Rama:** `marca-lab` (desde `master`, después de mergear `rediseno-tortuga` en el PR #5).
+**Última actualización:** 8-oct-2026. Con push a `origin/marca-lab`; sin PR ni merge.
 
 ## Qué se está haciendo y por qué
 
@@ -66,12 +66,41 @@ que es de la casa: tarjetas de laboratorio, citas, numeración de capítulos, et
 selección de texto. La acción (enlaces, botón principal, activo, foco, progreso) sigue
 siendo del musgo. Pasa AA en los dos temas.
 
+## Segunda vuelta (8-oct-2026, rama `marca-lab`)
+
+**Paleta «Papel blanco».** El papel verdoso (luz 95,5 %) se leía gris y el musgo, apagado. Los
+`--t-*` de `globals.css` pasan a papel casi blanco (98,6 %) y musgo y arcilla con más croma, en
+los mismos tonos. Cada pareja de uso real está comprobada con script: texto AA, bordes de
+control 3:1 (`rule-2`), y la arcilla a 4,5:1 porque numera listas. Se eligió entre cuatro
+paletas en `/marca/estilos/paleta`. Tokens nuevos: `surface` (paneles) y `saffron`
+(etiquetas de temas de la portada).
+
+**Portada como presentación en cuatro capítulos** (`app/page.tsx`, `components/home/`,
+bloque `site: home` en `globals.css`): pieza explicativa en el hero («Probamos» → «antes de
+opinar» → lo que funciona / lo que no / lo que todavía no sabemos), último artículo como bloque
+destacado, laboratorios como línea de bloques (conserva el progreso por lector), columna de
+capítulos, progreso de lectura y `J`/`K`. Movimiento con resortes, un solo bucle lento que se
+pausa fuera de pantalla, nada con «reducir movimiento». La cabecera es la de siempre. Sale del
+prototipo «Mezcla» de `/marca/estilos`, que mezcla una presentación de referencia («Blueprint
+Noir») con la identidad de Tortuga. El resto de páginas conserva su maquetación.
+
+**Fraunces con cursiva real** (`app/layout.tsx`): antes el navegador la sintetizaba.
+
+**Laboratorio de marca en `/marca`** (interno: `noindex`, fuera del menú y del sitemap). Hub,
+exploración de logo por rondas, color y tipo, identidad, movimiento, y `/marca/estilos` con los
+prototipos Noir y Mezcla, la comparativa y la paleta. Capturas en `public/marca/estilos/`
+(se regeneran a mano si cambian los prototipos). Ojo: `.block` del sitio choca con la
+utilidad `block` de Tailwind; en código nuevo, no usar `block`.
+
 ## Qué falta
 
 - [ ] **Que lo vea Alberto.** Cambia el aspecto de un sitio publicado que es suyo, y Tortuga
       sigue «pendiente de Alberto» en `lht-retos/.../decisiones/design-system/DECISION.md`.
-- [ ] **Marca:** `TurtleLogo.tsx` y el favicon siguen siendo los viejos. La exploración de
-      logotipo está fuera de repo (`lht-logotipo.html`, escritorio de Javi).
+- [ ] **Marca:** `TurtleLogo.tsx` y el favicon siguen siendo los viejos. La exploración está
+      en `/marca/logo` y en `public/marca/banco/`; la dirección que gusta es un caparazón
+      orgánico visto desde arriba (tanda 7: S1 sobrio, S5 con espiral). Sin elegir.
+- [ ] **Llevar la composición nueva al resto de páginas** (archivo, artículo, laboratorio), si
+      se quiere: hoy solo la portada la tiene.
 - [ ] **Contenido de guías:** varias guías de laboratorio tienen listas y tablas aplanadas en
       párrafos (`• a • b • c`, p. ej. `prework-terminal`, `prework-git`). Es del markdown.
 - [ ] **Siete tamaños de letra por página**, el sistema pide cinco. Revisar si sobra un nivel.

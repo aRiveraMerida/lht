@@ -1,0 +1,55 @@
+<!doctype html><meta charset="utf-8"><style>
+body{margin:0;padding:20px;background:#eff2e6;color:#1d281a;font:12px ui-monospace,monospace}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.c{background:#eff2e6;border:1px solid #9aa58c;border-radius:10px;padding:10px}
+.row{display:flex;align-items:center;gap:14px;margin-top:8px}
+.ink{background:#0e120d;border-radius:6px;padding:6px 10px}
+svg{display:block}
+</style><div class="grid" id="g"></div>
+<script>
+const rad=a=>a*Math.PI/180;
+const hexPts=(cx,cy,r)=>Array.from({length:6},(_,i)=>[cx+r*Math.cos(rad(-90+60*i)),cy+r*Math.sin(rad(-90+60*i))]);
+const area=p=>p.reduce((s,q,i)=>{const n=p[(i+1)%p.length];return s+(q[0]*n[1]-n[0]*q[1])},0)/2;
+function inset(p,d){ // convex polygon inward offset by d
+  const sgn=area(p)>0?1:-1, n=p.length, L=[];
+  for(let i=0;i<n;i++){const a=p[i],b=p[(i+1)%n];const dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy);
+    const nx=sgn*-dy/l,ny=sgn*dx/l; L.push([[a[0]+nx*d,a[1]+ny*d],[dx/l,dy/l]]);}
+  return p.map((_,i)=>{const [p1,d1]=L[(i+n-1)%n],[p2,d2]=L[i];const det=d1[0]*d2[1]-d1[1]*d2[0];
+    const t=((p2[0]-p1[0])*d2[1]-(p2[1]-p1[1])*d2[0])/det; return [p1[0]+d1[0]*t,p1[1]+d1[1]*t];});
+}
+const poly=(p)=>'M'+p.map(q=>q.map(v=>+v.toFixed(2)).join(' ')).join('L')+'Z';
+const G=0.6; // half gap
+// flower of seven hex cells, r cell
+function flower(cx,cy,r){const d=Math.sqrt(3)*r;const cells=[[cx,cy]];for(let k=0;k<6;k++)cells.push([cx+d*Math.cos(rad(60*k)),cy+d*Math.sin(rad(60*k))]);return cells;}
+function hexes(cells,r){return cells.map(c=>poly(inset(hexPts(c[0],c[1],r),G)))}
+const V={};
+const flat=(cx,cy,r)=>Array.from({length:6},(_,i)=>[cx+r*Math.cos(rad(60*i)),cy+r*Math.sin(rad(60*i))]);
+const fh=(c,r)=>poly(inset(flat(c[0],c[1],r),G));
+function shell(cx,cy,r){const h=Math.sqrt(3)*r;return {
+  col:[[cx,cy-h],[cx,cy],[cx,cy+h]],
+  sides:[[cx-1.5*r,cy-h/2],[cx-1.5*r,cy+h/2],[cx+1.5*r,cy-h/2],[cx+1.5*r,cy+h/2]], h}}
+function turtle(o){ // o: r, headR, limbR, keystone:'center'|'head', limbs:bool, tail:bool, cy
+  const cy=o.cy??27.5, sh=shell(24,cy,o.r), ink=[], acc=[];
+  const cells=[...sh.col,...sh.sides];
+  cells.forEach((c,i)=>{const p=fh(c,o.r); (o.key==='center'&&i===1)?acc.push(p):ink.push(p)});
+  const head=poly(inset(flat(24,cy-sh.h*1.5-o.headR*0.55-0.6,o.headR),G*0.5)); (o.key==='head'?acc:ink).push(head);
+  if(o.limbs){const lx=24+1.5*o.r+o.limbR*1.35, fy=cy-sh.h*0.95, ry=cy+sh.h*0.95;
+    for(const c of [[lx,fy],[48-lx,fy],[lx,ry],[48-lx,ry]]) ink.push(poly(inset(flat(c[0],c[1],o.limbR),G*0.5)));}
+  if(o.tail) ink.push(poly(inset(flat(24,cy+sh.h*1.5+o.limbR*0.5+1.2,1.9),0.2)));
+  return {ink,acc};}
+V.T1=turtle({r:6,headR:3.9,limbR:3.4,key:'center',limbs:true,tail:false,cy:28});
+V.T2=turtle({r:6,headR:3.9,limbR:3.4,key:'head',limbs:true,tail:false,cy:28});
+V.T3=turtle({r:5.6,headR:4.2,limbR:3.9,key:'center',limbs:true,tail:true,cy:27.5});
+V.T4=turtle({r:6.4,headR:4.2,limbR:0,key:'center',limbs:false,tail:false,cy:29});
+V.T5=turtle({r:6.4,headR:4.2,limbR:0,key:'head',limbs:false,tail:false,cy:29});
+V.T6=turtle({r:5.2,headR:3.8,limbR:3.6,key:'center',limbs:true,tail:true,cy:27.5});
+V.T7=turtle({r:6.8,headR:4.4,limbR:3.6,key:'center',limbs:true,tail:false,cy:29});
+V.T8=turtle({r:6.0,headR:3.6,limbR:4.2,key:'head',limbs:true,tail:true,cy:27.5});
+const g=document.getElementById('g');
+function mk(c,size,fg,ac){return `<svg width="${size}" height="${size}" viewBox="0 0 48 48"><g fill="${fg}">${c.ink.map(d=>`<path d="${d}"/>`).join('')}</g><g fill="${ac}">${c.acc.map(d=>`<path d="${d}"/>`).join('')}</g></svg>`}
+for(const [k,c] of Object.entries(V)){
+ const el=document.createElement('div');el.className='c';
+ const A=(s)=>mk(c,s,'#1d281a','#4c6b3a'),B=(s)=>mk(c,s,'#eaece4','#8cb278');
+ el.innerHTML=`<b>${k}</b><div class="row">${A(150)}<div><div class="row" style="margin:0">${A(48)}${A(32)}${A(24)}${A(16)}</div><div class="row ink">${B(48)}${B(16)}</div></div></div>`;
+ g.appendChild(el)}
+</script>

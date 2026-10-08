@@ -14,5 +14,6 @@ module.exports = {
       { userAgent: 'LinkedInBot', allow: '/' },
     ],
   },
-  exclude: ['/api/*'],
+  // /marca is an internal brand lab: noindex, and never in the public sitemap.
+  exclude: ['/api/*', '/marca', '/marca/*'],
 }

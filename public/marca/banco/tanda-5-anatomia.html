@@ -1,0 +1,64 @@
+<!doctype html><meta charset="utf-8"><title>Tanda 5 · anatomía real</title><style>
+body{margin:0;padding:20px;background:#eff2e6;color:#1d281a;font:12px ui-monospace,monospace}
+h1{font:600 14px ui-monospace,monospace;margin:0 0 6px} p{margin:0 0 16px;max-width:80ch}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.c{background:#eff2e6;border:1px solid #9aa58c;border-radius:10px;padding:10px}
+.row{display:flex;align-items:center;gap:14px;margin-top:8px}
+.ink{background:#0e120d;border-radius:6px;padding:6px 10px}
+svg{display:block}
+</style>
+<h1>Tanda 5 · anatomía real del caparazón</h1>
+<p>Escudos vertebrales en columna (alargados, con punta a los lados), costales irregulares que salen de esas puntas y anillo marginal, dentro de un óvalo. Cabeza y aletas sólidas y afiladas. Un solo bloque de acento.</p>
+<div class="grid" id="g"></div>
+<script>
+let uid=0;
+const P=(pts)=>'M'+pts.map(q=>q.join(' ')).join('L')+'Z';
+// mirror helper: polygon for right side -> left side
+const mir=(pts)=>pts.map(([x,y])=>[48-x,y]);
+function turtle(o){
+  const id='m'+(++uid);
+  const cx=24, cy=27, rx=o.rx??12.5, ry=o.ry??15.5, w=o.gap??1.3;
+  // vertebral scutes: flat-top elongated hexagons
+  const vy=o.vy??[19.2,27,34.8], hh=o.vh??3.4, hw=o.vw??3, pw=o.vp??6;
+  const vert=vy.map(y=>[[cx-hw,y-hh],[cx+hw,y-hh],[cx+pw,y],[cx+hw,y+hh],[cx-hw,y+hh],[cx-pw,y]]);
+  // cuts
+  let cuts='';
+  vert.forEach(v=>{cuts+=`<path d="${P(v)}" fill="none" stroke="#000" stroke-width="${w}" stroke-linejoin="miter"/>`});
+  // costal rays (right side and mirrored)
+  const rays=o.rays??[[[cx+hw,vy[0]-hh],[cx+11,vy[0]-hh-5.5]],[[cx+hw,(vy[0]+vy[1])/2],[cx+16,(vy[0]+vy[1])/2-0.6]],[[cx+hw,(vy[1]+vy[2])/2],[cx+16,(vy[1]+vy[2])/2+0.6]],[[cx+hw,vy[2]+hh],[cx+11,vy[2]+hh+5.5]]];
+  rays.forEach(r=>{cuts+=`<path d="M${r[0].join(' ')}L${r[1].join(' ')}" stroke="#000" stroke-width="${w}"/><path d="M${mir(r).map(q=>q.join(' ')).join('L')}" stroke="#000" stroke-width="${w}"/>`});
+  // marginal ring
+  if(o.ring){const k=o.ring;cuts+=`<ellipse cx="${cx}" cy="${cy}" rx="${rx-k}" ry="${ry-k}" fill="none" stroke="#000" stroke-width="${w}"/>`;
+    for(let a=0;a<360;a+=(o.tick??30)){ if(Math.abs(((a+90)%180))<8) continue; const t=a*Math.PI/180;
+      cuts+=`<path d="M${(cx+(rx-k)*Math.cos(t)).toFixed(2)} ${(cy+(ry-k)*Math.sin(t)).toFixed(2)}L${(cx+(rx+1)*Math.cos(t)).toFixed(2)} ${(cy+(ry+1)*Math.sin(t)).toFixed(2)}" stroke="#000" stroke-width="${w}"/>`}}
+  const mask=`<mask id="${id}" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48"><rect width="48" height="48" fill="#000"/><ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}" fill="#fff"/>${cuts}</mask>`;
+  const shellInk=`<rect width="48" height="48" fill="currentColor" mask="url(#${id})"/>`;
+  // keystone (accent): inset vertebral scute
+  const kv=vert[o.key??1]; const kc=[kv.reduce((s,p)=>s+p[0],0)/6,kv.reduce((s,p)=>s+p[1],0)/6];
+  const shrink=(v,f)=>v.map(([x,y])=>[+(kc[0]+(x-kc[0])*f).toFixed(2),+(kc[1]+(y-kc[1])*f).toFixed(2)]);
+  const keystone=`<path d="${P(shrink(kv,0.8))}" fill="var(--ac)"/>`;
+  // head, flippers, tail (sharp polygons)
+  const top=cy-ry;
+  const head=`<path d="${P([[cx,top-8],[cx+3.1,top-4.6],[cx+2.2,top-1.7],[cx-2.2,top-1.7],[cx-3.1,top-4.6]])}" fill="${o.headAcc?'var(--ac)':'currentColor'}"/>`;
+  const fr=[[cx+9,cy-9.5],[cx+19,cy-14],[cx+21.5,cy-11],[cx+13.5,cy-6]];
+  const rr=[[cx+9,cy+9],[cx+16.5,cy+11.5],[cx+15,cy+15],[cx+8.5,cy+13]];
+  const limbs=o.limbs===false?'':[fr,mir(fr),rr,mir(rr)].map(l=>`<path d="${P(l)}" fill="currentColor"/>`).join('');
+  const tail=o.tail?`<path d="${P([[cx,cy+ry+2.1],[cx+1.7,cy+ry+5.4],[cx-1.7,cy+ry+5.4]])}" fill="currentColor"/>`:'';
+  return `<defs>${mask}</defs>${shellInk}${o.headAcc?'':keystone}${head}${limbs}${tail}`;
+}
+const V={
+ W1:{ring:2.6,tick:30,tail:true},
+ W2:{tail:true},
+ W3:{gap:1.5,tail:false,limbs:true},
+ W4:{tail:true,headAcc:true},
+ W5:{ring:2.4,tick:36,tail:true,headAcc:true},
+ W6:{gap:1.7,limbs:false,tail:false,vy:[20,27,34],vh:3.6},
+};
+const g=document.getElementById('g');
+function mk(o,size,fg,ac){return `<svg width="${size}" height="${size}" viewBox="0 0 48 48" style="color:${fg};--ac:${ac}">${turtle(o)}</svg>`}
+for(const [k,o] of Object.entries(V)){
+ const el=document.createElement('div');el.className='c';
+ const A=s=>mk(o,s,'#1d281a','#4c6b3a'),B=s=>mk(o,s,'#eaece4','#8cb278');
+ el.innerHTML=`<b>${k}</b><div class="row">${A(190)}<div><div class="row" style="margin:0">${A(64)}${A(32)}${A(24)}${A(16)}</div><div class="row ink">${B(64)}${B(24)}${B(16)}</div></div></div>`;
+ g.appendChild(el)}
+</script>
