@@ -1,7 +1,8 @@
 # Rediseño Tortuga — estado
 
-**Rama:** `marca-lab` (desde `master`, después de mergear `rediseno-tortuga` en el PR #5).
-**Última actualización:** 8-oct-2026. Con push a `origin/marca-lab`; sin PR ni merge.
+**Rama:** `master`. Todo mergeado y en producción (PR #5 a #9).
+**Última actualización:** 8-oct-2026. Se mergeó directamente para que Alberto lo vea
+desplegado; si no lo quiere, se revierte por PR.
 
 ## Qué se está haciendo y por qué
 
@@ -92,6 +93,23 @@ prototipos Noir y Mezcla, la comparativa y la paleta. Capturas en `public/marca/
 (se regeneran a mano si cambian los prototipos). Ojo: `.block` del sitio choca con la
 utilidad `block` de Tailwind; en código nuevo, no usar `block`.
 
+## Tercera vuelta (8-oct-2026, PR #7 a #9)
+
+**Overscroll** (#7): la cuadrícula de la portada empieza bajo la cabecera, así que al tirar
+más allá del borde se ve la barra de menú y no el fondo.
+
+**Columna de lectura a 48rem** (#8): unos 71 caracteres por línea en escritorio. No conviene
+ensancharla más: algunas líneas ya llegan a 81.
+
+**Oscuro más claro** (#9): fondo al 22 % de luminosidad (antes 16 %, que se leía casi negro; el
+25 % se probó y quedaba lavado). Texto al 92 % (13,6:1) para que deslumbre menos y secundario al
+86 % para que siga separándose. Todas las parejas pasan AA.
+
+**Auditoría de lectura** (#9): en móvil el cuerpo baja a 18 px (de 33 a unos 37 caracteres por
+línea) y se activa el guionado, salvo en títulos, código y tablas. La negrita pasa a 550 y las
+listas van más juntas dentro de cada punto que entre puntos. El justificado se probó y se
+descartó: en móvil abría huecos entre palabras y en escritorio estiraba líneas.
+
 ## Qué falta
 
 - [ ] **Que lo vea Alberto.** Cambia el aspecto de un sitio publicado que es suyo, y Tortuga
@@ -103,12 +121,11 @@ utilidad `block` de Tailwind; en código nuevo, no usar `block`.
       se quiere: hoy solo la portada la tiene.
 - [ ] **Contenido de guías:** varias guías de laboratorio tienen listas y tablas aplanadas en
       párrafos (`• a • b • c`, p. ej. `prework-terminal`, `prework-git`). Es del markdown.
+- [ ] **Exceso de negritas** en algunos posts (por cada 1000 palabras: AI Act 24, Data Lake 21,
+      harness 18). Es del contenido; el CSS ya las suaviza.
+- [ ] **Avisos del detector de Impeccable** sobre código anterior: la barra de progreso anima
+      `width`, las filas de artículos de la portada animan `padding`, y la cuadrícula del fondo
+      de la portada cuenta como decorativa.
 - [ ] **Siete tamaños de letra por página**, el sistema pide cinco. Revisar si sobra un nivel.
 - [ ] **Validar la arcilla con Alberto** y, si se queda, portarla a `tokens.css` del
       design system para que deje de ser una extensión del sitio.
-
-## Antes de cerrar esto
-
-No es un merge normal: cambia el aspecto de un sitio publicado que **no es nuestro**.
-Tiene que verlo Alberto. Lo natural es abrir PR y dejar que el
-preview de Vercel hable, en vez de describirlo por escrito.
