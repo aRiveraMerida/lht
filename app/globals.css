@@ -170,38 +170,42 @@
   --dur-slow: 320ms;
 }
 
+/* Dark (8-oct-2026): base raised from 16 % to 22 % lightness, surfaces and
+   secondary text shifted with it, body text eased to 92 % — 16 % read as
+   near-black in long texts; 25 % was tried and read washed out. Every text
+   pair re-checked. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --t-paper:        oklch(16% 0.012 140);
-    --t-ink:          oklch(96% 0.008 110);
-    --t-paper-2:      oklch(20% 0.014 140);
-    --t-paper-3:      oklch(24.5% 0.016 140);
-    --t-rule:         oklch(34% 0.02 140);
-    --t-rule-2:       oklch(52% 0.028 138);
-    --t-neutral:      oklch(68% 0.025 135);
-    --t-muted:        oklch(78% 0.022 132);
-    --t-ink-2:        oklch(88% 0.014 125);
-    --t-accent:       oklch(76% 0.13 136);
-    --t-accent-2:     oklch(82% 0.12 136);
-    --t-accent-soft:  oklch(28% 0.06 136);
-    --t-focus:        oklch(82% 0.13 136);
+    --t-paper:        oklch(22% 0.012 140);
+    --t-ink:          oklch(92% 0.008 110);
+    --t-paper-2:      oklch(25.5% 0.014 140);
+    --t-paper-3:      oklch(29.5% 0.016 140);
+    --t-rule:         oklch(38.5% 0.02 140);
+    --t-rule-2:       oklch(57.5% 0.028 138);
+    --t-neutral:      oklch(71.5% 0.025 135);
+    --t-muted:        oklch(80% 0.021 132);
+    --t-ink-2:        oklch(86% 0.013 125);
+    --t-accent:       oklch(78% 0.13 136);
+    --t-accent-2:     oklch(84% 0.115 136);
+    --t-accent-soft:  oklch(33% 0.06 136);
+    --t-focus:        oklch(84% 0.125 136);
     --t-success:      var(--t-accent);
     --t-error:        oklch(76% 0.13  32);
-    --t-error-soft:   oklch(25% 0.05  32);
+    --t-error-soft:   oklch(28% 0.05 32);
     --t-warning:      oklch(80% 0.12  85);
-    --t-warning-soft: oklch(25% 0.05  85);
-    --t-clay:         oklch(72% 0.13 48);
-    --t-clay-2:       oklch(80% 0.1 55);
-    --t-clay-soft:    oklch(23% 0.035 50);
-    --t-clay-rule:    oklch(40% 0.06 50);
-    --t-surface:      oklch(20% 0.014 140);
-    --t-saffron-soft: oklch(29% 0.045 80);
-    --t-saffron-rule: oklch(44% 0.06 80);
-    --t-code-bg:      oklch(19% 0.014 140);
-    --t-code-head:    oklch(23% 0.016 140);
+    --t-warning-soft: oklch(28% 0.05 85);
+    --t-clay:         oklch(74.5% 0.125 49);
+    --t-clay-2:       oklch(82% 0.095 55);
+    --t-clay-soft:    oklch(28.5% 0.035 50);
+    --t-clay-rule:    oklch(44.5% 0.06 50);
+    --t-surface:      oklch(25.5% 0.014 140);
+    --t-saffron-soft: oklch(33.5% 0.045 80);
+    --t-saffron-rule: oklch(41% 0.06 80);
+    --t-code-bg:      oklch(24.5% 0.014 140);
+    --t-code-head:    oklch(28% 0.016 140);
     --t-code-fg:      oklch(92% 0.012 120);
-    --t-code-rule:    oklch(32% 0.02 140);
+    --t-code-rule:    oklch(36.5% 0.02 140);
     --t-code-dim:     oklch(68% 0.025 135);
     --t-code-kw:      oklch(76% 0.12  45);
     --t-code-str:     oklch(80% 0.11  140);
@@ -213,35 +217,35 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --t-paper:        oklch(16% 0.012 140);
-  --t-ink:          oklch(96% 0.008 110);
-  --t-paper-2:      oklch(20% 0.014 140);
-  --t-paper-3:      oklch(24.5% 0.016 140);
-  --t-rule:         oklch(34% 0.02 140);
-  --t-rule-2:       oklch(52% 0.028 138);
-  --t-neutral:      oklch(68% 0.025 135);
-  --t-muted:        oklch(78% 0.022 132);
-  --t-ink-2:        oklch(88% 0.014 125);
-  --t-accent:       oklch(76% 0.13 136);
-  --t-accent-2:     oklch(82% 0.12 136);
-  --t-accent-soft:  oklch(28% 0.06 136);
-  --t-focus:        oklch(82% 0.13 136);
+  --t-paper:        oklch(22% 0.012 140);
+  --t-ink:          oklch(92% 0.008 110);
+  --t-paper-2:      oklch(25.5% 0.014 140);
+  --t-paper-3:      oklch(29.5% 0.016 140);
+  --t-rule:         oklch(38.5% 0.02 140);
+  --t-rule-2:       oklch(57.5% 0.028 138);
+  --t-neutral:      oklch(71.5% 0.025 135);
+  --t-muted:        oklch(80% 0.021 132);
+  --t-ink-2:        oklch(86% 0.013 125);
+  --t-accent:       oklch(78% 0.13 136);
+  --t-accent-2:     oklch(84% 0.115 136);
+  --t-accent-soft:  oklch(33% 0.06 136);
+  --t-focus:        oklch(84% 0.125 136);
   --t-success:      var(--t-accent);
   --t-error:        oklch(76% 0.13  32);
-  --t-error-soft:   oklch(25% 0.05  32);
+  --t-error-soft:   oklch(28% 0.05 32);
   --t-warning:      oklch(80% 0.12  85);
-  --t-warning-soft: oklch(25% 0.05  85);
-  --t-clay:         oklch(72% 0.13 48);
-  --t-clay-2:       oklch(80% 0.1 55);
-  --t-clay-soft:    oklch(23% 0.035 50);
-  --t-clay-rule:    oklch(40% 0.06 50);
-  --t-surface:      oklch(20% 0.014 140);
-  --t-saffron-soft: oklch(29% 0.045 80);
-  --t-saffron-rule: oklch(44% 0.06 80);
-  --t-code-bg:      oklch(19% 0.014 140);
-  --t-code-head:    oklch(23% 0.016 140);
+  --t-warning-soft: oklch(28% 0.05 85);
+  --t-clay:         oklch(74.5% 0.125 49);
+  --t-clay-2:       oklch(82% 0.095 55);
+  --t-clay-soft:    oklch(28.5% 0.035 50);
+  --t-clay-rule:    oklch(44.5% 0.06 50);
+  --t-surface:      oklch(25.5% 0.014 140);
+  --t-saffron-soft: oklch(33.5% 0.045 80);
+  --t-saffron-rule: oklch(41% 0.06 80);
+  --t-code-bg:      oklch(24.5% 0.014 140);
+  --t-code-head:    oklch(28% 0.016 140);
   --t-code-fg:      oklch(92% 0.012 120);
-  --t-code-rule:    oklch(32% 0.02 140);
+  --t-code-rule:    oklch(36.5% 0.02 140);
   --t-code-dim:     oklch(68% 0.025 135);
   --t-code-kw:      oklch(76% 0.12  45);
   --t-code-str:     oklch(80% 0.11  140);
@@ -708,7 +712,19 @@
   }
   .article-body h3 { font-size: var(--text-lg); font-weight: 500; margin-top: 1.6em; }
   .article-body h2 + *, .article-body h3 + * { margin-top: 0.6em; }
-  .article-body strong { font-weight: 600; }
+  /* Fraunces 600 is near-black against 400: in bold-heavy posts it spots the
+     page. 550 still reads as emphasis without pulling the eye. */
+  .article-body strong { font-weight: 550; }
+  /* Items are tighter inside than between, so a wrapped line stays with its item. */
+  .article-body li { line-height: 1.55; }
+  .article-body li + li { margin-top: 0.75em; }
+  /* Phones: 20 px left about 33 characters a line. 18 px gives ~37, and
+     hyphenation evens the rag that short lines leave. Headings, code and
+     tables never break words. */
+  @media (max-width: 720px) {
+    .article-body { font-size: 1.125rem; line-height: 1.65; hyphens: auto; -webkit-hyphens: auto; hyphenate-limit-chars: 7 3 3; }
+    .article-body :is(h2, h3, pre, code, table) { hyphens: manual; -webkit-hyphens: manual; }
+  }
   /* Quotes speak in the house tone: a hanging clay mark, no side rule. */
   .article-body blockquote {
     position: relative; border-left: 0; padding-left: var(--space-8);
